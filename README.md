@@ -1,4 +1,4 @@
-## updated 12/19/2024 ✂ 📋 🌀 :ramen: v0.406.09
+## updated 12/19/2024 ✂ 📋 🌀 :ramen: v0.407.01
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -29,6 +29,7 @@
 ```python
 [Core.Log]
 Global=off;
+LogTelemetry=all off;
 
 [/Script/Engine.Engine]
 bPauseOnLossOfFocus=0;
@@ -40,48 +41,22 @@ PoolSizeVRAMPercentage=70; 🔴 50 to lower vram usage 🔵 texturepool cache
 
 [ConsoleVariables]
 
-; test
-r.DistanceFields.MaxPerMeshResolution=128; 🟢 test
-r.Shadow.Virtual.ContactShadowLength=0; 🟢 test
-r.SkinCache.SceneMemoryLimitInMB=128; 🟢 test
-r.Streaming.DropMips=3; 🔵 debug
-
-; debug
-CauseHitches=0; 🔵 debug
-framegrabber.framelatency=0; 🔵 debug
-fx.EnableCircularAnimTrailDump=0; 🔵 debug
-fx.ParticlePerfStats.Enabled=0; 🔵 debug
-health.logHealthSnapshot=0; 🔵 debug
-r.EnableDebugSpam_GetObjectPositionAndScale=0; 🔵 debug
-r.gpucrash.collectionenable=0; 🔵 debug
-r.VsyncInformationInsights=0; 🔵 debug
-
-; denoisers
-r.AmbientOcclusion.Denoiser=2; 🔵 denoise
-r.DiffuseIndirect.Denoiser=1; 🔵 denoise
-r.Reflections.Denoiser=2; 🔵 denoise
-r.Shadow.Denoiser=2; 🔵 denoise
-
 ; latency
 D3D12.MaximumFrameLatency=1; 🔵 frame latency
 r.GTSyncType=0;
 r.VSync=0;
 RHI.MaximumFrameLatency=1; 🔵 frame latency
+t.MaxFPS=0;
+t.OverrideFPS=0;
 
-; DLSS/RTX
+; DLSS/RTX/REFLEX
 r.NGX.DLSS.AutoExposure=0;
-r.NGX.DLSS.DenoiserMode=0; 🔵 ray reconstruction
 r.NGX.DLSS.DilateMotionVectors=1; 🔴 0 for PERFORMANCE
 r.NGX.DLSS.PreferNISSharpen=0;
 r.NGX.DLSS.Preset=5;
 r.NGX.DLSS.Quality.Auto=0;
-r.NGX.DLSS.Quality=1; 🔵 quality dlss
-r.NGX.DLSS.Reflections.TemporalAA=1; 🔵 TAA pass on denoise
-r.NGX.DLSS.WaterReflections.TemporalAA=1; 🔵 TAA pass on denoise
-r.NGX.LogLevel=0; 🔵 debug
-r.NIS.Enable=0;
-r.PathTracing=0; 🔵 RTXPT
-r.RayTracing=0; 🔵 RTX
+r.NGX.DLSS.Sharpness=0;
+t.Streamline.Reflex.Auto=0;
 
 ; reflection
 r.ReflectionCaptureResolution=128; 🔴 128 for PERFORMANCE
@@ -95,8 +70,7 @@ r.RefractionQuality=1; 🔴 0,1 for PERFORMANCE
 r.SSGI.Enable=0; 🔴 0 for PERFORMANCE
 
 ; SSR
-r.SSR.ExperimentalDenoiser=0; 🔵 denoise
-r.SSR.HalfResSceneColor=1; 🔴 1 for PERFORMANCE
+r.SSR.HalfResSceneColor=0; 🔴 1 for PERFORMANCE
 r.SSR.Quality=3; 🔴 0,2 for PERFORMANCE
 
 ; SSS
@@ -114,11 +88,10 @@ r.VolumetricRenderTarget.UpsamplingMode=2;
 p.AnimDynamics=1; 🔴 0 for PERFORMANCE
 p.AnimDynamicsWind=1; 🔴 0 for PERFORMANCE
 p.RigidBodyNode=1; 🔴 0 for PERFORMANCE
+r.SkeletalMeshLODRadiusScale=1; 🔴 0.6 for PERFORMANCE
 
 ; particle
-fx.Niagara.Collision.CPUEnabled=0; 🔴 0 for PERFORMANCE
 fx.Niagara.QualityLevel=2; 🔴 0,1,2 for PERFORMANCE
-r.AllowSimpleLights=1; 🔴 0 for PERFORMANCE
 r.EmitterSpawnRateScale=1; 🔴 0.125,0.25,0.5 for PERFORMANCE
 r.ParticleLightQuality=1; 🔴 0,1 for PERFORMANCE
 
@@ -129,10 +102,11 @@ grass.DensityScale=0.8; 🔴 0.6,0.8 for PERFORMANCE
 grass.DisableDynamicShadows=0; 🔴 1 for PERFORMANCE
 
 ; SSAO
-r.AmbientOcclusionLevels=2; 🔴 0,1 for PERFORMANCE
-r.AmbientOcclusionMaxQuality=-60;
-r.AmbientOcclusionRadiusScale=0.75;
-r.AmbientOcclusionStaticFraction=1; 🔴 1 for PERFORMANCE
+r.AmbientOcclusionLevels=-1; 🔴 0,1 for PERFORMANCE
+r.AmbientOcclusionMaxQuality=100;
+r.AmbientOcclusionMipLevelFactor=0.5;
+r.AmbientOcclusionRadiusScale=1;
+r.AmbientOcclusionStaticFraction=-1; 🔴 0 for PERFORMANCE
 
 ; DFAO
 r.AOQuality=2;
@@ -172,18 +146,19 @@ r.MinScreenRadiusForLights=0.03; 🔴 0.06,0.04 for PERFORMANCE
 
 ; hair
 r.HairStrands.Enable=1; 🔴 0 for PERFORMANCE
+r.HairStrands.Interpolation.UseSingleGuide=0; 🔴 1 for PERFORMANCE
 r.HairStrands.MinLOD=0;
 r.HairStrands.ScatterSceneLighting=1;
 r.HairStrands.Shadow.CastShadowWhenNonVisible=0;
 r.HairStrands.Simulation=1;
-r.HairStrands.SkyAO.SampleCount=2;
+r.HairStrands.SkyAO.SampleCount=4;
 r.HairStrands.SkyAO=1;
 r.HairStrands.SkyLighting.IntegrationType=2;
-r.HairStrands.SkyLighting.SampleCount=2;
+r.HairStrands.SkyLighting.SampleCount=4;
 r.HairStrands.SkyLighting=1;
 r.HairStrands.UseCardsInsteadOfStrands=0; 🔴 1 for PERFORMANCE
-r.HairStrands.Visibility.MSAA.SamplePerPixel=2;
-r.HairStrands.Voxelization=0;
+r.HairStrands.Visibility.MSAA.SamplePerPixel=4;
+r.HairStrands.Voxelization=1;
 
 ; lumen
 r.GBufferDiffuseSampleOcclusion=0; 🔵 bent normal maps
@@ -257,18 +232,17 @@ r.DFFullResolution=0; 🔴 0 for PERFORMANCE
 r.DFShadowQuality=1; 🔴 1,2 for PERFORMANCE
 r.HeightFieldShadowing=0; 🔵 height field shadowing
 r.ParallelShadows=1; 🔴 0 for PERFORMANCE
-r.Shadow.CachedShadowsCastFromMovablePrimitives=1; 🔴 0 for PERFORMANCE 🔵 movable light shadows
+r.Shadow.CachedShadowsCastFromMovablePrimitives=0; 🔴 0 for PERFORMANCE 🔵 movable light shadows
 r.Shadow.CSM.MaxCascades=2; 🔴 1,2,4 for PERFORMANCE
 r.Shadow.CSMShadowDistanceFadeoutMultiplier=1;
 r.Shadow.DistanceScale=1; 🔴 0.7 for PERFORMANCE
-r.Shadow.FilterMethod=0; 🔴 0 for PERFORMANCE 🔵 PCSS
 r.Shadow.ForceSingleSampleShadowingFromStationary=0; 🔴 1 for PERFORMANCE
 r.Shadow.MaxCSMResolution=2048; 🔴 512,1024 for PERFORMANCE
-r.Shadow.MaxResolution=512; 🔴 512,1024 for PERFORMANCE
+r.Shadow.MaxResolution=1024; 🔴 512,1024 for PERFORMANCE
 r.Shadow.Nanite=0; 🔴 0 for PERFORMANCE
 r.Shadow.NaniteLODBias=1; 🔴 1 for PERFORMANCE
 r.Shadow.PreShadowResolutionFactor=0.5;
-r.Shadow.RadiusThreshold=0.04; 🔴 0.06,0.05,0.04,0.03 for PERFORMANCE
+r.Shadow.RadiusThreshold=0.03; 🔴 0.06,0.05,0.04,0.03 for PERFORMANCE
 r.Shadow.Virtual.Cache.StaticSeparate=1; 🔵 cache static separate
 r.Shadow.Virtual.Clipmap.FirstLevel=6;
 r.Shadow.Virtual.Enable=1; 🔴 0 for PERFORMANCE 🔵 virtual shadows
@@ -280,23 +254,25 @@ r.Shadow.Virtual.NonNanite.IncludeInCoarsePages=0; 🔴 0 for PERFORMANCE
 r.Shadow.Virtual.NonNaniteVSM=1;
 r.Shadow.Virtual.OnePassProjection.MaxLightsPerPixel=8;
 r.Shadow.Virtual.OnePassProjection=1; 🔴 1 for PERFORMANCE 🔵 experimental one pass projection
-r.Shadow.Virtual.ResolutionLodBiasDirectional=1;
+r.Shadow.Virtual.ResolutionLodBiasDirectional=-1;
 r.Shadow.Virtual.ResolutionLodBiasDirectionalMoving=1;
 r.Shadow.Virtual.ResolutionLodBiasLocal=0;
 r.Shadow.Virtual.ResolutionLodBiasLocalMoving=1;
 r.Shadow.Virtual.SMRT.ExtrapolateMaxSlopeDirectional=0; 🔴 0 for PERFORMANCE
 r.Shadow.Virtual.SMRT.ExtrapolateMaxSlopeLocal=0; 🔴 0 for PERFORMANCE
 r.Shadow.Virtual.SMRT.MaxRayAngleFromLight=0.03;
-r.Shadow.Virtual.SMRT.RayCountDirectional=0;
+r.Shadow.Virtual.SMRT.RayCountDirectional=2;
 r.Shadow.Virtual.SMRT.RayCountLocal=2;
 r.Shadow.Virtual.SMRT.RayLengthScaleDirectional=1.5;
-r.Shadow.Virtual.SMRT.SamplesPerRayDirectional=0;
+r.Shadow.Virtual.SMRT.SamplesPerRayDirectional=1;
 r.Shadow.Virtual.SMRT.SamplesPerRayLocal=1;
 r.Shadow.Virtual.SMRT.TexelDitherScaleDirectional=2;
 r.Shadow.Virtual.SMRT.TexelDitherScaleLocal=2;
 r.Shadow.Virtual.TranslucentQuality=0; 🔴 0 for PERFORMANCE
 r.ShadowQuality=4; 🔴 3,4 for PERFORMANCE
-r.TranslucencyLightingVolumeDim=48; 🔴 32,48 for PERFORMANCE
+r.TranslucencyLightingVolumeDim=64; 🔴 32,48 for PERFORMANCE
+r.TranslucencyLightingVolumeInnerDistance=1500;
+r.TranslucencyLightingVolumeOuterDistance=5000;
 r.TranslucencyVolumeBlur=1; 🔴 0 for PERFORMANCE
 r.UseClusteredDeferredShading=1; 🔵 experimental one pass projection
 
@@ -335,24 +311,18 @@ r.Streaming.MaxNumTexturesToStreamPerFrame=0;
 r.Streaming.MipBias=0; 🔴 1 for PERFORMANCE
 r.Streaming.NumStaticComponentsProcessedPerFrame=50;
 r.Streaming.PoolSize.VRAMPercentageClamp=1024;
-r.Streaming.PoolSize=3000; 🔴 1000 to lower vram usage 🔵 texturepool size
+r.Streaming.PoolSize=3072; 🔴 1024 to lower vram usage 🔵 texturepool size
 r.Streaming.UseFixedPoolSize=0; 🔵 change poolsize at runtime
 r.SupportMaterialLayers=1; 🔴 0 for PERFORMANCE
-r.TessellationAdaptivePixelsPerTriangle=999999; 🔴 999999 for PERFORMANCE
+r.TessellationAdaptivePixelsPerTriangle=48; 🔴 999999 for PERFORMANCE
 r.ViewDistanceScale=1; 🔴 0.8 for PERFORMANCE
 r.VT.MaxAnisotropy=8; 🔴 0,4 for PERFORMANCE
 
 ; TAA
 r.PostProcessAAQuality=6;
 r.TemporalAA.Algorithm=0; 🔵 0,1 gen4,gen5 TAAU
-r.TemporalAA.HistoryScreenPercentage=100;
 r.TemporalAA.Quality=2; 🔴 1 for PERFORMANCE
-r.TemporalAA.R11G11B10History=1;
 r.TemporalAA.Upsampling=1; 🔴 0 for PERFORMANCE 🔵 TAAU
-r.TemporalAACatmullRom=0;
-r.TemporalAACurrentFrameWeight=0.03;
-r.TemporalAAFilterSize=0.1; 🔵 req gen5 TAAU
-r.TemporalAAPauseCorrect=1;
 r.TemporalAASamples=8;
 
 ; clouds
@@ -377,21 +347,21 @@ r.VolumetricCloud=1; 🔴 0 for PERFORMANCE
 ; fog
 r.Fog=1; 🔵 render fog
 r.VolumetricFog.ConservativeDepth=0; 🔵 experimental
+r.VolumetricFog.DepthDistributionScale=32; 🔴 16 for PERFORMANCE
 r.VolumetricFog.GridPixelSize=16; 🔴 16 for PERFORMANCE
 r.VolumetricFog.GridSizeZ=64; 🔴 64 for PERFORMANCE
-r.VolumetricFog.HistoryMissSupersampleCount=1; 🔵 denoise
 r.VolumetricFog.HistoryWeight=0.9;
-r.VolumetricFog.Jitter=1;
-r.VolumetricFog.LightScatteringSampleJitterMultiplier=0;
-r.VolumetricFog.UpsampleJitterMultiplier=0;
-r.VolumetricFog=0; 🔴 0 for PERFORMANCE
+r.VolumetricFog.Jitter=1; 🔵 temporal filtering
+r.VolumetricFog.TemporalReprojection=1;
+r.VolumetricFog.UpsampleJitterMultiplier=1;
+r.VolumetricFog=1; 🔴 0 for PERFORMANCE
 
 ; water
-r.Water.EnableShallowWaterSimulation=0; 🔴 0 for PERFORMANCE
-r.Water.EnableUnderwaterPostProcess=0; 🔴 0 for PERFORMANCE
+r.Water.EnableShallowWaterSimulation=1; 🔴 0 for PERFORMANCE
+r.Water.EnableUnderwaterPostProcess=1; 🔴 0 for PERFORMANCE
 r.Water.SingleLayer.RefractionDownsampleFactor=1; 🔴 2 for PERFORMANCE
+r.Water.SingleLayer.RTR=0; 🔵 WRTR
 r.Water.SingleLayer.SSR=1; 🔴 0 for PERFORMANCE
-r.Water.SingleLayer.SSRTAA=1; 🔵 denoise
 r.Water.WaterMesh.TessFactorBias=0; 🔴 -1 for PERFORMANCE
 ```
 
