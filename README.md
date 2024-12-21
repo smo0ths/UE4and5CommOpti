@@ -1,4 +1,4 @@
-## updated 12/19/2024 ✂ 📋 🌀 :ramen: v0.407.01
+## updated 12/21/2024 ✂ 📋 🌀 :ramen: v0.5.0
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -41,22 +41,22 @@ PoolSizeVRAMPercentage=70; 🔴 50 to lower vram usage 🔵 texturepool cache
 
 [ConsoleVariables]
 
+; we changing stuff
+r.PSOWarmup.WarmupMaterials=1; 🔵 after compiling shaders once set 0 for faster loading
+
 ; latency
-D3D12.MaximumFrameLatency=1; 🔵 frame latency
+D3D12.MaximumFrameLatency=3; 🔵 frame latency
 r.GTSyncType=0;
 r.VSync=0;
-RHI.MaximumFrameLatency=1; 🔵 frame latency
+RHI.MaximumFrameLatency=3; 🔵 frame latency
 t.MaxFPS=0;
 t.OverrideFPS=0;
 
-; DLSS/RTX/REFLEX
+; DLSS
 r.NGX.DLSS.AutoExposure=0;
 r.NGX.DLSS.DilateMotionVectors=1; 🔴 0 for PERFORMANCE
 r.NGX.DLSS.PreferNISSharpen=0;
-r.NGX.DLSS.Preset=5;
-r.NGX.DLSS.Quality.Auto=0;
 r.NGX.DLSS.Sharpness=0;
-t.Streamline.Reflex.Auto=0;
 
 ; reflection
 r.ReflectionCaptureResolution=128; 🔴 128 for PERFORMANCE
@@ -105,7 +105,7 @@ grass.DisableDynamicShadows=0; 🔴 1 for PERFORMANCE
 r.AmbientOcclusionLevels=-1; 🔴 0,1 for PERFORMANCE
 r.AmbientOcclusionMaxQuality=100;
 r.AmbientOcclusionMipLevelFactor=0.5;
-r.AmbientOcclusionRadiusScale=1;
+r.AmbientOcclusionRadiusScale=0.5;
 r.AmbientOcclusionStaticFraction=-1; 🔴 0 for PERFORMANCE
 
 ; DFAO
@@ -210,7 +210,7 @@ r.Lumen.TranslucencyReflections.FrontLayer.Enable=1; 🔴 0 for PERFORMANCE
 r.Lumen.TranslucencyVolume.Enable=1;
 r.Lumen.TranslucencyVolume.GridPixelSize=32;
 r.Lumen.TranslucencyVolume.RadianceCache=1;
-r.Lumen.TranslucencyVolume.TraceFromVolume=0; 🔴 0 for PERFORMANCE
+r.Lumen.TranslucencyVolume.TraceFromVolume=1;
 r.Lumen.TranslucencyVolume.TracingOctahedronResolution=3;
 r.LumenScene.DirectLighting.OffscreenShadowing.TraceMeshSDFs=0;
 r.LumenScene.FarField=0;
