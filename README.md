@@ -1,4 +1,4 @@
-## updated 12/21/2024 ✂ 📋 🌀 :ramen: v0.5.0
+## updated 12/21/2024 ✂ 📋 🌀 :ramen: v0.5.1
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -137,7 +137,7 @@ r.MotionBlurQuality=0;
 r.SceneColorFormat=3; 🔴 2,3 for PERFORMANCE
 r.SceneColorFringe.Max=0;
 r.Tonemapper.Quality=2;
-r.Tonemapper.Sharpen=-1;
+r.Tonemapper.Sharpen=2;
 r.Upscale.Quality=2; 🔴 1,2 for PERFORMANCE
 
 ; light
@@ -271,8 +271,6 @@ r.Shadow.Virtual.SMRT.TexelDitherScaleLocal=2;
 r.Shadow.Virtual.TranslucentQuality=0; 🔴 0 for PERFORMANCE
 r.ShadowQuality=4; 🔴 3,4 for PERFORMANCE
 r.TranslucencyLightingVolumeDim=64; 🔴 32,48 for PERFORMANCE
-r.TranslucencyLightingVolumeInnerDistance=1500;
-r.TranslucencyLightingVolumeOuterDistance=5000;
 r.TranslucencyVolumeBlur=1; 🔴 0 for PERFORMANCE
 r.UseClusteredDeferredShading=1; 🔵 experimental one pass projection
 
@@ -347,13 +345,13 @@ r.VolumetricCloud=1; 🔴 0 for PERFORMANCE
 ; fog
 r.Fog=1; 🔵 render fog
 r.VolumetricFog.ConservativeDepth=0; 🔵 experimental
-r.VolumetricFog.DepthDistributionScale=32; 🔴 16 for PERFORMANCE
+r.VolumetricFog.DepthDistributionScale=16; 🔴 16 for PERFORMANCE
 r.VolumetricFog.GridPixelSize=16; 🔴 16 for PERFORMANCE
-r.VolumetricFog.GridSizeZ=64; 🔴 64 for PERFORMANCE
-r.VolumetricFog.HistoryWeight=0.9;
+r.VolumetricFog.GridSizeZ=128; 🔴 64 for PERFORMANCE
+r.VolumetricFog.HistoryWeight=0.95;
 r.VolumetricFog.Jitter=1; 🔵 temporal filtering
 r.VolumetricFog.TemporalReprojection=1;
-r.VolumetricFog.UpsampleJitterMultiplier=1;
+r.VolumetricFog.UpsampleJitterMultiplier=0;
 r.VolumetricFog=1; 🔴 0 for PERFORMANCE
 
 ; water
