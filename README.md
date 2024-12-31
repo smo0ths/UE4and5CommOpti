@@ -1,4 +1,4 @@
-## updated 12/24/2024 ✂ 📋 🌀 :ramen: v0.5.5
+## updated 12/30/2024 ✂ 📋 🌀 :ramen: v0.5.7
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -36,22 +36,15 @@ bPauseOnLossOfFocus=0;
 bSmoothFrameRate=0;
 bUseFixedFrameRate=0;
 
-[TextureStreaming]
-PoolSizeVRAMPercentage=70; 🔴 50 to lower vram usage 🔵 texturepool cache
-
 [ConsoleVariables]
 
-; we changing stuff
-r.PSOWarmup.WarmupMaterials=1; 🔵 after compiling shaders once set 0 for faster loading
-
-; test
-r.ReflectionEnvironment=1;
-r.ReflectionEnvironmentLightmapMixBasedOnRoughness=1;
-r.ReflectionEnvironmentLightmapMixing=1;
-r.SkyLight.RealTimeReflectionCapture=1;
+; scalability
+sg.TextureQuality=2;
 
 ; latency
 D3D12.MaximumFrameLatency=1; 🔵 frame latency
+r.D3D11.UseAllowTearing=1; 🔵 dxgi flip mode
+r.D3D12.UseAllowTearing=1; 🔵 dxgi flip mode
 r.GTSyncType=0;
 r.VSync=0;
 RHI.MaximumFrameLatency=1; 🔵 frame latency
@@ -76,6 +69,7 @@ r.NGX.DLSS.Sharpness=0;
 ; reflection
 r.ReflectionCaptureResolution=128; 🔴 128 for PERFORMANCE
 r.ReflectionCaptureSupersampleFactor=1;
+r.SkyLight.RealTimeReflectionCapture=1;
 
 ; refraction
 r.Refraction.Blur.TemporalAA=1; 🔵 temporal filtering
@@ -147,7 +141,7 @@ r.SceneColorFormat=3; 🔴 2,3 for PERFORMANCE
 r.SceneColorFringe.Max=0;
 r.Tonemapper.Quality=5;
 r.Tonemapper.Sharpen=2;
-r.Upscale.Quality=2; 🔴 1,2 for PERFORMANCE
+r.Upscale.Quality=3; 🔴 1,2 for PERFORMANCE
 
 ; light
 r.LightMaxDrawDistanceScale=1; 🔴 0.5,0.6 for PERFORMANCE
@@ -161,13 +155,13 @@ r.HairStrands.ScatterSceneLighting=1;
 r.HairStrands.Shadow.CastShadowWhenNonVisible=0;
 r.HairStrands.Simulation=1;
 r.HairStrands.SkyAO.SampleCount=8;
-r.HairStrands.SkyAO=1;
+r.HairStrands.SkyAO=0; 🔴 0 for PERFORMANCE
 r.HairStrands.SkyLighting.IntegrationType=2;
-r.HairStrands.SkyLighting.SampleCount=16;
+r.HairStrands.SkyLighting.SampleCount=8;
 r.HairStrands.SkyLighting=1;
 r.HairStrands.UseCardsInsteadOfStrands=0; 🔴 1 for PERFORMANCE
-r.HairStrands.Visibility.MSAA.SamplePerPixel=4;
-r.HairStrands.Voxelization=0;
+r.HairStrands.Visibility.MSAA.SamplePerPixel=4; 🔴 1,2 for PERFORMANCE
+r.HairStrands.Voxelization=1; 🔴 0 for PERFORMANCE
 
 ; lumen
 r.GBufferDiffuseSampleOcclusion=0; 🔵 bent normal maps
@@ -298,29 +292,13 @@ r.DynamicRes.OperationMode=0;
 r.LandscapeLODBias=0; 🔴 1 for PERFORMANCE
 r.MaterialQualityLevel=1; 🔴 0,2 for PERFORMANCE
 r.MaxAnisotropy=16; 🔴 0,4,8 for PERFORMANCE
-r.MipMapLODBias=0;
 r.Nanite.ProxyRenderMode=0;
 r.Nanite=1; 🔵 virtualized geometry system
-r.RenderTargetPoolMin=400;
 r.SecondaryScreenPercentage.GameViewport=0;
 r.SkeletalMeshLODBias=0; 🔴 2,1 for PERFORMANCE 🔵 skeletal mesh bias if supported
-r.Streaming.AmortizeCPUToGPUCopy=0;
-r.Streaming.Boost=1;
-r.Streaming.FullyLoadMeshes=0;
-r.Streaming.FullyLoadUsedTextures=0;
-r.Streaming.HiddenPrimitiveScale=0.5; 🔴 0.5 for PERFORMANCE
-r.Streaming.LimitPoolSizeToVRAM=1;
-r.Streaming.MaxEffectiveScreenSize=0;
-r.Streaming.MaxNumTexturesToStreamPerFrame=0;
-r.Streaming.MipBias=0; 🔴 1 for PERFORMANCE
-r.Streaming.PoolSize.VRAMPercentageClamp=1024;
-r.Streaming.PoolSize=3072; 🔴 1024 to lower vram usage 🔵 texturepool size
-r.Streaming.UseFixedPoolSize=0; 🔵 change poolsize at runtime
 r.SupportMaterialLayers=1; 🔴 0 for PERFORMANCE
 r.TessellationAdaptivePixelsPerTriangle=48; 🔴 999999 for PERFORMANCE
-r.TextureStreaming=1;
 r.ViewDistanceScale=1; 🔴 0.8 for PERFORMANCE
-r.VT.MaxAnisotropy=8; 🔴 0,4 for PERFORMANCE
 
 ; TAA
 r.PostProcessAAQuality=6;
