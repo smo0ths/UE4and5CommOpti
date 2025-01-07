@@ -1,4 +1,4 @@
-## updated 1/7/2025 ✂ 📋 🌀 :ramen: v0.5.8
+## updated 1/7/2025 ✂ 📋 🌀 :ramen: v0.5.8b
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -67,6 +67,7 @@ r.NGX.DLSS.PreferNISSharpen=0;
 r.NGX.DLSS.Sharpness=0;
 
 ; reflection
+r.chaos.ReflectionCaptureStaticSceneOnly=1;
 r.ReflectionCaptureResolution=128; 🔴 128 for PERFORMANCE
 r.ReflectionCaptureSupersampleFactor=1;
 r.SkyLight.RealTimeReflectionCapture=1;
