@@ -406,7 +406,7 @@ WakeSim=(Value=?)
 ---
 
 #### Open DeviceProfiles.ini for textures lods, mess around but its best to leave these alone unless you are dev %localappdata%
-#### there is more like there's TEXTUREGROUP_Project01,TEXTUREGROUP_Project02 and custom asset names like TEXTUREGROUP_weed
+#### there is more like TEXTUREGROUP_Project01,TEXTUREGROUP_Project02 and custom asset names like TEXTUREGROUP_weed
 #### MaxLODSize_VT=0,OptionalLODBias=0,OptionalMaxLODSize=4096,MipLoadOptions=AllMips,HighPriorityLoad=False,DuplicateNonOptionalMips=False,
 #### Downscale=1.000000,DownscaleOptions=SimpleAverage,VirtualTextureTileCountBias=0,VirtualTextureTileSizeBias=0,LossyCompressionAmount=TLCA_Default
 
