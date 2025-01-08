@@ -1,4 +1,4 @@
-## updated 1/7/2025 ✂ 📋 🌀 :ramen: v0.5.9
+## updated 1/7/2025 ✂ 📋 🌀 :ramen: v0.5.9a
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -39,29 +39,33 @@ PoolSizeVRAMPercentage=70; 🔴 50 to lower vram usage 🔵 texturepool cache
 
 [ConsoleVariables]
 
-; DLSS
+; DLSS scaling stuff
+r.DynamicRes.OperationMode=0;
 r.MipMapLODBias=-0.5; 🔴 0 for PERFORMANCE
 r.NGX.DLSS.AutoExposure=0;
 r.NGX.DLSS.DilateMotionVectors=1;
 r.NGX.DLSS.PreferNISSharpen=0;
 r.NGX.DLSS.Quality=1;
 r.NGX.DLSS.Sharpness=0;
+r.PostProcessAAQuality=6;
 r.ScreenPercentage.Default=100;
 r.ScreenPercentage.MaxResolution=0;
 r.ScreenPercentage.MinResolution=0;
 r.ScreenPercentage=67;
+r.SecondaryScreenPercentage.GameViewport=0;
+r.TemporalAA.Algorithm=0; 🔵 0,1 gen4,gen5 TAAU
+r.TemporalAA.Upsampling=1; 🔴 0 for PERFORMANCE 🔵 TAAU
+r.TemporalAASamples=8;
 sg.ResolutionQuality=67;
 
 ; texture stuff
 r.AnisotropicMaterials=1; 🔴 0 for PERFORMANCE
 r.DetailMode=2; 🔴 0,1,2 for PERFORMANCE
-r.DynamicRes.OperationMode=0;
 r.LandscapeLODBias=0; 🔴 1 for PERFORMANCE
 r.MaterialQualityLevel=1; 🔴 0,2 for PERFORMANCE
 r.MaxAnisotropy=16; 🔴 0,4,8 for PERFORMANCE
 r.Nanite.ProxyRenderMode=0;
 r.RenderTargetPoolMin=400;
-r.SecondaryScreenPercentage.GameViewport=0;
 r.Streaming.AmortizeCPUToGPUCopy=0;
 r.Streaming.Boost=1;
 r.Streaming.FullyLoadUsedTextures=0;
@@ -120,7 +124,7 @@ r.SSS.Checkerboard=1; 🔴 1 for PERFORMANCE
 r.SSS.HalfRes=1; 🔴 1 for PERFORMANCE
 r.SubsurfaceScattering=1; 🔴 0 for PERFORMANCE
 
-; p
+; physics
 p.AnimDynamics=1; 🔴 0 for PERFORMANCE
 p.AnimDynamicsWind=1; 🔴 0 for PERFORMANCE
 p.RigidBodyNode=1; 🔴 0 for PERFORMANCE
@@ -139,7 +143,7 @@ r.AmbientOcclusionStaticFraction=-1; 🔴 0 for PERFORMANCE
 ; DFAO
 r.AOQuality=2; 🔴 0 for PERFORMANCE
 
-; pp
+; postprocess ect
 r.Bloom.ScreenPercentage=50;
 r.BloomQuality=4; 🔴 0 for PERFORMANCE
 r.BlurGBuffer=0;
@@ -167,7 +171,7 @@ r.Tonemapper.Sharpen=2;
 r.Upscale.Quality=3; 🔴 1,2 for PERFORMANCE
 
 ; light
-r.LightMaxDrawDistanceScale=1; 🔴 0.5,0.6 for PERFORMANCE
+r.LightMaxDrawDistanceScale=1; 🔴 0.6 for PERFORMANCE
 r.MinScreenRadiusForLights=0.03; 🔴 0.06,0.04 for PERFORMANCE
 
 ; hair
@@ -187,7 +191,7 @@ r.HairStrands.SkyLighting=1;
 r.HairStrands.UseCardsInsteadOfStrands=0; 🔴 1 for PERFORMANCE
 r.HairStrands.VelocityRasterizationScale=1;
 r.HairStrands.Visibility.MSAA.SamplePerPixel=4; 🔴 1,2 for PERFORMANCE
-r.HairStrands.Visibility.PPLL=0;
+r.HairStrands.Visibility.PPLL=0; 🔴 0 for PERFORMANCE
 r.HairStrands.Voxelization=0; 🔴 0 for PERFORMANCE
 
 ; lumen
@@ -275,12 +279,6 @@ r.SkyAtmosphere.SampleLightShadowmap=0; 🔴 0 for PERFORMANCE 🔵 volumetric s
 r.SkyAtmosphere.TransmittanceLUT.SampleCount=10;
 r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat=0; 🔴 1 for PERFORMANCE
 
-; TAA
-r.PostProcessAAQuality=6;
-r.TemporalAA.Algorithm=0; 🔵 0,1 gen4,gen5 TAAU
-r.TemporalAA.Upsampling=1; 🔴 0 for PERFORMANCE 🔵 TAAU
-r.TemporalAASamples=8;
-
 ; clouds
 r.VolumetricCloud.DistanceToSampleMaxCount=15;
 r.VolumetricCloud.EnableAtmosphericLightsSampling=1;
@@ -339,8 +337,17 @@ InitialButtonRepeatDelay=0.1; def 0.2
 
 ```python
 [ScalabilityGroups]
-sg.HairQuality=?;
-sg.ResolutionQuality=?;
+sg.AntiAliasingQuality=?;
+sg.EffectsQuality=?;
+sg.FoliageQuality=?;
+sg.GlobalIlluminationQuality=?;
+sg.LandscapeQuality=?;
+sg.PostProcessQuality=?;
+sg.ReflectionQuality=?;
+sg.ShadingQuality=?;
+sg.ShadowQuality=?;
+sg.TextureQuality=?;
+sg.ViewDistanceQuality=?;
 
 AmbientOcclusion=(Value=?);
 AntiAliasingMode=(Value=?);
@@ -398,7 +405,10 @@ WakeSim=(Value=?)
 
 ---
 
-#### Open DeviceProfiles.ini for textures lods, mess around or just skip %localappdata%
+#### Open DeviceProfiles.ini for textures lods, mess around but its best to leave these alone unless you are dev %localappdata%
+#### there is more like there's TEXTUREGROUP_Project01,TEXTUREGROUP_Project02 and custom asset names like TEXTUREGROUP_weed
+#### MaxLODSize_VT=0,OptionalLODBias=0,OptionalMaxLODSize=4096,MipLoadOptions=AllMips,HighPriorityLoad=False,DuplicateNonOptionalMips=False,
+#### Downscale=1.000000,DownscaleOptions=SimpleAverage,VirtualTextureTileCountBias=0,VirtualTextureTileSizeBias=0,LossyCompressionAmount=TLCA_Default
 
 ```python
 [/Script/Engine.TextureLODSettings]
