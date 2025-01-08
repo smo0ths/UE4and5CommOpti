@@ -314,7 +314,7 @@ r.Water.WaterMesh.TessFactorBias=0; 🔴 -1 for PERFORMANCE
 
 ---
 
-#### Open Input.ini and copy pasta %localappdata%
+## Open Input.ini and copy pasta %localappdata%
 
 #### or Repak.bat method (zzz_INIMODS\Engine\Config\Windows\WindowsInput.ini)
 
@@ -331,7 +331,7 @@ InitialButtonRepeatDelay=0.1; def 0.2
 
 ---
 
-#### Open GameUserSettings.ini these commands can overwrite your config if they are here %localappdata%
+## Open GameUserSettings.ini these commands can overwrite your config if they are here %localappdata%
 
 #### you can turn down used scalability groups here or in game if they are being used
 
@@ -405,10 +405,13 @@ WakeSim=(Value=?)
 
 ---
 
-#### Open DeviceProfiles.ini for textures lods, mess around but its best to leave these alone unless you are dev %localappdata%
-#### there is more like TEXTUREGROUP_Project01,TEXTUREGROUP_Project02 and custom asset names like TEXTUREGROUP_weed
-#### MaxLODSize_VT=0,OptionalLODBias=0,OptionalMaxLODSize=4096,MipLoadOptions=AllMips,HighPriorityLoad=False,DuplicateNonOptionalMips=False,
-#### Downscale=1.000000,DownscaleOptions=SimpleAverage,VirtualTextureTileCountBias=0,VirtualTextureTileSizeBias=0,LossyCompressionAmount=TLCA_Default
+## Open DeviceProfiles.ini for textures lods, mess around but its best to leave these alone unless you are dev %localappdata%
+
+```python
+there is more like TEXTUREGROUP_Project01,TEXTUREGROUP_Project02 and custom asset names like TEXTUREGROUP_goodtrees
+MaxLODSize_VT=0,OptionalLODBias=0,MipLoadOptions=AllMips,HighPriorityLoad=False,DuplicateNonOptionalMips=False,
+Downscale=1,DownscaleOptions=SimpleAverage,VirtualTextureTileCountBias=0,VirtualTextureTileSizeBias=0,LossyCompressionAmount=TLCA_Default
+```
 
 ```python
 [/Script/Engine.TextureLODSettings]
