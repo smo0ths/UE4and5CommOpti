@@ -1,4 +1,4 @@
-## updated 1/9/2025 ✂ 📋 🌀 :ramen: v0.6.0a
+## updated 1/9/2025 ✂ 📋 🌀 :ramen: v0.6.0b
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -26,6 +26,14 @@
 [Core.Log]
 Global=off;
 LogTelemetry=all off;
+
+[CrashReportClient]
+bAllowToBeContacted=0;
+bIsAllowedToCloseWithoutSending=1;
+bSendLogFile=0;
+CanSendWhenUIFailedToInitialize=0;
+DataRouterUrl="about:blank";
+UIInitRetryCount=0;
 
 [/Script/Engine.Engine]
 bPauseOnLossOfFocus=0;
