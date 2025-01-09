@@ -1,4 +1,4 @@
-## updated 1/7/2025 ✂ 📋 🌀 :ramen: v0.5.9a
+## updated 1/9/2025 ✂ 📋 🌀 :ramen: v0.6.0
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -39,24 +39,47 @@ PoolSizeVRAMPercentage=70; 🔴 50 to lower vram usage 🔵 texturepool cache
 
 [ConsoleVariables]
 
-; DLSS scaling stuff
+; scaling stuff
+r.CustomDepthTemporalAAJitter=1;
 r.DynamicRes.OperationMode=0;
+r.FidelityFX.FSR.Enabled=0; 🔵 FSR
+r.FidelityFX.FSR.PrimaryUpscale=1;
+r.FidelityFX.FSR.Quality=1; 🔵 quality FSR
+r.FidelityFX.FSR.RCAS.Enabled=1;
+r.FidelityFX.FSR.RCAS.Sharpness=0.2;
+r.FidelityFX.FSR.SecondaryUpscale=1;
+r.FidelityFX.FSR2.AutoExposure=0;
+r.FidelityFX.FSR2.CreateReactiveMask=1;
+r.FidelityFX.FSR2.Enabled=0; 🔵 FSR2
+r.FidelityFX.FSR2.QualityMode=1; 🔵 quality FSR2
+r.FidelityFX.FSR2.Sharpness=0;
+r.FidelityFX.FSR2.UseSSRExperimentalDenoiser=0;
+r.FidelityFX.FSR3.AutoExposure=0;
+r.FidelityFX.FSR3.CreateReactiveMask=1;
+r.FidelityFX.FSR3.Enabled=0; 🔵 FSR3
+r.FidelityFX.FSR3.QualityMode=1; 🔵 quality FSR3
+r.FidelityFX.FSR3.Sharpness=0;
+r.FidelityFX.FSR3.UseSSRExperimentalDenoiser=0;
 r.MipMapLODBias=-0.5; 🔴 0 for PERFORMANCE
-r.NGX.DLSS.AutoExposure=0;
+r.NGX.DLSS.AutoExposure=1;
 r.NGX.DLSS.DilateMotionVectors=1;
+r.NGX.DLSS.Enable=1; 🔵 DLSS
 r.NGX.DLSS.PreferNISSharpen=0;
+r.NGX.DLSS.Preset=3; 🔵 1,2,3,4,5,6,7 a,b,c,d,e,f,g
+r.NGX.DLSS.Quality.Auto=0;
 r.NGX.DLSS.Quality=1;
+r.NGX.DLSS.Reflections.TemporalAA=0;
 r.NGX.DLSS.Sharpness=0;
+r.NGX.DLSS.WaterReflections.TemporalAA=0;
+r.NIS.Enable=0; 🔵 NIS
+r.NIS.Sharpness=0;
 r.PostProcessAAQuality=6;
-r.ScreenPercentage.Default=100;
-r.ScreenPercentage.MaxResolution=0;
-r.ScreenPercentage.MinResolution=0;
-r.ScreenPercentage=67;
 r.SecondaryScreenPercentage.GameViewport=0;
+r.SSR.ExperimentalDenoiser=0;
 r.TemporalAA.Algorithm=0; 🔵 0,1 gen4,gen5 TAAU
 r.TemporalAA.Upsampling=1; 🔴 0 for PERFORMANCE 🔵 TAAU
 r.TemporalAASamples=8;
-sg.ResolutionQuality=67;
+t.Streamline.Reflex.Enable=1; 🔵 reflex
 
 ; texture stuff
 r.AnisotropicMaterials=1; 🔴 0 for PERFORMANCE
@@ -65,7 +88,6 @@ r.LandscapeLODBias=0; 🔴 1 for PERFORMANCE
 r.MaterialQualityLevel=1; 🔴 0,2 for PERFORMANCE
 r.MaxAnisotropy=16; 🔴 0,4,8 for PERFORMANCE
 r.Nanite.ProxyRenderMode=0;
-r.RenderTargetPoolMin=400;
 r.Streaming.AmortizeCPUToGPUCopy=0;
 r.Streaming.Boost=1;
 r.Streaming.FullyLoadUsedTextures=0;
@@ -75,7 +97,6 @@ r.Streaming.MaxEffectiveScreenSize=0;
 r.Streaming.MaxNumTexturesToStreamPerFrame=0;
 r.Streaming.MipBias=0; 🔴 1 for PERFORMANCE
 r.Streaming.PoolSize.VRAMPercentageClamp=1024;
-r.Streaming.PoolSize=3072; 🔴 1024 to lower vram usage 🔵 texturepool size
 r.Streaming.UseAllMips=0;
 r.Streaming.UseFixedPoolSize=0;
 r.SupportMaterialLayers=1; 🔴 0 for PERFORMANCE
@@ -93,6 +114,9 @@ RHI.MaximumFrameLatency=1; 🔵 frame latency
 t.MaxFPS=0;
 t.OverrideFPS=0;
 
+; occlusion system test
+r.HZBOcclusion=1;
+
 ; debug
 r.D3D12.GPUCrashDebuggingMode=0;
 r.DetectAndWarnOfBadDrivers=0;
@@ -101,11 +125,13 @@ r.gpucrash.collectionenable=0;
 r.NGX.LogLevel=0;
 r.VsyncInformationInsights=0;
 
+; RTX
+r.RayTracing=0;
+
 ; reflection
 r.chaos.ReflectionCaptureStaticSceneOnly=1;
 r.ReflectionCaptureResolution=128; 🔴 128 for PERFORMANCE
 r.ReflectionCaptureSupersampleFactor=1;
-r.SkyLight.RealTimeReflectionCapture=1;
 
 ; refraction
 r.Refraction.Blur.TemporalAA=1; 🔵 temporal filtering
@@ -150,24 +176,26 @@ r.BlurGBuffer=0;
 r.DepthOfFieldQuality=1; 🔴 0,1 for PERFORMANCE
 r.DOF.Gather.AccumulatorQuality=0;
 r.DOF.Gather.EnableBokehSettings=0;
-r.DOF.Gather.PostfilterMethod=0;
+r.DOF.Gather.PostfilterMethod=1;
 r.DOF.Gather.RingCount=3;
 r.DOF.Kernel.MaxBackgroundRadius=0.012;
 r.DOF.Kernel.MaxForegroundRadius=0.012;
 r.DOF.Recombine.Quality=0;
-r.DOF.Scatter.BackgroundCompositing=1;
+r.DOF.Scatter.BackgroundCompositing=0;
 r.DOF.Scatter.EnableBokehSettings=0;
-r.DOF.Scatter.ForegroundCompositing=1;
+r.DOF.Scatter.ForegroundCompositing=0;
 r.DOF.Scatter.MaxSpriteRatio=0.04;
-r.EyeAdaptationQuality=2; 🔴 1 for PERFORMANCE
+r.DOF.TemporalAAQuality=0;
 r.FilmGrain=0;
 r.Filter.LoopMode=0; 🔴 0 for PERFORMANCE
 r.Filter.SizeScale=1;
 r.MotionBlurQuality=0;
 r.SceneColorFormat=3; 🔴 2,3 for PERFORMANCE
 r.SceneColorFringe.Max=0;
+r.SeparateTranslucencyAutoDownsample=1;
+r.SeparateTranslucencyScreenPercentage=100;
 r.Tonemapper.Quality=5;
-r.Tonemapper.Sharpen=2;
+r.Tonemapper.Sharpen=0;
 r.Upscale.Quality=3; 🔴 1,2 for PERFORMANCE
 
 ; light
@@ -233,17 +261,16 @@ r.LumenScene.FarField=0;
 ; shadow
 r.AllowLandscapeShadows=1; 🔴 0 for PERFORMANCE
 r.DFFullResolution=0; 🔴 0 for PERFORMANCE
-r.DFShadowQuality=1; 🔴 1,2 for PERFORMANCE
-r.Shadow.CachedShadowsCastFromMovablePrimitives=0; 🔴 0 for PERFORMANCE 🔵 movable light shadows
-r.Shadow.CSM.MaxCascades=4; 🔴 1,2,4 for PERFORMANCE
+r.DFShadowQuality=2; 🔴 1,2 for PERFORMANCE
+r.Shadow.CachedShadowsCastFromMovablePrimitives=1; 🔴 0 for PERFORMANCE 🔵 movable light shadows
+r.Shadow.CSM.MaxCascades=2; 🔴 1,2,4 for PERFORMANCE
 r.Shadow.CSMShadowDistanceFadeoutMultiplier=1;
 r.Shadow.DistanceScale=1; 🔴 0.7 for PERFORMANCE
 r.Shadow.ForceSingleSampleShadowingFromStationary=0; 🔴 1 for PERFORMANCE
 r.Shadow.MaxCSMResolution=2048; 🔴 512,1024 for PERFORMANCE
-r.Shadow.MaxResolution=1024; 🔴 512,1024 for PERFORMANCE
+r.Shadow.MaxResolution=2048; 🔴 512,1024 for PERFORMANCE
 r.Shadow.NaniteLODBias=1; 🔴 1 for PERFORMANCE
 r.Shadow.RadiusThreshold=0.03; 🔴 0.06,0.05,0.04 for PERFORMANCE
-r.Shadow.Virtual.ForceOnlyVirtualShadowMaps=0; 🔵 make non VSM underground
 r.Shadow.Virtual.NonNanite.IncludeInCoarsePages=0; 🔴 0 for PERFORMANCE
 r.Shadow.Virtual.OnePassProjection.MaxLightsPerPixel=16;
 r.Shadow.Virtual.OnePassProjection=1; 🔴 1 for PERFORMANCE 🔵 experimental one pass projection
@@ -306,9 +333,16 @@ r.VolumetricFog=1; 🔴 0 for PERFORMANCE
 ; water
 r.Water.EnableShallowWaterSimulation=0; 🔴 0 for PERFORMANCE
 r.Water.EnableUnderwaterPostProcess=0; 🔴 0 for PERFORMANCE
+r.Water.SingleLayer.DistanceFieldShadow=1;
+r.Water.SingleLayer.Reflection=1; 🔵 3 to force SSR
 r.Water.SingleLayer.RefractionDownsampleFactor=1; 🔴 1,2 for PERFORMANCE
 r.Water.SingleLayer.RTR=0; 🔴 0 for PERFORMANCE
+r.Water.SingleLayer.ShadersSupportDistanceFieldShadow=1;
+r.Water.SingleLayer.ShadersSupportVSMFiltering=0;
 r.Water.SingleLayer.SSR=1; 🔴 0 for PERFORMANCE
+r.Water.SingleLayer.TiledComposite=1;
+r.Water.SingleLayer.UnderwaterFogWhenCameraIsAboveWater=0;
+r.Water.SingleLayer.VSMFiltering=0;
 r.Water.WaterMesh.TessFactorBias=0; 🔴 -1 for PERFORMANCE
 ```
 
