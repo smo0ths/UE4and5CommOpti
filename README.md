@@ -77,7 +77,7 @@ r.TemporalAA.Algorithm=0; 🔵 0,1 gen4,gen5 TAAU
 r.TemporalAA.Upsampling=1; 🔴 0 for PERFORMANCE 🔵 TAAU
 r.TemporalAASamples=8;
 r.XeSS.AutoExposure=1;
-r.XeSS.Enabled=0;
+r.XeSS.Enabled=0; 🔵 XeSS
 r.XeSS.Quality=3; 🔵 1,2,3 perf,balanced,quality
 t.Streamline.Reflex.Enable=1; 🔵 reflex
 
