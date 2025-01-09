@@ -1,4 +1,4 @@
-## updated 1/9/2025 ✂ 📋 🌀 :ramen: v0.6.0
+## updated 1/9/2025 ✂ 📋 🌀 :ramen: v0.6.0a
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -15,8 +15,6 @@
 #### 3328x1872 use 🔴 50%,58%,67% for PERFORMANCE (higher when cpu bound) (DLSS/TAAU/TSR/CAS/FSR/XeSS/PSSR/NIS/IS)
 
 #### 3840x2160 use 🔴 33%,50%,67% for PERFORMANCE (higher when cpu bound) (DLSS/TAAU/TSR/CAS/FSR/XeSS/PSSR/NIS/IS)
-
-#### set r.MipMapLODBias=0; use -1,-0.6,-0.5,0 lower % scaling use a negative value
 
 ## Open Engine.ini and copy pasta %localappdata%
 
@@ -44,30 +42,29 @@ r.CustomDepthTemporalAAJitter=1;
 r.DynamicRes.OperationMode=0;
 r.FidelityFX.FSR.Enabled=0; 🔵 FSR
 r.FidelityFX.FSR.PrimaryUpscale=1;
-r.FidelityFX.FSR.Quality=1; 🔵 quality FSR
+r.FidelityFX.FSR.Quality=1; 🔵 3,2,1 perf,balanced,quality
 r.FidelityFX.FSR.RCAS.Enabled=1;
 r.FidelityFX.FSR.RCAS.Sharpness=0.2;
 r.FidelityFX.FSR.SecondaryUpscale=1;
 r.FidelityFX.FSR2.AutoExposure=0;
 r.FidelityFX.FSR2.CreateReactiveMask=1;
 r.FidelityFX.FSR2.Enabled=0; 🔵 FSR2
-r.FidelityFX.FSR2.QualityMode=1; 🔵 quality FSR2
+r.FidelityFX.FSR2.QualityMode=1; 🔵 3,2,1 perf,balanced,quality
 r.FidelityFX.FSR2.Sharpness=0;
 r.FidelityFX.FSR2.UseSSRExperimentalDenoiser=0;
 r.FidelityFX.FSR3.AutoExposure=0;
 r.FidelityFX.FSR3.CreateReactiveMask=1;
 r.FidelityFX.FSR3.Enabled=0; 🔵 FSR3
-r.FidelityFX.FSR3.QualityMode=1; 🔵 quality FSR3
+r.FidelityFX.FSR3.QualityMode=1; 🔵 3,2,1 perf,balanced,quality
 r.FidelityFX.FSR3.Sharpness=0;
 r.FidelityFX.FSR3.UseSSRExperimentalDenoiser=0;
-r.MipMapLODBias=-0.5; 🔴 0 for PERFORMANCE
 r.NGX.DLSS.AutoExposure=1;
 r.NGX.DLSS.DilateMotionVectors=1;
 r.NGX.DLSS.Enable=1; 🔵 DLSS
 r.NGX.DLSS.PreferNISSharpen=0;
 r.NGX.DLSS.Preset=3; 🔵 1,2,3,4,5,6,7 a,b,c,d,e,f,g
 r.NGX.DLSS.Quality.Auto=0;
-r.NGX.DLSS.Quality=1;
+r.NGX.DLSS.Quality=1; 🔵 -1,0,1 perf,balanced,quality
 r.NGX.DLSS.Reflections.TemporalAA=0;
 r.NGX.DLSS.Sharpness=0;
 r.NGX.DLSS.WaterReflections.TemporalAA=0;
@@ -79,6 +76,9 @@ r.SSR.ExperimentalDenoiser=0;
 r.TemporalAA.Algorithm=0; 🔵 0,1 gen4,gen5 TAAU
 r.TemporalAA.Upsampling=1; 🔴 0 for PERFORMANCE 🔵 TAAU
 r.TemporalAASamples=8;
+r.XeSS.AutoExposure=1;
+r.XeSS.Enabled=0;
+r.XeSS.Quality=3; 🔵 1,2,3 perf,balanced,quality
 t.Streamline.Reflex.Enable=1; 🔵 reflex
 
 ; texture stuff
