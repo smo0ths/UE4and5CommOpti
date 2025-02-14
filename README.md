@@ -1,4 +1,4 @@
-## updated 1/9/2025 ✂ 📋 🌀 :ramen: v0.6.0b
+## updated 2/14/2025 ✂ 📋 🌀 :ramen: v0.7.0
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -14,11 +14,11 @@
 
 #### 3328x1872 use 🔴 50%,58%,67% for PERFORMANCE (higher when cpu bound) (DLSS/TAAU/TSR/CAS/FSR/XeSS/PSSR/NIS/IS)
 
-#### 3840x2160 use 🔴 33%,50%,67% for PERFORMANCE (higher when cpu bound) (DLSS/TAAU/TSR/CAS/FSR/XeSS/PSSR/NIS/IS)
+#### 3840x2160 use 🔴 33%,50%,58%,67% for PERFORMANCE (higher when cpu bound) (DLSS/TAAU/TSR/CAS/FSR/XeSS/PSSR/NIS/IS)
 
 ## Open Engine.ini and copy pasta %localappdata%
 
-#### or Repak.bat method (zzz_INIMODS\Engine\Config\Windows\WindowsEngine.ini)
+#### or Repak.bat method if it works (zzz_INIMODS\Engine\Config\Windows\WindowsEngine.ini)
 
 #### High config
 
@@ -50,29 +50,24 @@ r.CustomDepthTemporalAAJitter=1;
 r.DynamicRes.OperationMode=0;
 r.FidelityFX.FSR.Enabled=0; 🔵 FSR
 r.FidelityFX.FSR.PrimaryUpscale=1;
-r.FidelityFX.FSR.Quality=1; 🔵 3,2,1 perf,balanced,quality
 r.FidelityFX.FSR.RCAS.Enabled=1;
 r.FidelityFX.FSR.RCAS.Sharpness=0.2;
 r.FidelityFX.FSR.SecondaryUpscale=1;
 r.FidelityFX.FSR2.AutoExposure=0;
 r.FidelityFX.FSR2.CreateReactiveMask=1;
 r.FidelityFX.FSR2.Enabled=0; 🔵 FSR2
-r.FidelityFX.FSR2.QualityMode=1; 🔵 3,2,1 perf,balanced,quality
 r.FidelityFX.FSR2.Sharpness=0;
 r.FidelityFX.FSR2.UseSSRExperimentalDenoiser=0;
 r.FidelityFX.FSR3.AutoExposure=0;
 r.FidelityFX.FSR3.CreateReactiveMask=1;
 r.FidelityFX.FSR3.Enabled=0; 🔵 FSR3
-r.FidelityFX.FSR3.QualityMode=1; 🔵 3,2,1 perf,balanced,quality
 r.FidelityFX.FSR3.Sharpness=0;
 r.FidelityFX.FSR3.UseSSRExperimentalDenoiser=0;
 r.NGX.DLSS.AutoExposure=1;
 r.NGX.DLSS.DilateMotionVectors=1;
 r.NGX.DLSS.Enable=1; 🔵 DLSS
 r.NGX.DLSS.PreferNISSharpen=0;
-r.NGX.DLSS.Preset=3; 🔵 1,2,3,4,5,6,7 a,b,c,d,e,f,g
 r.NGX.DLSS.Quality.Auto=0;
-r.NGX.DLSS.Quality=1; 🔵 -1,0,1 perf,balanced,quality
 r.NGX.DLSS.Reflections.TemporalAA=0;
 r.NGX.DLSS.Sharpness=0;
 r.NGX.DLSS.WaterReflections.TemporalAA=0;
@@ -84,9 +79,11 @@ r.SSR.ExperimentalDenoiser=0;
 r.TemporalAA.Algorithm=0; 🔵 0,1 gen4,gen5 TAAU
 r.TemporalAA.Upsampling=1; 🔴 0 for PERFORMANCE 🔵 TAAU
 r.TemporalAASamples=8;
+r.VRS.Enable=0;
+r.VRS.EnableImage=0;
+r.VRS.EnableSoftware=0;
 r.XeSS.AutoExposure=1;
 r.XeSS.Enabled=0; 🔵 XeSS
-r.XeSS.Quality=3; 🔵 1,2,3 perf,balanced,quality
 t.Streamline.Reflex.Enable=1; 🔵 reflex
 
 ; texture stuff
@@ -95,7 +92,10 @@ r.DetailMode=2; 🔴 0,1,2 for PERFORMANCE
 r.LandscapeLODBias=0; 🔴 1 for PERFORMANCE
 r.MaterialQualityLevel=1; 🔴 0,2 for PERFORMANCE
 r.MaxAnisotropy=16; 🔴 0,4,8 for PERFORMANCE
+r.Nanite.CoarseMeshStreaming=1;
 r.Nanite.ProxyRenderMode=0;
+r.Nanite.Streaming.Imposters=0;
+r.Nanite.Streaming.StreamingPoolSize=256;
 r.Streaming.AmortizeCPUToGPUCopy=0;
 r.Streaming.Boost=1;
 r.Streaming.FullyLoadUsedTextures=0;
@@ -122,7 +122,7 @@ RHI.MaximumFrameLatency=1; 🔵 frame latency
 t.MaxFPS=0;
 t.OverrideFPS=0;
 
-; occlusion system test
+; occlusion system
 r.HZBOcclusion=1;
 
 ; debug
@@ -134,6 +134,14 @@ r.NGX.LogLevel=0;
 r.VsyncInformationInsights=0;
 
 ; RTX
+r.RayTracing.ExcludeDecals=1;
+r.RayTracing.ExcludeSky=1;
+r.RayTracing.ExcludeTranslucent=1;
+r.RayTracing.GlobalIllumination=0;
+r.RayTracing.Reflections=0;
+r.RayTracing.Shadows.EnableMaterials=0; 🔴 0 for PERFORMANCE
+r.RayTracing.Shadows.MaxBatchSize=8;
+r.raytracing.shadows=0;
 r.RayTracing=0;
 
 ; reflection
@@ -149,10 +157,10 @@ r.RefractionQuality=2; 🔴 0,1 for PERFORMANCE
 r.SSGI.Enable=0; 🔴 0 for PERFORMANCE
 
 ; SSR
-r.SSR.HalfResSceneColor=0; 🔴 1 for PERFORMANCE
-r.SSR.Quality=3; 🔴 0,2 for PERFORMANCE
+r.SSR.HalfResSceneColor=1; 🔴 1 for PERFORMANCE
+r.SSR.Quality=2; 🔴 0,2 for PERFORMANCE
 
-; SSS
+; sub surface scattering
 r.SSS.Burley.Quality=0; 🔴 0 for PERFORMANCE
 r.SSS.Checkerboard=1; 🔴 1 for PERFORMANCE
 r.SSS.HalfRes=1; 🔴 1 for PERFORMANCE
@@ -164,6 +172,7 @@ p.AnimDynamicsWind=1; 🔴 0 for PERFORMANCE
 p.RigidBodyNode=1; 🔴 0 for PERFORMANCE
 
 ; particle
+fx.Niagara.AsyncGpuTrace.HWRayTraceEnabled=0;
 fx.Niagara.QualityLevel=3; 🔴 0,1,2 for PERFORMANCE
 fx.NiagaraAllowRuntimeScalabilityChanges=1;
 r.EmitterSpawnRateScale=1; 🔴 0.125,0.25,0.5 for PERFORMANCE
@@ -177,7 +186,7 @@ r.AmbientOcclusionStaticFraction=-1; 🔴 0 for PERFORMANCE
 ; DFAO
 r.AOQuality=2; 🔴 0 for PERFORMANCE
 
-; postprocess ect
+; postprocess ect stuff
 r.Bloom.ScreenPercentage=50;
 r.BloomQuality=4; 🔴 0 for PERFORMANCE
 r.BlurGBuffer=0;
@@ -231,18 +240,21 @@ r.HairStrands.Visibility.PPLL=0; 🔴 0 for PERFORMANCE
 r.HairStrands.Voxelization=0; 🔴 0 for PERFORMANCE
 
 ; lumen
-r.GBufferDiffuseSampleOcclusion=0; 🔵 bent normal maps
+r.GBufferDiffuseSampleOcclusion=1; 🔵 bent normal maps
 r.Lumen.DiffuseIndirect.Allow=1; 🔴 0 for PERFORMANCE 🔵 lumen global illumination
-r.Lumen.DiffuseIndirect.SSAO=1;
-r.Lumen.HardwareRayTracing=0; 🔴 0 for PERFORMANCE
+r.Lumen.DiffuseIndirect.SSAO=0;
+r.Lumen.HardwareRayTracing=1; 🔴 0 for PERFORMANCE
 r.Lumen.IrradianceFieldGather=0; 🔵 experimental
 r.Lumen.RadianceCache.NumFramesToKeepCachedProbes=8;
 r.Lumen.Reflections.Allow=1; 🔴 0 for PERFORMANCE 🔵 lumen reflections
+r.Lumen.Reflections.AsyncCompute=0;
 r.Lumen.Reflections.BilateralFilter.NumSamples=4;
 r.Lumen.Reflections.BilateralFilter.SpatialKernelRadius=0.001;
 r.Lumen.Reflections.BilateralFilter=1;
 r.Lumen.Reflections.DownsampleFactor=2; 🔴 2 for PERFORMANCE
+r.Lumen.Reflections.MaxRoughnessToTraceForFoliage=0.4;
 r.Lumen.Reflections.RadianceCache=1; 🔵 radiance cache
+r.Lumen.Reflections.ScreenSpaceReconstruction.TonemapStrength=0;
 r.Lumen.Reflections.ScreenSpaceReconstruction=1; 🔵 reconstruction
 r.Lumen.Reflections.SmoothBias=0;
 r.Lumen.Reflections.Temporal=1; 🔵 temporal filtering
@@ -254,12 +266,12 @@ r.Lumen.ScreenProbeGather.MaterialAO=1;
 r.Lumen.ScreenProbeGather.RadianceCache=1; 🔵 persistent world space radiance cache
 r.Lumen.ScreenProbeGather.ScreenSpaceBentNormal=0; 🔵 bent normal maps
 r.Lumen.ScreenProbeGather.ShortRangeAO.ApplyDuringIntegration=0;
-r.Lumen.ScreenProbeGather.ShortRangeAO=0;
+r.Lumen.ScreenProbeGather.ShortRangeAO=1;
 r.Lumen.ScreenProbeGather.StochasticInterpolation=1; 🔴 1 for PERFORMANCE
 r.Lumen.ScreenProbeGather.Temporal=1; 🔵 temporal filtering
 r.Lumen.ScreenProbeGather.TracingOctahedronResolution=8;
 r.Lumen.ScreenProbeGather.TwoSidedFoliageBackfaceDiffuse=1;
-r.Lumen.TraceMeshSDFs.Allow=0; 🔴 0 for PERFORMANCE 🔵 mesh signed distance fields
+r.Lumen.TraceMeshSDFs.Allow=1; 🔴 0 for PERFORMANCE 🔵 mesh signed distance fields
 r.Lumen.TraceMeshSDFs=0; 🔴 0 for PERFORMANCE
 r.Lumen.TranslucencyReflections.FrontLayer.Allow=1; 🔴 0 for PERFORMANCE
 r.Lumen.TranslucencyReflections.FrontLayer.Enable=1; 🔴 0 for PERFORMANCE
@@ -268,8 +280,11 @@ r.LumenScene.FarField=0;
 
 ; shadow
 r.AllowLandscapeShadows=1; 🔴 0 for PERFORMANCE
+r.CapsuleShadows=0; 🔵 capsule shadows
+r.ContactShadows=0; 🔵 contact shadows
 r.DFFullResolution=0; 🔴 0 for PERFORMANCE
 r.DFShadowQuality=2; 🔴 1,2 for PERFORMANCE
+r.HeightFieldShadowing=0; 🔵 height field shadowing
 r.Shadow.CachedShadowsCastFromMovablePrimitives=1; 🔴 0 for PERFORMANCE 🔵 movable light shadows
 r.Shadow.CSM.MaxCascades=2; 🔴 1,2,4 for PERFORMANCE
 r.Shadow.CSMShadowDistanceFadeoutMultiplier=1;
@@ -346,7 +361,7 @@ r.Water.SingleLayer.Reflection=1; 🔵 3 to force SSR
 r.Water.SingleLayer.RefractionDownsampleFactor=1; 🔴 1,2 for PERFORMANCE
 r.Water.SingleLayer.RTR=0; 🔴 0 for PERFORMANCE
 r.Water.SingleLayer.ShadersSupportDistanceFieldShadow=1;
-r.Water.SingleLayer.ShadersSupportVSMFiltering=0;
+r.Water.SingleLayer.ShadersSupportVSMFiltering=1;
 r.Water.SingleLayer.SSR=1; 🔴 0 for PERFORMANCE
 r.Water.SingleLayer.TiledComposite=1;
 r.Water.SingleLayer.UnderwaterFogWhenCameraIsAboveWater=0;
@@ -358,7 +373,7 @@ r.Water.WaterMesh.TessFactorBias=0; 🔴 -1 for PERFORMANCE
 
 ## Open Input.ini and copy pasta %localappdata%
 
-#### or Repak.bat method (zzz_INIMODS\Engine\Config\Windows\WindowsInput.ini)
+#### or Repak.bat method if it works (zzz_INIMODS\Engine\Config\Windows\WindowsInput.ini)
 
 ```python
 [/Script/Engine.InputSettings]
