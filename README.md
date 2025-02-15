@@ -1,4 +1,4 @@
-## updated 2/14/2025 ✂ 📋 🌀 :ramen: v0.7.1
+## updated 2/14/2025 ✂ 📋 🌀 :ramen: v0.7.2
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -141,6 +141,8 @@ r.RayTracing.Shadows.EnableMaterials=0; 🔴 0 for PERFORMANCE
 r.RayTracing.Shadows.MaxBatchSize=8;
 r.raytracing.shadows=0;
 r.RayTracing=0;
+r.VolumetricFog.InjectRaytracedLights.LocalLights=0;
+r.VolumetricFog.InjectRaytracedLights=0;
 
 ; reflection
 r.chaos.ReflectionCaptureStaticSceneOnly=1;
@@ -247,15 +249,14 @@ r.Lumen.RadianceCache.NumFramesToKeepCachedProbes=8;
 r.Lumen.Reflections.Allow=1; 🔴 0 for PERFORMANCE 🔵 lumen reflections
 r.Lumen.Reflections.AsyncCompute=1; 🔴 1 for PERFORMANCE
 r.Lumen.Reflections.BilateralFilter.NumSamples=4;
-r.Lumen.Reflections.BilateralFilter.SpatialKernelRadius=0.001;
+r.Lumen.Reflections.BilateralFilter.SpatialKernelRadius=0.002;
 r.Lumen.Reflections.BilateralFilter=1;
-r.Lumen.Reflections.DownsampleFactor=2; 🔴 2 for PERFORMANCE
+r.Lumen.Reflections.DownsampleFactor=1; 🔴 2 for PERFORMANCE
 r.Lumen.Reflections.MaxRoughnessToTrace=0.4;
 r.Lumen.Reflections.MaxRoughnessToTraceForFoliage=0.4;
 r.Lumen.Reflections.RadianceCache=1; 🔵 radiance cache
 r.Lumen.Reflections.ScreenSpaceReconstruction.TonemapStrength=0;
 r.Lumen.Reflections.ScreenSpaceReconstruction=1; 🔵 reconstruction
-r.Lumen.Reflections.SmoothBias=0;
 r.Lumen.Reflections.Temporal=1; 🔵 temporal filtering
 r.Lumen.Reflections.TraceMeshSDFs=1;
 r.Lumen.SampleFog=0;
@@ -297,21 +298,20 @@ r.Shadow.MaxResolution=2048; 🔴 512,1024 for PERFORMANCE
 r.Shadow.NaniteLODBias=1; 🔴 1 for PERFORMANCE
 r.Shadow.RadiusThreshold=0.03; 🔴 0.06,0.05,0.04 for PERFORMANCE
 r.Shadow.Virtual.NonNanite.IncludeInCoarsePages=0; 🔴 0 for PERFORMANCE
-r.Shadow.Virtual.OnePassProjection.MaxLightsPerPixel=16;
+r.Shadow.Virtual.OnePassProjection.MaxLightsPerPixel=8; 🔴 8 for PERFORMANCE
 r.Shadow.Virtual.OnePassProjection=1; 🔴 1 for PERFORMANCE 🔵 experimental one pass projection
-r.Shadow.Virtual.ResolutionLodBiasDirectional=-1;
-r.Shadow.Virtual.ResolutionLodBiasDirectionalMoving=1;
-r.Shadow.Virtual.ResolutionLodBiasLocal=0;
-r.Shadow.Virtual.ResolutionLodBiasLocalMoving=1;
-r.Shadow.Virtual.SMRT.ExtrapolateMaxSlopeDirectional=0; 🔴 0 for PERFORMANCE
-r.Shadow.Virtual.SMRT.ExtrapolateMaxSlopeLocal=0; 🔴 0 for PERFORMANCE
+r.Shadow.Virtual.SMRT.AdaptiveRayCount=1;
+r.Shadow.Virtual.SMRT.ExtrapolateMaxSlopeLocal=0.05;
 r.Shadow.Virtual.SMRT.MaxRayAngleFromLight=0.03;
-r.Shadow.Virtual.SMRT.RayCountDirectional=2;
-r.Shadow.Virtual.SMRT.RayCountLocal=2;
+r.Shadow.Virtual.SMRT.MaxSlopeBiasLocal=50;
+r.Shadow.Virtual.SMRT.RayCountDirectional=8;
+r.Shadow.Virtual.SMRT.RayCountLocal=4;
 r.Shadow.Virtual.SMRT.RayLengthScaleDirectional=1.5;
-r.Shadow.Virtual.SMRT.SamplesPerRayDirectional=1;
-r.Shadow.Virtual.SMRT.SamplesPerRayLocal=1;
-r.Shadow.Virtual.SMRT.TexelDitherScaleDirectional=2;
+r.Shadow.Virtual.SMRT.ReduceRaysAtDistance=1;
+r.Shadow.Virtual.SMRT.SamplesPerRayDirectional=4;
+r.Shadow.Virtual.SMRT.SamplesPerRayLocal=4;
+r.Shadow.Virtual.SMRT.SLW.RayCountDirectional=4;
+r.Shadow.Virtual.SMRT.SLW.SamplesPerRayDirectional=4;
 r.Shadow.Virtual.SMRT.TexelDitherScaleLocal=2;
 r.Shadow.Virtual.TranslucentQuality=0; 🔴 0 for PERFORMANCE
 r.ShadowQuality=4; 🔴 3,4 for PERFORMANCE
@@ -345,10 +345,10 @@ r.VolumetricCloud=1; 🔴 0 for PERFORMANCE
 ; fog
 r.Fog=1; 🔵 render fog
 r.VolumetricFog.ConservativeDepth=0; 🔵 experimental
-r.VolumetricFog.DepthDistributionScale=16; 🔴 16 for PERFORMANCE
+r.VolumetricFog.DepthDistributionScale=32; 🔴 16 for PERFORMANCE
 r.VolumetricFog.GridPixelSize=16; 🔴 16 for PERFORMANCE
-r.VolumetricFog.GridSizeZ=64; 🔴 64 for PERFORMANCE
-r.VolumetricFog.HistoryMissSupersampleCount=4;
+r.VolumetricFog.GridSizeZ=96; 🔴 64 for PERFORMANCE
+r.VolumetricFog.HistoryMissSupersampleCount=2; 🔴 2 for PERFORMANCE
 r.VolumetricFog.HistoryWeight=0.95;
 r.VolumetricFog.Jitter=1; 🔵 temporal filtering
 r.VolumetricFog.TemporalReprojection=1;
@@ -358,7 +358,7 @@ r.VolumetricFog=1; 🔴 0 for PERFORMANCE
 ; water
 r.Water.EnableShallowWaterSimulation=0; 🔴 0 for PERFORMANCE
 r.Water.EnableUnderwaterPostProcess=0; 🔴 0 for PERFORMANCE
-r.Water.Reflections.MaxRoughnessToTrace=0.85;
+r.Water.Reflections.MaxRoughnessToTrace=1;
 r.Water.SingleLayer.DistanceFieldShadow=1;
 r.Water.SingleLayer.DownsampleReflections=0; 🔴 1 for PERFORMANCE
 r.Water.SingleLayer.Reflection=1; 🔵 3 to force SSR
