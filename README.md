@@ -1,4 +1,4 @@
-## updated 2/14/2025 ✂ 📋 🌀 :ramen: v0.7.3
+## updated 2/15/2025 ✂ 📋 🌀 :ramen: v0.7.4
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -140,8 +140,8 @@ r.RayTracing.Shadows.EnableMaterials=0; 🔴 0 for PERFORMANCE
 r.RayTracing.Shadows.MaxBatchSize=8;
 r.raytracing.shadows=0;
 r.RayTracing=0;
-r.VolumetricFog.InjectRaytracedLights.LocalLights=0;
-r.VolumetricFog.InjectRaytracedLights=0;
+r.VolumetricFog.InjectRaytracedLights.LocalLights=1;
+r.VolumetricFog.InjectRaytracedLights=1;
 
 ; reflection
 r.chaos.ReflectionCaptureStaticSceneOnly=1;
@@ -189,7 +189,7 @@ r.AOQuality=2; 🔴 0 for PERFORMANCE
 r.Bloom.ScreenPercentage=50;
 r.BloomQuality=4; 🔴 0 for PERFORMANCE
 r.BlurGBuffer=0;
-r.DepthOfFieldQuality=1; 🔴 0,1 for PERFORMANCE
+r.DepthOfFieldQuality=0; 🔴 0,1 for PERFORMANCE
 r.DOF.Gather.AccumulatorQuality=0;
 r.DOF.Gather.EnableBokehSettings=0;
 r.DOF.Gather.PostfilterMethod=1;
@@ -303,14 +303,15 @@ r.Shadow.Virtual.SMRT.AdaptiveRayCount=1;
 r.Shadow.Virtual.SMRT.ExtrapolateMaxSlopeLocal=0.05;
 r.Shadow.Virtual.SMRT.MaxRayAngleFromLight=0.03;
 r.Shadow.Virtual.SMRT.MaxSlopeBiasLocal=50;
-r.Shadow.Virtual.SMRT.RayCountDirectional=8;
-r.Shadow.Virtual.SMRT.RayCountLocal=4;
+r.Shadow.Virtual.SMRT.RayCountDirectional=8; 🔴 2 for PERFORMANCE
+r.Shadow.Virtual.SMRT.RayCountLocal=4; 🔴 2 for PERFORMANCE
 r.Shadow.Virtual.SMRT.RayLengthScaleDirectional=1.5;
 r.Shadow.Virtual.SMRT.ReduceRaysAtDistance=1;
-r.Shadow.Virtual.SMRT.SamplesPerRayDirectional=4;
-r.Shadow.Virtual.SMRT.SamplesPerRayLocal=4;
+r.Shadow.Virtual.SMRT.SamplesPerRayDirectional=4; 🔴 1 for PERFORMANCE
+r.Shadow.Virtual.SMRT.SamplesPerRayLocal=4; 🔴 1 for PERFORMANCE
 r.Shadow.Virtual.SMRT.SLW.RayCountDirectional=4;
 r.Shadow.Virtual.SMRT.SLW.SamplesPerRayDirectional=4;
+r.Shadow.Virtual.SMRT.TexelDitherScaleDirectional=2;
 r.Shadow.Virtual.SMRT.TexelDitherScaleLocal=2;
 r.Shadow.Virtual.TranslucentQuality=0; 🔴 0 for PERFORMANCE
 r.ShadowQuality=4; 🔴 3,4 for PERFORMANCE
@@ -365,7 +366,7 @@ r.Water.SingleLayer.RefractionDownsampleFactor=1; 🔴 1,2 for PERFORMANCE
 r.Water.SingleLayer.RTR=0; 🔴 0 for PERFORMANCE
 r.Water.SingleLayer.ShadersSupportDistanceFieldShadow=1;
 r.Water.SingleLayer.ShadersSupportVSMFiltering=1;
-r.Water.SingleLayer.SSR=1; 🔴 0 for PERFORMANCE
+r.Water.SingleLayer.SSR=0; 🔴 0 for PERFORMANCE
 r.Water.SingleLayer.TiledComposite=1;
 r.Water.SingleLayer.UnderwaterFogWhenCameraIsAboveWater=0;
 r.Water.SingleLayer.VSMFiltering=0;
