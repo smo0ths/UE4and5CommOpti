@@ -1,4 +1,4 @@
-## updated 2/14/2025 ✂ 📋 🌀 :ramen: v0.7.0
+## updated 2/14/2025 ✂ 📋 🌀 :ramen: v0.7.1
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -20,7 +20,7 @@
 
 #### or Repak.bat method if it works (zzz_INIMODS\Engine\Config\Windows\WindowsEngine.ini)
 
-#### High config
+#### High configs
 
 ```python
 [Core.Log]
@@ -247,35 +247,39 @@ r.Lumen.HardwareRayTracing=1; 🔴 0 for PERFORMANCE
 r.Lumen.IrradianceFieldGather=0; 🔵 experimental
 r.Lumen.RadianceCache.NumFramesToKeepCachedProbes=8;
 r.Lumen.Reflections.Allow=1; 🔴 0 for PERFORMANCE 🔵 lumen reflections
-r.Lumen.Reflections.AsyncCompute=0;
+r.Lumen.Reflections.AsyncCompute=1; 🔴 1 for PERFORMANCE
 r.Lumen.Reflections.BilateralFilter.NumSamples=4;
 r.Lumen.Reflections.BilateralFilter.SpatialKernelRadius=0.001;
 r.Lumen.Reflections.BilateralFilter=1;
 r.Lumen.Reflections.DownsampleFactor=2; 🔴 2 for PERFORMANCE
+r.Lumen.Reflections.MaxRoughnessToTrace=0.4;
 r.Lumen.Reflections.MaxRoughnessToTraceForFoliage=0.4;
 r.Lumen.Reflections.RadianceCache=1; 🔵 radiance cache
 r.Lumen.Reflections.ScreenSpaceReconstruction.TonemapStrength=0;
 r.Lumen.Reflections.ScreenSpaceReconstruction=1; 🔵 reconstruction
 r.Lumen.Reflections.SmoothBias=0;
 r.Lumen.Reflections.Temporal=1; 🔵 temporal filtering
-r.Lumen.Reflections.TraceMeshSDFs=0; 🔴 0 for PERFORMANCE
+r.Lumen.Reflections.TraceMeshSDFs=1;
 r.Lumen.SampleFog=0;
-r.Lumen.ScreenProbeGather.DownsampleFactor=32; 🔴 32 for PERFORMANCE
+r.Lumen.ScreenProbeGather.DownsampleFactor=16; 🔴 32 for PERFORMANCE
 r.Lumen.ScreenProbeGather.IrradianceFormat=1; 🔴 1 for PERFORMANCE
 r.Lumen.ScreenProbeGather.MaterialAO=1;
 r.Lumen.ScreenProbeGather.RadianceCache=1; 🔵 persistent world space radiance cache
-r.Lumen.ScreenProbeGather.ScreenSpaceBentNormal=0; 🔵 bent normal maps
+r.Lumen.ScreenProbeGather.ScreenSpaceBentNormal=1; 🔵 bent normal maps, changed to ShortRangeAO
 r.Lumen.ScreenProbeGather.ShortRangeAO.ApplyDuringIntegration=0;
 r.Lumen.ScreenProbeGather.ShortRangeAO=1;
 r.Lumen.ScreenProbeGather.StochasticInterpolation=1; 🔴 1 for PERFORMANCE
 r.Lumen.ScreenProbeGather.Temporal=1; 🔵 temporal filtering
+r.Lumen.ScreenProbeGather.TraceMeshSDFs=1;
 r.Lumen.ScreenProbeGather.TracingOctahedronResolution=8;
 r.Lumen.ScreenProbeGather.TwoSidedFoliageBackfaceDiffuse=1;
 r.Lumen.TraceMeshSDFs.Allow=1; 🔴 0 for PERFORMANCE 🔵 mesh signed distance fields
+r.Lumen.TraceMeshSDFs.TraceDistance=180; 🔴 90 for PERFORMANCE
 r.Lumen.TraceMeshSDFs=0; 🔴 0 for PERFORMANCE
 r.Lumen.TranslucencyReflections.FrontLayer.Allow=1; 🔴 0 for PERFORMANCE
 r.Lumen.TranslucencyReflections.FrontLayer.Enable=1; 🔴 0 for PERFORMANCE
 r.Lumen.TranslucencyVolume.Enable=1;
+r.LumenScene.DirectLighting.OffscreenShadowing.TraceMeshSDFs=0;
 r.LumenScene.FarField=0;
 
 ; shadow
@@ -356,7 +360,9 @@ r.VolumetricFog=1; 🔴 0 for PERFORMANCE
 ; water
 r.Water.EnableShallowWaterSimulation=0; 🔴 0 for PERFORMANCE
 r.Water.EnableUnderwaterPostProcess=0; 🔴 0 for PERFORMANCE
+r.Water.Reflections.MaxRoughnessToTrace=0.85;
 r.Water.SingleLayer.DistanceFieldShadow=1;
+r.Water.SingleLayer.DownsampleReflections=0; 🔴 1 for PERFORMANCE
 r.Water.SingleLayer.Reflection=1; 🔵 3 to force SSR
 r.Water.SingleLayer.RefractionDownsampleFactor=1; 🔴 1,2 for PERFORMANCE
 r.Water.SingleLayer.RTR=0; 🔴 0 for PERFORMANCE
