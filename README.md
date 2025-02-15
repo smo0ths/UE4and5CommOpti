@@ -20,8 +20,6 @@
 
 #### or Repak.bat method if it works (zzz_INIMODS\Engine\Config\Windows\WindowsEngine.ini)
 
-#### High configs
-
 ```python
 [Core.Log]
 Global=off;
