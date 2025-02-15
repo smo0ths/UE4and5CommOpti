@@ -1,4 +1,4 @@
-## updated 2/14/2025 ✂ 📋 🌀 :ramen: v0.7.2
+## updated 2/14/2025 ✂ 📋 🌀 :ramen: v0.7.3
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -91,7 +91,6 @@ r.LandscapeLODBias=0; 🔴 1 for PERFORMANCE
 r.MaterialQualityLevel=1; 🔴 0,2 for PERFORMANCE
 r.MaxAnisotropy=16; 🔴 0,4,8 for PERFORMANCE
 r.Nanite.CoarseMeshStreaming=1;
-r.Nanite.ProxyRenderMode=0;
 r.Nanite.Streaming.Imposters=0;
 r.Nanite.Streaming.StreamingPoolSize=256;
 r.Streaming.AmortizeCPUToGPUCopy=0;
@@ -228,10 +227,10 @@ r.HairStrands.RasterizationScale=0.5;
 r.HairStrands.ScatterSceneLighting=1;
 r.HairStrands.Shadow.CastShadowWhenNonVisible=0;
 r.HairStrands.Simulation=1;
-r.HairStrands.SkyAO.SampleCount=16; 🔴 8 for PERFORMANCE
-r.HairStrands.SkyAO=0; 🔴 0 for PERFORMANCE
+r.HairStrands.SkyAO.SampleCount=4;
+r.HairStrands.SkyAO=1; 🔴 0 for PERFORMANCE
 r.HairStrands.SkyLighting.IntegrationType=2;
-r.HairStrands.SkyLighting.SampleCount=16; 🔴 8 for PERFORMANCE
+r.HairStrands.SkyLighting.SampleCount=16;
 r.HairStrands.SkyLighting=1;
 r.HairStrands.UseCardsInsteadOfStrands=0; 🔴 1 for PERFORMANCE
 r.HairStrands.VelocityRasterizationScale=1;
@@ -283,8 +282,8 @@ r.LumenScene.FarField=0;
 
 ; shadow
 r.AllowLandscapeShadows=1; 🔴 0 for PERFORMANCE
-r.CapsuleShadows=0; 🔵 capsule shadows
-r.ContactShadows=0; 🔵 contact shadows
+r.CapsuleShadows=1; 🔵 capsule shadows
+r.ContactShadows=1; 🔵 contact shadows
 r.DFFullResolution=0; 🔴 0 for PERFORMANCE
 r.DFShadowQuality=2; 🔴 1,2 for PERFORMANCE
 r.HeightFieldShadowing=0; 🔵 height field shadowing
