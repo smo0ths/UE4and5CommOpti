@@ -1,4 +1,4 @@
-## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.7.6
+## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.7.6a
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -47,7 +47,7 @@ PoolSizeVRAMPercentage=70; 🔴 50 to lower vram usage 🔵 texturepool cache
 [ConsoleVariables]
 
 ; scaling stuff
-r.AntiAliasingMethod=0;
+r.AntiAliasingMethod=0; 🔵 0 off 1 FXAA 2 TAA 3 MSAA 4 TSR
 r.CustomDepthTemporalAAJitter=1;
 r.DynamicRes.OperationMode=0;
 r.FidelityFX.FSR.Enabled=0; 🔵 FSR
@@ -262,7 +262,7 @@ r.HairStrands.Visibility.MSAA.SamplePerPixel=4; 🔴 1,2 for PERFORMANCE
 r.HairStrands.Visibility.PPLL=0; 🔴 0 for PERFORMANCE
 r.HairStrands.Voxelization=0; 🔴 0 for PERFORMANCE
 
-; lumen HRT
+; HRT
 r.DistanceFields.SupportEvenIfHardwareRayTracingSupported=0; 🔵 test
 r.Lumen.HardwareRayTracing.LightingMode=0;
 r.Lumen.HardwareRayTracing=0;
@@ -320,8 +320,8 @@ r.LumenScene.FarField=0;
 
 ; shadow
 r.AllowLandscapeShadows=1; 🔴 0 for PERFORMANCE
-r.CapsuleShadows=1; 🔵 capsule shadows
-r.ContactShadows=1; 🔵 contact shadows
+r.CapsuleShadows=1; 🔴 0 for PERFORMANCE
+r.ContactShadows=1; 🔴 0 for PERFORMANCE
 r.DFFullResolution=0; 🔴 0 for PERFORMANCE
 r.DFShadowQuality=2; 🔴 1,2 for PERFORMANCE
 r.HeightFieldShadowing=0; 🔵 height field shadowing
