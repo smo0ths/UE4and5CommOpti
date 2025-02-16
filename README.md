@@ -1,4 +1,4 @@
-## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.7.6a
+## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.7.7
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -92,20 +92,21 @@ t.Streamline.Reflex.Enable=1; 🔵 reflex
 fx.Niagara.AsyncGpuTrace.HWRayTraceEnabled=0;
 r.Bloom.AsyncCompute=1;
 r.d3d12.allowasynccompute=1;
-r.DFShadowAsyncCompute=1; 🔵 test
+r.DFShadowAsyncCompute=1; 🟢 test
 r.Lumen.AsyncCompute=1;
 r.Lumen.DiffuseIndirect.AsyncCompute=1;
-r.Lumen.Reflections.AsyncCompute=1; 🔵 test
+r.Lumen.Reflections.AsyncCompute=1; 🟢 test
 r.LumenScene.Lighting.AsyncCompute=1;
 r.Nanite.AsyncRasterization.ShadowDepths=0;
-r.Nanite.AsyncRasterization=0; 🔵 test
+r.Nanite.AsyncRasterization=1; 🟢 test
 r.Nanite.Streaming.AsyncCompute=1;
-r.SceneDepthHZBAsyncCompute=1; 🔵 test
-r.SkyAtmosphereASyncCompute=1; 🔵 test
-r.volumetricrendertarget.preferasynccompute=1; 🔵 test
+r.SceneDepthHZBAsyncCompute=1; 🟢 test
+r.SkyAtmosphereASyncCompute=1; 🟢 test
+r.volumetricrendertarget.preferasynccompute=1; 🟢 test
+r.vulkan.allowasynccompute=1;
 
 ; nanite
-r.GPUScene.ParallelUpdate=1; 🔵 test 0,1
+r.GPUScene.ParallelUpdate=1; 🟢 test
 r.Nanite.Streaming.Imposters=0;
 r.Nanite.ViewMeshLODBias.Min=-2;
 r.Nanite.ViewMeshLODBias.Offset=0;
@@ -140,10 +141,10 @@ r.VirtualTextureReducedMemory=0;
 r.VirtualTextures=1;
 r.VT.AnisotropicFiltering=1;
 r.VT.MaxAnisotropy=8; 🔴 0,4 for PERFORMANCE
-r.VT.MaxReleasedPerFrame=0; 🔵 test
-r.VT.MaxTilesProducedPerFrame=96; 🔵 test
-r.VT.MaxUploadsPerFrame.Streaming=48; 🔵 test
-r.VT.MaxUploadsPerFrame=16; 🔵 test
+r.VT.MaxReleasedPerFrame=0; 🟢 test
+r.VT.MaxTilesProducedPerFrame=96; 🟢 test
+r.VT.MaxUploadsPerFrame.Streaming=48; 🟢 test
+r.VT.MaxUploadsPerFrame=16; 🟢 test
 
 ; latency
 D3D12.MaximumFrameLatency=1; 🔵 frame latency
@@ -263,7 +264,7 @@ r.HairStrands.Visibility.PPLL=0; 🔴 0 for PERFORMANCE
 r.HairStrands.Voxelization=0; 🔴 0 for PERFORMANCE
 
 ; HRT
-r.DistanceFields.SupportEvenIfHardwareRayTracingSupported=0; 🔵 test
+r.DistanceFields.SupportEvenIfHardwareRayTracingSupported=0; 🟢 test
 r.Lumen.HardwareRayTracing.LightingMode=0;
 r.Lumen.HardwareRayTracing=0;
 r.Lumen.RadianceCache.HardwareRayTracing.Retrace.FarField=0;
@@ -390,9 +391,9 @@ r.VolumetricCloud=1; 🔴 0 for PERFORMANCE
 
 ; fog
 r.Fog=1; 🔵 render fog
-r.VolumetricFog.Emissive=0; 🔵 test 0
 r.VolumetricFog.ConservativeDepth=0; 🔵 experimental
 r.VolumetricFog.DepthDistributionScale=32; 🔴 16 for PERFORMANCE
+r.VolumetricFog.Emissive=0; 🟢 test
 r.VolumetricFog.GridPixelSize=16; 🔴 16 for PERFORMANCE
 r.VolumetricFog.GridSizeZ=96; 🔴 64 for PERFORMANCE
 r.VolumetricFog.HistoryMissSupersampleCount=2; 🔴 2 for PERFORMANCE
@@ -406,9 +407,10 @@ r.VolumetricFog=1; 🔴 0 for PERFORMANCE
 r.Water.EnableShallowWaterSimulation=0; 🔴 0 for PERFORMANCE
 r.Water.EnableUnderwaterPostProcess=0; 🔴 0 for PERFORMANCE
 r.Water.Reflections.MaxRoughnessToTrace=1;
+r.Water.SingleLayer.DepthPrepass=1;
 r.Water.SingleLayer.DistanceFieldShadow=1;
 r.Water.SingleLayer.DownsampleReflections=1; 🔴 1 for PERFORMANCE
-r.Water.SingleLayer.Reflection=1; 🔵 3 to force SSR
+r.Water.SingleLayer.Reflection=1; 🔵 reflection technique
 r.Water.SingleLayer.RefractionDownsampleFactor=1; 🔴 1,2 for PERFORMANCE
 r.Water.SingleLayer.RTR=0; 🔴 0 for PERFORMANCE
 r.Water.SingleLayer.ShadersSupportDistanceFieldShadow=1;
@@ -416,7 +418,7 @@ r.Water.SingleLayer.ShadersSupportVSMFiltering=1;
 r.Water.SingleLayer.SSR=0; 🔴 0 for PERFORMANCE
 r.Water.SingleLayer.TiledComposite=1;
 r.Water.SingleLayer.UnderwaterFogWhenCameraIsAboveWater=0;
-r.Water.SingleLayer.VSMFiltering=0;
+r.Water.SingleLayer.VSMFiltering=1;
 r.Water.WaterMesh.TessFactorBias=0; 🔴 -1 for PERFORMANCE
 ```
 
@@ -433,8 +435,8 @@ bEnableMouseSmoothing=0;
 bF11TogglesFullscreen=0;
 ButtonRepeatDelay=0.1;
 bViewAccelerationEnabled=0;
-DoubleClickTime=0.01; def 0.1
-InitialButtonRepeatDelay=0.1; def 0.2
+DoubleClickTime=0.01; 🔵 def 0.1
+InitialButtonRepeatDelay=0.1; 🔵 def 0.2
 ```
 
 ---
