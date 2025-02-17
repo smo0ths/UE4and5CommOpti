@@ -1,4 +1,4 @@
-## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.7.7
+## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.7.8
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -37,9 +37,6 @@ UIInitRetryCount=0;
 bPauseOnLossOfFocus=0;
 bSmoothFrameRate=0;
 bUseFixedFrameRate=0;
-
-[Audio]
-UnfocusedVolumeMultiplier=1;
 
 [TextureStreaming]
 PoolSizeVRAMPercentage=70; 🔴 50 to lower vram usage 🔵 texturepool cache
@@ -81,6 +78,7 @@ r.SSR.ExperimentalDenoiser=0;
 r.TemporalAA.Algorithm=0; 🔵 0,1 gen4,gen5 TAAU
 r.TemporalAA.Upsampling=1; 🔴 0 for PERFORMANCE 🔵 TAAU
 r.TemporalAASamples=8;
+r.TSR.16BitVALU=0; 🟢 test
 r.VRS.Enable=0;
 r.VRS.EnableImage=0;
 r.VRS.EnableSoftware=0;
@@ -104,6 +102,10 @@ r.SceneDepthHZBAsyncCompute=1; 🟢 test
 r.SkyAtmosphereASyncCompute=1; 🟢 test
 r.volumetricrendertarget.preferasynccompute=1; 🟢 test
 r.vulkan.allowasynccompute=1;
+
+; shaders
+r.Shaders.RemoveDeadCode=1;
+r.Shaders.RemoveUnusedInterpolators=1;
 
 ; nanite
 r.GPUScene.ParallelUpdate=1; 🟢 test
@@ -135,8 +137,8 @@ r.Streaming.UsePerTextureBias=1;
 r.SupportMaterialLayers=1; 🔴 0 for PERFORMANCE
 r.TessellationAdaptivePixelsPerTriangle=999999; 🔴 999999,48 for PERFORMANCE
 r.TextureStreaming=1;
-r.VirtualTexture=0;
-r.VirtualTexturedLightmaps=0;
+r.VirtualTexture=0; 🟢 test
+r.VirtualTexturedLightmaps=0; 🟢 test
 r.VirtualTextureReducedMemory=0;
 r.VirtualTextures=1;
 r.VT.AnisotropicFiltering=1;
@@ -199,7 +201,7 @@ p.RigidBodyNode=1; 🔴 0 for PERFORMANCE
 fx.Niagara.QualityLevel=3; 🔴 0,1,2 for PERFORMANCE
 fx.NiagaraAllowRuntimeScalabilityChanges=1;
 r.EmitterSpawnRateScale=1; 🔴 0.125,0.25,0.5 for PERFORMANCE
-r.ParticleLightQuality=1; 🔴 0,1 for PERFORMANCE
+r.ParticleLightQuality=2; 🔴 0,1 for PERFORMANCE
 
 ; SSAO
 r.AmbientOcclusionLevels=-1; 🔴 0,1 for PERFORMANCE
@@ -326,7 +328,6 @@ r.ContactShadows=1; 🔴 0 for PERFORMANCE
 r.DFFullResolution=0; 🔴 0 for PERFORMANCE
 r.DFShadowQuality=2; 🔴 1,2 for PERFORMANCE
 r.HeightFieldShadowing=0; 🔵 height field shadowing
-r.Shadow.CachedShadowsCastFromMovablePrimitives=1; 🔴 0 for PERFORMANCE 🔵 movable light shadows
 r.Shadow.CSM.MaxCascades=2; 🔴 1,2,4 for PERFORMANCE
 r.Shadow.CSMShadowDistanceFadeoutMultiplier=1;
 r.Shadow.DistanceScale=1; 🔴 0.7 for PERFORMANCE
@@ -337,7 +338,7 @@ r.Shadow.NaniteLODBias=1; 🔴 1 for PERFORMANCE
 r.Shadow.RadiusThreshold=0.03; 🔴 0.06,0.05,0.04 for PERFORMANCE
 r.Shadow.Virtual.Cache.StaticSeparate=1;
 r.Shadow.Virtual.DistantLightMode=1;
-r.Shadow.Virtual.ForceOnlyVirtualShadowMaps=1; 🔵 force virtual shadow maps
+r.Shadow.Virtual.ForceOnlyVirtualShadowMaps=0; 🔵 0 for VSM underground 🟢 test
 r.Shadow.Virtual.NonNanite.IncludeInCoarsePages=0; 🔴 0 for PERFORMANCE
 r.Shadow.Virtual.NonNanite.ParallelSinglePassBatched=1;
 r.Shadow.Virtual.NonNanite.SinglePassBatched=1;
@@ -345,7 +346,7 @@ r.Shadow.Virtual.OnePassProjection.MaxLightsPerPixel=8; 🔴 8 for PERFORMANCE
 r.Shadow.Virtual.OnePassProjection=1; 🔴 1 for PERFORMANCE 🔵 experimental one pass projection
 r.Shadow.Virtual.PageMarkingPixelStrideX=2;
 r.Shadow.Virtual.PageMarkingPixelStrideY=2;
-r.Shadow.Virtual.SMRT.AdaptiveRayCount=1;
+r.Shadow.Virtual.SMRT.AdaptiveRayCount=1; 🟢 test
 r.Shadow.Virtual.SMRT.ExtrapolateMaxSlopeLocal=0.05;
 r.Shadow.Virtual.SMRT.MaxRayAngleFromLight=0.03;
 r.Shadow.Virtual.SMRT.MaxSlopeBiasLocal=50;
@@ -364,7 +365,7 @@ r.Shadow.Virtual.TranslucentQuality=0; 🔴 0 for PERFORMANCE
 r.ShadowQuality=4; 🔴 3,4 for PERFORMANCE
 r.TranslucencyLightingVolumeDim=48; 🔴 32,48 for PERFORMANCE
 r.TranslucencyVolumeBlur=1; 🔴 0 for PERFORMANCE
-r.UseClusteredDeferredShading=1; 🔵 experimental one pass projection
+r.UseClusteredDeferredShading=0; 🔵 clustered deferred shading
 
 ; sky
 r.SkyAtmosphere.FastSkyLUT.SampleCountMax=64; 🔴 32,64 for PERFORMANCE
@@ -397,7 +398,6 @@ r.VolumetricFog.Emissive=0; 🟢 test
 r.VolumetricFog.GridPixelSize=16; 🔴 16 for PERFORMANCE
 r.VolumetricFog.GridSizeZ=96; 🔴 64 for PERFORMANCE
 r.VolumetricFog.HistoryMissSupersampleCount=2; 🔴 2 for PERFORMANCE
-r.VolumetricFog.HistoryWeight=0.95;
 r.VolumetricFog.Jitter=1; 🔵 temporal filtering
 r.VolumetricFog.TemporalReprojection=1;
 r.VolumetricFog.UpsampleJitterMultiplier=1; 🔴 0 for PERFORMANCE
