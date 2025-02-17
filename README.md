@@ -1,4 +1,4 @@
-## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.7.8
+## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.7.9
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -255,7 +255,7 @@ r.HairStrands.ScatterSceneLighting=1;
 r.HairStrands.Shadow.CastShadowWhenNonVisible=0;
 r.HairStrands.Simulation=1;
 r.HairStrands.SkyAO.SampleCount=4;
-r.HairStrands.SkyAO=1; 🔴 0 for PERFORMANCE
+r.HairStrands.SkyAO=0; 🔴 0 for PERFORMANCE
 r.HairStrands.SkyLighting.IntegrationType=2;
 r.HairStrands.SkyLighting.SampleCount=16;
 r.HairStrands.SkyLighting=1;
@@ -338,7 +338,6 @@ r.Shadow.NaniteLODBias=1; 🔴 1 for PERFORMANCE
 r.Shadow.RadiusThreshold=0.03; 🔴 0.06,0.05,0.04 for PERFORMANCE
 r.Shadow.Virtual.Cache.StaticSeparate=1;
 r.Shadow.Virtual.DistantLightMode=1;
-r.Shadow.Virtual.ForceOnlyVirtualShadowMaps=0; 🔵 0 for VSM underground 🟢 test
 r.Shadow.Virtual.NonNanite.IncludeInCoarsePages=0; 🔴 0 for PERFORMANCE
 r.Shadow.Virtual.NonNanite.ParallelSinglePassBatched=1;
 r.Shadow.Virtual.NonNanite.SinglePassBatched=1;
@@ -351,13 +350,11 @@ r.Shadow.Virtual.SMRT.ExtrapolateMaxSlopeLocal=0.05;
 r.Shadow.Virtual.SMRT.MaxRayAngleFromLight=0.03;
 r.Shadow.Virtual.SMRT.MaxSlopeBiasLocal=50;
 r.Shadow.Virtual.SMRT.RayCountDirectional=4; 🔴 2,4 for PERFORMANCE
-r.Shadow.Virtual.SMRT.RayCountLocal=2; 🔴 2 for PERFORMANCE
+r.Shadow.Virtual.SMRT.RayCountLocal=4; 🔴 2,4 for PERFORMANCE
 r.Shadow.Virtual.SMRT.RayLengthScaleDirectional=1.5;
 r.Shadow.Virtual.SMRT.ReduceRaysAtDistance=1;
 r.Shadow.Virtual.SMRT.SamplesPerRayDirectional=2; 🔴 1,2 for PERFORMANCE
 r.Shadow.Virtual.SMRT.SamplesPerRayLocal=2; 🔴 1,2 for PERFORMANCE
-r.Shadow.Virtual.SMRT.SLW.RayCountDirectional=4; 🔴 2,4 for PERFORMANCE
-r.Shadow.Virtual.SMRT.SLW.SamplesPerRayDirectional=2; 🔴 1,2 for PERFORMANCE
 r.Shadow.Virtual.SMRT.TexelDitherScaleDirectional=2;
 r.Shadow.Virtual.SMRT.TexelDitherScaleLocal=2;
 r.Shadow.Virtual.SubsurfaceShadowMode=1;
