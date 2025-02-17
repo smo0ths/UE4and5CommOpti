@@ -1,4 +1,4 @@
-## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.7.9
+## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.8.0
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -309,10 +309,10 @@ r.Lumen.ScreenProbeGather.ShortRangeAO.ApplyDuringIntegration=0;
 r.Lumen.ScreenProbeGather.ShortRangeAO=1;
 r.Lumen.ScreenProbeGather.StochasticInterpolation=1; 🔴 1 for PERFORMANCE
 r.Lumen.ScreenProbeGather.Temporal=1; 🔵 temporal filtering
-r.Lumen.ScreenProbeGather.TraceMeshSDFs=1;
+r.Lumen.ScreenProbeGather.TraceMeshSDFs=0; 🔴 0 for PERFORMANCE 🔵 software lumen
 r.Lumen.ScreenProbeGather.TracingOctahedronResolution=8;
 r.Lumen.ScreenProbeGather.TwoSidedFoliageBackfaceDiffuse=1;
-r.Lumen.TraceMeshSDFs.Allow=1; 🔴 0 for PERFORMANCE 🔵 mesh signed distance fields
+r.Lumen.TraceMeshSDFs.Allow=0; 🔴 0 for PERFORMANCE 🔵 software lumen
 r.Lumen.TraceMeshSDFs.TraceDistance=180; 🔴 90 for PERFORMANCE
 r.Lumen.TraceMeshSDFs=0; 🔴 0 for PERFORMANCE
 r.Lumen.TranslucencyReflections.FrontLayer.Allow=1; 🔴 0 for PERFORMANCE
