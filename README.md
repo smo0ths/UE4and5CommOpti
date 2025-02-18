@@ -1,4 +1,4 @@
-## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.8.2
+## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.8.3
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -187,7 +187,7 @@ r.SSR.HalfResSceneColor=1; 🔴 1 for PERFORMANCE
 r.SSR.Quality=2; 🔴 0,2 for PERFORMANCE
 
 ; sub surface scattering
-r.SSS.Burley.Quality=1; 🔴 0 for PERFORMANCE
+r.SSS.Burley.Quality=0; 🔴 0 for PERFORMANCE
 r.SSS.Checkerboard=2; 🔴 1 for PERFORMANCE
 r.SSS.HalfRes=0; 🔴 1 for PERFORMANCE
 r.SubsurfaceScattering=1; 🔴 0 for PERFORMANCE
@@ -267,7 +267,7 @@ r.HairStrands.Voxelization=0; 🔴 0 for PERFORMANCE
 
 ; HRT
 r.DistanceFields.SupportEvenIfHardwareRayTracingSupported=0; 🟢 test
-r.Lumen.HardwareRayTracing.LightingMode=0;
+r.Lumen.HardwareRayTracing.LightingMode=2; 🔴 0 for PERFORMANCE
 r.Lumen.HardwareRayTracing=0;
 r.Lumen.RadianceCache.HardwareRayTracing.Retrace.FarField=0;
 r.Lumen.RadianceCache.HardwareRayTracing=0;
@@ -297,6 +297,7 @@ r.Lumen.Reflections.MaxRoughnessToTraceForFoliage=0.4;
 r.Lumen.Reflections.RadianceCache=1; 🔵 radiance cache
 r.Lumen.Reflections.ScreenSpaceReconstruction.TonemapStrength=0;
 r.Lumen.Reflections.ScreenSpaceReconstruction=1; 🔵 reconstruction
+r.Lumen.Reflections.SpecularIndirectBuffer32Bit=0; 🔴 1 for PERFORMANCE
 r.Lumen.Reflections.Temporal=1; 🔵 temporal filtering
 r.Lumen.Reflections.TraceMeshSDFs=0; 🔴 0 for PERFORMANCE
 r.Lumen.SampleFog=0;
