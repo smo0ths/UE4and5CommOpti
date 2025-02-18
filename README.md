@@ -1,4 +1,4 @@
-## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.8.1
+## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.8.2
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -187,9 +187,9 @@ r.SSR.HalfResSceneColor=1; 🔴 1 for PERFORMANCE
 r.SSR.Quality=2; 🔴 0,2 for PERFORMANCE
 
 ; sub surface scattering
-r.SSS.Burley.Quality=0; 🔴 0 for PERFORMANCE
-r.SSS.Checkerboard=1; 🔴 1 for PERFORMANCE
-r.SSS.HalfRes=1; 🔴 1 for PERFORMANCE
+r.SSS.Burley.Quality=1; 🔴 0 for PERFORMANCE
+r.SSS.Checkerboard=2; 🔴 1 for PERFORMANCE
+r.SSS.HalfRes=0; 🔴 1 for PERFORMANCE
 r.SubsurfaceScattering=1; 🔴 0 for PERFORMANCE
 
 ; physics
