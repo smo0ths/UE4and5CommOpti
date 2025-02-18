@@ -1,4 +1,4 @@
-## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.8.0
+## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.8.1
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -233,7 +233,7 @@ r.Filter.LoopMode=0; 🔴 0 for PERFORMANCE
 r.Filter.SizeScale=1;
 r.MotionBlurQuality=0;
 r.PostProcessing.PreferCompute=1;
-r.SceneColorFormat=3; 🔴 2,3 for PERFORMANCE
+r.SceneColorFormat=4; 🔴 2,3 for PERFORMANCE
 r.SceneColorFringe.Max=0;
 r.SeparateTranslucencyAutoDownsample=1;
 r.SeparateTranslucencyScreenPercentage=100;
