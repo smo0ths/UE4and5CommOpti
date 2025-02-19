@@ -1,4 +1,4 @@
-## updated 2/16/2025 ✂ 📋 🌀 :ramen: v0.8.3
+## updated 2/18/2025 ✂ 📋 🌀 :ramen: v0.8.4
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -268,13 +268,13 @@ r.HairStrands.Voxelization=0; 🔴 0 for PERFORMANCE
 ; HRT
 r.DistanceFields.SupportEvenIfHardwareRayTracingSupported=0; 🟢 test
 r.Lumen.HardwareRayTracing.LightingMode=2; 🔴 0 for PERFORMANCE
-r.Lumen.HardwareRayTracing=0;
+r.Lumen.HardwareRayTracing=1; 🟢 test
 r.Lumen.RadianceCache.HardwareRayTracing.Retrace.FarField=0;
-r.Lumen.RadianceCache.HardwareRayTracing=0;
+r.Lumen.RadianceCache.HardwareRayTracing=1; 🟢 test
 r.Lumen.Reflections.HardwareRayTracing.Retrace.FarField=0;
 r.Lumen.Reflections.HardwareRayTracing=0;
 r.Lumen.ScreenProbeGather.HardwareRayTracing.Retrace.FarField=0;
-r.Lumen.ScreenProbeGather.HardwareRayTracing=0;
+r.Lumen.ScreenProbeGather.HardwareRayTracing=0; 🔵 diffuse indirect
 r.Lumen.ScreenProbeGather.ShortRangeAO.HardwareRayTracing=0;
 r.Lumen.TranslucencyVolume.HardwareRayTracing=0;
 r.LumenScene.DirectLighting.HardwareRayTracing=0;
@@ -285,7 +285,6 @@ r.ManyLights.HardwareRayTracing=0;
 r.GBufferDiffuseSampleOcclusion=1; 🔵 bent normal maps
 r.Lumen.DiffuseIndirect.Allow=1; 🔴 0 for PERFORMANCE 🔵 lumen global illumination
 r.Lumen.DiffuseIndirect.SSAO=0;
-r.Lumen.IrradianceFieldGather=0; 🔵 experimental
 r.Lumen.RadianceCache.NumFramesToKeepCachedProbes=8;
 r.Lumen.Reflections.Allow=1; 🔴 0 for PERFORMANCE 🔵 lumen reflections
 r.Lumen.Reflections.BilateralFilter.NumSamples=4;
@@ -302,10 +301,11 @@ r.Lumen.Reflections.Temporal=1; 🔵 temporal filtering
 r.Lumen.Reflections.TraceMeshSDFs=0; 🔴 0 for PERFORMANCE
 r.Lumen.SampleFog=0;
 r.Lumen.ScreenProbeGather.DownsampleFactor=16; 🔴 32 for PERFORMANCE
-r.Lumen.ScreenProbeGather.IrradianceFormat=1; 🔴 1 for PERFORMANCE
 r.Lumen.ScreenProbeGather.MaterialAO=1;
+r.Lumen.ScreenProbeGather.RadianceCache.ProbeAtlasResolutionInProbes=128;
 r.Lumen.ScreenProbeGather.RadianceCache=1; 🔵 persistent world space radiance cache
 r.Lumen.ScreenProbeGather.ScreenSpaceBentNormal=1; 🔵 bent normal maps, changed to ShortRangeAO
+r.Lumen.ScreenProbeGather.ScreenTraces=1;
 r.Lumen.ScreenProbeGather.ShortRangeAO.ApplyDuringIntegration=0;
 r.Lumen.ScreenProbeGather.ShortRangeAO=1;
 r.Lumen.ScreenProbeGather.StochasticInterpolation=1; 🔴 1 for PERFORMANCE
@@ -319,8 +319,11 @@ r.Lumen.TraceMeshSDFs=0; 🔴 0 for PERFORMANCE
 r.Lumen.TranslucencyReflections.FrontLayer.Allow=1; 🔴 0 for PERFORMANCE
 r.Lumen.TranslucencyReflections.FrontLayer.Enable=1; 🔴 0 for PERFORMANCE
 r.Lumen.TranslucencyVolume.Enable=1;
+r.Lumen.TranslucencyVolume.RadianceCache.ProbeAtlasResolutionInProbes=80; 🟢 test
 r.LumenScene.DirectLighting.OffscreenShadowing.TraceMeshSDFs=0;
+r.LumenScene.FarField.MaxTraceDistance=100000;
 r.LumenScene.FarField=0;
+r.LumenScene.Radiosity.ProbeOcclusion=0; 🟢 test
 
 ; shadow
 r.AllowLandscapeShadows=1; 🔴 0 for PERFORMANCE
