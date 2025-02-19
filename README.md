@@ -1,4 +1,4 @@
-## updated 2/18/2025 ✂ 📋 🌀 :ramen: v0.8.4
+## updated 2/19/2025 ✂ 📋 🌀 :ramen: v0.8.5
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -75,7 +75,6 @@ r.NIS.Sharpness=0;
 r.PostProcessAAQuality=0; 🔵 0 off 1,2 FXAA 3,4,5,6 TAA
 r.SecondaryScreenPercentage.GameViewport=0;
 r.SSR.ExperimentalDenoiser=0;
-r.TemporalAA.Algorithm=0; 🔵 0,1 gen4,gen5 TAAU
 r.TemporalAA.Upsampling=1; 🔴 0 for PERFORMANCE 🔵 TAAU
 r.TemporalAASamples=8;
 r.TSR.16BitVALU=0; 🟢 test
@@ -265,28 +264,37 @@ r.HairStrands.Visibility.MSAA.SamplePerPixel=4; 🔴 1,2 for PERFORMANCE
 r.HairStrands.Visibility.PPLL=0; 🔴 0 for PERFORMANCE
 r.HairStrands.Voxelization=0; 🔴 0 for PERFORMANCE
 
-; HRT
-r.DistanceFields.SupportEvenIfHardwareRayTracingSupported=0; 🟢 test
-r.Lumen.HardwareRayTracing.LightingMode=2; 🔴 0 for PERFORMANCE
-r.Lumen.HardwareRayTracing=1; 🟢 test
-r.Lumen.RadianceCache.HardwareRayTracing.Retrace.FarField=0;
-r.Lumen.RadianceCache.HardwareRayTracing=1; 🟢 test
-r.Lumen.Reflections.HardwareRayTracing.Retrace.FarField=0;
-r.Lumen.Reflections.HardwareRayTracing=0;
-r.Lumen.ScreenProbeGather.HardwareRayTracing.Retrace.FarField=0;
-r.Lumen.ScreenProbeGather.HardwareRayTracing=0; 🔵 diffuse indirect
-r.Lumen.ScreenProbeGather.ShortRangeAO.HardwareRayTracing=0;
-r.Lumen.TranslucencyVolume.HardwareRayTracing=0;
-r.LumenScene.DirectLighting.HardwareRayTracing=0;
-r.LumenScene.Radiosity.HardwareRayTracing=0;
-r.ManyLights.HardwareRayTracing=0;
+; RTX switch
+r.Lumen.HardwareRayTracing=0;
+r.RayTracing=0;
+
+; RTX ect
+r.HeterogeneousVolumes.HardwareRayTracing=0; 🟡 def 0
+r.Lumen.HardwareRayTracing.Inline=0; 🟡 def 1
+r.Lumen.HardwareRayTracing.LightingMode=0; 🔴 0 for PERFORMANCE 🟢 test 🟡 def 0
+r.Lumen.RadianceCache.HardwareRayTracing=1; 🟡 def 1
+r.Lumen.Reflections.HardwareRayTracing=1; 🟡 def 1
+r.Lumen.ScreenProbeGather.HardwareRayTracing=1; 🟡 def 1 🔵 diffuse indirect
+r.Lumen.ScreenProbeGather.ShortRangeAO.HardwareRayTracing=0; 🟢 test 🟡 def ?
+r.Lumen.TranslucencyVolume.HardwareRayTracing=1; 🟡 def 1
+r.LumenScene.DirectLighting.HardwareRayTracing=1; 🟡 def 1
+r.LumenScene.Radiosity.HardwareRayTracing=1; 🟡 def 1
+r.ManyLights.HardwareRayTracing=0; 🟡 def 1
+
+; lumen tests
+r.Lumen.DiffuseIndirect.Allow=1; 🔵 lumen global illumination
+r.Lumen.Reflections.Allow=1; 🔵 lumen reflections
+r.Lumen.Reflections.TraceMeshSDFs=1; 🟡 def 1
+r.Lumen.ScreenProbeGather.TraceMeshSDFs=1; 🟡 def 1
+r.Lumen.TraceMeshSDFs.Allow=1; 🟡 def 1
+r.Lumen.TraceMeshSDFs.TraceDistance=180; 🟢 test
+r.Lumen.TraceMeshSDFs=0; 🔴 0 for PERFORMANCE 🟢 test 🟡 def 0
 
 ; lumen
+r.DistanceFields.SupportEvenIfHardwareRayTracingSupported=0; 🟢 test 🟡 def 1
 r.GBufferDiffuseSampleOcclusion=1; 🔵 bent normal maps
-r.Lumen.DiffuseIndirect.Allow=1; 🔴 0 for PERFORMANCE 🔵 lumen global illumination
 r.Lumen.DiffuseIndirect.SSAO=0;
 r.Lumen.RadianceCache.NumFramesToKeepCachedProbes=8;
-r.Lumen.Reflections.Allow=1; 🔴 0 for PERFORMANCE 🔵 lumen reflections
 r.Lumen.Reflections.BilateralFilter.NumSamples=4;
 r.Lumen.Reflections.BilateralFilter.SpatialKernelRadius=0.002;
 r.Lumen.Reflections.BilateralFilter=1;
@@ -298,7 +306,6 @@ r.Lumen.Reflections.ScreenSpaceReconstruction.TonemapStrength=0;
 r.Lumen.Reflections.ScreenSpaceReconstruction=1; 🔵 reconstruction
 r.Lumen.Reflections.SpecularIndirectBuffer32Bit=0; 🔴 1 for PERFORMANCE
 r.Lumen.Reflections.Temporal=1; 🔵 temporal filtering
-r.Lumen.Reflections.TraceMeshSDFs=0; 🔴 0 for PERFORMANCE
 r.Lumen.SampleFog=0;
 r.Lumen.ScreenProbeGather.DownsampleFactor=16; 🔴 32 for PERFORMANCE
 r.Lumen.ScreenProbeGather.MaterialAO=1;
@@ -310,25 +317,19 @@ r.Lumen.ScreenProbeGather.ShortRangeAO.ApplyDuringIntegration=0;
 r.Lumen.ScreenProbeGather.ShortRangeAO=1;
 r.Lumen.ScreenProbeGather.StochasticInterpolation=1; 🔴 1 for PERFORMANCE
 r.Lumen.ScreenProbeGather.Temporal=1; 🔵 temporal filtering
-r.Lumen.ScreenProbeGather.TraceMeshSDFs=0; 🔴 0 for PERFORMANCE 🔵 software lumen
 r.Lumen.ScreenProbeGather.TracingOctahedronResolution=8;
 r.Lumen.ScreenProbeGather.TwoSidedFoliageBackfaceDiffuse=1;
-r.Lumen.TraceMeshSDFs.Allow=0; 🔴 0 for PERFORMANCE 🔵 software lumen
-r.Lumen.TraceMeshSDFs.TraceDistance=180; 🔴 90 for PERFORMANCE
-r.Lumen.TraceMeshSDFs=0; 🔴 0 for PERFORMANCE
-r.Lumen.TranslucencyReflections.FrontLayer.Allow=1; 🔴 0 for PERFORMANCE
-r.Lumen.TranslucencyReflections.FrontLayer.Enable=1; 🔴 0 for PERFORMANCE
-r.Lumen.TranslucencyVolume.Enable=1;
+r.Lumen.TranslucencyReflections.FrontLayer.Allow=1; 🔴 0 for PERFORMANCE 🟢 test
+r.Lumen.TranslucencyReflections.FrontLayer.Enable=1; 🔴 0 for PERFORMANCE 🟢 test
+r.Lumen.TranslucencyVolume.Enable=1; 🟢 test
 r.Lumen.TranslucencyVolume.RadianceCache.ProbeAtlasResolutionInProbes=80; 🟢 test
-r.LumenScene.DirectLighting.OffscreenShadowing.TraceMeshSDFs=0;
+r.LumenScene.DirectLighting.OffscreenShadowing.TraceMeshSDFs=0; 🟢 test 🟡 def 1
 r.LumenScene.FarField.MaxTraceDistance=100000;
 r.LumenScene.FarField=0;
-r.LumenScene.Radiosity.ProbeOcclusion=0; 🟢 test
+r.LumenScene.Radiosity.ProbeOcclusion=0; 🔴 0 for PERFORMANCE
 
 ; shadow
 r.AllowLandscapeShadows=1; 🔴 0 for PERFORMANCE
-r.CapsuleShadows=1; 🔴 0 for PERFORMANCE
-r.ContactShadows=1; 🔴 0 for PERFORMANCE
 r.DFFullResolution=0; 🔴 0 for PERFORMANCE
 r.DFShadowQuality=2; 🔴 1,2 for PERFORMANCE
 r.HeightFieldShadowing=0; 🔵 height field shadowing
@@ -340,33 +341,19 @@ r.Shadow.MaxCSMResolution=2048; 🔴 512,1024 for PERFORMANCE
 r.Shadow.MaxResolution=2048; 🔴 512,1024 for PERFORMANCE
 r.Shadow.NaniteLODBias=1; 🔴 1 for PERFORMANCE
 r.Shadow.RadiusThreshold=0.03; 🔴 0.06,0.05,0.04 for PERFORMANCE
-r.Shadow.Virtual.Cache.StaticSeparate=1;
-r.Shadow.Virtual.DistantLightMode=1;
-r.Shadow.Virtual.NonNanite.IncludeInCoarsePages=0; 🔴 0 for PERFORMANCE
-r.Shadow.Virtual.NonNanite.ParallelSinglePassBatched=1;
-r.Shadow.Virtual.NonNanite.SinglePassBatched=1;
-r.Shadow.Virtual.OnePassProjection.MaxLightsPerPixel=8; 🔴 8 for PERFORMANCE
-r.Shadow.Virtual.OnePassProjection=1; 🔴 1 for PERFORMANCE 🔵 experimental one pass projection
-r.Shadow.Virtual.PageMarkingPixelStrideX=2;
-r.Shadow.Virtual.PageMarkingPixelStrideY=2;
-r.Shadow.Virtual.SMRT.AdaptiveRayCount=1; 🟢 test
-r.Shadow.Virtual.SMRT.ExtrapolateMaxSlopeLocal=0.05;
-r.Shadow.Virtual.SMRT.MaxRayAngleFromLight=0.03;
-r.Shadow.Virtual.SMRT.MaxSlopeBiasLocal=50;
-r.Shadow.Virtual.SMRT.RayCountDirectional=4; 🔴 2,4 for PERFORMANCE
-r.Shadow.Virtual.SMRT.RayCountLocal=4; 🔴 2,4 for PERFORMANCE
-r.Shadow.Virtual.SMRT.RayLengthScaleDirectional=1.5;
-r.Shadow.Virtual.SMRT.ReduceRaysAtDistance=1;
-r.Shadow.Virtual.SMRT.SamplesPerRayDirectional=2; 🔴 1,2 for PERFORMANCE
-r.Shadow.Virtual.SMRT.SamplesPerRayLocal=2; 🔴 1,2 for PERFORMANCE
-r.Shadow.Virtual.SMRT.TexelDitherScaleDirectional=2;
-r.Shadow.Virtual.SMRT.TexelDitherScaleLocal=2;
-r.Shadow.Virtual.SubsurfaceShadowMode=1;
-r.Shadow.Virtual.TranslucentQuality=0; 🔴 0 for PERFORMANCE
 r.ShadowQuality=4; 🔴 3,4 for PERFORMANCE
 r.TranslucencyLightingVolumeDim=48; 🔴 32,48 for PERFORMANCE
 r.TranslucencyVolumeBlur=1; 🔴 0 for PERFORMANCE
-r.UseClusteredDeferredShading=0; 🔵 clustered deferred shading
+
+; virtual shadow maps
+r.Shadow.Virtual.NonNanite.IncludeInCoarsePages=0; 🔴 0 for PERFORMANCE
+r.Shadow.Virtual.OnePassProjection.MaxLightsPerPixel=16; 🔴 8 for PERFORMANCE 🟢 test
+r.Shadow.Virtual.SMRT.RayCountDirectional=4; 🔴 2,4 for PERFORMANCE
+r.Shadow.Virtual.SMRT.RayCountLocal=4; 🔴 2,4 for PERFORMANCE
+r.Shadow.Virtual.SMRT.SamplesPerRayDirectional=2; 🔴 1,2 for PERFORMANCE
+r.Shadow.Virtual.SMRT.SamplesPerRayLocal=2; 🔴 1,2 for PERFORMANCE
+r.Shadow.Virtual.SubsurfaceShadowMode=1;
+r.Shadow.Virtual.TranslucentQuality=0; 🔴 0 for PERFORMANCE
 
 ; sky
 r.SkyAtmosphere.FastSkyLUT.SampleCountMax=64; 🔴 32,64 for PERFORMANCE
