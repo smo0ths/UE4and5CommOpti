@@ -1,4 +1,4 @@
-## updated 2/19/2025 ✂ 📋 🌀 :ramen: v0.8.6b
+## updated 2/19/2025 ✂ 📋 🌀 :ramen: v0.8.7
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -17,6 +17,8 @@
 #### 3840x2160 use 🔴 33%,50%,58%,67% for PERFORMANCE (higher when cpu bound) (DLSS/TAAU/TSR/CAS/FSR/XeSS/PSSR/NIS/IS)
 
 ## Open Engine.ini and copy pasta %localappdata%
+
+#### 1. add config 2. open game and adjust settings (config doesn't touch lods like view distance so set low or higher) 3. restart game
 
 #### or Repak.bat method if it works (zzz_INIMODS\Engine\Config\Windows\WindowsEngine.ini)
 
@@ -43,8 +45,14 @@ PoolSizeVRAMPercentage=70; 🔴 50 to lower vram usage 🔵 texturepool cache
 
 [ConsoleVariables]
 
+; tests
+D3D12.TexturePoolOnlyAccountStreamableTexture=1; 🟢 test 🔵 newer
+r.D3D.ForceDXC=1; 🔵 DXC Shader compiler instead of FXC
+r.D3D12.AllowShaderModel6=1; 🔵 SM6 support
+r.D3D12.ShadowDepth32Bit=0; 🔵 16bit shadow depth
+
 ; scaling stuff
-r.AntiAliasingMethod=2; 🔵 0 off 1 FXAA 2 TAA 3 MSAA 4 TSR
+r.AntiAliasingMethod=0; 🔵 0 off 1 FXAA 2 TAA 3 MSAA 4 TSR
 r.CustomDepthTemporalAAJitter=1;
 r.DynamicRes.OperationMode=0;
 r.FidelityFX.FSR.Enabled=0; 🔵 FSR
@@ -62,6 +70,7 @@ r.FidelityFX.FSR3.CreateReactiveMask=1;
 r.FidelityFX.FSR3.Enabled=0; 🔵 FSR3
 r.FidelityFX.FSR3.Sharpness=0;
 r.FidelityFX.FSR3.UseSSRExperimentalDenoiser=0;
+r.FXAA.Quality=0; 🟢 test 🟡 def 4
 r.NGX.DLSS.AutoExposure=1;
 r.NGX.DLSS.DilateMotionVectors=1;
 r.NGX.DLSS.Enable=1; 🔵 DLSS
@@ -72,9 +81,10 @@ r.NGX.DLSS.Sharpness=0;
 r.NGX.DLSS.WaterReflections.TemporalAA=0;
 r.NIS.Enable=0; 🔵 NIS
 r.NIS.Sharpness=0;
-r.PostProcessAAQuality=6; 🔵 0 off 1,2 FXAA 3,4,5,6 TAA
+r.PostProcessAAQuality=0; 🔵 0 off 1,2 FXAA 3,4,5,6 TAA
 r.SecondaryScreenPercentage.GameViewport=0;
 r.SSR.ExperimentalDenoiser=0;
+r.TemporalAA.Quality=0; 🟡 def 2
 r.TemporalAA.Upsampling=1; 🔴 0 for PERFORMANCE 🔵 TAAU
 r.TemporalAASamples=8;
 r.TSR.16BitVALU=0; 🟢 test
@@ -116,7 +126,6 @@ r.Nanite.ViewMeshLODBias.Offset=0;
 
 ; texture stuff
 r.AnisotropicMaterials=1; 🔴 0 for PERFORMANCE
-r.DetailMode=2; 🔴 0,1,2 for PERFORMANCE
 r.LandscapeLODBias=0; 🔴 1 for PERFORMANCE
 r.MaterialQualityLevel=1; 🔴 0,2 for PERFORMANCE
 r.MaxAnisotropy=16; 🔴 0,4,8 for PERFORMANCE
@@ -211,7 +220,7 @@ r.AmbientOcclusionStaticFraction=-1; 🔴 0 for PERFORMANCE
 ; DFAO
 r.AOQuality=2; 🔴 0 for PERFORMANCE
 
-; post process stuff ect
+; post process ect
 r.Bloom.ScreenPercentage=50;
 r.BloomQuality=4; 🔴 0 for PERFORMANCE
 r.BlurGBuffer=0;
@@ -237,6 +246,7 @@ r.SceneColorFormat=4; 🔴 2,3 for PERFORMANCE
 r.SceneColorFringe.Max=0;
 r.SeparateTranslucencyAutoDownsample=1;
 r.SeparateTranslucencyScreenPercentage=100;
+r.Tonemapper.GrainQuantization=0; 🟢 test
 r.Tonemapper.Quality=2; 🟢 test
 r.Tonemapper.Sharpen=0;
 r.Upscale.Quality=3; 🔴 1,2 for PERFORMANCE
@@ -246,6 +256,7 @@ r.LightMaxDrawDistanceScale=1; 🔴 0.6 for PERFORMANCE
 r.MinScreenRadiusForLights=0.03; 🔴 0.06,0.04 for PERFORMANCE
 
 ; hair
+r.HairStrands.ComposeAfterTranslucency=0; 🟢 test
 r.HairStrands.DeepShadow.SuperSampling=0;
 r.HairStrands.Enable=1; 🔴 0 for PERFORMANCE
 r.HairStrands.Interpolation.UseSingleGuide=1; 🔴 1 for PERFORMANCE
@@ -253,16 +264,19 @@ r.HairStrands.MinLOD=0;
 r.HairStrands.RasterizationScale=0.5;
 r.HairStrands.ScatterSceneLighting=1;
 r.HairStrands.Shadow.CastShadowWhenNonVisible=0;
+r.HairStrands.Shadow.CastShadowWhenNonVisible=0; 🟢 test
 r.HairStrands.Simulation=1;
 r.HairStrands.SkyAO.SampleCount=4;
 r.HairStrands.SkyAO=0; 🔴 0 for PERFORMANCE
 r.HairStrands.SkyLighting.IntegrationType=2;
 r.HairStrands.SkyLighting.SampleCount=16;
+r.HairStrands.SkyLighting.ScreenTraceOcclusion=0; 🟢 test 🔵 experiemental
 r.HairStrands.SkyLighting=1;
 r.HairStrands.UseCardsInsteadOfStrands=0; 🔴 1 for PERFORMANCE
 r.HairStrands.VelocityRasterizationScale=1;
 r.HairStrands.Visibility.MSAA.SamplePerPixel=4; 🔴 1,2 for PERFORMANCE
 r.HairStrands.Visibility.PPLL=0; 🔴 0 for PERFORMANCE
+r.HairStrands.Voxelization.VoxelSizeInPixel=0.3; 🟢 test
 r.HairStrands.Voxelization=0; 🔴 0 for PERFORMANCE
 
 ; RTX switch
@@ -281,6 +295,38 @@ r.Lumen.TranslucencyVolume.HardwareRayTracing=1; 🟡 def 1
 r.LumenScene.DirectLighting.HardwareRayTracing=1; 🟡 def 1
 r.LumenScene.Radiosity.HardwareRayTracing=1; 🟡 def 1
 r.ManyLights.HardwareRayTracing=0; 🟡 def 1
+
+; RTX tests
+r.HairStrands.Raytracing=0;
+r.NGX.DLSS.DenoiserMode=0; 🟢 test 🔵 ray reconstruction
+r.PathTracing=0;
+r.RayTracing.ExcludeDecals=1;
+r.RayTracing.ExcludeSky=1;
+r.RayTracing.ExcludeTranslucent=1;
+r.RayTracing.Geometry.HierarchicalInstancedStaticMesh=0;
+r.RayTracing.Geometry.InstancedStaticMeshes=0;
+r.RayTracing.Geometry.Landscape=0;
+r.RayTracing.Geometry.LandscapeGrass=0;
+r.RayTracing.Geometry.NiagaraMeshes=0;
+r.RayTracing.Geometry.NiagaraRibbons=0;
+r.RayTracing.Geometry.NiagaraSprites=0;
+r.RayTracing.Geometry.ProceduralMeshes=0;
+r.RayTracing.Geometry.SkeletalMeshes=0;
+r.RayTracing.Geometry.SplineMeshes=0;
+r.RayTracing.Geometry.StaticMeshes=0;
+r.RayTracing.GlobalIllumination=0;
+r.RayTracing.Reflections.ExperimentalDeferred=0;
+r.RayTracing.Reflections.Hybrid=0;
+r.RayTracing.Reflections=0;
+r.RayTracing.Shadows.EnableHairVoxel=0;
+r.RayTracing.Shadows.EnableMaterials=0;
+r.RayTracing.Shadows.EnableTwoSidedGeometry=0;
+r.RayTracing.Shadows.MaxBatchSize=8;
+r.RayTracing.Shadows=0;
+r.RayTracing.Skylight=0;
+r.RayTracing.Translucency=0;
+r.VolumetricFog.InjectRaytracedLights.LocalLights=1;
+r.VolumetricFog.InjectRaytracedLights=1;
 
 ; lumen tests
 r.Lumen.DiffuseIndirect.Allow=1; 🔵 lumen global illumination
@@ -350,6 +396,7 @@ r.Shadow.Virtual.OnePassProjection.MaxLightsPerPixel=16; 🔴 8 for PERFORMANCE 
 r.Shadow.Virtual.SMRT.RayCountDirectional=4; 🔴 2,4 for PERFORMANCE
 r.Shadow.Virtual.SMRT.RayCountLocal=4; 🔴 2,4 for PERFORMANCE
 r.Shadow.Virtual.SMRT.SamplesPerRayDirectional=2; 🔴 1,2 for PERFORMANCE
+r.Shadow.Virtual.SMRT.SamplesPerRayHair=1; 🟡 def 1
 r.Shadow.Virtual.SMRT.SamplesPerRayLocal=2; 🔴 1,2 for PERFORMANCE
 r.Shadow.Virtual.SubsurfaceShadowMode=1;
 r.Shadow.Virtual.TranslucentQuality=0; 🔴 0 for PERFORMANCE
