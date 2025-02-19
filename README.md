@@ -1,4 +1,4 @@
-## updated 2/19/2025 ✂ 📋 🌀 :ramen: v0.8.6
+## updated 2/19/2025 ✂ 📋 🌀 :ramen: v0.8.6a
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -164,7 +164,6 @@ r.NumBufferedOcclusionQueries=2; 🟢 test 🔵 frames to buffer occlusion queri
 ; debug
 r.D3D12.GPUCrashDebuggingMode=0;
 r.DetectAndWarnOfBadDrivers=0;
-r.ForceDebugViewModes=0;
 r.gpucrash.collectionenable=0;
 r.NGX.LogLevel=0;
 r.VsyncInformationInsights=0;
