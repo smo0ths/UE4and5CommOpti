@@ -1,4 +1,4 @@
-## updated 2/19/2025 ✂ 📋 🌀 :ramen: v0.8.6a
+## updated 2/19/2025 ✂ 📋 🌀 :ramen: v0.8.6b
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -83,7 +83,9 @@ r.VRS.EnableImage=0;
 r.VRS.EnableSoftware=0;
 r.XeSS.AutoExposure=1;
 r.XeSS.Enabled=0; 🔵 XeSS
-t.Streamline.Reflex.Enable=1; 🔵 reflex
+t.Streamline.Reflex.Auto=1;
+t.Streamline.Reflex.Enable=1; 🔵 reflex amd frame gen not supported
+t.Streamline.Reflex.Mode=2;
 
 ; async stuff
 fx.Niagara.AsyncGpuTrace.HWRayTraceEnabled=0;
