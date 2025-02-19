@@ -1,4 +1,4 @@
-## updated 2/19/2025 ✂ 📋 🌀 :ramen: v0.8.5
+## updated 2/19/2025 ✂ 📋 🌀 :ramen: v0.8.6
 
 ### for UE4 and UE5* games for reference/customization/optimization/learning
 
@@ -44,14 +44,14 @@ PoolSizeVRAMPercentage=70; 🔴 50 to lower vram usage 🔵 texturepool cache
 [ConsoleVariables]
 
 ; scaling stuff
-r.AntiAliasingMethod=0; 🔵 0 off 1 FXAA 2 TAA 3 MSAA 4 TSR
+r.AntiAliasingMethod=2; 🔵 0 off 1 FXAA 2 TAA 3 MSAA 4 TSR
 r.CustomDepthTemporalAAJitter=1;
 r.DynamicRes.OperationMode=0;
 r.FidelityFX.FSR.Enabled=0; 🔵 FSR
-r.FidelityFX.FSR.PrimaryUpscale=1;
-r.FidelityFX.FSR.RCAS.Enabled=1;
-r.FidelityFX.FSR.RCAS.Sharpness=0.2;
-r.FidelityFX.FSR.SecondaryUpscale=1;
+r.FidelityFX.FSR.PrimaryUpscale=0;
+r.FidelityFX.FSR.RCAS.Enabled=0;
+r.FidelityFX.FSR.RCAS.Sharpness=0;
+r.FidelityFX.FSR.SecondaryUpscale=0;
 r.FidelityFX.FSR2.AutoExposure=0;
 r.FidelityFX.FSR2.CreateReactiveMask=1;
 r.FidelityFX.FSR2.Enabled=0; 🔵 FSR2
@@ -72,7 +72,7 @@ r.NGX.DLSS.Sharpness=0;
 r.NGX.DLSS.WaterReflections.TemporalAA=0;
 r.NIS.Enable=0; 🔵 NIS
 r.NIS.Sharpness=0;
-r.PostProcessAAQuality=0; 🔵 0 off 1,2 FXAA 3,4,5,6 TAA
+r.PostProcessAAQuality=6; 🔵 0 off 1,2 FXAA 3,4,5,6 TAA
 r.SecondaryScreenPercentage.GameViewport=0;
 r.SSR.ExperimentalDenoiser=0;
 r.TemporalAA.Upsampling=1; 🔴 0 for PERFORMANCE 🔵 TAAU
@@ -159,7 +159,7 @@ t.OverrideFPS=0;
 
 ; occlusion system
 r.HZBOcclusion=1;
-r.NumBufferedOcclusionQueries=1; 🔵 frames to buffer occlusion queries test 1,2
+r.NumBufferedOcclusionQueries=2; 🟢 test 🔵 frames to buffer occlusion queries test 1,2
 
 ; debug
 r.D3D12.GPUCrashDebuggingMode=0;
@@ -236,7 +236,7 @@ r.SceneColorFormat=4; 🔴 2,3 for PERFORMANCE
 r.SceneColorFringe.Max=0;
 r.SeparateTranslucencyAutoDownsample=1;
 r.SeparateTranslucencyScreenPercentage=100;
-r.Tonemapper.Quality=5;
+r.Tonemapper.Quality=2; 🟢 test
 r.Tonemapper.Sharpen=0;
 r.Upscale.Quality=3; 🔴 1,2 for PERFORMANCE
 
@@ -287,7 +287,6 @@ r.Lumen.Reflections.Allow=1; 🔵 lumen reflections
 r.Lumen.Reflections.TraceMeshSDFs=1; 🟡 def 1
 r.Lumen.ScreenProbeGather.TraceMeshSDFs=1; 🟡 def 1
 r.Lumen.TraceMeshSDFs.Allow=1; 🟡 def 1
-r.Lumen.TraceMeshSDFs.TraceDistance=180; 🟢 test
 r.Lumen.TraceMeshSDFs=0; 🔴 0 for PERFORMANCE 🟢 test 🟡 def 0
 
 ; lumen
@@ -332,7 +331,6 @@ r.LumenScene.Radiosity.ProbeOcclusion=0; 🔴 0 for PERFORMANCE
 r.AllowLandscapeShadows=1; 🔴 0 for PERFORMANCE
 r.DFFullResolution=0; 🔴 0 for PERFORMANCE
 r.DFShadowQuality=2; 🔴 1,2 for PERFORMANCE
-r.HeightFieldShadowing=0; 🔵 height field shadowing
 r.Shadow.CSM.MaxCascades=2; 🔴 1,2,4 for PERFORMANCE
 r.Shadow.CSMShadowDistanceFadeoutMultiplier=1;
 r.Shadow.DistanceScale=1; 🔴 0.7 for PERFORMANCE
@@ -363,7 +361,7 @@ r.SkyAtmosphere.MultiScatteringLUT.HighQuality=0; 🔴 0 for PERFORMANCE
 r.SkyAtmosphere.MultiScatteringLUT.SampleCount=15;
 r.SkyAtmosphere.SampleCountMax=64; 🔴 32,64 for PERFORMANCE
 r.SkyAtmosphere.SampleCountMin=1; 🔴 1 for PERFORMANCE
-r.SkyAtmosphere.SampleLightShadowmap=0; 🔴 0 for PERFORMANCE 🔵 volumetric shadows
+r.SkyAtmosphere.SampleLightShadowmap=0; 🔴 0 for PERFORMANCE 🟢 test 🔵 volumetric shadows
 r.SkyAtmosphere.TransmittanceLUT.SampleCount=10;
 r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat=0; 🔴 1 for PERFORMANCE
 
@@ -372,7 +370,7 @@ r.VolumetricCloud.DistanceToSampleMaxCount=15;
 r.VolumetricCloud.EnableAtmosphericLightsSampling=1;
 r.VolumetricCloud.EnableDistantSkyLightSampling=1;
 r.VolumetricCloud.EnableLocalLightsSampling=0; 🔴 0 for PERFORMANCE 🔵 experimental
-r.VolumetricCloud.Shadow.SampleAtmosphericLightShadowmap=0; 🔴 0 for PERFORMANCE 🔵 volumetric shadows
+r.VolumetricCloud.Shadow.SampleAtmosphericLightShadowmap=0; 🔴 0 for PERFORMANCE 🟢 test 🔵 volumetric shadows
 r.VolumetricCloud.ShadowMap.SpatialFiltering=1; 🔵 cloud shadow blur
 r.VolumetricCloud.ShadowMap=1;
 r.VolumetricCloud.SkyAO=1;
