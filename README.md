@@ -1,4 +1,4 @@
-## updated 2/20/2025 ✂ 📋 🌀 :ramen: v0.8.8a
+## updated 2/20/2025 ✂ 📋 🌀 :ramen: v0.8.9
 
 ### for ue4 and ue5* games for reference/customization/optimization/learning
 
@@ -264,80 +264,37 @@ r.hairstrands.visibility.ppll=0; 🔴 0 for performance
 r.hairstrands.voxelization.voxelsizeinpixel=0.3;
 r.hairstrands.voxelization=0; 🔴 0 for performance
 
-; rtx switch
-r.lumen.hardwareraytracing=0;
-r.raytracing=0;
-
-; rtx 1
-r.heterogeneousvolumes.hardwareraytracing=0;
-r.lumen.hardwareraytracing.inline=0;
-r.lumen.hardwareraytracing.lightingmode=0; 🔴 0 for performance
-r.lumen.radiancecache.hardwareraytracing=1;
-r.lumen.reflections.hardwareraytracing=1;
-r.lumen.screenprobegather.hardwareraytracing=1; 🔵 diffuse indirect
-r.lumen.screenprobegather.shortrangeao.hardwareraytracing=0;
-r.lumen.translucencyvolume.hardwareraytracing=1;
-r.lumenscene.directlighting.hardwareraytracing=1;
-r.lumenscene.radiosity.hardwareraytracing=1;
-r.manylights.hardwareraytracing=1;
-
-; rtx 2
+; rtx
 r.hairstrands.raytracing=0;
-r.ngx.dlss.denoisermode=0; 🔵 ray reconstruction needs dlssd
-r.pathtracing=0;
+r.lumen.hardwareraytracing.lightingmode=0; 🔴 0 for performance
+r.lumen.hardwareraytracing=1; 🔴 0 for performance
 r.raytracing.excludedecals=1;
 r.raytracing.excludesky=1;
 r.raytracing.excludetranslucent=1;
-r.raytracing.geometry.hierarchicalinstancedstaticmesh=0;
-r.raytracing.geometry.instancedstaticmeshes=0;
-r.raytracing.geometry.landscape=0;
-r.raytracing.geometry.landscapegrass=0;
-r.raytracing.geometry.niagarameshes=0;
-r.raytracing.geometry.niagararibbons=0;
-r.raytracing.geometry.niagarasprites=0;
-r.raytracing.geometry.proceduralmeshes=0;
-r.raytracing.geometry.skeletalmeshes=0;
-r.raytracing.geometry.splinemeshes=0;
-r.raytracing.geometry.staticmeshes=0;
-r.raytracing.globalillumination=0;
-r.raytracing.reflections.experimentaldeferred=0;
-r.raytracing.reflections.hybrid=0;
-r.raytracing.reflections=0;
-r.raytracing.shadows.enablehairvoxel=0;
-r.raytracing.shadows.enablematerials=0;
-r.raytracing.shadows.enabletwosidedgeometry=0;
-r.raytracing.shadows.maxbatchsize=8;
-r.raytracing.shadows=0;
-r.raytracing.skylight=0;
-r.raytracing.translucency=0;
+r.raytracing=0;
 r.volumetricfog.injectraytracedlights.locallights=0;
 r.volumetricfog.injectraytracedlights=0;
 
-; lumen 1
-r.lumen.diffuseindirect.allow=1; 🔵 lumen global illumination
-r.lumen.reflections.allow=1; 🔵 lumen reflections
-r.lumen.reflections.tracemeshsdfs=1;
-r.lumen.screenprobegather.tracemeshsdfs=1;
-r.lumen.tracemeshsdfs.allow=1;
-r.lumen.tracemeshsdfs=0; 🔴 0 for performance
-
-; lumen 2
+; lumen
 r.distancefields.supportevenifhardwareraytracingsupported=0; 🔵 rtx df
 r.gbufferdiffusesampleocclusion=1; 🔵 bent normal maps
+r.lumen.diffuseindirect.allow=1; 🔵 lumen global illumination
 r.lumen.diffuseindirect.ssao=0;
 r.lumen.radiancecache.numframestokeepcachedprobes=8;
+r.lumen.reflections.allow=1; 🔵 lumen reflections
 r.lumen.reflections.bilateralfilter.numsamples=4;
 r.lumen.reflections.bilateralfilter.spatialkernelradius=0.002;
 r.lumen.reflections.bilateralfilter=1;
 r.lumen.reflections.downsamplefactor=1; 🔴 2 for performance
-r.lumen.reflections.maxroughnesstotrace=1;
-r.lumen.reflections.maxroughnesstotraceforfoliage=1;
-r.lumen.reflections.smoothbias=1;
+r.lumen.reflections.maxroughnesstotrace=0.4; 🔴 -1 for performance
+r.lumen.reflections.maxroughnesstotraceforfoliage=0.4;
 r.lumen.reflections.radiancecache=1; 🔵 radiance cache
 r.lumen.reflections.screenspacereconstruction.tonemapstrength=0;
 r.lumen.reflections.screenspacereconstruction=1; 🔵 reconstruction
+r.lumen.reflections.smoothbias=0.4; 🔴 0 for performance
 r.lumen.reflections.specularindirectbuffer32bit=0; 🔴 1 for performance
 r.lumen.reflections.temporal=1; 🔵 temporal filtering
+r.lumen.reflections.tracemeshsdfs=1;
 r.lumen.restirgather=0;
 r.lumen.samplefog=0;
 r.lumen.screenprobegather.downsamplefactor=8; 🔴 16,32 for performance 🔵 light noise
@@ -350,8 +307,11 @@ r.lumen.screenprobegather.shortrangeao.applyduringintegration=0;
 r.lumen.screenprobegather.shortrangeao=1;
 r.lumen.screenprobegather.stochasticinterpolation=1; 🔴 1 for performance
 r.lumen.screenprobegather.temporal=1; 🔵 temporal filtering
+r.lumen.screenprobegather.tracemeshsdfs=1;
 r.lumen.screenprobegather.tracingoctahedronresolution=8;
 r.lumen.screenprobegather.twosidedfoliagebackfacediffuse=1;
+r.lumen.tracemeshsdfs.allow=1;
+r.lumen.tracemeshsdfs=0; 🔴 0 for performance
 r.lumen.translucencyreflections.frontlayer.allow=1; 🔴 0 for performance
 r.lumen.translucencyreflections.frontlayer.enable=1; 🔴 0 for performance
 r.lumen.translucencyvolume.enable=1;
