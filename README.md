@@ -1,4 +1,4 @@
-## updated 2/20/2025 ✂ 📋 🌀 :ramen: v0.8.9
+## updated 2/21/2025 ✂ 📋 🌀 :ramen: v0.9.0
 
 ### for ue4 and ue5* games for reference/customization/optimization/learning
 
@@ -82,6 +82,44 @@ r.xess.enabled=0; 🔵 xess
 t.streamline.reflex.auto=1;
 t.streamline.reflex.enable=1; 🔵 reflex amd frame gen not supported
 t.streamline.reflex.mode=2;
+
+; rtx
+r.distancefields.supportevenifhardwareraytracingsupported=0; 🟡 def 1
+r.lumen.diffuseindirect.allow=1; 🟡 def 1 🔵 lumen global illumination
+r.lumen.hardwareraytracing.lightingmode=0; 🟡 def 0 🔴 0 for performance
+r.lumen.hardwareraytracing=0; 🟡 def 0 🔴 0 for performance
+r.lumen.reflections.allow=1; 🟡 def 1 🔵 lumen reflections
+r.lumen.reflections.downsamplefactor=1; 🟡 def 1 🔴 2 for performance
+r.lumen.reflections.hardwareraytracing.retrace.farfield=0; 🟡 def 1
+r.lumen.reflections.hardwareraytracing=0; 🟡 def 1
+r.lumen.reflections.maxroughnesstotrace=0.4; 🟡 def -1 🔴 -1,0.4 for performance
+r.lumen.reflections.smoothbias=0.4; 🟡 def 0 🔴 0,0.4 for performance
+r.lumen.reflections.specularindirectbuffer32bit=0; 🟡 def 0 🔴 1 for performance
+r.lumen.reflections.tracemeshsdfs=1; 🟡 def 1 🔴 0 for performance
+r.lumen.screenprobegather.downsamplefactor=16; 🟡 def 16 🔴 16,32 for performance 🔵 light noise
+r.lumen.screenprobegather.hardwareraytracing.retrace.farfield=0; 🟡 def 1
+r.lumen.screenprobegather.hardwareraytracing=0; 🟡 def 1 🔵 diffuse indirect
+r.lumen.screenprobegather.shortrangeao.hardwareraytracing=0; 🟡 def 0
+r.lumen.screenprobegather.stochasticinterpolation=1; 🟡 def 0 🔴 1 for performance
+r.lumen.tracemeshsdfs.allow=0; 🟡 def 1 🔴 0 for performance
+r.lumen.tracemeshsdfs.tracedistance=90; 🟡 def 180 🔴 90 for performance
+r.lumen.tracemeshsdfs=0; 🟡 def 0 🔴 0 for performance
+r.lumen.translucencyreflections.frontlayer.allow=1; 🟡 def 1 🔴 0 for performance
+r.lumen.translucencyreflections.frontlayer.enable=1; 🟡 def 0 🔴 0 for performance
+r.lumen.translucencyvolume.hardwareraytracing=0; 🟡 def 1
+r.lumen.translucencyvolume.radiancecache.probeatlasresolutioninprobes=128; 🟡 def 128 🔵 sky smear
+r.lumenscene.directlighting.hardwareraytracing=0; 🟡 def 1
+r.lumenscene.directlighting.offscreenshadowing.tracemeshsdfs=0; 🟡 def 1 🔴 0 for performance
+r.lumenscene.farfield.maxtracedistance=100000; 🟡 def 1000000 🔴 100000 for performance
+r.lumenscene.farfield=0; 🟡 def 0
+r.lumenscene.radiosity.hardwareraytracing=0; 🟡 def 1
+r.lumenscene.radiosity.probeocclusion=0; 🟡 def 1 🔴 0 for performance
+r.manylights.hardwareraytracing=0; 🟡 def 1
+r.ngx.dlss.denoisermode=1; 🟡 def 1 🔵 ray reconstruction needs dlssd
+r.pathtracing=0; 🟡 def 1 🔴 0 for performance
+r.raytracing=0; 🟡 def 0
+r.volumetricfog.injectraytracedlights.locallights=0; 🟡 def 0
+r.volumetricfog.injectraytracedlights=0; 🟡 def 0
 
 ; async
 fx.niagara.asyncgputrace.hwraytraceenabled=0;
@@ -264,63 +302,6 @@ r.hairstrands.visibility.ppll=0; 🔴 0 for performance
 r.hairstrands.voxelization.voxelsizeinpixel=0.3;
 r.hairstrands.voxelization=0; 🔴 0 for performance
 
-; rtx
-r.hairstrands.raytracing=0;
-r.lumen.hardwareraytracing.lightingmode=0; 🔴 0 for performance
-r.lumen.hardwareraytracing=1; 🔴 0 for performance
-r.raytracing.excludedecals=1;
-r.raytracing.excludesky=1;
-r.raytracing.excludetranslucent=1;
-r.raytracing=0;
-r.volumetricfog.injectraytracedlights.locallights=0;
-r.volumetricfog.injectraytracedlights=0;
-
-; lumen
-r.distancefields.supportevenifhardwareraytracingsupported=0; 🔵 rtx df
-r.gbufferdiffusesampleocclusion=1; 🔵 bent normal maps
-r.lumen.diffuseindirect.allow=1; 🔵 lumen global illumination
-r.lumen.diffuseindirect.ssao=0;
-r.lumen.radiancecache.numframestokeepcachedprobes=8;
-r.lumen.reflections.allow=1; 🔵 lumen reflections
-r.lumen.reflections.bilateralfilter.numsamples=4;
-r.lumen.reflections.bilateralfilter.spatialkernelradius=0.002;
-r.lumen.reflections.bilateralfilter=1;
-r.lumen.reflections.downsamplefactor=1; 🔴 2 for performance
-r.lumen.reflections.maxroughnesstotrace=0.4; 🔴 -1 for performance
-r.lumen.reflections.maxroughnesstotraceforfoliage=0.4;
-r.lumen.reflections.radiancecache=1; 🔵 radiance cache
-r.lumen.reflections.screenspacereconstruction.tonemapstrength=0;
-r.lumen.reflections.screenspacereconstruction=1; 🔵 reconstruction
-r.lumen.reflections.smoothbias=0.4; 🔴 0 for performance
-r.lumen.reflections.specularindirectbuffer32bit=0; 🔴 1 for performance
-r.lumen.reflections.temporal=1; 🔵 temporal filtering
-r.lumen.reflections.tracemeshsdfs=1;
-r.lumen.restirgather=0;
-r.lumen.samplefog=0;
-r.lumen.screenprobegather.downsamplefactor=8; 🔴 16,32 for performance 🔵 light noise
-r.lumen.screenprobegather.materialao=1;
-r.lumen.screenprobegather.radiancecache.probeatlasresolutioninprobes=128;
-r.lumen.screenprobegather.radiancecache=1; 🔵 persistent world space radiance cache
-r.lumen.screenprobegather.screenspacebentnormal=1; 🔵 bent normal maps, changed to shortrangeao
-r.lumen.screenprobegather.screentraces=1;
-r.lumen.screenprobegather.shortrangeao.applyduringintegration=0;
-r.lumen.screenprobegather.shortrangeao=1;
-r.lumen.screenprobegather.stochasticinterpolation=1; 🔴 1 for performance
-r.lumen.screenprobegather.temporal=1; 🔵 temporal filtering
-r.lumen.screenprobegather.tracemeshsdfs=1;
-r.lumen.screenprobegather.tracingoctahedronresolution=8;
-r.lumen.screenprobegather.twosidedfoliagebackfacediffuse=1;
-r.lumen.tracemeshsdfs.allow=1;
-r.lumen.tracemeshsdfs=0; 🔴 0 for performance
-r.lumen.translucencyreflections.frontlayer.allow=1; 🔴 0 for performance
-r.lumen.translucencyreflections.frontlayer.enable=1; 🔴 0 for performance
-r.lumen.translucencyvolume.enable=1;
-r.lumen.translucencyvolume.radiancecache.probeatlasresolutioninprobes=80;
-r.lumenscene.directlighting.offscreenshadowing.tracemeshsdfs=0;
-r.lumenscene.farfield.maxtracedistance=100000;
-r.lumenscene.farfield=0;
-r.lumenscene.radiosity.probeocclusion=0; 🔴 0 for performance
-
 ; shadow
 r.allowlandscapeshadows=1; 🔴 0 for performance
 r.dffullresolution=0; 🔴 0 for performance
@@ -387,14 +368,14 @@ r.volumetricfog=1; 🔴 0 for performance
 ; water
 r.water.enableshallowwatersimulation=0; 🔴 0 for performance
 r.water.enableunderwaterpostprocess=0; 🔴 0 for performance
-r.water.reflections.maxroughnesstotrace=1;
+r.water.reflections.maxroughnesstotrace=0.4;
 r.water.singlelayer.depthprepass=1;
-r.water.singlelayer.distancefieldshadow=1;
+r.water.singlelayer.distancefieldshadow=0;
 r.water.singlelayer.downsamplereflections=1; 🔴 1 for performance
 r.water.singlelayer.reflection=1; 🔵 reflection technique
 r.water.singlelayer.refractiondownsamplefactor=1; 🔴 1,2 for performance
 r.water.singlelayer.rtr=0; 🔴 0 for performance
-r.water.singlelayer.shaderssupportdistancefieldshadow=1;
+r.water.singlelayer.shaderssupportdistancefieldshadow=0;
 r.water.singlelayer.shaderssupportvsmfiltering=1;
 r.water.singlelayer.ssr=0; 🔴 0 for performance
 r.water.singlelayer.tiledcomposite=1;
