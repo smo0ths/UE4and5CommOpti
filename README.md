@@ -1,4 +1,4 @@
-## updated 2/20/2025 ✂ 📋 🌀 :ramen: v0.8.8
+## updated 2/20/2025 ✂ 📋 🌀 :ramen: v0.8.8a
 
 ### for ue4 and ue5* games for reference/customization/optimization/learning
 
@@ -75,10 +75,6 @@ r.ssr.experimentaldenoiser=0;
 r.temporalaa.quality=0;
 r.temporalaa.upsampling=1; 🔴 0 for performance 🔵 taau
 r.temporalaasamples=8;
-r.tsr.16bitvalu.amd=1;
-r.tsr.16bitvalu.intel=1;
-r.tsr.16bitvalu.nvidia=1;
-r.tsr.16bitvalu=0;
 r.vrs.enable=0;
 r.vrs.enableimage=0;
 r.vrs.enablesoftware=0;
