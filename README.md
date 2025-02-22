@@ -1,4 +1,4 @@
-## updated 2/22/2025 ✂ 📋 🌀 :ramen: v0.9.1
+## updated 2/22/2025 ✂ 📋 🌀 :ramen: v0.9.1a
 
 ### for ue4 and ue5* games for reference/customization/optimization/learning
 
@@ -136,8 +136,8 @@ r.lumen.reflections.allow=1; 🟡 def 1 🔵 lumen reflections
 r.lumen.reflections.tracemeshsdfs=1; 🟡 def 1 🔴 0 for performance
 r.lumen.tracemeshsdfs.allow=0; 🟡 def 1 🔴 0 for performance
 r.lumen.tracemeshsdfs=0; 🟡 def 0 🔴 0 for performance
-r.lumen.translucencyreflections.frontlayer.allow=1; 🟡 def 1 🔴 0 for performance
-r.lumen.translucencyreflections.frontlayer.enable=1; 🟡 def 0 🔴 0 for performance
+r.lumen.translucencyreflections.frontlayer.allow=0; 🟡 def 1 🔴 0 for performance
+r.lumen.translucencyreflections.frontlayer.enable=0; 🟡 def 0 🔴 0 for performance
 r.lumenscene.farfield=0; 🟡 def 0
 
 ; rtx 4
