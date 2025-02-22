@@ -1,4 +1,4 @@
-## updated 2/22/2025 ✂ 📋 🌀 :ramen: v0.9.1a
+## updated 2/22/2025 ✂ 📋 🌀 :ramen: v0.9.1b
 
 ### for ue4 and ue5* games for reference/customization/optimization/learning
 
@@ -134,8 +134,8 @@ r.lumen.hardwareraytracing.lightingmode=0; 🟡 def 0 🔴 0 for performance
 r.lumen.hardwareraytracing=0; 🟡 def 0 🔴 0 for performance
 r.lumen.reflections.allow=1; 🟡 def 1 🔵 lumen reflections
 r.lumen.reflections.tracemeshsdfs=1; 🟡 def 1 🔴 0 for performance
-r.lumen.tracemeshsdfs.allow=0; 🟡 def 1 🔴 0 for performance
-r.lumen.tracemeshsdfs=0; 🟡 def 0 🔴 0 for performance
+r.lumen.tracemeshsdfs.allow=1; 🟡 def 1 🔴 0 for performance
+r.lumen.tracemeshsdfs=1; 🟡 def 0 🔴 0 for performance
 r.lumen.translucencyreflections.frontlayer.allow=0; 🟡 def 1 🔴 0 for performance
 r.lumen.translucencyreflections.frontlayer.enable=0; 🟡 def 0 🔴 0 for performance
 r.lumenscene.farfield=0; 🟡 def 0
@@ -149,7 +149,7 @@ r.lumen.reflections.specularindirectbuffer32bit=1; 🔴 0 for performance
 r.lumen.screenprobegather.downsamplefactor=16; 🟡 def 16 🔴 16,32 for performance 🔵 light noise
 r.lumen.screenprobegather.materialao=1; 🟡 def 1
 r.lumen.screenprobegather.stochasticinterpolation=1; 🟡 def 0 🔴 1 for performance
-r.lumen.tracemeshsdfs.tracedistance=90; 🟡 def 180 🔴 90 for performance
+r.lumen.tracemeshsdfs.tracedistance=180; 🟡 def 180
 r.lumen.translucencyvolume.radiancecache.probeatlasresolutioninprobes=128; 🟡 def 128 🔵 sky smear
 r.lumenscene.directlighting.offscreenshadowing.tracemeshsdfs=0; 🟡 def 1 🔴 0 for performance
 r.lumenscene.farfield.maxtracedistance=100000; 🟡 def 1000000 🔴 100000 for performance
