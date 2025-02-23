@@ -1,4 +1,4 @@
-## updated 2/23/2025 ✂ 📋 🌀 :ramen: v0.9.2
+## updated 2/23/2025 ✂ 📋 🌀 :ramen: v0.9.4
 
 ### for ue4 and ue5* games for reference/customization/optimization/learning
 
@@ -19,6 +19,8 @@
 ## open engine.ini and copy pasta %localappdata%
 
 #### 1. add config 2. open game and adjust settings (config doesn't touch lods like view distance so set low or higher) 3. restart game
+
+#### if you get ue4 crash/error set r.raytracing=0; (if you crash after changing command try again without changing anything should not crash again) any further crash is another command in the pipe.
 
 #### or repak.bat method if it works (zzz_inimods\engine\config\windows\windowsengine.ini)
 
@@ -84,63 +86,67 @@ t.streamline.reflex.mode=2;
 
 ; rtx 0
 r.raytracing.forceallraytracingeffects=-1; 🟡 def -1 🔴 0 for performance
+r.raytracing=1; 🟡 def 0 🔵 1 to enable r.lumen.hardwareraytracing
 
 ; rtx 1
 r.ngx.dlss.denoisermode=1; 🟡 def 1 🔵 ray reconstruction needs dlssd
 r.pathtracing=0; 🟡 def 0 🔴 0 for performance
 r.raytracing.ambientocclusion=0; 🟡 def -1
-r.raytracing.excludedecals=1; 🟡 def 0
+r.raytracing.excludedecals=1; 🟡 def 0 🟢
 r.raytracing.excludesky=1; 🟡 def 1
-r.raytracing.excludetranslucent=1; 🟡 def 0
-r.raytracing.geometry.cable=0; 🟡 def 1
-r.raytracing.geometry.hierarchicalinstancedstaticmesh=0; 🟡 def 1
-r.raytracing.geometry.instancedstaticmeshes=0; 🟡 def 1
-r.raytracing.geometry.landscape=0; 🟡 def 1
+r.raytracing.excludetranslucent=1; 🟡 def 0 🟢
+r.raytracing.geometry.cable=0; 🟡 def 1 🟢
+r.raytracing.geometry.hierarchicalinstancedstaticmesh=0; 🟡 def 1 🟢
+r.raytracing.geometry.instancedstaticmeshes=0; 🟡 def 1 🟢
+r.raytracing.geometry.landscape=0; 🟡 def 1 🟢
 r.raytracing.geometry.landscapegrass=0; 🟡 def 0
-r.raytracing.geometry.naniteproxies=0; 🟡 def 1
-r.raytracing.geometry.niagarameshes=0; 🟡 def 1
-r.raytracing.geometry.niagararibbons=0; 🟡 def 0
-r.raytracing.geometry.niagarasprites=0; 🟡 def 1
-r.raytracing.geometry.proceduralmeshes=0; 🟡 def 1
-r.raytracing.geometry.skeletalmeshes=0; 🟡 def 1
-r.raytracing.geometry.splinemeshes=0; 🟡 def 1
-r.raytracing.geometry.staticmeshes=0; 🟡 def 1
+r.raytracing.geometry.naniteproxies=1; 🟡 def 1 🔵 shows rtx shadows on nanite
+r.raytracing.geometry.niagarameshes=0; 🟡 def 1 🟢
+r.raytracing.geometry.niagararibbons=0; 🟡 def 0 🟢
+r.raytracing.geometry.niagarasprites=0; 🟡 def 1 🟢
+r.raytracing.geometry.proceduralmeshes=0; 🟡 def 1 🟢
+r.raytracing.geometry.skeletalmeshes=0; 🟡 def 1 🟢
+r.raytracing.geometry.splinemeshes=0; 🟡 def 1 🟢
+r.raytracing.geometry.staticmeshes=0; 🟡 def 1 🟢
 r.raytracing.globalillumination=0; 🟡 def -1
 r.raytracing.lightfunction=0; 🟡 def 1
 r.raytracing.nanite.mode=0; 🟡 def 0
 r.raytracing.reflections=0; 🟡 def -1
+r.raytracing.shadows.lights.directional=0; 🟡 def 1 🟢
+r.raytracing.shadows.lights.point=0; 🟡 def 1 🟢
+r.raytracing.shadows.lights.rect=0; 🟡 def 1 🟢
+r.raytracing.shadows.lights.spot=0; 🟡 def 1 🟢
 r.raytracing.shadows=0; 🟡 def 0
 r.raytracing.skylight=0; 🟡 def 0
 r.raytracing.translucency=0; 🟡 def -1
-r.raytracing=0; 🟡 def 0
-r.volumetricfog.injectraytracedlights.locallights=0; 🟡 def 0
-r.volumetricfog.injectraytracedlights=0; 🟡 def 0
+r.volumetricfog.injectraytracedlights.locallights=1; 🟡 def 0 🟢
+r.volumetricfog.injectraytracedlights=1; 🟡 def 0 🟢
 
 ; rtx 2
 r.lumen.reflections.hardwareraytracing.retrace.farfield=0; 🟡 def 1
-r.lumen.reflections.hardwareraytracing=0; 🟡 def 1
+r.lumen.reflections.hardwareraytracing=1; 🟡 def 1 🔴 0 for performance
 r.lumen.screenprobegather.hardwareraytracing.retrace.farfield=0; 🟡 def 1
-r.lumen.screenprobegather.hardwareraytracing=0; 🟡 def 1 🔵 diffuse indirect
+r.lumen.screenprobegather.hardwareraytracing=1; 🟡 def 1 🔵 diffuse indirect
 r.lumen.screenprobegather.shortrangeao.hardwareraytracing=0; 🟡 def 0
-r.lumen.translucencyvolume.hardwareraytracing=0; 🟡 def 1
-r.lumenscene.directlighting.hardwareraytracing=0; 🟡 def 1 🔴 0 for performance
-r.lumenscene.radiosity.hardwareraytracing=0; 🟡 def 1
+r.lumen.translucencyvolume.hardwareraytracing=1; 🟡 def 1 🔴 0 for performance
+r.lumenscene.directlighting.hardwareraytracing=1; 🟡 def 1 🔴 0 for performance
+r.lumenscene.radiosity.hardwareraytracing=1; 🟡 def 1 🔴 0 for performance
 r.manylights.hardwareraytracing=0; 🟡 def 1
 
 ; rtx 3
 r.lumen.diffuseindirect.allow=1; 🟡 def 1 🔵 lumen global illumination
 r.lumen.hardwareraytracing.lightingmode=0; 🟡 def 0 🔴 0 for performance
-r.lumen.hardwareraytracing=0; 🟡 def 0 🔴 0 for performance
+r.lumen.hardwareraytracing=1; 🟡 def 0 🔴 0 for performance 🔵 requires r.raytracing
 r.lumen.reflections.allow=1; 🟡 def 1 🔵 lumen reflections
 r.lumen.reflections.tracemeshsdfs=1; 🟡 def 1 🔴 0 for performance
 r.lumen.tracemeshsdfs.allow=1; 🟡 def 1 🔴 0 for performance
-r.lumen.tracemeshsdfs=1; 🟡 def 0 🔴 0 for performance
+r.lumen.tracemeshsdfs=0; 🟡 def 0 🔴 0 for performance
 r.lumen.translucencyreflections.frontlayer.allow=0; 🟡 def 1 🔴 0 for performance
 r.lumen.translucencyreflections.frontlayer.enable=0; 🟡 def 0 🔴 0 for performance
 r.lumenscene.farfield=0; 🟡 def 0
 
 ; rtx 4
-r.distancefields.supportevenifhardwareraytracingsupported=0; 🟡 def 1
+r.distancefields.supportevenifhardwareraytracingsupported=0; 🟡 def 1 🔵 lighting without r.lumen.hardwareraytracing
 r.lumen.reflections.downsamplefactor=1; 🟡 def 1 🔴 2 for performance
 r.lumen.reflections.maxroughnesstotrace=0.4; 🟡 def -1 🔴 -1,0.4 for performance
 r.lumen.reflections.smoothbias=0.4; 🟡 def 0 🔴 0,0.4 for performance
@@ -264,6 +270,8 @@ p.animdynamicswind=1; 🔴 0 for performance
 p.rigidbodynode=1; 🔴 0 for performance
 
 ; particle
+fx.gpusimulationtexturesizex=128; 🟡 def 1024
+fx.gpusimulationtexturesizey=128; 🟡 def 1024
 fx.niagara.qualitylevel=3; 🔴 0,1,2 for performance
 fx.niagaraallowruntimescalabilitychanges=1;
 r.emitterspawnratescale=1; 🔴 0.125,0.25,0.5 for performance
@@ -339,7 +347,7 @@ r.hairstrands.voxelization=0; 🔴 0 for performance
 r.allowlandscapeshadows=1; 🔴 0 for performance
 r.dffullresolution=0; 🔴 0 for performance
 r.dfshadowquality=2; 🔴 1,2 for performance
-r.Shadow.CachedShadowsCastFromMovablePrimitives=0; 🔴 0 for PERFORMANCE 🔵 movable light shadows
+r.shadow.cachedshadowscastfrommovableprimitives=0; 🔴 0 for performance 🔵 movable light shadows
 r.shadow.csmshadowdistancefadeoutmultiplier=1;
 r.shadow.distancescale=1; 🔴 0.7 for performance
 r.shadow.forcesinglesampleshadowingfromstationary=1; 🔴 1 for performance
@@ -349,8 +357,8 @@ r.translucencylightingvolumedim=64; 🔴 32,48 for performance
 r.translucencyvolumeblur=1; 🔴 0 for performance
 
 ; virtual shadow maps
-r.Shadow.Virtual.Enable=1;
-r.Shadow.Virtual.ForceOnlyVirtualShadowMaps=0; 🔵 0 for VSM underground
+r.shadow.virtual.enable=1;
+r.shadow.virtual.forceonlyvirtualshadowmaps=0; 🔵 0 for vsm underground
 r.shadow.virtual.nonnanite.includeincoarsepages=0; 🔴 0 for performance
 r.shadow.virtual.smrt.raycountdirectional=4; 🔴 2,4 for performance
 r.shadow.virtual.smrt.raycountlocal=4; 🔴 2,4 for performance
