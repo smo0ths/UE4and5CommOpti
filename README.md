@@ -1,4 +1,4 @@
-## updated 2/22/2025 ✂ 📋 🌀 :ramen: v0.9.1b
+## updated 2/23/2025 ✂ 📋 🌀 :ramen: v0.9.2
 
 ### for ue4 and ue5* games for reference/customization/optimization/learning
 
@@ -53,7 +53,6 @@ r.d3d12.shadowdepth32bit=1; 🔴 0 for performance
 
 ; scaling
 r.antialiasingmethod=0; 🔵 0 off 1 fxaa 2 taa 3 msaa 4 tsr
-r.customdepthtemporalaajitter=0;
 r.dynamicres.operationmode=0;
 r.fidelityfx.fsr.enabled=0; 🔵 fsr
 r.fidelityfx.fsr2.enabled=0; 🔵 fsr2
