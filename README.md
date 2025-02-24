@@ -1,4 +1,4 @@
-## updated 2/24/2025 ✂ 📋 🌀 :ramen: v0.9.5a
+## updated 2/24/2025 ✂ 📋 🌀 :ramen: v0.9.6
 
 ### for ue4 and ue5* games for reference/customization/optimization/learning
 
@@ -97,10 +97,12 @@ r.raytracing.excludesky=1; 🟡 def 1
 r.raytracing.excludetranslucent=1; 🟡 def 0 🟢
 r.raytracing.geometry.cable=0; 🟡 def 1 🟢
 r.raytracing.geometry.hierarchicalinstancedstaticmesh=0; 🟡 def 1 🟢
+r.raytracing.geometry.instancedstaticmeshes.evaluatewpo=0; 🟡 def 0 🟢
+r.raytracing.geometry.instancedstaticmeshes.evaluatewpo=0; 🟡 def 0 🟢
 r.raytracing.geometry.instancedstaticmeshes=0; 🟡 def 1 🟢
 r.raytracing.geometry.landscape=0; 🟡 def 1 🟢
 r.raytracing.geometry.landscapegrass=0; 🟡 def 0
-r.raytracing.geometry.naniteproxies=1; 🟡 def 1 🔵 shows rtx shadows on nanite
+r.raytracing.geometry.naniteproxies=1; 🟡 def 1 🔵 darken
 r.raytracing.geometry.niagarameshes=0; 🟡 def 1 🟢
 r.raytracing.geometry.niagararibbons=0; 🟡 def 0 🟢
 r.raytracing.geometry.niagarasprites=0; 🟡 def 1 🟢
@@ -112,11 +114,19 @@ r.raytracing.globalillumination=0; 🟡 def -1
 r.raytracing.lightfunction=0; 🟡 def 1
 r.raytracing.nanite.mode=0; 🟡 def 0
 r.raytracing.reflections=0; 🟡 def -1
+r.raytracing.shadows.acceptfirsthit=1; 🔵 terminate early
 r.raytracing.shadows.denoiser=0; 🟡 def 1 🔴 0 for performance
+r.raytracing.shadows.enablehairvoxel=0; 🟡 def 1
+r.raytracing.shadows.enablematerials=0; 🟡 def 1
+r.raytracing.shadows.enabletwosidedgeometry=0; 🟡 def 1
 r.raytracing.shadows.lights.directional=0; 🟡 def 1 🟢
 r.raytracing.shadows.lights.point=0; 🟡 def 1 🟢
 r.raytracing.shadows.lights.rect=0; 🟡 def 1 🟢
 r.raytracing.shadows.lights.spot=0; 🟡 def 1 🟢
+r.raytracing.shadows.maxbatchsize=8; 🟡 def 8
+r.raytracing.shadows.tiledprojection.downsamplemode=0; 🟡 def 0 🔵 checkerboard
+r.raytracing.shadows.tiledprojection.filter=1; 🟡 def 0 🟢
+r.raytracing.shadows.tiledprojection=1; 🔵 0 for rasterized shadow map
 r.raytracing.shadows=0; 🟡 def 0
 r.raytracing.skylight=0; 🟡 def 0
 r.raytracing.translucency=0; 🟡 def -1
@@ -349,6 +359,9 @@ r.hairstrands.voxelization=0; 🔴 0 for performance
 
 ; shadow
 r.allowlandscapeshadows=1; 🔴 0 for performance
+r.capsuleshadows=0;
+r.contactshadows.standalone.method=1; 🟡 def 0 🟢
+r.contactshadows=1;
 r.dffullresolution=0; 🔴 0 for performance
 r.dfshadowquality=2; 🔴 1,2 for performance
 r.shadow.cachedshadowscastfrommovableprimitives=0; 🔴 0 for performance 🔵 movable light shadows
@@ -364,13 +377,14 @@ r.translucencyvolumeblur=1; 🔴 0 for performance
 r.shadow.virtual.enable=1;
 r.shadow.virtual.forceonlyvirtualshadowmaps=0; 🔵 0 for vsm underground
 r.shadow.virtual.nonnanite.includeincoarsepages=0; 🔴 0 for performance
+r.shadow.virtual.nonnanitevsm=1; 🟡 def 1
 r.shadow.virtual.smrt.raycountdirectional=4; 🔴 2,4 for performance
 r.shadow.virtual.smrt.raycountlocal=4; 🔴 2,4 for performance
 r.shadow.virtual.smrt.samplesperraydirectional=1;
 r.shadow.virtual.smrt.samplesperrayhair=1;
 r.shadow.virtual.smrt.samplesperraylocal=1;
 r.shadow.virtual.subsurfaceshadowmode=1;
-r.shadow.virtual.translucentquality=0; 🔴 0 for performance
+r.shadow.virtual.translucentquality=0; 🟡 def 0 🔴 0 for performance
 
 ; sky
 r.skyatmosphere.fastskylut.samplecountmax=64; 🔴 32,64 for performance
