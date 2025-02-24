@@ -1,4 +1,4 @@
-## updated 2/23/2025 ✂ 📋 🌀 :ramen: v0.9.4
+## updated 2/24/2025 ✂ 📋 🌀 :ramen: v0.9.5
 
 ### for ue4 and ue5* games for reference/customization/optimization/learning
 
@@ -112,6 +112,7 @@ r.raytracing.globalillumination=0; 🟡 def -1
 r.raytracing.lightfunction=0; 🟡 def 1
 r.raytracing.nanite.mode=0; 🟡 def 0
 r.raytracing.reflections=0; 🟡 def -1
+r.raytracing.shadows.denoiser=0; 🟡 def 1 🔴 0 for performance
 r.raytracing.shadows.lights.directional=0; 🟡 def 1 🟢
 r.raytracing.shadows.lights.point=0; 🟡 def 1 🟢
 r.raytracing.shadows.lights.rect=0; 🟡 def 1 🟢
@@ -119,6 +120,7 @@ r.raytracing.shadows.lights.spot=0; 🟡 def 1 🟢
 r.raytracing.shadows=0; 🟡 def 0
 r.raytracing.skylight=0; 🟡 def 0
 r.raytracing.translucency=0; 🟡 def -1
+r.raytracing.usetexturelod=1; 🟡 def 0 🟢 🔵 ray cone method
 r.volumetricfog.injectraytracedlights.locallights=1; 🟡 def 0 🟢
 r.volumetricfog.injectraytracedlights=1; 🟡 def 0 🟢
 
@@ -149,6 +151,8 @@ r.lumenscene.farfield=0; 🟡 def 0
 r.distancefields.supportevenifhardwareraytracingsupported=0; 🟡 def 1 🔵 lighting without r.lumen.hardwareraytracing
 r.lumen.reflections.downsamplefactor=1; 🟡 def 1 🔴 2 for performance
 r.lumen.reflections.maxroughnesstotrace=0.4; 🟡 def -1 🔴 -1,0.4 for performance
+r.lumen.reflections.maxroughnesstotraceforfoliage=0.4; 🟡 def 0.4
+r.lumen.reflections.screentraces=1; 🟡 def 1 🔵 broken reflection of skeletal mesh
 r.lumen.reflections.smoothbias=0.4; 🟡 def 0 🔴 0,0.4 for performance
 r.lumen.reflections.specularindirectbuffer32bit=1; 🔴 0 for performance
 r.lumen.screenprobegather.downsamplefactor=16; 🟡 def 16 🔴 16,32 for performance 🔵 light noise
@@ -408,18 +412,18 @@ r.volumetricfog=1; 🔴 0 for performance
 r.water.enableshallowwatersimulation=0; 🔴 0 for performance
 r.water.enableunderwaterpostprocess=0; 🔴 0 for performance
 r.water.reflections.maxroughnesstotrace=0.4;
-r.water.singlelayer.depthprepass=1;
+r.water.singlelayer.depthprepass=0;
 r.water.singlelayer.distancefieldshadow=0;
 r.water.singlelayer.downsamplereflections=1; 🔴 1 for performance
-r.water.singlelayer.reflection=1; 🔵 reflection technique
+r.water.singlelayer.reflection=1; 🔵 reflection technique 🔴 0 for performance
 r.water.singlelayer.refractiondownsamplefactor=1; 🔴 1,2 for performance
-r.water.singlelayer.rtr=0; 🔴 0 for performance
+r.water.singlelayer.rtr=0;
 r.water.singlelayer.shaderssupportdistancefieldshadow=0;
-r.water.singlelayer.shaderssupportvsmfiltering=1;
+r.water.singlelayer.shaderssupportvsmfiltering=0;
 r.water.singlelayer.ssr=0; 🔴 0 for performance
 r.water.singlelayer.tiledcomposite=1;
 r.water.singlelayer.underwaterfogwhencameraisabovewater=0;
-r.water.singlelayer.vsmfiltering=1;
+r.water.singlelayer.vsmfiltering=0;
 r.water.watermesh.tessfactorbias=0; 🔴 -1 for performance
 ```
 
