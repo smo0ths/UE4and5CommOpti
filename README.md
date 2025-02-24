@@ -1,4 +1,4 @@
-## updated 2/24/2025 ✂ 📋 🌀 :ramen: v0.9.5
+## updated 2/24/2025 ✂ 📋 🌀 :ramen: v0.9.5a
 
 ### for ue4 and ue5* games for reference/customization/optimization/learning
 
@@ -274,8 +274,8 @@ p.animdynamicswind=1; 🔴 0 for performance
 p.rigidbodynode=1; 🔴 0 for performance
 
 ; particle
-fx.gpusimulationtexturesizex=128; 🟡 def 1024
-fx.gpusimulationtexturesizey=128; 🟡 def 1024
+fx.gpusimulationtexturesizex=32; 🟡 def 1024 🟢
+fx.gpusimulationtexturesizey=32; 🟡 def 1024 🟢
 fx.niagara.qualitylevel=3; 🔴 0,1,2 for performance
 fx.niagaraallowruntimescalabilitychanges=1;
 r.emitterspawnratescale=1; 🔴 0.125,0.25,0.5 for performance
@@ -412,7 +412,7 @@ r.volumetricfog=1; 🔴 0 for performance
 r.water.enableshallowwatersimulation=0; 🔴 0 for performance
 r.water.enableunderwaterpostprocess=0; 🔴 0 for performance
 r.water.reflections.maxroughnesstotrace=0.4;
-r.water.singlelayer.depthprepass=0;
+r.water.singlelayer.depthprepass=1; 🔵 splash
 r.water.singlelayer.distancefieldshadow=0;
 r.water.singlelayer.downsamplereflections=1; 🔴 1 for performance
 r.water.singlelayer.reflection=1; 🔵 reflection technique 🔴 0 for performance
