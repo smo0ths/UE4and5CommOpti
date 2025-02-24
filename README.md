@@ -1,4 +1,4 @@
-## updated 2/24/2025 ✂ 📋 🌀 :ramen: v0.9.6
+## updated 2/24/2025 ✂ 📋 🌀 :ramen: v0.9.7
 
 ### for ue4 and ue5* games for reference/customization/optimization/learning
 
@@ -51,7 +51,7 @@ poolsizevrampercentage=70; 🔴 50 to lower vram usage 🔵 texturepool cache
 d3d12.texturepoolonlyaccountstreamabletexture=1; 🔵 newer
 r.d3d.forcedxc=1; 🔵 dxc shader compiler instead of fxc
 r.d3d12.allowshadermodel6=1; 🔵 sm6 support
-r.d3d12.shadowdepth32bit=1; 🔴 0 for performance
+r.d3d12.shadowdepth32bit=0; 🔴 0 for performance
 
 ; scaling
 r.antialiasingmethod=0; 🔵 0 off 1 fxaa 2 taa 3 msaa 4 tsr
@@ -85,12 +85,12 @@ t.streamline.reflex.enable=1; 🔵 reflex amd frame gen not supported
 t.streamline.reflex.mode=2;
 
 ; rtx 0
-r.raytracing.forceallraytracingeffects=-1; 🟡 def -1 🔴 0 for performance
+r.lumen.hardwareraytracing=1; 🟡 def 0 🔴 0 for performance 🔵 requires r.raytracing
+r.ngx.dlss.denoisermode=1; 🟡 def 1 🔵 ray reconstruction needs dlssd
+r.pathtracing=0; 🟡 def 0 🔴 0 for performance
 r.raytracing=1; 🟡 def 0 🔵 1 to enable r.lumen.hardwareraytracing
 
 ; rtx 1
-r.ngx.dlss.denoisermode=1; 🟡 def 1 🔵 ray reconstruction needs dlssd
-r.pathtracing=0; 🟡 def 0 🔴 0 for performance
 r.raytracing.ambientocclusion=0; 🟡 def -1
 r.raytracing.excludedecals=1; 🟡 def 0 🟢
 r.raytracing.excludesky=1; 🟡 def 1
@@ -134,6 +134,7 @@ r.volumetricfog.injectraytracedlights.locallights=1; 🟡 def 0 🟢
 r.volumetricfog.injectraytracedlights=1; 🟡 def 0 🟢
 
 ; rtx 2
+r.lumen.hardwareraytracing.lightingmode=0; 🟡 def 0 🔴 0 for performance
 r.lumen.reflections.hardwareraytracing.retrace.farfield=0; 🟡 def 1
 r.lumen.reflections.hardwareraytracing=1; 🟡 def 1 🔴 0 for performance
 r.lumen.screenprobegather.hardwareraytracing.retrace.farfield=0; 🟡 def 1
@@ -142,15 +143,13 @@ r.lumen.screenprobegather.shortrangeao.hardwareraytracing=0; 🟡 def 0
 r.lumen.translucencyvolume.hardwareraytracing=1; 🟡 def 1 🔴 0 for performance
 r.lumenscene.directlighting.hardwareraytracing=1; 🟡 def 1 🔴 0 for performance
 r.lumenscene.radiosity.hardwareraytracing=1; 🟡 def 1 🔴 0 for performance
-r.manylights.hardwareraytracing=0; 🟡 def 1
+r.manylights.hardwareraytracing=1; 🟡 def 1
 
 ; rtx 3
 r.lumen.diffuseindirect.allow=1; 🟡 def 1 🔵 lumen global illumination
-r.lumen.hardwareraytracing.lightingmode=0; 🟡 def 0 🔴 0 for performance
-r.lumen.hardwareraytracing=1; 🟡 def 0 🔴 0 for performance 🔵 requires r.raytracing
 r.lumen.reflections.allow=1; 🟡 def 1 🔵 lumen reflections
-r.lumen.reflections.tracemeshsdfs=1; 🟡 def 1 🔴 0 for performance
-r.lumen.tracemeshsdfs.allow=1; 🟡 def 1 🔴 0 for performance
+r.lumen.reflections.tracemeshsdfs=0; 🟡 def 1 🔴 0 for performance
+r.lumen.tracemeshsdfs.allow=0; 🟡 def 1 🔴 0 for performance
 r.lumen.tracemeshsdfs=0; 🟡 def 0 🔴 0 for performance
 r.lumen.translucencyreflections.frontlayer.allow=0; 🟡 def 1 🔴 0 for performance
 r.lumen.translucencyreflections.frontlayer.enable=0; 🟡 def 0 🔴 0 for performance
@@ -163,7 +162,7 @@ r.lumen.reflections.maxroughnesstotrace=0.4; 🟡 def -1 🔴 -1,0.4 for perform
 r.lumen.reflections.maxroughnesstotraceforfoliage=0.4; 🟡 def 0.4
 r.lumen.reflections.screentraces=1; 🟡 def 1 🔵 broken reflection of skeletal mesh
 r.lumen.reflections.smoothbias=0.4; 🟡 def 0 🔴 0,0.4 for performance
-r.lumen.reflections.specularindirectbuffer32bit=1; 🔴 0 for performance
+r.lumen.reflections.specularindirectbuffer32bit=0; 🔴 0 for performance
 r.lumen.screenprobegather.downsamplefactor=16; 🟡 def 16 🔴 16,32 for performance 🔵 light noise
 r.lumen.screenprobegather.materialao=1; 🟡 def 1
 r.lumen.screenprobegather.stochasticinterpolation=1; 🟡 def 0 🔴 1 for performance
@@ -174,7 +173,8 @@ r.lumenscene.farfield.maxtracedistance=100000; 🟡 def 1000000 🔴 100000 for 
 r.lumenscene.radiosity.probeocclusion=0; 🟡 def 1 🔴 0 for performance
 
 ; async
-fx.niagara.asyncgputrace.hwraytraceenabled=0;
+fx.niagara.asyncgputrace.globalsdfenabled=0; 🟡 def 1
+fx.niagara.asyncgputrace.hwraytraceenabled=0; 🟡 def 1
 r.bloom.asynccompute=1;
 r.d3d12.allowasynccompute=1;
 r.dfshadowasynccompute=1;
@@ -182,7 +182,7 @@ r.lumen.asynccompute=1;
 r.lumen.diffuseindirect.asynccompute=1;
 r.lumen.reflections.asynccompute=1;
 r.lumenscene.lighting.asynccompute=1;
-r.nanite.asyncrasterization.shadowdepths=0;
+r.nanite.asyncrasterization.shadowdepths=1;
 r.nanite.asyncrasterization=1;
 r.nanite.streaming.asynccompute=1;
 r.scenedepthhzbasynccompute=1;
@@ -222,17 +222,8 @@ r.streaming.usefixedpoolsize=0;
 r.streaming.usepertexturebias=1;
 r.supportmateriallayers=1; 🔴 0 for performance
 r.tessellationadaptivepixelspertriangle=999999; 🔴 999999,48 for performance
-r.texturestreaming=1;
-r.virtualtexture=0;
-r.virtualtexturedlightmaps=0;
-r.virtualtexturereducedmemory=0;
-r.virtualtextures=1;
-r.vt.anisotropicfiltering=1;
+r.vt.anisotropicfiltering=1; 🔴 0 for performance
 r.vt.maxanisotropy=8; 🔴 0,4 for performance
-r.vt.maxreleasedperframe=0;
-r.vt.maxtilesproducedperframe=96;
-r.vt.maxuploadsperframe.streaming=48;
-r.vt.maxuploadsperframe=16;
 
 ; latency
 d3d12.maximumframelatency=1; 🔵 frame latency
@@ -273,7 +264,7 @@ r.ssr.quality=2; 🔴 0,2 for performance
 
 ; sub surface scattering
 r.sss.burley.quality=0; 🔴 0 for performance
-r.sss.checkerboard=2; 🔴 1 for performance
+r.sss.checkerboard=1; 🔴 1 for performance
 r.sss.halfres=0; 🔴 1 for performance
 r.subsurfacescattering=1; 🔴 0 for performance
 
@@ -322,12 +313,10 @@ r.motionblurquality=0;
 r.postprocessing.prefercompute=1;
 r.scenecolorformat=3; 🔴 2,3 for performance
 r.scenecolorfringe.max=0;
-r.separatetranslucencyautodownsample=1;
-r.separatetranslucencyscreenpercentage=100;
 r.tonemapper.grainquantization=0;
 r.tonemapper.quality=2;
 r.tonemapper.sharpen=0;
-r.upscale.quality=3; 🔴 1,2 for performance
+r.upscale.quality=2; 🔴 1,2 for performance
 
 ; light
 r.lightmaxdrawdistancescale=1; 🔴 0.6 for performance
@@ -367,8 +356,8 @@ r.shadow.csmshadowdistancefadeoutmultiplier=1;
 r.shadow.distancescale=1; 🔴 0.7 for performance
 r.shadow.forcesinglesampleshadowingfromstationary=1; 🔴 1 for performance
 r.shadow.nanitelodbias=1; 🔴 1 for performance
-r.shadow.radiusthreshold=0.03; 🔴 0.06,0.05,0.04 for performance
-r.translucencylightingvolumedim=64; 🔴 32,48 for performance
+r.shadow.radiusthreshold=0.04; 🔴 0.06,0.05,0.04 for performance
+r.translucencylightingvolumedim=48; 🔴 32,48 for performance
 r.translucencyvolumeblur=1; 🔴 0 for performance
 
 ; virtual shadow maps
@@ -376,22 +365,22 @@ r.shadow.virtual.enable=1;
 r.shadow.virtual.forceonlyvirtualshadowmaps=0; 🔵 0 for vsm underground
 r.shadow.virtual.nonnanite.includeincoarsepages=0; 🔴 0 for performance
 r.shadow.virtual.nonnanitevsm=1; 🟡 def 1
-r.shadow.virtual.smrt.raycountdirectional=4; 🔴 2,4 for performance
-r.shadow.virtual.smrt.raycountlocal=4; 🔴 2,4 for performance
-r.shadow.virtual.smrt.samplesperraydirectional=1;
-r.shadow.virtual.smrt.samplesperrayhair=1;
-r.shadow.virtual.smrt.samplesperraylocal=1;
+r.shadow.virtual.smrt.raycountdirectional=4;
+r.shadow.virtual.smrt.raycountlocal=4;
+r.shadow.virtual.smrt.samplesperraydirectional=2;
+r.shadow.virtual.smrt.samplesperrayhair=2;
+r.shadow.virtual.smrt.samplesperraylocal=2;
 r.shadow.virtual.subsurfaceshadowmode=1;
 r.shadow.virtual.translucentquality=0; 🟡 def 0 🔴 0 for performance
 
 ; sky
 r.skyatmosphere.fastskylut.samplecountmax=64; 🔴 32,64 for performance
-r.skyatmosphere.fastskylut.samplecountmin=1; 🔴 1 for performance
+r.skyatmosphere.fastskylut.samplecountmin=2; 🔴 1 for performance
 r.skyatmosphere.lut32=0; 🔴 0 for performance
 r.skyatmosphere.multiscatteringlut.highquality=0; 🔴 0 for performance
 r.skyatmosphere.multiscatteringlut.samplecount=15;
 r.skyatmosphere.samplecountmax=64; 🔴 32,64 for performance
-r.skyatmosphere.samplecountmin=1; 🔴 1 for performance
+r.skyatmosphere.samplecountmin=2; 🔴 1 for performance
 r.skyatmosphere.samplelightshadowmap=0; 🔴 0 for performance 🔵 volumetric shadows
 r.skyatmosphere.transmittancelut.samplecount=10;
 r.skyatmosphere.transmittancelut.usesmallformat=0; 🔴 1 for performance
@@ -413,7 +402,7 @@ r.volumetricfog.conservativedepth=0; 🔵 experimental
 r.volumetricfog.depthdistributionscale=32; 🔴 16 for performance
 r.volumetricfog.emissive=0;
 r.volumetricfog.gridpixelsize=16; 🔴 16 for performance
-r.volumetricfog.gridsizez=96; 🔴 64 for performance
+r.volumetricfog.gridsizez=64; 🔴 64 for performance
 r.volumetricfog.historymisssupersamplecount=2; 🔴 2 for performance
 r.volumetricfog.jitter=1; 🔵 temporal filtering
 r.volumetricfog.temporalreprojection=1;
