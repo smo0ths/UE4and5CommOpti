@@ -98,7 +98,6 @@ r.raytracing.excludetranslucent=1; 🟡 def 0 🟢
 r.raytracing.geometry.cable=0; 🟡 def 1 🟢
 r.raytracing.geometry.hierarchicalinstancedstaticmesh=0; 🟡 def 1 🟢
 r.raytracing.geometry.instancedstaticmeshes.evaluatewpo=0; 🟡 def 0 🟢
-r.raytracing.geometry.instancedstaticmeshes.evaluatewpo=0; 🟡 def 0 🟢
 r.raytracing.geometry.instancedstaticmeshes=0; 🟡 def 1 🟢
 r.raytracing.geometry.landscape=0; 🟡 def 1 🟢
 r.raytracing.geometry.landscapegrass=0; 🟡 def 0
