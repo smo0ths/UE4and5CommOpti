@@ -359,7 +359,6 @@ r.hairstrands.voxelization=0; 🔴 0 for performance
 ; shadow
 r.allowlandscapeshadows=1; 🔴 0 for performance
 r.capsuleshadows=0;
-r.contactshadows.standalone.method=1; 🟡 def 0 🟢
 r.contactshadows=1;
 r.dffullresolution=0; 🔴 0 for performance
 r.dfshadowquality=2; 🔴 1,2 for performance
