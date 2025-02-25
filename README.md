@@ -1,4 +1,4 @@
-## updated 2/24/2025 ✂ 📋 🌀 :ramen: v0.9.7
+## updated 2/25/2025 ✂ 📋 🌀 :ramen: v0.9.7a
 
 ### for ue4 and ue5* games for reference/customization/optimization/learning
 
@@ -365,11 +365,6 @@ r.shadow.virtual.enable=1;
 r.shadow.virtual.forceonlyvirtualshadowmaps=0; 🔵 0 for vsm underground
 r.shadow.virtual.nonnanite.includeincoarsepages=0; 🔴 0 for performance
 r.shadow.virtual.nonnanitevsm=1; 🟡 def 1
-r.shadow.virtual.smrt.raycountdirectional=4;
-r.shadow.virtual.smrt.raycountlocal=4;
-r.shadow.virtual.smrt.samplesperraydirectional=2;
-r.shadow.virtual.smrt.samplesperrayhair=2;
-r.shadow.virtual.smrt.samplesperraylocal=2;
 r.shadow.virtual.subsurfaceshadowmode=1;
 r.shadow.virtual.translucentquality=0; 🟡 def 0 🔴 0 for performance
 
