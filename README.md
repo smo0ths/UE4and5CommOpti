@@ -1,4 +1,4 @@
-## updated 2/25/2025 ✂ 📋 🌀 :ramen: v0.9.8
+## updated 2/25/2025 ✂ 📋 🌀 :ramen: v0.9.9
 
 ### for ue4 and ue5* games for reference/customization/optimization/learning
 
@@ -78,12 +78,12 @@ r.shadow.cachedshadowscastfrommovableprimitives=0; 🔴 0 for performance
 r.shadow.forcesinglesampleshadowingfromstationary=1; 🔴 1 for performance
 r.shadow.nanitelodbias=1; 🔴 1 for performance
 r.shadow.radiusthreshold=0.04; 🔴 0.06,0.05,0.04 for performance
-r.skyatmosphere.fastskylut.samplecountmax=64; 🔴 32,64 for performance
-r.skyatmosphere.fastskylut.samplecountmin=2; 🔴 1 for performance
+r.skyatmosphere.fastskylut.samplecountmax=64; 🔴 32 for performance
+r.skyatmosphere.fastskylut.samplecountmin=4; 🔴 1 for performance
 r.skyatmosphere.lut32=0; 🔴 0 for performance
 r.skyatmosphere.multiscatteringlut.highquality=0; 🔴 0 for performance
-r.skyatmosphere.samplecountmax=64; 🔴 32,64 for performance
-r.skyatmosphere.samplecountmin=2; 🔴 1 for performance
+r.skyatmosphere.samplecountmax=64; 🔴 32 for performance
+r.skyatmosphere.samplecountmin=4; 🔴 1 for performance
 r.skyatmosphere.samplelightshadowmap=0; 🔴 0 for performance
 r.skyatmosphere.transmittancelut.usesmallformat=0; 🔴 1 for performance
 r.ssgi.enable=0; 🔴 0 for performance
@@ -131,7 +131,7 @@ r.lumen.reflections.specularindirectbuffer32bit=0; 🔴 0 for performance
 r.lumen.reflections.tracemeshsdfs=0; 🔴 0 for performance
 r.lumen.screenprobegather.downsamplefactor=16; 🔴 16,32 for performance
 r.lumen.screenprobegather.stochasticinterpolation=1; 🔴 1 for performance
-r.lumen.tracemeshsdfs.allow=0; 🔴 0 for performance
+r.lumen.tracemeshsdfs.allow=1; 🔴 0 for performance
 r.lumen.tracemeshsdfs=0; 🔴 0 for performance
 r.lumen.translucencyreflections.frontlayer.allow=0; 🔴 0 for performance
 r.lumen.translucencyreflections.frontlayer.enable=0; 🔴 0 for performance
@@ -144,6 +144,7 @@ r.raytracing.shadows=0; 🔴 0 for performance
 r.raytracing=1; 🔴 0 for performance
 r.shadow.virtual.enable=1; 🔴 0 for performance
 r.shadow.virtual.nonnanite.includeincoarsepages=0; 🔴 0 for performance
+r.shadow.virtual.nonnanitevsm=1; 🔴 0 for performance
 r.shadow.virtual.translucentquality=0; 🔴 0 for performance
 ;
 ; ue5
@@ -158,13 +159,13 @@ r.lumen.screenprobegather.hardwareraytracing.retrace.farfield=0;
 r.lumen.screenprobegather.hardwareraytracing=1;
 r.lumen.screenprobegather.shortrangeao.hardwareraytracing=0;
 r.lumen.translucencyvolume.hardwareraytracing=0;
-r.lumenscene.directlighting.hardwareraytracing=0;
-r.lumenscene.radiosity.hardwareraytracing=0;
+r.lumenscene.directlighting.hardwareraytracing=1; 🔴 0 for performance
+r.lumenscene.radiosity.hardwareraytracing=1; 🔴 0 for performance
 r.manylights.hardwareraytracing=0;
 ;
 ; ue5
 ;
-fx.niagara.asyncgputrace.globalsdfenabled=0;
+fx.niagara.asyncgputrace.globalsdfenabled=1;
 fx.niagara.asyncgputrace.hwraytraceenabled=0;
 fx.niagara.collision.cpuenabled=0;
 fx.niagaraallowruntimescalabilitychanges=1;
@@ -174,7 +175,9 @@ r.lumen.diffuseindirect.allow=1;
 r.lumen.diffuseindirect.asynccompute=1;
 r.lumen.reflections.allow=1;
 r.lumen.reflections.asynccompute=1;
+r.lumen.reflections.distantscreentraces=1;
 r.lumen.reflections.maxroughnesstotraceforfoliage=0.4;.4
+r.lumen.reflections.screenspacereconstruction=1;
 r.lumen.reflections.screentraces=1;
 r.lumen.screenprobegather.materialao=1;
 r.lumen.tracemeshsdfs.tracedistance=180;
@@ -225,7 +228,6 @@ r.raytracing.skylight=0;
 r.raytracing.translucency=0;
 r.raytracing.usetexturelod=1;
 r.shadow.virtual.forceonlyvirtualshadowmaps=0;
-r.shadow.virtual.nonnanitevsm=1;
 r.shadow.virtual.subsurfaceshadowmode=1;
 ;
 ; ect
