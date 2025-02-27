@@ -6,6 +6,8 @@
 
 ## open engine.ini and copy pasta %localappdata%
 
+## after pasting ini start game and set graphic settings to your spec low/med/high/ultra then restart game*
+
 ```python
 [core.log]
 global=off ;
