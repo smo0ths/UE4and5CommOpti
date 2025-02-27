@@ -1,4 +1,4 @@
-## updated 2/26/2025 ✂ 📋 🌀 :ramen: v0.9.9
+## updated 2/27/2025 ✂ 📋 🌀 :ramen: v1.0.0
 
 ### for ue4 and ue5* games for reference/customization/optimization/learning
 
@@ -19,8 +19,6 @@
 ## open engine.ini and copy pasta %localappdata%
 
 #### 1. add config 2. open game and adjust settings (config doesn't touch lods like view distance so set low or higher) 3. restart game
-
-#### if you get ue4 crash/error set r.raytracing=0; (if you crash after changing command try again without changing anything should not crash again) any further crash is another command in the pipe.
 
 #### or repak.bat method if it works (zzz_inimods\engine\config\windows\windowsengine.ini)
 
@@ -73,11 +71,10 @@ r.maxanisotropy=16; 🔴 0,4,8 for performance
 r.minscreenradiusforlights=0.03; 🔴 0.06,0.04 for performance
 r.particlelightquality=1; 🔴 0,1 for performance
 r.refractionquality=2; 🔴 0,1 for performance
-r.scenecolorformat=3; 🔴 2,3 for performance
+r.scenecolorformat=4; 🔴 2,3 for performance
 r.shadow.cachedshadowscastfrommovableprimitives=0; 🔴 0 for performance
 r.shadow.forcesinglesampleshadowingfromstationary=1; 🔴 1 for performance
 r.shadow.nanitelodbias=1; 🔴 1 for performance
-r.shadow.radiusthreshold=0.04; 🔴 0.06,0.05,0.04 for performance
 r.skyatmosphere.fastskylut.samplecountmax=64; 🔴 32 for performance
 r.skyatmosphere.fastskylut.samplecountmin=4; 🔴 1 for performance
 r.skyatmosphere.lut32=0; 🔴 0 for performance
@@ -104,7 +101,7 @@ r.upscale.quality=2; 🔴 1,2 for performance
 r.volumetriccloud.enablelocallightssampling=0; 🔴 0 for performance
 r.volumetriccloud.shadow.sampleatmosphericlightshadowmap=0; 🔴 0 for performance
 r.volumetriccloud=1; 🔴 0 for performance
-r.volumetricfog.depthdistributionscale=16; 🔴 16 for performance
+r.volumetricfog.depthdistributionscale=32; 🔴 16 for performance
 r.volumetricfog.gridpixelsize=16; 🔴 16 for performance
 r.volumetricfog.gridsizez=64; 🔴 64 for performance
 r.volumetricfog.historymisssupersamplecount=2; 🔴 2 for performance
@@ -122,13 +119,38 @@ r.water.watermesh.tessfactorbias=0; 🔴 -1 for performance
 ;
 ; ue5
 ;
+r.shadow.csm.maxcascades=2; 🔴 2 for performance
+r.shadow.csm.transitionscale=1;
+r.shadow.maxcsmresolution=2048; 🔴 512,1024 for performance
+r.shadow.maxresolution=2048; 🔴 512,1024 for performance
+r.shadow.preshadowresolutionfactor=0.5;
+r.shadow.radiusthreshold=0.04; 🔴 0.06,0.05,0.04 for performance
+r.shadow.virtual.clipmap.firstlevel=6;
+r.shadow.virtual.maxphysicalpages=4096;
+r.shadow.virtual.optimalslopebiasmultiplier.directional=0;
+r.shadow.virtual.resolutionlodbiasdirectional=-1.5;
+r.shadow.virtual.resolutionlodbiaslocal=0;
+r.shadow.virtual.smrt.maxrayanglefromlight=0.03;
+r.shadow.virtual.smrt.raycountdirectional=4;
+r.shadow.virtual.smrt.raycountlocal=2;
+r.shadow.virtual.smrt.raylengthscaledirectional=1.5;
+r.shadow.virtual.smrt.samplesperraydirectional=1;
+r.shadow.virtual.smrt.samplesperrayhair=1;
+r.shadow.virtual.smrt.samplesperraylocal=1;
+r.shadow.virtual.smrt.texelditherscaledirectional=1;
+r.shadow.virtual.smrt.texelditherscalelocal=1;
+r.shadow.virtual.viewbias.directional=0;
+r.shadowquality=4; 🔴 3,4 for performance
+;
+; ue5
+;
 fx.niagara.qualitylevel=2; 🔴 0,1,2 for performance
 r.lumen.hardwareraytracing=1; 🔴 0 for performance
 r.lumen.reflections.downsamplefactor=1; 🔴 2 for performance
 r.lumen.reflections.maxroughnesstotrace=0.4; 🔴 -1,0.4 for performance
 r.lumen.reflections.smoothbias=0.4; 🔴 0,0.4 for performance
-r.lumen.reflections.specularindirectbuffer32bit=0; 🔴 0 for performance
-r.lumen.reflections.tracemeshsdfs=0; 🔴 0 for performance
+r.lumen.reflections.specularindirectbuffer32bit=0; 🔴 1 for performance
+r.lumen.reflections.tracemeshsdfs=1; 🔴 0 for performance
 r.lumen.screenprobegather.downsamplefactor=16; 🔴 16,32 for performance
 r.lumen.screenprobegather.stochasticinterpolation=1; 🔴 1 for performance
 r.lumen.tracemeshsdfs.allow=1; 🔴 0 for performance
@@ -141,7 +163,7 @@ r.lumenscene.radiosity.probeocclusion=0; 🔴 0 for performance
 r.pathtracing=0; 🔴 0 for performance
 r.raytracing.shadows.denoiser=0; 🔴 0 for performance
 r.raytracing.shadows=0; 🔴 0 for performance
-r.raytracing=1; 🔴 0 for performance
+r.raytracing=0; 🔴 0 for performance
 r.shadow.virtual.enable=1; 🔴 0 for performance
 r.shadow.virtual.nonnanite.includeincoarsepages=0; 🔴 0 for performance
 r.shadow.virtual.nonnanitevsm=1; 🔴 0 for performance
@@ -154,13 +176,13 @@ r.lumen.hardwareraytracing.lightingmode=0;
 r.lumen.radiancecache.hardwareraytracing.retrace.farfield=0;
 r.lumen.radiancecache.hardwareraytracing=1;
 r.lumen.reflections.hardwareraytracing.retrace.farfield=0;
-r.lumen.reflections.hardwareraytracing=0;
+r.lumen.reflections.hardwareraytracing=1;
 r.lumen.screenprobegather.hardwareraytracing.retrace.farfield=0;
 r.lumen.screenprobegather.hardwareraytracing=1;
 r.lumen.screenprobegather.shortrangeao.hardwareraytracing=0;
 r.lumen.translucencyvolume.hardwareraytracing=0;
-r.lumenscene.directlighting.hardwareraytracing=1; 🔴 0 for performance
-r.lumenscene.radiosity.hardwareraytracing=1; 🔴 0 for performance
+r.lumenscene.directlighting.hardwareraytracing=1;
+r.lumenscene.radiosity.hardwareraytracing=1;
 r.manylights.hardwareraytracing=0;
 ;
 ; ue5
@@ -175,8 +197,14 @@ r.lumen.diffuseindirect.allow=1;
 r.lumen.diffuseindirect.asynccompute=1;
 r.lumen.reflections.allow=1;
 r.lumen.reflections.asynccompute=1;
+r.lumen.reflections.bilateralfilter.numsamples=4;
+r.lumen.reflections.bilateralfilter.spatialkernelradius=0.002;
+r.lumen.reflections.bilateralfilter=1;
 r.lumen.reflections.distantscreentraces=1;
+r.lumen.reflections.hairstrands.screentrace=1;
+r.lumen.reflections.hairstrands.voxeltrace=1;
 r.lumen.reflections.maxroughnesstotraceforfoliage=0.4;
+r.lumen.reflections.samplescenecolorathit=1;
 r.lumen.reflections.screenspacereconstruction=1;
 r.lumen.reflections.screentraces=1;
 r.lumen.screenprobegather.materialao=1;
@@ -342,7 +370,9 @@ r.volumetricfog.emissive=0;
 r.volumetricfog.injectraytracedlights.locallights=0;
 r.volumetricfog.injectraytracedlights=0;
 r.volumetricfog.jitter=1;
+r.volumetricfog.lightfunction=0;
 r.volumetricfog.temporalreprojection=1;
+r.volumetricfog.useslightfunctionatlas=0;
 r.volumetricrendertarget.preferasynccompute=1;
 r.vrs.enable=0;
 r.vrs.enableimage=0;
@@ -350,7 +380,8 @@ r.vrs.enablesoftware=0;
 r.vsync=0;
 r.vsyncinformationinsights=0;
 r.vulkan.allowasynccompute=1;
-r.water.reflections.maxroughnesstotrace=0.4;
+r.water.reflections.maxroughnesstotrace=0.6;
+r.water.singlelayer.dampenskylight=0;
 r.water.singlelayer.depthprepass=1;
 r.water.singlelayer.distancefieldshadow=0;
 r.water.singlelayer.rtr=0;
