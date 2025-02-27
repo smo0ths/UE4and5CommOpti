@@ -2,9 +2,9 @@
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
-#### check 🔴 options for more fps (left to right, performance to quality, or remove)
-
 ## open engine.ini and copy pasta %localappdata%
+
+#### check 🔴 options for more fps (left to right, performance to quality, or remove)
 
 #### after pasting ini start game and set graphic settings to your spec low/med/high/ultra then restart game*
 
