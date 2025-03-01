@@ -1,4 +1,4 @@
-## updated 3/1/2025 ✂ 📋 🌀 :ramen: v1.0.2a [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
+## updated 3/1/2025 ✂ 📋 🌀 :ramen: v1.0.3 [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -33,7 +33,7 @@ d3d12.maximumframelatency=1 ;
 d3d12.texturepoolonlyaccountstreamabletexture=1 ;
 fx.gpusimulationtexturesizex=32 ;
 fx.gpusimulationtexturesizey=32 ;
-fx.niagara.asyncgputrace.globalsdfenabled=0 ;
+fx.niagara.asyncgputrace.globalsdfenabled=1 ;
 fx.niagara.asyncgputrace.hwraytraceenabled=0 ;
 fx.niagara.collision.cpuenabled=0 ;
 fx.niagara.qualitylevel=3 ; 🔴 0,1,2 for performance
@@ -135,14 +135,14 @@ r.lumen.reflections.screenspacereconstruction=1 ;
 r.lumen.reflections.screentraces=1 ;
 r.lumen.reflections.smoothbias=0.4 ; 🔴 0,0.4 for performance
 r.lumen.reflections.specularindirectbuffer32bit=1 ; 🔴 1 for performance
-r.lumen.reflections.tracemeshsdfs=0 ; 🔴 0 for performance
+r.lumen.reflections.tracemeshsdfs=1 ; 🔴 0 for performance
 r.lumen.screenprobegather.downsamplefactor=16 ; 🔴 16,32 for performance
 r.lumen.screenprobegather.hardwareraytracing.retrace.farfield=0 ;
 r.lumen.screenprobegather.hardwareraytracing=1 ;
 r.lumen.screenprobegather.materialao=1 ;
 r.lumen.screenprobegather.shortrangeao.hardwareraytracing=0 ;
 r.lumen.screenprobegather.stochasticinterpolation=1 ; 🔴 1 for performance
-r.lumen.tracemeshsdfs.allow=0 ; 🔴 0 for performance
+r.lumen.tracemeshsdfs.allow=1 ; 🔴 0 for performance
 r.lumen.tracemeshsdfs.tracedistance=180 ;
 r.lumen.tracemeshsdfs=0 ; 🔴 0 for performance
 r.lumen.translucencyreflections.frontlayer.allow=0 ; 🔴 0 for performance
@@ -189,7 +189,7 @@ r.raytracing.excludedecals=1 ;
 r.raytracing.excludesky=1 ;
 r.raytracing.excludetranslucent=1 ;
 r.raytracing.geometry.cable=0 ;
-r.raytracing.geometry.hierarchicalinstancedstaticmesh=0 ;
+r.raytracing.geometry.hierarchicalinstancedstaticmesh=1 ;
 r.raytracing.geometry.instancedstaticmeshes.evaluatewpo=0 ;
 r.raytracing.geometry.instancedstaticmeshes=0 ;
 r.raytracing.geometry.landscape=0 ;
@@ -255,14 +255,14 @@ r.shadow.virtual.optimalslopebiasmultiplier.directional=0 ;
 r.shadow.virtual.resolutionlodbiasdirectional=-1.5 ;
 r.shadow.virtual.resolutionlodbiaslocal=0 ;
 r.shadow.virtual.smrt.maxrayanglefromlight=0.03 ;
-r.shadow.virtual.smrt.raycountdirectional=4 ;
-r.shadow.virtual.smrt.raycountlocal=2 ;
+r.shadow.virtual.smrt.raycountdirectional=8 ;
+r.shadow.virtual.smrt.raycountlocal=8 ;
 r.shadow.virtual.smrt.raylengthscaledirectional=1.5 ;
-r.shadow.virtual.smrt.samplesperraydirectional=1 ;
+r.shadow.virtual.smrt.samplesperraydirectional=2 ;
 r.shadow.virtual.smrt.samplesperrayhair=1 ;
-r.shadow.virtual.smrt.samplesperraylocal=1 ;
-r.shadow.virtual.smrt.texelditherscaledirectional=1 ;
-r.shadow.virtual.smrt.texelditherscalelocal=1 ;
+r.shadow.virtual.smrt.samplesperraylocal=2 ;
+r.shadow.virtual.smrt.texelditherscaledirectional=2 ;
+r.shadow.virtual.smrt.texelditherscalelocal=2 ;
 r.shadow.virtual.subsurfaceshadowmode=1 ;
 r.shadow.virtual.translucentquality=0 ; 🔴 0 for performance
 r.shadow.virtual.viewbias.directional=0 ;
