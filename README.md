@@ -1,4 +1,4 @@
-## updated 2/28/2025 ✂ 📋 🌀 :ramen: v1.0.2 [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
+## updated 3/1/2025 ✂ 📋 🌀 :ramen: v1.0.2a [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -230,6 +230,8 @@ r.refractionquality=2 ; 🔴 0,1 for performance
 r.scenecolorformat=3 ; 🔴 2,3 for performance
 r.scenecolorfringe.max=0 ;
 r.scenedepthhzbasynccompute=1 ;
+r.screenpercentage.maxresolution=0 ;
+r.screenpercentage.minresolution=0 ;
 r.secondaryscreenpercentage.gameviewport=0 ;
 r.shaders.removedeadcode=1 ;
 r.shaders.removeunusedinterpolators=1 ;
@@ -361,9 +363,7 @@ r.xess.enabled=0 ;
 rhi.maximumframelatency=1 ;
 t.maxfps=0 ;
 t.overridefps=0 ;
-t.streamline.reflex.auto=1 ;
 t.streamline.reflex.enable=1 ;
-t.streamline.reflex.mode=2 ;
 ```
 
 ---
