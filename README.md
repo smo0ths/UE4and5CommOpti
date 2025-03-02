@@ -1,4 +1,4 @@
-## updated 3/1/2025 ✂ 📋 🌀 :ramen: v1.0.3 [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
+## updated 3/2/2025 ✂ 📋 🌀 :ramen: v1.0.4 [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -17,7 +17,7 @@ ballowtobecontacted=0 ;
 bisallowedtoclosewithoutsending=1 ;
 bsendlogfile=0 ;
 cansendwhenuifailedtoinitialize=0 ;
-datarouterurl="" ;
+datarouterurl=0 ;
 uiinitretrycount=0 ;
 
 [/script/engine.engine]
@@ -31,8 +31,6 @@ poolsizevrampercentage=70 ; 🔴 50 to lower vram usage
 [consolevariables]
 d3d12.maximumframelatency=1 ;
 d3d12.texturepoolonlyaccountstreamabletexture=1 ;
-fx.gpusimulationtexturesizex=32 ;
-fx.gpusimulationtexturesizey=32 ;
 fx.niagara.asyncgputrace.globalsdfenabled=1 ;
 fx.niagara.asyncgputrace.hwraytraceenabled=0 ;
 fx.niagara.collision.cpuenabled=0 ;
@@ -124,8 +122,8 @@ r.lumen.reflections.bilateralfilter.spatialkernelradius=0.002 ;
 r.lumen.reflections.bilateralfilter=1 ;
 r.lumen.reflections.distantscreentraces=1 ;
 r.lumen.reflections.downsamplefactor=1 ; 🔴 2 for performance
-r.lumen.reflections.hairstrands.screentrace=1 ;
-r.lumen.reflections.hairstrands.voxeltrace=1 ;
+r.lumen.reflections.hairstrands.screentrace=0 ;
+r.lumen.reflections.hairstrands.voxeltrace=0 ;
 r.lumen.reflections.hardwareraytracing.retrace.farfield=0 ;
 r.lumen.reflections.hardwareraytracing=1 ;
 r.lumen.reflections.maxroughnesstotrace=0.4 ; 🔴 -1,0.4 for performance
@@ -145,9 +143,9 @@ r.lumen.screenprobegather.stochasticinterpolation=1 ; 🔴 1 for performance
 r.lumen.tracemeshsdfs.allow=1 ; 🔴 0 for performance
 r.lumen.tracemeshsdfs.tracedistance=180 ;
 r.lumen.tracemeshsdfs=0 ; 🔴 0 for performance
-r.lumen.translucencyreflections.frontlayer.allow=0 ; 🔴 0 for performance
-r.lumen.translucencyreflections.frontlayer.enable=0 ; 🔴 0 for performance
-r.lumen.translucencyvolume.hardwareraytracing=0 ;
+r.lumen.translucencyreflections.frontlayer.allow=1 ; 🔴 0 for performance
+r.lumen.translucencyreflections.frontlayer.enable=1 ; 🔴 0 for performance
+r.lumen.translucencyvolume.hardwareraytracing=1 ;
 r.lumen.translucencyvolume.radiancecache.probeatlasresolutioninprobes=128 ;
 r.lumenscene.directlighting.hardwareraytracing=1 ;
 r.lumenscene.directlighting.offscreenshadowing.tracemeshsdfs=0 ; 🔴 0 for performance
@@ -246,6 +244,7 @@ r.shadow.nanitelodbias=1 ; 🔴 1 for performance
 r.shadow.preshadowresolutionfactor=0.5 ;
 r.shadow.radiusthreshold=0.04 ; 🔴 0.06,0.05,0.04 for performance
 r.shadow.virtual.clipmap.firstlevel=6 ;
+r.shadow.virtual.distantlightmode=1 ;
 r.shadow.virtual.enable=1 ; 🔴 0 for performance
 r.shadow.virtual.forceonlyvirtualshadowmaps=0 ;
 r.shadow.virtual.maxphysicalpages=4096 ;
@@ -274,7 +273,7 @@ r.skyatmosphere.multiscatteringlut.highquality=0 ; 🔴 0 for performance
 r.skyatmosphere.multiscatteringlut.samplecount=15 ;
 r.skyatmosphere.samplecountmax=64 ; 🔴 32 for performance
 r.skyatmosphere.samplecountmin=4 ; 🔴 1 for performance
-r.skyatmosphere.samplelightshadowmap=0 ; 🔴 0 for performance
+r.skyatmosphere.samplelightshadowmap=1 ; 🔴 0 for performance
 r.skyatmosphere.transmittancelut.samplecount=10 ;
 r.skyatmosphere.transmittancelut.usesmallformat=0 ; 🔴 1 for performance
 r.skyatmosphereasynccompute=1 ;
@@ -314,7 +313,7 @@ r.volumetriccloud.distancetosamplemaxcount=15 ;
 r.volumetriccloud.enableatmosphericlightssampling=1 ;
 r.volumetriccloud.enabledistantskylightsampling=1 ;
 r.volumetriccloud.enablelocallightssampling=0 ; 🔴 0 for performance
-r.volumetriccloud.shadow.sampleatmosphericlightshadowmap=0 ; 🔴 0 for performance
+r.volumetriccloud.shadow.sampleatmosphericlightshadowmap=1 ; 🔴 0 for performance
 r.volumetriccloud.shadowmap.spatialfiltering=1 ;
 r.volumetriccloud.shadowmap=1 ;
 r.volumetriccloud.skyao=1 ;
@@ -322,8 +321,8 @@ r.volumetriccloud=1 ; 🔴 0 for performance
 r.volumetricfog.conservativedepth=0 ;
 r.volumetricfog.depthdistributionscale=32 ; 🔴 16 for performance
 r.volumetricfog.emissive=0 ;
-r.volumetricfog.gridpixelsize=16 ; 🔴 24,16 for performance
-r.volumetricfog.gridsizez=96 ; 🔴 64,96 for performance
+r.volumetricfog.gridpixelsize=8 ; 🔴 24,16 for performance
+r.volumetricfog.gridsizez=128 ; 🔴 64,96 for performance
 r.volumetricfog.historymisssupersamplecount=2 ; 🔴 2 for performance
 r.volumetricfog.injectraytracedlights.locallights=0 ;
 r.volumetricfog.injectraytracedlights=0 ;
@@ -333,7 +332,10 @@ r.volumetricfog.temporalreprojection=1 ;
 r.volumetricfog.upsamplejittermultiplier=0 ; 🔴 0 for performance
 r.volumetricfog.useslightfunctionatlas=0 ;
 r.volumetricfog=1 ; 🔴 0 for performance
+r.volumetricrendertarget.mode=2 ;
 r.volumetricrendertarget.preferasynccompute=1 ;
+r.volumetricrendertarget.reprojectionboxconstraint=0 ;
+r.volumetricrendertarget.upsamplingmode=2 ;
 r.vrs.enable=0 ;
 r.vrs.enableimage=0 ;
 r.vrs.enablesoftware=0 ;
