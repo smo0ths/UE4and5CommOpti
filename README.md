@@ -1,4 +1,4 @@
-## updated 3/2/2025 ✂ 📋 🌀 :ramen: v1.0.4 [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
+## updated 3/2/2025 ✂ 📋 🌀 :ramen: v1.0.4a [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -316,7 +316,7 @@ r.volumetriccloud.enablelocallightssampling=0 ; 🔴 0 for performance
 r.volumetriccloud.shadow.sampleatmosphericlightshadowmap=1 ; 🔴 0 for performance
 r.volumetriccloud.shadowmap.spatialfiltering=1 ;
 r.volumetriccloud.shadowmap=1 ;
-r.volumetriccloud.skyao=1 ;
+r.volumetriccloud.skyao=0 ;
 r.volumetriccloud=1 ; 🔴 0 for performance
 r.volumetricfog.conservativedepth=0 ;
 r.volumetricfog.depthdistributionscale=32 ; 🔴 16 for performance
