@@ -1,4 +1,4 @@
-## updated 3/2/2025 ✂ 📋 🌀 :ramen: v1.0.5 [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
+## updated 3/3/2025 ✂ 📋 🌀 :ramen: v1.0.6 [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -31,7 +31,7 @@ poolsizevrampercentage=70 ; 🔴 50 to lower vram usage
 [consolevariables]
 d3d12.maximumframelatency=1 ;
 d3d12.texturepoolonlyaccountstreamabletexture=1 ;
-fx.niagara.asyncgputrace.globalsdfenabled=1 ;
+fx.niagara.asyncgputrace.globalsdfenabled=0 ; 🔴 0 for performance
 fx.niagara.asyncgputrace.hwraytraceenabled=0 ;
 fx.niagara.collision.cpuenabled=0 ;
 fx.niagara.qualitylevel=3 ; 🔴 0,1,2 for performance
