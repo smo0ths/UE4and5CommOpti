@@ -1,4 +1,4 @@
-## updated 3/3/2025 ✂ 📋 🌀 :ramen: v1.0.7 [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
+## updated 3/4/2025 ✂ 📋 🌀 :ramen: v1.0.8 [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -35,6 +35,7 @@ fx.niagara.asyncgputrace.globalsdfenabled=0 ;
 fx.niagara.asyncgputrace.hwraytraceenabled=0 ;
 fx.niagara.qualitylevel=3 ; 🔴 0,1,2 for performance
 fx.niagaraallowruntimescalabilitychanges=1 ;
+r.allowhdr=0;
 r.allowlandscapeshadows=1 ; 🔴 0 for performance
 r.ambientocclusionlevels=-1 ; 🔴 0,1 for performance
 r.ambientocclusionmaxquality=100 ;
@@ -60,6 +61,7 @@ r.detectandwarnofbaddrivers=0 ;
 r.dffullresolution=0 ; 🔴 0 for performance
 r.dfshadowquality=2 ; 🔴 1,2 for performance
 r.diffuseindirectoffusedepthboundsao=0 ;
+r.disablelandscapenanitegi=1 ;
 r.distancefields.supportevenifhardwareraytracingsupported=1 ;
 r.dof.gather.accumulatorquality=0 ;
 r.dof.gather.enablebokehsettings=0 ;
@@ -102,6 +104,12 @@ r.hairstrands.velocityrasterizationscale=1 ;
 r.hairstrands.visibility.msaa.sampleperpixel=1 ;
 r.hairstrands.visibility.ppll=0 ;
 r.hairstrands.voxelization=0 ;
+r.hdr.display.colorgamut=0;
+r.hdr.display.outputdevice=0;
+r.hdr.enablehdroutput=0;
+r.hdr.ui.compositemode=1;
+r.hdr.ui.level=1;
+r.hdr.ui.luminance=300;
 r.hzbocclusion=1 ;
 r.landscapelodbias=0 ; 🔴 1 for performance
 r.lightmaxdrawdistancescale=1 ; 🔴 0.6 for performance
@@ -149,16 +157,19 @@ r.lumen.translucencyvolume.radiancecache.proberesolution=8 ;
 r.lumen.translucencyvolume.tracefromvolume=0 ;
 r.lumen.translucencyvolume.tracingoctahedronresolution=3 ;
 r.lumenscene.directlighting.offscreenshadowing.tracemeshsdfs=0 ; 🔴 0 for performance
-r.lumenscene.farfield.maxtracedistance=100000 ; 🔴 100000 for performance
 r.lumenscene.farfield=0 ;
 r.lumenscene.radiosity.hemisphereproberesolution=3 ; 🔴 3 for performance
 r.lumenscene.radiosity.probeocclusion=0 ;
 r.lumenscene.radiosity.probespacing=4 ;
+r.lumenscene.surfacecache.nanitelodscalefactor=1 ;
 r.maxanisotropy=16 ; 🔴 0,4,8 for performance
 r.minscreenradiusforlights=0.03 ; 🔴 0.06,0.04 for performance
 r.motionblurquality=0 ;
+r.nanite.allowtessellation=0 ;
+r.nanite.builder.fallbacktrianglethreshold=0 ;
 r.nanite.computerasterization=1 ;
 r.nanite.disablefallbackmeshes=1 ;
+r.nanite.softwarevrs=0 ;
 r.nanite.streaming.dynamicallygrowallocations=1 ;
 r.nanite.streaming.imposters=0 ;
 r.nanite.streaming.numinitialimposters=2048 ;
@@ -245,6 +256,8 @@ r.skyatmosphere.samplelightshadowmap=1 ; 🔴 0 for performance
 r.skyatmosphere.transmittancelut.samplecount=10 ;
 r.skyatmosphere.transmittancelut.usesmallformat=0 ; 🔴 1 for performance
 r.skylightintensitymultiplier=1 ;
+r.splinemesh.norecreateproxy=1 ;
+r.splinemesh.rendernanite=1 ;
 r.ssgi.enable=0 ; 🔴 0 for performance
 r.ssr.experimentaldenoiser=0 ;
 r.ssr.halfresscenecolor=1 ; 🔴 1 for performance
