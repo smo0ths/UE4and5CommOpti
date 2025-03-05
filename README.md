@@ -1,4 +1,4 @@
-## updated 3/4/2025 ✂ 📋 🌀 :ramen: v1.0.8 [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
+## updated 3/4/2025 ✂ 📋 🌀 :ramen: v1.0.9 [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -313,10 +313,6 @@ r.volumetricfog.temporalreprojection=1 ;
 r.volumetricfog.upsamplejittermultiplier=0 ; 🔴 0 for performance
 r.volumetricfog.useslightfunctionatlas=0 ;
 r.volumetricfog=1 ; 🔴 0 for performance
-r.volumetricrendertarget.mode=1 ;
-r.volumetricrendertarget.preferasynccompute=1 ;
-r.volumetricrendertarget.reprojectionboxconstraint=0 ;
-r.volumetricrendertarget.upsamplingmode=4 ;
 r.vrs.enable=0 ;
 r.vrs.enableimage=0 ;
 r.vrs.enablesoftware=0 ;
