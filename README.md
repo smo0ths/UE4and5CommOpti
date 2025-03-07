@@ -1,4 +1,4 @@
-## updated 3/4/2025 ✂ 📋 🌀 :ramen: v1.1.0 [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
+## updated 3/7/2025 ✂ 📋 🌀 :ramen: v1.1.1 [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -98,6 +98,7 @@ r.hairstrands.scatterscenelighting=1 ;
 r.hairstrands.shadow.castshadowwhennonvisible=0 ;
 r.hairstrands.skyao=0 ; 0 for performance
 r.hairstrands.skylighting.integrationtype=2 ;
+r.hairstrands.skylighting.jitterintegration=0 ;
 r.hairstrands.skylighting.screentraceocclusion=0 ;
 r.hairstrands.usecardsinsteadofstrands=0 ; 1 for performance
 r.hairstrands.velocityrasterizationscale=1 ;
@@ -215,7 +216,7 @@ r.shaders.removeunusedinterpolators=1 ;
 r.shadow.cachedshadowscastfrommovableprimitives=0 ; 0 for performance
 r.shadow.csm.transitionscale=1 ;
 r.shadow.csmshadowdistancefadeoutmultiplier=1 ;
-r.shadow.forcesinglesampleshadowingfromstationary=0 ; 1 for performance
+r.shadow.forcesinglesampleshadowingfromstationary=0 ;
 r.shadow.nanitelodbias=1 ; 1 for performance
 r.shadow.preshadowresolutionfactor=0.5 ;
 r.shadow.radiusthreshold=0.04 ; 0.06,0.05,0.04 for performance
@@ -277,7 +278,7 @@ r.streaming.maxeffectivescreensize=0 ;
 r.streaming.maxnumtexturestostreamperframe=0 ;
 r.streaming.mipbias=0 ; 1 for performance
 r.streaming.poolsize.vrampercentageclamp=1024 ;
-r.streaming.poolsize=1000 ; 800 to lower vram usage
+r.streaming.poolsize=2000 ; 800,1000 to lower vram usage
 r.streaming.poolsizeformeshes=-1 ;
 r.streaming.useallmips=0 ;
 r.streaming.usefixedpoolsize=0 ;
@@ -290,7 +291,7 @@ r.temporalaa.upsampling=1 ; 0 for performance
 r.temporalaasamples=8 ;
 r.tessellationadaptivepixelspertriangle=999999 ; 999999,48 for performance
 r.tonemapper.sharpen=0 ;
-r.translucencylightingvolumedim=64 ; 32,48 for performance
+r.translucencylightingvolumedim=48 ; 32,48 for performance
 r.translucencyvolumeblur=1 ; 0 for performance
 r.upscale.quality=3 ;
 r.volumetriccloud.distancetosamplemaxcount=15 ;
