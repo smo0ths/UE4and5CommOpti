@@ -1,4 +1,4 @@
-## updated 5/21/2025 ✂ 📋 🌀 :ramen: v1.1.4 [(twitch)](https://twitch.tv/smoothschannel)
+## updated 5/21/2025 ✂ 📋 🌀 :ramen: v1.1.4
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
