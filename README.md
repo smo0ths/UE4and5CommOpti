@@ -1,4 +1,4 @@
-## updated 5/21/2025 ✂ 📋 🌀 :ramen: v1.1.4 [(twitch)](https://twitch.tv/smoothschannel) [(paypal support)](https://www.paypal.com/donate/?business=krtr5pj8dlata&no_recurring=0&item_name=dono&currency_code=usd) [(streamlabs support)](https://streamlabs.com/smoothschannel/tip)
+## updated 5/21/2025 ✂ 📋 🌀 :ramen: v1.1.4 [(twitch)](https://twitch.tv/smoothschannel)
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
