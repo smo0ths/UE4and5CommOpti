@@ -1,4 +1,4 @@
-## updated 12/21/2025 ✂ 📋 🌀 :ramen: v1.1.5
+## updated 12/21/2025 ✂ 📋 🌀 :ramen: v1.1.6
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -175,7 +175,7 @@ r.nanite.visualize.advanced=0;
 r.ngx.dlss.prefernissharpen=0;
 r.ngx.dlss.quality.auto=0;
 r.ngx.dlss.reflections.temporalaa=0;
-r.ngx.dlss.sharpness=0;
+r.ngx.dlss.sharpness=0.5;
 r.ngx.dlss.waterreflections.temporalaa=0;
 r.ngx.loglevel=0;
 r.nis.enable=0;
