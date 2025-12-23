@@ -1,8 +1,10 @@
-## updated 12/21/2025 ✂ 📋 🌀 :ramen: v1.1.6
+## updated 12/23/2025 ✂ 📋 🌀 :ramen: v1.1.7
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
 ## open engine.ini and copy pasta %localappdata%
+
+#### set your r.streaming.poolsize=/r.streaming.limitpoolsizetovram= (or remove to let game decide*)
 
 #### check performance options (left to right, performance to quality)
 
@@ -42,8 +44,8 @@ grass.maxupdatefrequency=10;
 grass.tickinterval=1;
 r.ambientocclusionlevels=-1; 0,1,2 for performance
 r.ambientocclusionstaticfraction=-1; 0 for performance
-r.aoheightfieldocclusion=0; 0 for performance
-r.aoquality=0; 0,1 for performance
+r.aoheightfieldocclusion=1; 0 for performance
+r.aoquality=2; 0,1 for performance
 r.blurgbuffer=0;
 r.chaos.reflectioncapturestaticsceneonly=1;
 r.compileshadersfordevelopment=0;
@@ -56,7 +58,7 @@ r.d3d12.useallowtearing=1;
 r.depthoffieldquality=0; 0,1 for performance
 r.detectandwarnofbaddrivers=0;
 r.dffullresolution=0; 0 for performance
-r.dfshadowquality=2; 1,2 for performance
+r.dfshadowquality=3; 1,2 for performance
 r.diffuseindirectoffusedepthboundsao=1;
 r.disablelandscapenanitegi=1;
 r.distancefieldao=0; 0 for performance
@@ -157,6 +159,7 @@ r.lumenscene.radiosity.probespacing=4;
 r.lumenscene.surfacecache.nanitelodscalefactor=1;
 r.maxanisotropy=16; 0,4,8 for performance
 r.minscreenradiusforlights=0.03; 0.06,0.04 for performance
+r.mipmaplodbias=0;
 r.motionblurquality=0;
 r.nanite.allowtessellation=0;
 r.nanite.builder.fallbacktrianglethreshold=0;
@@ -184,6 +187,7 @@ r.numbufferedocclusionqueries=1;
 r.optimizedwpo=1;
 r.reflectioncapturesupersamplefactor=1;
 r.refraction.blur.temporalaa=1;
+r.refraction.blur=0;
 r.refraction.offsetquality=1;
 r.scenecolorformat=4; 2,3 for performance
 r.scenecolorfringe.max=0;
@@ -247,14 +251,15 @@ r.sss.checkerboard=2; 1 for performance
 r.sss.halfres=1; 1 for performance
 r.streaming.amortizecputogpucopy=0;
 r.streaming.boost=1;
+r.streaming.dropmips=0; 1 to lower vram usage
 r.streaming.fullyloadusedtextures=0;
 r.streaming.hiddenprimitivescale=0.5; 0.5 for performance
-r.streaming.limitpoolsizetovram=1;
+r.streaming.limitpoolsizetovram=0; 0 to manually set poolsize
 r.streaming.maxeffectivescreensize=0;
 r.streaming.maxnumtexturestostreamperframe=0;
 r.streaming.mipbias=0; 1 for performance
 r.streaming.poolsize.vrampercentageclamp=1024;
-r.streaming.poolsize=-1; 800,1000,2000 to lower vram usage
+r.streaming.poolsize=6000; 800,1000,2000 to lower vram usage
 r.streaming.poolsizeformeshes=-1;
 r.streaming.useallmips=0;
 r.streaming.usefixedpoolsize=0;
@@ -277,9 +282,11 @@ r.volumetriccloud.shadowmap=1;
 r.volumetriccloud.skyao=0;
 r.volumetriccloud=1; 0 for performance
 r.volumetricfog.conservativedepth=0;
-r.volumetricfog.emissive=0; 0 for performance
-r.volumetricfog.injectraytracedlights.locallights=0;
-r.volumetricfog.injectraytracedlights=0;
+r.volumetricfog.emissive=1; 0 for performance
+r.volumetricfog.injectraytracedlights.locallights=0; 0 for performance
+r.volumetricfog.injectraytracedlights=0; 0 for performance
+r.volumetricfog.injectshadowedlights=1; 0 for performance
+r.volumetricfog.injectshadowedlightsseparately=1; 0 for performance
 r.volumetricfog.temporalreprojection=1;
 r.volumetricfog.upsamplejittermultiplier=0; 0 for performance
 r.volumetricfog.useslightfunctionatlas=1; 0 for performance
@@ -294,7 +301,7 @@ r.vt.maxanisotropy=8; 4 for performance
 r.water.enableshallowwatersimulation=0; 0 for performance
 r.water.enableunderwaterpostprocess=0; 0 for performance
 r.water.reflections.maxroughnesstotrace=0.4;
-r.water.singlelayer.dampenskylight=0;
+r.water.singlelayer.dampenskylight=1;
 r.water.singlelayer.depthprepass=1;
 r.water.singlelayer.distancefieldshadow=0;
 r.water.singlelayer.downsamplereflections=1; 1 for performance
