@@ -1,4 +1,4 @@
-## updated 12/23/2025 ✂ 📋 🌀 :ramen: v1.1.7
+## updated 12/23/2025 ✂ 📋 🌀 :ramen: v1.1.8
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -44,8 +44,12 @@ grass.maxupdatefrequency=10;
 grass.tickinterval=1;
 r.ambientocclusionlevels=-1; 0,1,2 for performance
 r.ambientocclusionstaticfraction=-1; 0 for performance
+r.aoapplytostaticindirect=1;
+r.aoglobaldistancefield.mipfactor=4; 8 for performance
+r.aoglobaldistancefield=1; 0 for performance
 r.aoheightfieldocclusion=1; 0 for performance
 r.aoquality=2; 0,1 for performance
+r.aospecularocclusionmode=2; test 2 def 1
 r.blurgbuffer=0;
 r.chaos.reflectioncapturestaticsceneonly=1;
 r.compileshadersfordevelopment=0;
@@ -61,7 +65,7 @@ r.dffullresolution=0; 0 for performance
 r.dfshadowquality=3; 1,2 for performance
 r.diffuseindirectoffusedepthboundsao=1;
 r.disablelandscapenanitegi=1;
-r.distancefieldao=0; 0 for performance
+r.distancefieldao=1; 0 for performance
 r.distancefields.supportevenifhardwareraytracingsupported=1;
 r.dof.gather.accumulatorquality=0;
 r.dof.gather.enablebokehsettings=0;
