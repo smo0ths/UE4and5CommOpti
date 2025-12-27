@@ -1,4 +1,4 @@
-## updated 12/23/2025 ✂ 📋 🌀 :ramen: v1.1.8
+## updated 12/27/2025 ✂ 📋 🌀 :ramen: v1.1.9
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -35,7 +35,7 @@ poolsizevrampercentage=70; 50 to lower vram usage
 [consolevariables]
 d3d12.maximumframelatency=1;
 d3d12.texturepoolonlyaccountstreamabletexture=0;
-foliage.asyncinstanebufferconversion=1;
+foliage.asyncinstanebufferconversion=1; 1 for performance
 fx.niagara.asyncgputrace.globalsdfenabled=0; 0 for performance
 fx.niagara.asyncgputrace.hwraytraceenabled=0; 0 for performance
 fx.niagaraallowruntimescalabilitychanges=1;
@@ -45,7 +45,7 @@ grass.tickinterval=1;
 r.ambientocclusionlevels=-1; 0,1,2 for performance
 r.ambientocclusionstaticfraction=-1; 0 for performance
 r.aoapplytostaticindirect=1;
-r.aoglobaldistancefield.mipfactor=4; 8 for performance
+r.aoglobaldistancefield.mipfactor=8; 8 for performance
 r.aoglobaldistancefield=1; 0 for performance
 r.aoheightfieldocclusion=1; 0 for performance
 r.aoquality=2; 0,1 for performance
@@ -59,10 +59,10 @@ r.d3d12.allowshadermodel6=1;
 r.d3d12.gpucrashdebuggingmode=0;
 r.d3d12.shadowdepth32bit=0; 0 for performance
 r.d3d12.useallowtearing=1;
-r.depthoffieldquality=0; 0,1 for performance
+r.depthoffieldquality=1; 0,1 for performance
 r.detectandwarnofbaddrivers=0;
 r.dffullresolution=0; 0 for performance
-r.dfshadowquality=3; 1,2 for performance
+r.dfshadowquality=2; 1,2 for performance
 r.diffuseindirectoffusedepthboundsao=1;
 r.disablelandscapenanitegi=1;
 r.distancefieldao=1; 0 for performance
@@ -256,16 +256,18 @@ r.sss.halfres=1; 1 for performance
 r.streaming.amortizecputogpucopy=0;
 r.streaming.boost=1;
 r.streaming.dropmips=0; 1 to lower vram usage
+r.streaming.fullyloadmeshes=0;
 r.streaming.fullyloadusedtextures=0;
-r.streaming.hiddenprimitivescale=0.5; 0.5 for performance
+r.streaming.hiddenprimitivescale=0.5; 0,0.25,0.5 for performance
 r.streaming.limitpoolsizetovram=0; 0 to manually set poolsize
 r.streaming.maxeffectivescreensize=0;
 r.streaming.maxnumtexturestostreamperframe=0;
 r.streaming.mipbias=0; 1 for performance
 r.streaming.poolsize.vrampercentageclamp=1024;
-r.streaming.poolsize=6000; 800,1000,2000 to lower vram usage
+r.streaming.poolsize=4000; 800,1000,2000 to lower vram usage
 r.streaming.poolsizeformeshes=-1;
 r.streaming.useallmips=0;
+r.streaming.useasyncrequestsforddc=1;
 r.streaming.usefixedpoolsize=0;
 r.streaming.usepertexturebias=1;
 r.subsurfacescattering=1; 0 for performance
@@ -281,12 +283,12 @@ r.volumetriccloud.enableatmosphericlightssampling=1;
 r.volumetriccloud.enabledistantskylightsampling=1;
 r.volumetriccloud.enablelocallightssampling=0; 0 for performance
 r.volumetriccloud.shadow.sampleatmosphericlightshadowmap=0; 0 for performance
-r.volumetriccloud.shadowmap.spatialfiltering=1;
+r.volumetriccloud.shadowmap.spatialfiltering=1; 0 for performance
 r.volumetriccloud.shadowmap=1;
 r.volumetriccloud.skyao=0;
 r.volumetriccloud=1; 0 for performance
 r.volumetricfog.conservativedepth=0;
-r.volumetricfog.emissive=1; 0 for performance
+r.volumetricfog.emissive=0; 0 for performance
 r.volumetricfog.injectraytracedlights.locallights=0; 0 for performance
 r.volumetricfog.injectraytracedlights=0; 0 for performance
 r.volumetricfog.injectshadowedlights=1; 0 for performance
