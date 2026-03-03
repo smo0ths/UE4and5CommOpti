@@ -1,4 +1,4 @@
-## updated 3/3/2026 ✂ 📋 🌀 :ramen: v1.2.0
+## updated 3/3/2026 ✂ 📋 🌀 :ramen: v1.2.1
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -6,7 +6,7 @@
 
 #### set your r.streaming.poolsize=/r.streaming.limitpoolsizetovram= (or remove to let game decide*)
 
-#### remove r.raytracing=0;/r.ssgi.enable=0; if you are using that
+#### remove r.raytracing= if you are using that
 
 #### check performance options (left to right, performance to quality)
 
@@ -36,8 +36,7 @@ poolsizevrampercentage=70; 50 to lower vram usage
 
 [consolevariables]
 d3d12.maximumframelatency=1;
-d3d12.texturepoolonlyaccountstreamabletexture=0;
-foliage.asyncinstanebufferconversion=1; 1 for performance
+foliage.asyncinstanebufferconversion=1;
 fx.niagara.asyncgputrace.globalsdfenabled=0; 0 for performance
 fx.niagara.asyncgputrace.hwraytraceenabled=0; 0 for performance
 fx.niagaraallowruntimescalabilitychanges=1;
@@ -47,28 +46,27 @@ grass.tickinterval=1;
 r.ambientocclusionlevels=-1; 0,1,2 for performance
 r.ambientocclusionstaticfraction=-1; 0 for performance
 r.aoapplytostaticindirect=1;
-r.aoglobaldistancefield.mipfactor=8; 8 for performance
+r.aoglobaldistancefield.mipfactor=4; 4,8 for performance
 r.aoglobaldistancefield=1; 0 for performance
-r.aoheightfieldocclusion=1; 0 for performance
-r.aoquality=2; 0,1 for performance
+r.aoheightfieldocclusion=0; 0 for performance
+r.aoquality=2; 0,1,2 for performance
 r.aospecularocclusionmode=1;
 r.blurgbuffer=0;
 r.chaos.reflectioncapturestaticsceneonly=1;
 r.compileshadersfordevelopment=0;
-r.d3d.forcedxc=1;
 r.d3d11.useallowtearing=1;
 r.d3d12.allowshadermodel6=1;
+r.d3d12.depth24bit=0; 1 for performance
 r.d3d12.gpucrashdebuggingmode=0;
 r.d3d12.shadowdepth32bit=0; 0 for performance
 r.d3d12.useallowtearing=1;
 r.depthoffieldquality=1; 0,1 for performance
 r.detectandwarnofbaddrivers=0;
 r.dffullresolution=0; 0 for performance
-r.dfshadowquality=2; 1,2 for performance
+r.dfshadowquality=3; 1,2,3 for performance
 r.diffuseindirectoffusedepthboundsao=1;
 r.disablelandscapenanitegi=1;
 r.distancefieldao=0; 0 for performance
-r.distancefields.supportevenifhardwareraytracingsupported=1;
 r.dof.gather.accumulatorquality=0;
 r.dof.gather.enablebokehsettings=0;
 r.dof.gather.postfiltermethod=1;
@@ -87,24 +85,22 @@ r.filter.loopmode=0;
 r.filter.sizescale=1;
 r.fog=1;
 r.forwardshading.forceskylightcubemapblending=0; 0 for performance
-r.frustumcullnumwordspertask=32;
 r.gpucrash.collectionenable=0;
-r.gpuscene.parallelupdate=0;
 r.gtsynctype=0;
-r.hairstrands.composeaftertranslucency=0;
+r.hairstrands.composeaftertranslucency=1;
 r.hairstrands.deepshadow.supersampling=0;
 r.hairstrands.interpolation.usesingleguide=1; 1 for performance
 r.hairstrands.minlod=0;
 r.hairstrands.rasterizationscale=0.5;
 r.hairstrands.scatterscenelighting=1;
-r.hairstrands.shadow.castshadowwhennonvisible=0;
+r.hairstrands.shadow.castshadowwhennonvisible=1; 0 for performance
 r.hairstrands.skyao=0; 0 for performance
 r.hairstrands.skylighting.integrationtype=2;
 r.hairstrands.skylighting.jitterintegration=0;
 r.hairstrands.skylighting.screentraceocclusion=0;
 r.hairstrands.usecardsinsteadofstrands=0; 1 for performance
 r.hairstrands.velocityrasterizationscale=1;
-r.hairstrands.visibility.msaa.sampleperpixel=1;
+r.hairstrands.visibility.msaa.sampleperpixel=1; 1,2 for performance
 r.hairstrands.visibility.ppll=0;
 r.landscapelodbias=0; 1 for performance
 r.lightmaxdrawdistancescale=1; 0.6 for performance
@@ -152,19 +148,14 @@ r.lumen.tracemeshsdfs=1; 0 for performance
 r.lumen.translucencyreflections.frontlayer.allow=1; 0 for performance
 r.lumen.translucencyreflections.frontlayer.enable=0; 0 for performance
 r.lumen.translucencyreflections.frontlayer.enableforproject=0; 0 for performance
-r.lumen.translucencyvolume.radiancecache.numprobestotracebudget=200;
-r.lumen.translucencyvolume.radiancecache.probeatlasresolutioninprobes=128;
-r.lumen.translucencyvolume.radiancecache.proberesolution=8;
-r.lumen.translucencyvolume.tracefromvolume=0;
-r.lumen.translucencyvolume.tracingoctahedronresolution=3;
+r.lumen.translucencyvolume.enable=1; 0 for performance
 r.lumenscene.directlighting.offscreenshadowing.tracemeshsdfs=0; 0 for performance
 r.lumenscene.farfield=0;
-r.lumenscene.radiosity.hemisphereproberesolution=3; 3 for performance
-r.lumenscene.radiosity.probeocclusion=0;
-r.lumenscene.radiosity.probespacing=4;
+r.lumenscene.radiosity.hemisphereproberesolution=3; 2,3 for performance
+r.lumenscene.radiosity.probespacing=8; 16,8,4 for performance
 r.lumenscene.surfacecache.nanitelodscalefactor=1;
 r.maxanisotropy=16; 0,4,8 for performance
-r.meshstreaming=1; test 1 def 0
+r.meshstreaming=1;
 r.minscreenradiusforlights=0.03; 0.06,0.04 for performance
 r.mipmaplodbias=0;
 r.motionblurquality=0;
@@ -202,10 +193,9 @@ r.shadow.forcesinglesampleshadowingfromstationary=0;
 r.shadow.nanitelodbias=1; 1 for performance
 r.shadow.preshadowresolutionfactor=0.5;
 r.shadow.radiusthreshold=0.04; 0.06,0.05,0.04 for performance
-r.shadow.unbuiltpreviewingame=0;
-r.shadow.virtual.distantlightmode=1;
-r.shadow.virtual.forceonlyvirtualshadowmaps=1;
 r.shadow.virtual.nonnanite.includeincoarsepages=0; 0 for performance
+r.shadow.virtual.onepassprojection.maxlightsperpixel=8; 8,16 for performance
+r.shadow.virtual.onepassprojection=1; 1 for performance
 r.shadow.virtual.resolutionlodbiasdirectional=0; 0,-1 for performance
 r.shadow.virtual.resolutionlodbiasdirectionalmoving=0; 0,-1 for performance
 r.shadow.virtual.resolutionlodbiaslocal=0;
@@ -231,15 +221,12 @@ r.skyatmosphere.transmittancelut.samplecount=10;
 r.skyatmosphere.transmittancelut.usesmallformat=0; 1 for performance
 r.skylightintensitymultiplier=1;
 r.skyspecularocclusionstrength=1;
-r.splinemesh.norecreateproxy=1;
-r.splinemesh.rendernanite=1;
-r.ssgi.enable=0; 0 for performance
-r.ssgi.quality=2;
+r.ssgi.quality=2; 2,3 for performance
 r.ssr.halfresscenecolor=1; 1 for performance
-r.ssr.quality=2; 0,2 for performance
-r.sss.burley.quality=1; 0 for performance
+r.sss.burley.quality=0; 0,1 for performance
 r.sss.checkerboard=2; 1 for performance
-r.sss.halfres=1; 1 for performance
+r.sss.halfres=0; 1 for performance
+r.sss.quality=1; 0 for performance
 r.streaming.amortizecputogpucopy=0;
 r.streaming.boost=1;
 r.streaming.dropmips=0; 1 to lower vram usage
@@ -275,10 +262,9 @@ r.volumetriccloud.skyao=0;
 r.volumetriccloud=1; 0 for performance
 r.volumetricfog.conservativedepth=0;
 r.volumetricfog.emissive=0; 0 for performance
-r.volumetricfog.injectraytracedlights.locallights=0; 0 for performance
+r.volumetricfog.historymisssupersamplecount=2; 2 for performance
 r.volumetricfog.injectraytracedlights=0; 0 for performance
-r.volumetricfog.injectshadowedlights=0; 0 for performance
-r.volumetricfog.injectshadowedlightsseparately=0; 0 for performance
+r.volumetricfog.injectshadowedlightsseparately=1; 0 for performance
 r.volumetricfog.temporalreprojection=1;
 r.volumetricfog.upsamplejittermultiplier=0; 0 for performance
 r.volumetricfog.useslightfunctionatlas=0;
@@ -295,10 +281,7 @@ r.vt.maxanisotropy=8; 4 for performance
 r.water.enableshallowwatersimulation=0; 0 for performance
 r.water.enableunderwaterpostprocess=0; 0 for performance
 r.water.reflections.maxroughnesstotrace=0.4; 0.4,0.6 for performance
-r.water.singlelayer.dampenskylight=1;
-r.water.singlelayer.depthprepass=1;
-r.water.singlelayer.distancefieldshadow=0;
-r.water.singlelayer.downsamplereflections=1; 1 for performance
+r.water.singlelayer.distancefieldshadow=1; 0 for performance
 r.water.singlelayer.reflection=1; 0 for performance
 r.water.singlelayer.refractiondownsamplefactor=1; 1,2 for performance
 r.water.singlelayer.rtr=0;
@@ -307,7 +290,7 @@ r.water.singlelayer.shaderssupportvsmfiltering=1; 0 for performance
 r.water.singlelayer.ssr=1; 0 for performance
 r.water.singlelayer.tiledcomposite=1;
 r.water.singlelayer.underwaterfogwhencameraisabovewater=0;
-r.water.singlelayer.vsmfiltering=0;
+r.water.singlelayer.vsmfiltering=1; 0 for performance
 r.water.watermesh.tessfactorbias=0; -1 for performance
 rhi.maximumframelatency=1;
 ```
