@@ -1,4 +1,4 @@
-## updated 3/3/2026 ✂ 📋 🌀 :ramen: v1.2.1
+## updated 3/12/2026 ✂ 📋 🌀 :ramen: v1.2.2
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -12,7 +12,7 @@
 
 #### you may need to set engine.ini to read only
 
-#### after pasting ini start game and set graphic settings to your spec low/med/high/ultra then restart game*
+#### after pasting ini start game and set graphic settings to your spec low/med/high/ultra on each setting then restart game*
 
 ```python
 [core.log]
@@ -43,17 +43,19 @@ fx.niagaraallowruntimescalabilitychanges=1;
 grass.disabledynamicshadows=0; 1 for performance
 grass.maxupdatefrequency=10;
 grass.tickinterval=1;
+r.allowlandscapeshadows=1;
 r.ambientocclusionlevels=-1; 0,1,2 for performance
 r.ambientocclusionstaticfraction=-1; 0 for performance
 r.aoapplytostaticindirect=1;
 r.aoglobaldistancefield.mipfactor=4; 4,8 for performance
-r.aoglobaldistancefield=1; 0 for performance
+r.aoglobaldistancefield=1;
 r.aoheightfieldocclusion=0; 0 for performance
-r.aoquality=2; 0,1,2 for performance
+r.aoquality=1; 0,1,2 for performance
 r.aospecularocclusionmode=1;
 r.blurgbuffer=0;
 r.chaos.reflectioncapturestaticsceneonly=1;
 r.compileshadersfordevelopment=0;
+r.d3d11.depth24bit=0; 1 for performance
 r.d3d11.useallowtearing=1;
 r.d3d12.allowshadermodel6=1;
 r.d3d12.depth24bit=0; 1 for performance
@@ -63,10 +65,11 @@ r.d3d12.useallowtearing=1;
 r.depthoffieldquality=1; 0,1 for performance
 r.detectandwarnofbaddrivers=0;
 r.dffullresolution=0; 0 for performance
-r.dfshadowquality=3; 1,2,3 for performance
+r.dfshadowquality=2; 0,1,2,3 for performance
 r.diffuseindirectoffusedepthboundsao=1;
 r.disablelandscapenanitegi=1;
-r.distancefieldao=0; 0 for performance
+r.distancefieldao=0;
+r.distancefieldshadowing=1;
 r.dof.gather.accumulatorquality=0;
 r.dof.gather.enablebokehsettings=0;
 r.dof.gather.postfiltermethod=1;
@@ -144,7 +147,7 @@ r.lumen.screenprobegather.stochasticinterpolation=1; 1 for performance
 r.lumen.screenprobegather.tracingoctahedronresolution=8;
 r.lumen.screenprobegather.twosidedfoliagebackfacediffuse=0; 0 for performance
 r.lumen.tracemeshsdfs.allow=1; 0 for performance
-r.lumen.tracemeshsdfs=1; 0 for performance
+r.lumen.tracemeshsdfs=0; 0 for performance
 r.lumen.translucencyreflections.frontlayer.allow=1; 0 for performance
 r.lumen.translucencyreflections.frontlayer.enable=0; 0 for performance
 r.lumen.translucencyreflections.frontlayer.enableforproject=0; 0 for performance
@@ -238,7 +241,7 @@ r.streaming.maxeffectivescreensize=0;
 r.streaming.maxnumtexturestostreamperframe=0;
 r.streaming.mipbias=0; 1 for performance
 r.streaming.poolsize.vrampercentageclamp=1024;
-r.streaming.poolsize=4000; 800,1000,2000 to lower vram usage
+r.streaming.poolsize=3000; 800,1000,2000 to lower vram usage
 r.streaming.poolsizeformeshes=-1;
 r.streaming.useallmips=0;
 r.streaming.useasyncrequestsforddc=1;
@@ -263,8 +266,8 @@ r.volumetriccloud=1; 0 for performance
 r.volumetricfog.conservativedepth=0;
 r.volumetricfog.emissive=0; 0 for performance
 r.volumetricfog.historymisssupersamplecount=2; 2 for performance
-r.volumetricfog.injectraytracedlights=0; 0 for performance
-r.volumetricfog.injectshadowedlightsseparately=1; 0 for performance
+r.volumetricfog.injectshadowedlightsseparately=0;
+r.volumetricfog.lightfunction=0;
 r.volumetricfog.temporalreprojection=1;
 r.volumetricfog.upsamplejittermultiplier=0; 0 for performance
 r.volumetricfog.useslightfunctionatlas=0;
@@ -277,7 +280,7 @@ r.vrs.enablesoftware=0;
 r.vsync=0;
 r.vsyncinformationinsights=0;
 r.vt.anisotropicfiltering=1; 0 for performance
-r.vt.maxanisotropy=8; 4 for performance
+r.vt.maxanisotropy=4; 2,4,8 for performance
 r.water.enableshallowwatersimulation=0; 0 for performance
 r.water.enableunderwaterpostprocess=0; 0 for performance
 r.water.reflections.maxroughnesstotrace=0.4; 0.4,0.6 for performance
