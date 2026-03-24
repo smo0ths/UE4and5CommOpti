@@ -1,4 +1,4 @@
-## updated 3/24/2026 ✂ 📋 🌀 :ramen: v1.2.5
+## updated 3/24/2026 ✂ 📋 🌀 :ramen: v1.2.6
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -17,8 +17,6 @@ r.screenpercentage.default=50; 33,50,59,67
 r.screenpercentage=50; 33,50,59,67
 sg.resolutionquality=50; 33,50,59,67
 ```
-
-#### UE5 HW raytracing you need r.raytracing=1 >= r.lumen.hardwareraytracing=1 (disable for UE4 games)
 
 #### check performance options (left to right, performance to quality)
 
@@ -197,6 +195,8 @@ r.optimizedwpo=1;
 r.pathtracing=0;
 r.postprocessing.prefercompute=0; 0,1 for performance
 r.raytracing.ambientocclusion=0;
+r.raytracing.enable=0; 0 disables lumen hardwareraytracing
+r.raytracing.enableingame=0; 0 disables lumen hardwareraytracing
 r.raytracing.forceallraytracingeffects=0;
 r.raytracing.globalillumination=0;
 r.raytracing.lightfunction=0;
