@@ -1,26 +1,47 @@
-## updated 3/29/2026 ✂ 📋 🌀 :ramen: v1.2.7
+## updated 3/29/2026 ✂ 📋 🌀 :ramen: v1.2.8
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
 ## open engine.ini and copy pasta %localappdata%
 
-#### optional poolsize stuff
+#### optional poolsize stuff (set to ~40% of total VRAM)
 ```python
 r.streaming.limitpoolsizetovram=0; 0 to manually set poolsize
-r.streaming.poolsize=3000; 200,300,800,1000,2000 to lower vram usage
+r.streaming.poolsize=4000; 400,600,800,1000,2000,3000,4000 to lower vram usage
 r.streaming.poolsizeformeshes=-1;
 ```
-#### optional DLSS/ect scaling stuff (ultra performance, performance, balanced, quality)
+#### optional DLSS/ect scaling stuff (ultra performance, performance, balanced, quality, TAAU)
 ```python
-r.mipmaplodbias=-1.000; -1.585,-1.000,-0.7606,-0.5771
-r.screenpercentage.default=50; 33,50,59,67
-r.screenpercentage=50; 33,50,59,67
-sg.resolutionquality=50; 33,50,59,67
+r.mipmaplodbias=-1.000; -1.585,-1.000,-0.7606,-0.5771,~-0.5
+r.screenpercentage.default=50; 33,50,59,67,70+
+r.screenpercentage=50; 33,50,59,67,70+
+sg.resolutionquality=50; 33,50,59,67,70+
 ```
+#### optional AA stuff
+```python
+r.antialiasingmethod=4; ue5 0 off 1 fxaa 2 taa 3 msaa 4 tsr
+r.defaultfeature.antialiasing=2; 0 off 1 fxaa 2 taa 3 msaa
+r.fxaa.quality=4; 3,4 for performance
+r.postprocessaaquality=6; ue4 0 off 1,2 fxaa 3,4,5,6 taa
+r.temporalaa.algorithm=0; 0 for gen4 1 for gen5
+r.temporalaa.historyscreenpercentage=100;
+r.temporalaa.quality=2;
+r.temporalaa.upsampling=1;
+r.temporalaacurrentframeweight=0.04;
+r.temporalaafiltersize=0.1;
+r.temporalaasamples=8;
+r.tsr.history.screenpercentage=100;
+```
+#### Your choice UE dev intent was 1 i think
+```python
+r.tonemapper.sharpen=0; ~0,~1,~2
+```
+
+#### r.hzbocclusion=1 can crash older games just change it to 0
 
 #### check performance options (left to right, performance to quality)
 
-#### you may need to set engine.ini to read only
+#### you may need to make the Engine.ini and/or set it to read only*
 
 #### after pasting ini start game and set graphic settings to your spec low/med/high/ultra on each setting then restart game*
 
@@ -63,7 +84,7 @@ r.aoglobaldistancefield=1;
 r.aoheightfieldocclusion=0; 0 for performance
 r.aoquality=2; 0,1,2 for performance
 r.aospecularocclusionmode=1;
-r.blurgbuffer=0;
+r.blurgbuffer=0; 0,-1 for performance
 r.capsuleshadows=0; 0 for performance
 r.capsuleshadowsfullresolution=0;
 r.chaos.reflectioncapturestaticsceneonly=1;
@@ -96,14 +117,14 @@ r.dof.scatter.backgroundcompositing=0;
 r.dof.scatter.enablebokehsettings=0;
 r.dof.scatter.foregroundcompositing=0;
 r.dof.scatter.maxspriteratio=0.04;
-r.dof.temporalaaquality=0;
+r.dof.temporalaaquality=1; 0 for performance
 r.dynamicres.operationmode=0;
 r.filmgrain=0;
 r.filter.loopmode=0;
 r.filter.sizescale=1;
+r.finishcurrentframe=0; 1 for latency cost too much
 r.fog=1;
 r.forwardshading.forceskylightcubemapblending=0; 0 for performance
-r.fxaa.quality=0;
 r.gpucrash.collectionenable=0;
 r.hairstrands.composeaftertranslucency=1;
 r.hairstrands.deepshadow.supersampling=0;
@@ -193,6 +214,7 @@ r.ngx.loglevel=0;
 r.nis.enable=0;
 r.nis.sharpness=0;
 r.numbufferedocclusionqueries=1;
+r.oneframethreadlag=1; 0 for latency cost too much
 r.optimizedwpo=1;
 r.pathtracing=0;
 r.postprocessing.prefercompute=0; gpu depended
@@ -281,9 +303,7 @@ r.streaming.usefixedpoolsize=0;
 r.streaming.usepertexturebias=1;
 r.subsurfacescattering=1; 0 for performance
 r.supportmateriallayers=1; 0 for performance
-r.temporalaasamples=8;
 r.tessellationadaptivepixelspertriangle=999999; 999999,48 for performance
-r.tonemapper.sharpen=0;
 r.translucencylightingvolumedim=48; 32,48,64 for performance
 r.translucencyvolumeblur=1; 0 for performance
 r.volumetriccloud.distancetosamplemaxcount=15;
