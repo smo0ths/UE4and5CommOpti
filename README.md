@@ -1,4 +1,4 @@
-## updated 3/29/2026 ✂ 📋 🌀 :ramen: v1.2.8
+## updated 4/11/2026 ✂ 📋 🌀 :ramen: v1.2.9
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -7,21 +7,25 @@
 #### optional poolsize stuff (set to ~40% of total VRAM)
 ```python
 r.streaming.limitpoolsizetovram=0; 0 to manually set poolsize
-r.streaming.poolsize=4000; 400,600,800,1000,2000,3000,4000 to lower vram usage
+r.streaming.poolsize=3000; 400,600,800,1000,2000,3000,4000 to lower vram usage
 r.streaming.poolsizeformeshes=-1;
 ```
-#### optional DLSS/ect scaling stuff (ultra performance, performance, balanced, quality, TAAU)
+#### optional RAM/VRAM usage/stutter, lower/raise
 ```python
-r.mipmaplodbias=-1.000; -1.585,-1.000,-0.7606,-0.5771,~-0.5
-r.screenpercentage.default=50; 33,50,59,67,70+
-r.screenpercentage=50; 33,50,59,67,70+
-sg.resolutionquality=50; 33,50,59,67,70+
+r.rendertargetpoolmin=400; 200,400,450 to lower vram usage
+r.streaming.maxtempmemoryallowed=75; 50,75,100 to lower ram usage
+r.vt.poolsizescale=1; 1,2,4,8 to lower vram usage
+```
+#### optional DLSS/TAAU/ect scaling stuff (ultra performance, performance, balanced, quality, ultra quality)
+```python
+r.mipmaplodbias=-1.000; -1.585,-1.000,-0.7606,-0.5771,-0.3765
+sg.resolutionquality=50; 33,50,59,67,77
 ```
 #### optional AA stuff
 ```python
-r.antialiasingmethod=4; ue5 0 off 1 fxaa 2 taa 3 msaa 4 tsr
+r.antialiasingmethod=2; ue5 0 off 1 fxaa 2 taa 3 msaa 4 tsr
 r.defaultfeature.antialiasing=2; 0 off 1 fxaa 2 taa 3 msaa
-r.fxaa.quality=4; 3,4 for performance
+r.fxaa.quality=0; 3,4 for performance
 r.postprocessaaquality=6; ue4 0 off 1,2 fxaa 3,4,5,6 taa
 r.temporalaa.algorithm=0; 0 for gen4 1 for gen5
 r.temporalaa.historyscreenpercentage=100;
@@ -34,10 +38,12 @@ r.tsr.history.screenpercentage=100;
 ```
 #### Your choice UE dev intent was 1 i think
 ```python
-r.tonemapper.sharpen=0; ~0,~1,~2
+r.tonemapper.sharpen=1; ~0,~1,~2
 ```
-
-#### r.hzbocclusion=1 can crash older games just change it to 0
+#### optional HZBOC algorithm will crash games if set differently
+```python
+r.hzbocclusion=1; scene depended
+```
 
 #### check performance options (left to right, performance to quality)
 
@@ -81,6 +87,7 @@ r.anisotropicmaterials=1; 0 for performance
 r.aoapplytostaticindirect=1;
 r.aoglobaldistancefield.mipfactor=4; 4,8 for performance
 r.aoglobaldistancefield=1;
+r.aoglobaldistancefieldrepresentheightfields=1;
 r.aoheightfieldocclusion=0; 0 for performance
 r.aoquality=2; 0,1,2 for performance
 r.aospecularocclusionmode=1;
@@ -92,7 +99,7 @@ r.compileshadersfordevelopment=0;
 r.contactshadows.nonshadowcastingintensity=0;
 r.contactshadows.overrideshadowcastingintensity=-1;
 r.contactshadows.standalone.method=0;
-r.contactshadows=1; 0 for performance
+r.contactshadows=1; 0,1,2 for performance
 r.d3d11.depth24bit=0; 1 for performance
 r.d3d11.useallowtearing=1;
 r.d3d12.allowshadermodel6=1;
@@ -134,7 +141,7 @@ r.hairstrands.rasterizationscale=0.5;
 r.hairstrands.scatterscenelighting=0; 0,1 for performance
 r.hairstrands.shadow.castshadowwhennonvisible=1; 0 for performance
 r.hairstrands.skyao=0; 0 for performance
-r.hairstrands.skylighting.integrationtype=1; 0,1,2 for performance
+r.hairstrands.skylighting.integrationtype=2;
 r.hairstrands.skylighting.jitterintegration=0;
 r.hairstrands.skylighting.screentraceocclusion=0;
 r.hairstrands.usecardsinsteadofstrands=0; 1 for performance
@@ -142,7 +149,6 @@ r.hairstrands.velocityrasterizationscale=0.5; 0.5,1 for performance
 r.hairstrands.visibility.msaa.sampleperpixel=1; 1,2 for performance
 r.hairstrands.visibility.ppll=0;
 r.heightfieldshadowing=0;
-r.hzbocclusion=1; scene depended
 r.instanceculling.occlusioncull=1; scene depended
 r.landscapelodbias=0; 1 for performance
 r.lightmaxdrawdistancescale=1; 0.6,0.85,1 for performance
@@ -198,6 +204,7 @@ r.lumenscene.radiosity.hemisphereproberesolution=3; 2,3 for performance
 r.lumenscene.radiosity.probespacing=8; 16,8,4 for performance
 r.maxanisotropy=16; 0,4,8 for performance
 r.meshstreaming=1;
+r.minscreenradiusfordepthprepass=0.03; 0,0.03 for performance
 r.minscreenradiusforlights=0.03; 0.06,0.04 for performance
 r.motionblurquality=0;
 r.nanite.allowtessellation=0;
@@ -230,15 +237,17 @@ r.raytracing.shadows=0;
 r.raytracing.skylight=0;
 r.raytracing.translucency=0;
 r.raytracing=0; 0 disables lumen hardwareraytracing
-r.reflectioncapturesupersamplefactor=1;
+r.reflectioncapturesupersamplefactor=1; 1 for performance
 r.refraction.blur.temporalaa=1;
 r.refraction.blur=0;
 r.refraction.offsetquality=1;
 r.scenecolorformat=3; 2,3,4 for performance
 r.scenecolorfringe.max=0;
 r.sceneculling.explicitcellbounds=0; 0 for performance
+r.screenpercentage.default=100;
 r.screenpercentage.maxresolution=0;
 r.screenpercentage.minresolution=0;
+r.screenpercentage=100;
 r.secondaryscreenpercentage.gameviewport=0;
 r.shaders.removedeadcode=1;
 r.shaders.removeunusedinterpolators=1;
@@ -300,7 +309,7 @@ r.streaming.poolsize.vrampercentageclamp=1024;
 r.streaming.useallmips=0;
 r.streaming.useasyncrequestsforddc=1;
 r.streaming.usefixedpoolsize=0;
-r.streaming.usepertexturebias=1;
+r.streaming.usepertexturebias=1; 0 for performance
 r.subsurfacescattering=1; 0 for performance
 r.supportmateriallayers=1; 0 for performance
 r.tessellationadaptivepixelspertriangle=999999; 999999,48 for performance
@@ -342,11 +351,11 @@ r.water.singlelayer.reflection=1; 0,3,1 for performance
 r.water.singlelayer.refractiondownsamplefactor=1; 1,2 for performance
 r.water.singlelayer.rtr=0;
 r.water.singlelayer.shaderssupportdistancefieldshadow=1; 0 for performance
-r.water.singlelayer.shaderssupportvsmfiltering=1; 0 for performance
+r.water.singlelayer.shaderssupportvsmfiltering=0; 0,1 for performance
 r.water.singlelayer.ssr=1; 0 for performance
 r.water.singlelayer.tiledcomposite=1;
 r.water.singlelayer.underwaterfogwhencameraisabovewater=0;
-r.water.singlelayer.vsmfiltering=1; 0 for performance
+r.water.singlelayer.vsmfiltering=0; 0,1 for performance
 r.water.watermesh.tessfactorbias=0; -1 for performance
 rhi.maximumframelatency=1;
 ```
