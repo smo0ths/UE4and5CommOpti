@@ -1,4 +1,4 @@
-## updated 4/11/2026 ✂ 📋 🌀 :ramen: v1.2.9
+## updated 6/30/2026 ✂ 📋 🌀 :ramen: v1.3.1
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -7,19 +7,19 @@
 #### optional poolsize stuff (set to ~40% of total VRAM)
 ```python
 r.streaming.limitpoolsizetovram=0; 0 to manually set poolsize
-r.streaming.poolsize=3000; 400,600,800,1000,2000,3000,4000 to lower vram usage
+r.streaming.poolsize=4000; 400,600,800,1000,2000,3000,4000 to lower vram usage
 r.streaming.poolsizeformeshes=-1;
 ```
 #### optional RAM/VRAM usage/stutter, lower/raise
 ```python
-r.rendertargetpoolmin=400; 200,400,450 to lower vram usage
-r.streaming.maxtempmemoryallowed=75; 50,75,100 to lower ram usage
+r.rendertargetpoolmin=450; 200,400,450 to lower vram usage
+r.streaming.maxtempmemoryallowed=100; 50,75,100 to lower ram usage
 r.vt.poolsizescale=1; 1,2,4,8 to lower vram usage
 ```
-#### optional DLSS/TAAU/ect scaling stuff (ultra performance, performance, balanced, quality, ultra quality)
+#### optional DLSS/TAAU/ect scaling stuff (ultra performance, performance, balanced, quality, ultra quality, native/dlaa)
 ```python
-r.mipmaplodbias=-1.000; -1.585,-1.000,-0.7606,-0.5771,-0.3765
-sg.resolutionquality=50; 33,50,59,67,77
+r.mipmaplodbias=-1.000; -1.585,-1.000,-0.7606,-0.5771,-0.3765,0
+sg.resolutionquality=50; 33,50,59,67,77,100
 ```
 #### optional AA stuff
 ```python
@@ -29,18 +29,41 @@ r.fxaa.quality=0; 3,4 for performance
 r.postprocessaaquality=6; ue4 0 off 1,2 fxaa 3,4,5,6 taa
 r.temporalaa.algorithm=0; 0 for gen4 1 for gen5
 r.temporalaa.historyscreenpercentage=100;
-r.temporalaa.quality=2;
+r.temporalaa.quality=1; 1,2 for performance
 r.temporalaa.upsampling=1;
 r.temporalaacurrentframeweight=0.04;
 r.temporalaafiltersize=0.1;
 r.temporalaasamples=8;
 r.tsr.history.screenpercentage=100;
 ```
-#### Your choice UE dev intent was 1 i think
+#### Your choice UE dev intent was 1 i think test
 ```python
-r.tonemapper.sharpen=1; ~0,~1,~2
+r.tonemapper.sharpen=1; 0,1,2
 ```
-#### optional HZBOC algorithm will crash games if set differently
+#### optional quality
+```python
+fx.niagara.collision.cpuenabled=0; 0 for performance test
+fx.niagara.qualitylevel=2; 0,1,2,3 for performance
+r.bloom.screenpercentage=50;
+r.bloomquality=4;
+r.detailmode=3; 0,3 for performance
+r.emitterspawnratescale=1; 0.125,0.25,0.5,1 for performance
+r.materialqualitylevel=1; 0,2,1 for performance
+r.particlelightquality=1; 0,1,2 for performance
+r.refractionquality=2; 0,1 for performance
+```
+#### optional foliage test
+```python
+foliage.minimumscreensize=0.000005; 0.000025,0.000015,0.000005 for performance
+foliage.mininstancesperocclusionquery=256;
+foliage.minlod=-1;
+```
+#### optional minscreenradius test
+```python
+r.minscreenradiusfordepthprepass=0.03; 0.03 for performance test
+r.minscreenradiusforlights=0.03; 0.06,0.04 for performance
+```
+#### optional HZBOC algorithm will crash games if set differently test
 ```python
 r.hzbocclusion=1; scene depended
 ```
@@ -85,11 +108,10 @@ r.ambientocclusionlevels=-1; 0,1,2 for performance
 r.ambientocclusionstaticfraction=-1; 0 for performance
 r.anisotropicmaterials=1; 0 for performance
 r.aoapplytostaticindirect=1;
-r.aoglobaldistancefield.mipfactor=4; 4,8 for performance
+r.aoglobaldistancefield.mipfactor=4; 8,4 for performance
 r.aoglobaldistancefield=1;
 r.aoglobaldistancefieldrepresentheightfields=1;
-r.aoheightfieldocclusion=0; 0 for performance
-r.aoquality=2; 0,1,2 for performance
+r.aoquality=1; 0,1,2 for performance
 r.aospecularocclusionmode=1;
 r.blurgbuffer=0; 0,-1 for performance
 r.capsuleshadows=0; 0 for performance
@@ -148,7 +170,6 @@ r.hairstrands.usecardsinsteadofstrands=0; 1 for performance
 r.hairstrands.velocityrasterizationscale=0.5; 0.5,1 for performance
 r.hairstrands.visibility.msaa.sampleperpixel=1; 1,2 for performance
 r.hairstrands.visibility.ppll=0;
-r.heightfieldshadowing=0;
 r.instanceculling.occlusioncull=1; scene depended
 r.landscapelodbias=0; 1 for performance
 r.lightmaxdrawdistancescale=1; 0.6,0.85,1 for performance
@@ -158,7 +179,7 @@ r.lumen.hardwareraytracing.hitlighting.reflectioncaptures=1; 1 for performance
 r.lumen.hardwareraytracing.lightingmode=0; 0 for performance
 r.lumen.hardwareraytracing=1; 0 for performance
 r.lumen.reflections.allow=1;
-r.lumen.reflections.asynccompute=0;
+r.lumen.reflections.asynccompute=1; 0,1 for performance test
 r.lumen.reflections.bilateralfilter=0; 0 for performance
 r.lumen.reflections.distantscreentraces=1;
 r.lumen.reflections.downsamplefactor=1; 2 for performance
@@ -188,11 +209,12 @@ r.lumen.screenprobegather.screenspacebentnormal=1;
 r.lumen.screenprobegather.screentraces.hzbtraversal.fullresdepth=0; 0,1 for performance
 r.lumen.screenprobegather.shortrangeao.hairscreentrace=1; 0,1 for performance
 r.lumen.screenprobegather.shortrangeao.hairvoxeltrace=0; 0 for performance
+r.lumen.screenprobegather.shortrangeao.hardwareraytracing=0; 0 for performance
 r.lumen.screenprobegather.shortrangeao=1; 0 for performance
 r.lumen.screenprobegather.stochasticinterpolation=1; 1,0 for performance
 r.lumen.screenprobegather.tracingoctahedronresolution=16; 8,16 for performance
-r.lumen.screenprobegather.twosidedfoliagebackfacediffuse=0; 0,1 for performance
-r.lumen.tracemeshsdfs.allow=1; 0 for performance
+r.lumen.screenprobegather.twosidedfoliagebackfacediffuse=1; 0,1 for performance
+r.lumen.tracemeshsdfs.allow=0; 0,1 for performance
 r.lumen.tracemeshsdfs=0; 0 for performance
 r.lumen.translucencyreflections.frontlayer.allow=1; 0 for performance
 r.lumen.translucencyreflections.frontlayer.enable=0; 0 for performance
@@ -203,12 +225,10 @@ r.lumenscene.farfield=0;
 r.lumenscene.radiosity.hemisphereproberesolution=3; 2,3 for performance
 r.lumenscene.radiosity.probespacing=8; 16,8,4 for performance
 r.maxanisotropy=16; 0,4,8 for performance
-r.meshstreaming=1;
-r.minscreenradiusfordepthprepass=0.03; 0.03,0 for performance
-r.minscreenradiusforlights=0.03; 0.06,0.04 for performance
 r.motionblurquality=0;
 r.nanite.allowtessellation=0;
 r.nanite.computerasterization=1;
+r.nanite.decompressdepth=0; 1 for performance test
 r.nanite.disablefallbackmeshes=0;
 r.nanite.softwarevrs=1;
 r.nanite.usepregeneratedinstancesbuffer=1;
@@ -249,6 +269,7 @@ r.screenpercentage.maxresolution=0;
 r.screenpercentage.minresolution=0;
 r.screenpercentage=100;
 r.secondaryscreenpercentage.gameviewport=0;
+r.separatetranslucencyscreenpercentage=50; 50,75,100 for performance
 r.shaders.removedeadcode=1;
 r.shaders.removeunusedinterpolators=1;
 r.shadow.csm.transitionscale=1;
