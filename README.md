@@ -1,8 +1,16 @@
-## updated 6/30/2026 ✂ 📋 🌀 :ramen: v1.3.1
+## updated 7/11/2026 ✂ 📋 🌀 :ramen: v1.3.2
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
-## open engine.ini and copy pasta %localappdata%
+## open Engine.ini and copy pasta %localappdata%
+
+#### check performance options (left to right, performance to quality)
+
+#### you may need to make the Engine.ini and/or set it to read only*
+
+#### after pasting ini start game and set graphic settings to your spec low/med/high/ultra on each setting then restart game*
+
+#### add optional under config, optional cvars with test* next to them you may want to skip
 
 #### optional poolsize stuff (set to ~40% of total VRAM)
 ```python
@@ -36,7 +44,7 @@ r.temporalaafiltersize=0.1;
 r.temporalaasamples=8;
 r.tsr.history.screenpercentage=100;
 ```
-#### Your choice UE dev intent was 1 i think test
+#### Your choice UE dev intent was 1 i think
 ```python
 r.tonemapper.sharpen=1; 0,1,2
 ```
@@ -48,31 +56,35 @@ r.bloom.screenpercentage=50;
 r.bloomquality=4;
 r.detailmode=3; 0,3 for performance
 r.emitterspawnratescale=1; 0.125,0.25,0.5,1 for performance
+r.lightfunctionquality=1; 1,2 for performance
 r.materialqualitylevel=1; 0,2,1 for performance
 r.particlelightquality=1; 0,1,2 for performance
-r.refractionquality=2; 0,1 for performance
+r.refractionquality=1; 0,1,2 for performance
 ```
-#### optional foliage test
+#### optional quality 2
 ```python
-foliage.minimumscreensize=0.000005; 0.000025,0.000015,0.000005 for performance
-foliage.mininstancesperocclusionquery=256;
-foliage.minlod=-1;
+r.lensflarequality=1; 0,1
+r.lightshaftquality=1; 0,1
+r.scenecolorfringequality=0; 0,1
+r.tonemapper.quality=5; 0,2,5
+r.upscale.quality=1; 1,2,3
 ```
-#### optional minscreenradius test
+#### optional foliage
+```python
+foliage.minimumscreensize=0.000005; 0.000025,0.000015,0.000005 for performance test
+foliage.minlod=-1; test
+```
+#### optional minscreenradius devs usually customize these
 ```python
 r.minscreenradiusfordepthprepass=0.03; 0.03 for performance test
-r.minscreenradiusforlights=0.03; 0.06,0.04 for performance
+r.minscreenradiusforlights=0.03; 0.06,0.04,0.03 for performance test
 ```
-#### optional HZBOC algorithm will crash games if set differently test
+#### optional HZBOC algorithm will crash games if set differently
 ```python
-r.hzbocclusion=1; scene depended
+r.hzbocclusion=1; scene depended test
 ```
 
-#### check performance options (left to right, performance to quality)
-
-#### you may need to make the Engine.ini and/or set it to read only*
-
-#### after pasting ini start game and set graphic settings to your spec low/med/high/ultra on each setting then restart game*
+## base config:
 
 ```python
 [core.log]
@@ -114,7 +126,7 @@ r.aoglobaldistancefieldrepresentheightfields=1;
 r.aoquality=1; 0,1,2 for performance
 r.aospecularocclusionmode=1;
 r.blurgbuffer=0; 0,-1 for performance
-r.capsuleshadows=0; 0 for performance
+r.capsuleshadows=1; 0 for performance
 r.capsuleshadowsfullresolution=0;
 r.chaos.reflectioncapturestaticsceneonly=1;
 r.compileshadersfordevelopment=0;
@@ -138,6 +150,7 @@ r.distancefieldshadowing=1; 0 for performance
 r.dof.gather.accumulatorquality=0;
 r.dof.gather.enablebokehsettings=0;
 r.dof.gather.postfiltermethod=1;
+r.dof.gather.resolutiondivisor=2;
 r.dof.gather.ringcount=3;
 r.dof.kernel.maxbackgroundradius=0.012;
 r.dof.kernel.maxforegroundradius=0.012;
@@ -230,6 +243,7 @@ r.nanite.allowtessellation=0;
 r.nanite.computerasterization=1;
 r.nanite.decompressdepth=0; 1 for performance test
 r.nanite.disablefallbackmeshes=0;
+r.nanite.maxpixelsperedge=4; 4,3,2,1 for performance
 r.nanite.softwarevrs=1;
 r.nanite.usepregeneratedinstancesbuffer=1;
 r.ngx.dlss.prefernissharpen=0;
@@ -392,8 +406,8 @@ benablemousesmoothing=0;
 bf11togglesfullscreen=0;
 buttonrepeatdelay=0.1;
 bviewaccelerationenabled=0;
-doubleclicktime=0.01; default is 0.1
-initialbuttonrepeatdelay=0.1; default is 0.2
+doubleclicktime=0.01; default is 0.1 test
+initialbuttonrepeatdelay=0.1; default is 0.2 test
 ```
 
 ---
@@ -402,9 +416,9 @@ initialbuttonrepeatdelay=0.1; default is 0.2
 
 ```python
 ## upscaling to use
-2560x1440 use 58%,67%,70% for performance (higher when cpu bound) (dlss/taau/tsr/cas/fsr/xess/pssr/nis/is)
-3328x1872 use 50%,58%,67% for performance (higher when cpu bound) (dlss/taau/tsr/cas/fsr/xess/pssr/nis/is)
-3840x2160 use 33%,50%,58%,67% for performance (higher when cpu bound) (dlss/taau/tsr/cas/fsr/xess/pssr/nis/is)
+2560x1440 use 58%,67%,70%,77% for performance (dlss/taau/tsr/cas/fsr/xess/pssr/nis/is)
+3328x1872 use 50%,58%,67%,70%,77% for performance (dlss/taau/tsr/cas/fsr/xess/pssr/nis/is)
+3840x2160 use 33%,50%,58%,67%,70%,77% for performance (dlss/taau/tsr/cas/fsr/xess/pssr/nis/is)
 
 ## repak.bat method
 zzz_inimods\engine\config\windows\windowsengine.ini
