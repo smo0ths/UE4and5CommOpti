@@ -1,4 +1,4 @@
-## updated 7/11/2026 ✂ 📋 🌀 :ramen: v1.3.2
+## updated 7/21/2026 ✂ 📋 🌀 :ramen: v1.3.3
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -12,13 +12,15 @@
 
 #### add optional under config, optional cvars with test* next to them you may want to skip
 
-#### optional poolsize stuff (set to ~40% of total VRAM)
+---
+
+#### optional poolsize stuff (set to ~40% of total VRAM test)
 ```python
 r.streaming.limitpoolsizetovram=0; 0 to manually set poolsize
 r.streaming.poolsize=4000; 400,600,800,1000,2000,3000,4000 to lower vram usage
 r.streaming.poolsizeformeshes=-1;
 ```
-#### optional RAM/VRAM usage/stutter, lower/raise
+#### optional RAM/VRAM usage/stutter, lower/raise, test
 ```python
 r.rendertargetpoolmin=450; 200,400,450 to lower vram usage
 r.streaming.maxtempmemoryallowed=100; 50,75,100 to lower ram usage
@@ -52,12 +54,19 @@ r.tonemapper.sharpen=1; 0,1,2
 ```python
 fx.niagara.collision.cpuenabled=0; 0 for performance test
 fx.niagara.qualitylevel=2; 0,1,2,3 for performance
+r.ambientocclusion.method=0;
+r.ambientocclusionlevels=1; 0,1,2 for performance
+r.ambientocclusionmaxquality=-60;
+r.ambientocclusionmiplevelfactor=0.6;
+r.ambientocclusionradiusscale=1;
+r.ambientocclusionstaticfraction=-1; 0 for performance
 r.bloom.screenpercentage=50;
 r.bloomquality=4;
-r.detailmode=3; 0,3 for performance
-r.emitterspawnratescale=1; 0.125,0.25,0.5,1 for performance
+r.detailmode=2; 0,2,3 for performance
+r.emitterspawnratescale=0.5; 0.125,0.25,0.5,1 for performance
 r.lightfunctionquality=1; 1,2 for performance
 r.materialqualitylevel=1; 0,2,1 for performance
+r.minscreenradiusforlights=0.015; 0.06,0.04,0.03,0.015 for performance test
 r.particlelightquality=1; 0,1,2 for performance
 r.refractionquality=1; 0,1,2 for performance
 ```
@@ -71,18 +80,34 @@ r.upscale.quality=1; 1,2,3
 ```
 #### optional foliage
 ```python
-foliage.minimumscreensize=0.000005; 0.000025,0.000015,0.000005 for performance test
+foliage.minimumscreensize=0.000015; 0.000025,0.000015,0.000005 for performance test
 foliage.minlod=-1; test
-```
-#### optional minscreenradius devs usually customize these
-```python
-r.minscreenradiusfordepthprepass=0.03; 0.03 for performance test
-r.minscreenradiusforlights=0.03; 0.06,0.04,0.03 for performance test
 ```
 #### optional HZBOC algorithm will crash games if set differently
 ```python
 r.hzbocclusion=1; scene depended test
 ```
+#### optional parallelupdate test
+```python
+r.distancefields.parallelupdate=1; test
+r.gpuscene.parallelupdate=1; test
+r.lumenscene.parallelupdate=1;
+```
+#### optional optional async test
+```python
+grass.grassmap.useasyncfetch=1; test
+r.dfshadowasynccompute=1; test
+r.enableasynccomputetranslucencylightingvolumeclear=1; test
+r.nanite.asyncrasterization.shadowdepths=1; test
+r.postprocessing.forceasyncdispatch=1; test
+r.raytracing.asyncbuild=1; test
+r.scenedepthhzbasynccompute=1; test
+r.shadow.shadowmapsrenderearly=1; test
+r.skyatmosphereasynccompute=1; test
+r.volumetricrendertarget.preferasynccompute=1; test
+```
+
+---
 
 ## base config:
 
@@ -109,15 +134,13 @@ poolsizevrampercentage=70; 50 to lower vram usage
 [consolevariables]
 d3d12.maximumframelatency=1;
 foliage.asyncinstanebufferconversion=1;
-fx.niagara.asyncgputrace.globalsdfenabled=0; 0 for performance
-fx.niagara.asyncgputrace.hwraytraceenabled=0; 0 for performance
+fx.niagara.asyncgputrace.globalsdfenabled=1; 0 for performance test
+fx.niagara.asyncgputrace.hwraytraceenabled=1; 0 for performance test
 fx.niagaraallowruntimescalabilitychanges=1;
 grass.disabledynamicshadows=0; 1 for performance
 grass.maxupdatefrequency=10;
 grass.tickinterval=1;
 r.allowlandscapeshadows=1; 0 for performance
-r.ambientocclusionlevels=-1; 0,1,2 for performance
-r.ambientocclusionstaticfraction=-1; 0 for performance
 r.anisotropicmaterials=1; 0 for performance
 r.aoapplytostaticindirect=1;
 r.aoglobaldistancefield.mipfactor=4; 8,4 for performance
@@ -126,7 +149,7 @@ r.aoglobaldistancefieldrepresentheightfields=1;
 r.aoquality=1; 0,1,2 for performance
 r.aospecularocclusionmode=1;
 r.blurgbuffer=0; 0,-1 for performance
-r.capsuleshadows=1; 0 for performance
+r.capsuleshadows=0; 0 for performance
 r.capsuleshadowsfullresolution=0;
 r.chaos.reflectioncapturestaticsceneonly=1;
 r.compileshadersfordevelopment=0;
@@ -283,7 +306,6 @@ r.screenpercentage.maxresolution=0;
 r.screenpercentage.minresolution=0;
 r.screenpercentage=100;
 r.secondaryscreenpercentage.gameviewport=0;
-r.separatetranslucencyscreenpercentage=50; 50,75,100 for performance
 r.shaders.removedeadcode=1;
 r.shaders.removeunusedinterpolators=1;
 r.shadow.csm.transitionscale=1;
@@ -312,6 +334,7 @@ r.shadow.virtual.smrt.samplesperraylocal=1;
 r.shadow.virtual.smrt.texelditherscaledirectional=2;
 r.shadow.virtual.smrt.texelditherscalelocal=2;
 r.shadow.virtual.translucentquality=0; 0 for performance
+r.shadow.virtual.usehzb=1; 1,2 for performance
 r.shadowquality=4; 3,4,5 for performance
 r.skyatmosphere.fastskylut.samplecountmax=32; 32,64 for performance
 r.skyatmosphere.fastskylut.samplecountmin=1; 1,4 for performance
@@ -323,8 +346,7 @@ r.skyatmosphere.samplecountmin=1; 1,4 for performance
 r.skyatmosphere.samplelightshadowmap=0; 0 for performance
 r.skyatmosphere.transmittancelut.samplecount=10;
 r.skyatmosphere.transmittancelut.usesmallformat=0; 1 for performance
-r.ssgi.enable=0; 0 for performance
-r.ssgi.quality=2; 2,3 for performance
+r.ssgi.quality=0; 0,2,3 for performance
 r.ssr.halfresscenecolor=1; 1 for performance
 r.ssr.quality=2; 0,2 for performance
 r.sss.burley.quality=0; 0,1 for performance
