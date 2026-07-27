@@ -110,7 +110,7 @@ r.distancefields.parallelupdate=1; test
 r.gpuscene.parallelupdate=1; test
 r.lumenscene.parallelupdate=1;
 ```
-#### optional optional async test
+#### optional async test
 ```python
 grass.grassmap.useasyncfetch=1; test
 r.dfshadowasynccompute=1; test
@@ -123,7 +123,7 @@ r.shadow.shadowmapsrenderearly=1; test
 r.skyatmosphereasynccompute=1; test
 r.volumetricrendertarget.preferasynccompute=1; test
 ```
-#### optional optional async defaults test
+#### optional async defaults test
 ```python
 allowasyncrenderthreadupdates=1; def 1
 allowasyncrenderthreadupdatesduringgamethreadupdates=1; def 1
@@ -410,7 +410,7 @@ r.skyatmosphere.transmittancelut.samplecount=10;
 r.skyatmosphere.transmittancelut.usesmallformat=0; 1 for performance
 r.ssgi.quality=0; 0,2,3 for performance
 r.ssr.halfresscenecolor=1; 1,0 for performance
-r.ssr.quality=3; 0,2,3 for performance
+r.ssr.quality=2; 0,2,3 for performance
 r.ssr.temporal=1;
 r.ssr.tiledcomposite=1; test
 r.sss.burley.bilateralfilterkernelfunctiontype=1; 0,1 for performance
@@ -430,7 +430,6 @@ r.streaming.maxnumtexturestostreamperframe=0;
 r.streaming.mipbias=0; 1 for performance
 r.streaming.poolsize.vrampercentageclamp=1024;
 r.streaming.useallmips=0;
-r.streaming.useasyncrequestsforddc=1;
 r.streaming.usefixedpoolsize=0;
 r.streaming.usepertexturebias=0; 0,1 for performance
 r.subsurfacescattering=1; 0 for performance
