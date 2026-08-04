@@ -1,4 +1,4 @@
-## updated 8/4/2026 ✂ 📋 🌀 :ramen: v1.3.7
+## updated 8/4/2026 ✂ 📋 🌀 :ramen: v1.3.8
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -124,6 +124,7 @@ r.lumenscene.parallelupdate=1;
 grass.grassmap.useasyncfetch=1; def 0 test
 r.dfshadowasynccompute=1; def 0 test
 r.enableasynccomputetranslucencylightingvolumeclear=1; def 0 test
+r.lumen.reflections.asynccompute=1; def 0 test
 r.megalights.asynccompute.generatesamples=1; def 0 test
 r.megalights.asynccompute.volume=1; def 0 test
 r.nanite.asyncrasterization.shadowdepths=1; def 0 test
@@ -283,14 +284,13 @@ r.hairstrands.visibility.ppll=0;
 r.instanceculling.occlusioncull=1; scene depended
 r.landscapelodbias=0; 1 for performance
 r.lightmaxdrawdistancescale=1; 0.6,0.85,1 for performance
-r.lumen.diffuseindirect.allow=1;
-r.lumen.diffuseindirect.ssao=0; 0 for performance
+r.lumen.diffuseindirect.allow=1; test
+r.lumen.diffuseindirect.ssao=0; test
 r.lumen.hardwareraytracing.hitlighting.reflectioncaptures=0; 0 for performance
 r.lumen.hardwareraytracing.lightingmode=0; 0 for performance
 r.lumen.hardwareraytracing=1; 0 for performance
 r.lumen.heightfog=0; test
 r.lumen.reflections.allow=1;
-r.lumen.reflections.asynccompute=1; 1,0 for performance test
 r.lumen.reflections.bilateralfilter=0; 0 for performance
 r.lumen.reflections.distantscreentraces=1;
 r.lumen.reflections.downsamplefactor=1; 2 for performance
@@ -314,17 +314,18 @@ r.lumen.reflections.temporal=1;
 r.lumen.reflections.tracemeshsdfs=0; 0 for performance
 r.lumen.screenprobegather.downsamplefactor=32; 32,16 for performance
 r.lumen.screenprobegather.fullresolutionjitterwidth=1;
-r.lumen.screenprobegather.irradianceformat=1; 1,0 for performance
-r.lumen.screenprobegather.materialao=1;
+r.lumen.screenprobegather.integratedownsamplefactor=2; 2,1 for performance
+r.lumen.screenprobegather.irradianceformat=0; test
+r.lumen.screenprobegather.materialao=1; test
 r.lumen.screenprobegather.radiancecache.proberesolution=32; 16,32 for performance
-r.lumen.screenprobegather.screenspacebentnormal=0; test
+r.lumen.screenprobegather.screenspacebentnormal=1; test
 r.lumen.screenprobegather.screentraces.hzbtraversal.fullresdepth=0; 0,1 for performance
 r.lumen.screenprobegather.screentraces=1; test
 r.lumen.screenprobegather.shortrangeao.bentnormal=0; test
-r.lumen.screenprobegather.shortrangeao.hairscreentrace=1; 0,1 for performance
+r.lumen.screenprobegather.shortrangeao.hairscreentrace=0; test
 r.lumen.screenprobegather.shortrangeao.hairvoxeltrace=0; 0 for performance
 r.lumen.screenprobegather.shortrangeao.hardwareraytracing=0; 0 for performance
-r.lumen.screenprobegather.shortrangeao=1; 0 for performance
+r.lumen.screenprobegather.shortrangeao=1; test
 r.lumen.screenprobegather.stochasticinterpolation=1; 1,0 for performance
 r.lumen.screenprobegather.tracingoctahedronresolution=16; 8,16 for performance
 r.lumen.screenprobegather.twosidedfoliagebackfacediffuse=0; 0,1 for performance
@@ -374,6 +375,7 @@ r.raytracing.forceallraytracingeffects=0;
 r.raytracing.globalillumination=0;
 r.raytracing.lightfunction=0;
 r.raytracing.reflections=0;
+r.raytracing.scene.buildmode=0; test
 r.raytracing.shadows=0;
 r.raytracing.skylight=0;
 r.raytracing.translucency=0;
