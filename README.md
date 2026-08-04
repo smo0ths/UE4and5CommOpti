@@ -1,4 +1,4 @@
-## updated 8/4/2026 ✂ 📋 🌀 :ramen: v1.3.6
+## updated 8/4/2026 ✂ 📋 🌀 :ramen: v1.3.7
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -87,13 +87,17 @@ r.lightshaftquality=1; 0,1
 ```
 #### optional quality 4 test
 ```python
-r.lumenscene.farfield=1; 0,1 test
+r.dynamicglobalilluminationmethod=1; 0 none 1 lumen 2 ssgi test
 r.heterogeneousvolumes=1; 0,1 test
+r.lumenscene.farfield=1; 0,1 test
+r.megalights.allowed=0; test
+r.megalights.hardwareraytracing.farfield=0; test
+r.reflectionmethod=1; 0 none 1 lumen 2 ssr test
 ```
 #### optional gpu simulation texture size test
 ```python
-fx.gpusimulationtexturesizex=4; def 1024 test 4
-fx.gpusimulationtexturesizey=4; def 1024 test 4
+fx.gpusimulationtexturesizex=4; def 1024 test
+fx.gpusimulationtexturesizey=4; def 1024 test
 ```
 #### optional foliage test
 ```python
@@ -117,16 +121,18 @@ r.lumenscene.parallelupdate=1;
 ```
 #### optional async test
 ```python
-grass.grassmap.useasyncfetch=1; test
-r.dfshadowasynccompute=1; test
-r.enableasynccomputetranslucencylightingvolumeclear=1; test
-r.nanite.asyncrasterization.shadowdepths=1; test
-r.postprocessing.forceasyncdispatch=1; test
-r.raytracing.asyncbuild=1; test
-r.scenedepthhzbasynccompute=1; test
-r.shadow.shadowmapsrenderearly=1; test
-r.skyatmosphereasynccompute=1; test
-r.volumetricrendertarget.preferasynccompute=1; test
+grass.grassmap.useasyncfetch=1; def 0 test
+r.dfshadowasynccompute=1; def 0 test
+r.enableasynccomputetranslucencylightingvolumeclear=1; def 0 test
+r.megalights.asynccompute.generatesamples=1; def 0 test
+r.megalights.asynccompute.volume=1; def 0 test
+r.nanite.asyncrasterization.shadowdepths=1; def 0 test
+r.postprocessing.forceasyncdispatch=1; def 0 test
+r.raytracing.asyncbuild=1; def 0 test
+r.scenedepthhzbasynccompute=1; def 0 test
+r.shadow.shadowmapsrenderearly=1; def 0 test
+r.skyatmosphereasynccompute=1; def 0 test
+r.volumetricrendertarget.preferasynccompute=1; def 0 test
 ```
 #### optional async defaults test
 ```python
