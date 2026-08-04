@@ -1,4 +1,4 @@
-## updated 8/4/2026 ✂ 📋 🌀 :ramen: v1.3.5
+## updated 8/4/2026 ✂ 📋 🌀 :ramen: v1.3.6
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -49,10 +49,6 @@ r.tsr.history.screenpercentage=100;
 #### Your choice UE dev intent was 1 i think
 ```python
 r.tonemapper.sharpen=1; 0,1,2
-```
-#### optional gpu swap chain flip
-```python
-r.gtsynctype=2; test
 ```
 #### optional Number of frames to buffer occlusion queries test 2
 ```python
@@ -283,7 +279,7 @@ r.landscapelodbias=0; 1 for performance
 r.lightmaxdrawdistancescale=1; 0.6,0.85,1 for performance
 r.lumen.diffuseindirect.allow=1;
 r.lumen.diffuseindirect.ssao=0; 0 for performance
-r.lumen.hardwareraytracing.hitlighting.reflectioncaptures=1; 1 for performance
+r.lumen.hardwareraytracing.hitlighting.reflectioncaptures=0; 0 for performance
 r.lumen.hardwareraytracing.lightingmode=0; 0 for performance
 r.lumen.hardwareraytracing=1; 0 for performance
 r.lumen.heightfog=0; test
