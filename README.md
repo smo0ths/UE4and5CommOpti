@@ -1,4 +1,4 @@
-## updated 8/21/2026 ✂ 📋 🌀 :ramen: v1.4.0
+## updated 8/26/2026 ✂ 📋 🌀 :ramen: v1.4.1
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -8,7 +8,7 @@
 
 #### you may need to make the Engine.ini and/or set it to read only*
 
-#### after pasting ini start game and set graphic settings to your spec low/med/high/ultra on each setting then restart game*
+#### after pasting ini start game and set graphic settings to your spec low/med/high/ultra on each setting then restart game* (even when you change dlss in some games)
 
 #### you may need to delete *game*_PCD3D_SM6.upipelinecache and restart game a few times if it crashes because of runtime stuff
 
@@ -27,8 +27,8 @@ r.vt.poolsizescale=1; 1,2,4,8 to lower vram usage
 ```
 #### optional scaling (ultra performance, performance, balanced, quality, ultra quality, native/dlaa)
 ```python
-r.mipmaplodbias=-1.000; -1.585,-1.000,-0.7606,-0.5771,-0.3765,0
-sg.resolutionquality=50; 33,50,59,67,77,100
+r.mipmaplodbias=-0.7606; -1.585,-1.000,-0.7606,-0.5771,-0.3765,0
+sg.resolutionquality=59; 33,50,59,67,77,100
 ```
 #### AA/scaling
 ```python
@@ -59,6 +59,16 @@ r.temporalaafiltersize=0.1;
 r.temporalaasamples=8;
 r.tsr.history.screenpercentage=100;
 ```
+#### optional nvidia ray reconstruction test
+```python
+r.ngx.dlss.denoisermode=1; test can cause crash
+```
+#### optional nvidia reflex test
+```python
+t.streamline.reflex.auto=0;
+t.streamline.reflex.enable=1;
+t.streamline.reflex.mode=2; 0,1,2
+```
 #### quality 1
 ```python
 fx.niagara.collision.cpuenabled=0; gpu dependent test
@@ -84,7 +94,7 @@ r.lightfunctionquality=1; 1,2 for performance
 r.lightmaxdrawdistancescale=1; 0.6,0.85,1 for performance
 r.lumen.reflections.maxbounces=1; 0,1,2 to 8 to 64 for performance test
 r.lumen.reflections.maxroughnesstotrace=0.4; -1,0.4 for performance
-r.lumen.reflections.maxroughnesstotraceclamp=0.4; def 1
+r.lumen.reflections.maxroughnesstotraceclamp=0.4; def 1 test
 r.lumen.reflections.maxroughnesstotraceforfoliage=0.4;
 r.lumen.reflections.samplescenecolorathit=1; 0,1,2 for performance test
 r.lumen.reflections.smoothbias=0.4; 0,0.4 for performance
@@ -145,7 +155,7 @@ r.postprocessing.quarterresolutiondownsample=0; 1 for performance
 r.reflectioncapturesupersamplefactor=1; 1 for performance
 r.refraction.blur.temporalaa=1;
 r.refraction.blur=1;
-r.refraction.offsetquality=1;
+r.refraction.offsetquality=1; test
 r.scenecolorfringe.max=0;
 r.scenecolorfringequality=0; 0,1
 r.tonemapper.quality=5; 0,2,5
@@ -156,8 +166,8 @@ r.upscale.quality=3; 1,2,3
 ```python
 r.dynamicglobalilluminationmethod=1; 0 none 1 lumen 2 ssgi test
 r.heterogeneousvolumes=1; 0,1 test
-r.lumenscene.farfield=1; 0,1 test
-r.megalights.allowed=0; test
+r.lumenscene.farfield=0; 0,1 test
+r.megalights.allowed=1; test
 r.nanite.allowtessellation=0; 0,1 for performance
 r.nanite.tessellation=0; 0,1 for performance
 r.reflectionmethod=1; 0 none 1 lumen 2 ssr test
@@ -181,24 +191,49 @@ r.hdr.enablehdroutput=0;
 ```
 #### optional foliage test
 ```python
-foliage.minimumscreensize=0.000015; 0.000025,0.000015,0.000005 for performance test
+foliage.minimumscreensize=0.000005; 0.000025,0.000015,0.000005 for performance test
 foliage.minlod=-1; test
 ```
 #### optional raytracing/hardware raytracing/lumen software raytracing test
 ```python
-r.lumen.hardwareraytracing.hitlighting.reflectioncaptures=0; 0 for performance
-r.lumen.hardwareraytracing.lightingmode=0; 0 for performance
-r.lumen.hardwareraytracing=1; 0 for performance
-r.lumen.reflections.hardwareraytracing.translucent.refraction.enableforproject=0; test
-r.lumen.reflections.hardwareraytracing=1; 0 for performance
-r.lumen.screenprobegather.shortrangeao.hardwareraytracing=0; 0 for performance
-r.lumenscene.directlighting.hardwareraytracing.forcetwosided=0;
-r.megalights.hardwareraytracing.farfield=0; test
+r.heterogeneousvolumes.hardwareraytracing=0; def 0
+r.lumen.hardwareraytracing.avoidselfintersections=0; test
+r.lumen.hardwareraytracing.farfieldbias=200; def 200
+r.lumen.hardwareraytracing.hitlighting.reflectioncaptures=0; def 0
+r.lumen.hardwareraytracing.inline=0; def 1
+r.lumen.hardwareraytracing.lightingmode=0; 0,1,2,3, def 0
+r.lumen.hardwareraytracing.maxiterations=8192; def 8192
+r.lumen.hardwareraytracing.mintracedistancetosamplesurfacecache=10;
+r.lumen.hardwareraytracing.pullbackbias=8; def 8
+r.lumen.hardwareraytracing.skipbackfacehitdistance=5; def 5
+r.lumen.hardwareraytracing.skiptwosidedhitdistance=1; def 1
+r.lumen.hardwareraytracing=0; def 0
+r.lumen.radiancecache.hardwareraytracing.retrace.farfield=0; def 1
+r.lumen.radiancecache.hardwareraytracing.temporarybufferallocationdownsamplefactor=8; def 8
+r.lumen.radiancecache.hardwareraytracing=0; def 1
+r.lumen.reflections.hardwareraytracing.bucketmaterials=0; def 1
+r.lumen.reflections.hardwareraytracing.retrace.farfield=0; def 1
+r.lumen.reflections.hardwareraytracing.retrace.hitlighting=0;
+r.lumen.reflections.hardwareraytracing.translucent.maxrefractionbounces=0; def 0
+r.lumen.reflections.hardwareraytracing.translucent.refraction.enableforproject=0; def 1
+r.lumen.reflections.hardwareraytracing=0; def 1
+r.lumen.screenprobegather.hardwareraytracing.retrace.farfield=0; def 1
+r.lumen.screenprobegather.hardwareraytracing=0; def 1
+r.lumen.screenprobegather.shortrangeao.hardwareraytracing=0; def 0
+r.lumen.translucencyvolume.hardwareraytracing=0; def 1
+r.lumenscene.directlighting.hardwareraytracing.forcetwosided=0; def 0
+r.lumenscene.directlighting.hardwareraytracing=0; def 1
+r.lumenscene.radiosity.hardwareraytracing=0; def 1
+r.manylights.hardwareraytracing=0; def 1
+r.megalights.hardwareraytracing.farfield=0; def 0
 r.pathtracing=0;
 r.raytracing.ambientocclusion=0;
 r.raytracing.enable=0; 0 disables lumen hardwareraytracing
 r.raytracing.enableingame=0; 0 disables lumen hardwareraytracing
 r.raytracing.enableondemand=0;
+r.raytracing.excludedecals=1; def 0 test
+r.raytracing.excludesky=1; def 1
+r.raytracing.excludetranslucent=0; def 0
 r.raytracing.forceallraytracingeffects=0;
 r.raytracing.globalillumination=0;
 r.raytracing.lightfunction=0;
@@ -218,9 +253,9 @@ r.nanite.streaming.reservedresources=1; 1 is experimental test
 ```python
 r.instanceculling.occlusioncull=1; scene depended test
 ```
-#### optional HZBOC algorithm will crash games if set differently test
+#### optional HZBOC algorithm
 ```python
-r.hzbocclusion=1; scene depended test
+r.hzbocclusion=1; scene depended test can cause crash
 ```
 #### optional Number of frames to buffer occlusion queries test 2
 ```python
@@ -387,11 +422,14 @@ r.hairstrands.shadow.castshadowwhennonvisible=1; 0 for performance
 r.hairstrands.skyao=0; 0 for performance
 r.hairstrands.skylighting.integrationtype=2;
 r.hairstrands.skylighting.jitterintegration=0;
-r.hairstrands.skylighting.screentraceocclusion=0;
+r.hairstrands.skylighting.screentraceocclusion=0; test
 r.hairstrands.usecardsinsteadofstrands=0; 1 for performance
 r.hairstrands.velocityrasterizationscale=0.5; 0.5,1 for performance
 r.hairstrands.visibility.msaa.sampleperpixel=1; 1,2 for performance
 r.hairstrands.visibility.ppll=0;
+r.heterogeneousvolumes.downsamplefactor=2; 8,4,2,1 test
+r.heterogeneousvolumes.maxstepcount=256; 128,256,512 test
+r.heterogeneousvolumes.shadows.resolution=256; 128,256,512 test
 r.lumen.diffuseindirect.ssao=0; test
 r.lumen.heightfog=0; test
 r.lumen.reflections.bilateralfilter=0; 0 for performance
@@ -435,15 +473,11 @@ r.materiallogerroronfailure=0;
 r.nanite.allowskinnedmeshes=1; 0,1 test
 r.nanite.decompressdepth=0; 1 for performance test
 r.nanite.dicingrate=4; test
-r.nanite.disablefallbackmeshes=0;
 r.nanite.maxpixelsperedge=1; 4,3,2,1 for performance
 r.nanite.shadowraster.minpixelradius=16; 32,24,16,8,0 for performance test
 r.nanite.softwarevrs=1;
 r.nanite.usepregeneratedinstancesbuffer=1;
 r.oneframethreadlag=1; 0 for latency cost too much
-r.raytracing.excludedecals=1; def 0 test
-r.raytracing.excludesky=1; def 1
-r.raytracing.excludetranslucent=0; def 0
 r.sceneculling.explicitcellbounds=0; 0 for performance
 r.shaders.removedeadcode=1;
 r.shaders.removeunusedinterpolators=1;
