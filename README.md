@@ -1,4 +1,4 @@
-## updated 9/6/2026 ✂ 📋 🌀 :ramen: v1.4.5
+## updated 9/6/2026 ✂ 📋 🌀 :ramen: v1.4.6
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -398,8 +398,8 @@ r.lightshaftquality=1; 0,1
 r.localfogvolume.renderduringheightfogpass=0; def 0 test
 r.lumen.heightfog=0; def 1 test
 r.lumen.heightfogongi=0; def 0
-r.lumen.reflections.bilateralfilter=1; 0,1 for performance def 1
-r.lumen.reflections.distantscreentraces=1; 0 for performance def 1 test
+r.lumen.reflections.bilateralfilter=0; 0,1 for performance def 1
+r.lumen.reflections.distantscreentraces=0; 0 for performance def 1 test
 r.lumen.reflections.downsamplecheckerboard=1; 1 for performance def 0 test
 r.lumen.reflections.downsamplefactor=1; 2,1 for performance def 1 test
 r.lumen.reflections.hairstrands.screentrace=0; test
@@ -419,7 +419,7 @@ r.lumen.reflections.screenspacereconstruction=1; def 1 test
 r.lumen.reflections.screentraces=1; def 1 test
 r.lumen.reflections.smoothbias=0; 0 for performance def 0 test
 r.lumen.reflections.specularscale=1; test
-r.lumen.reflections.temporal=1; def 1 test
+r.lumen.reflections.temporal=0; def 1 test
 r.lumen.screenprobegather.downsamplefactor=32; 32,16 for performance def 16
 r.lumen.screenprobegather.fullresolutionjitterwidth=1;
 r.lumen.screenprobegather.integratedownsamplefactor=1; 2,1 for performance def 1 test
@@ -452,7 +452,7 @@ r.lumen.translucencyvolume.radiancecache.numprobestotracebudget=30; def 200 test
 r.lumen.translucencyvolume.radiancecache.probeatlasresolutioninprobes=128; test
 r.lumen.translucencyvolume.radiancecache=0; def 1 test
 r.lumen.translucencyvolume.spatialfilter=1; 0,1 for performance def 1 test
-r.lumen.translucencyvolume.tracefromvolume=1; def 1 test
+r.lumen.translucencyvolume.tracefromvolume=0; def 1 test
 r.lumenscene.directlighting.maxlightspertile=8; 4,8 for performance def 8 test
 r.lumenscene.directlighting.offscreenshadowing.tracemeshsdfs=0; 0 for performance test
 r.lumenscene.directlighting.updatefactor=32; 64,32 for performance def 32 test
@@ -623,7 +623,7 @@ r.volumetriccloud=1; 0,1 for performance
 r.volumetricfog.conservativedepth=0;
 r.volumetricfog.depthdistributionscale=32; 16,32 def 32 test
 r.volumetricfog.emissive=0; 0 for performance def 1
-r.volumetricfog.historymisssupersamplecount=2; 2,4 for performance
+r.volumetricfog.historymisssupersamplecount=4; 2,4,8 for performance test
 r.volumetricfog.historyweight=0.9; 0.9,0.95 test
 r.volumetricfog.injectraytracedlights.locallights=0; 0 for performance
 r.volumetricfog.injectshadowedlights=1; def 1 test
