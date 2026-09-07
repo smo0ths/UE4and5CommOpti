@@ -222,6 +222,7 @@ r.volumetricrendertarget.preferasynccompute=1; def 0 test
 ```python
 allowasyncrenderthreadupdates=1; def 1
 allowasyncrenderthreadupdatesduringgamethreadupdates=1; def 1 test
+d3d12.asyncdeferreddeletion=1; def 1 test
 fx.niagara.allowasyncworktoendofframe=1; def 1 test
 fx.niagara.allowdeferredreset=1; def 1 test
 fx.niagara.allowvisibilitycullingfordynamicbounds=1; def 1 test
@@ -306,7 +307,6 @@ poolsizevrampercentage=70; 50 to lower vram usage
 
 [consolevariables]
 d3d12.adjusttexturepoolsizebasedonbudget=0; 1 is experimental test
-d3d12.asyncdeferreddeletion=1; def 1
 d3d12.maximumframelatency=1; def 3 test
 d3d12.syncwithdwm=0; def 0
 fx.allowgpusorting=1;
@@ -334,7 +334,7 @@ r.aoglobaldistancefieldclipmapupdatesperframe=1; def 2 test
 r.aoglobaldistancefieldrepresentheightfields=1;
 r.aohistorydistancethreshold=60; 60,30 test
 r.aohistoryweight=0.85; 0.85,0.95 test
-r.aomaxviewdistance=10000; 10000,20000 100m,200m def 20000 test
+r.aomaxviewdistance=10000; 10000,20000 is 100m,200m def 20000 test
 r.aoquality=1; 0,1,2 for performance
 r.aospecularocclusionmode=0; 0,1 test
 r.aoviewfadedistancescale=0.7; 0.7 test
@@ -649,7 +649,7 @@ r.volumetriccloud.viewraysamplemaxcount=256; 128,256,768 test
 r.volumetriccloud=1; 0,1 for performance
 r.volumetricfog.conservativedepth=0;
 r.volumetricfog.depthdistributionscale=32; 16,32 def 32 test
-r.volumetricfog.distanceoverride=12000; 12000 def -1 test
+r.volumetricfog.distanceoverride=12000; 12000 is 120m def -1 test
 r.volumetricfog.emissive=0; 0 for performance def 1
 r.volumetricfog.historymisssupersamplecount=4; 2,4,8 for performance test
 r.volumetricfog.historyweight=0.9; 0.9,0.95 test
