@@ -220,7 +220,7 @@ r.volumetricrendertarget.preferasynccompute=1; def 0 test
 ```
 #### optional async defaults test skip unless you are testing
 ```python
-allowasyncrenderthreadupdates=1; def 1
+allowasyncrenderthreadupdates=1; def 1 test
 allowasyncrenderthreadupdatesduringgamethreadupdates=1; def 1 test
 d3d12.asyncdeferreddeletion=1; def 1 test
 fx.niagara.allowasyncworktoendofframe=1; def 1 test
