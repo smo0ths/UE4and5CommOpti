@@ -14,8 +14,6 @@
 
 #### you may need to delete *game*_PCD3D_SM6.upipelinecache and restart game a few times if it crashes because of runtime stuff
 
-#### set your scalability groups in base config(sg.)
-
 ---
 
 #### add after customizing
