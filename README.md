@@ -1,4 +1,4 @@
-## updated 9/7/2026 ✂ 📋 🌀 :ramen: v1.4.7
+## updated 9/8/2026 ✂ 📋 🌀 :ramen: v1.4.8
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -185,7 +185,7 @@ r.raytracing.translucency=0;
 r.raytracing.usetexturelod=0; 0,1 test
 r.raytracing=0; 0 disables lumen hardwareraytracing
 ```
-#### optional scalabilitygroups add top of base config after [consolevariables] test
+#### optional scalabilitygroups add to top of base config after [consolevariables] test
 ```python
 dp.allowscalabilitygroupstochangeatruntime=1; def 0
 sg.detailquality=2;
@@ -554,13 +554,13 @@ r.shadow.nanitelodbias=0; 2,1,0 for performance test
 r.shadow.preshadowresolutionfactor=0.5; 0.5,1 for performance
 r.shadow.radiusthreshold=0.02; 0.06,0.05,0.04,0.03,0.02,0.01 for performance
 r.shadow.unbuiltpreviewingame=0; def 1
-r.shadow.virtual.cache.forceinvalidatedirectional=1; 1,0 test
-r.shadow.virtual.cache.maxmaterialpositioninvalidationrange=2500; test
+r.shadow.virtual.cache.forceinvalidatedirectional=0; def 0
 r.shadow.virtual.enable=1; 0 for performance
 r.shadow.virtual.forceonlyvirtualshadowmaps=1; test
 r.shadow.virtual.markpixelpagesmipmodelocal=2; 2,1,0 for performance test
 r.shadow.virtual.maxphysicalpages=2048; 512,1024,2048,4096 to lower vram usage test
 r.shadow.virtual.nonnanite.includeincoarsepages=0; 0,1 for performance
+r.shadow.virtual.nonnanite.usehzb=2; def 2
 r.shadow.virtual.onepassprojection.maxlightsperpixel=8; 4,8,16,32 for performance
 r.shadow.virtual.onepassprojection=1; 1 for performance
 r.shadow.virtual.resolutionlodbiasdirectional=-0.5; 0,-0.5,-1.5 test
@@ -578,7 +578,7 @@ r.shadow.virtual.smrt.samplesperraylocal=2; 1,2,4 test
 r.shadow.virtual.smrt.texelditherscaledirectional=2;
 r.shadow.virtual.smrt.texelditherscalelocal=2; def 2 test
 r.shadow.virtual.translucentquality=0; 0 for performance test
-r.shadow.virtual.usehzb=1; 1,2 for performance
+r.shadow.virtual.usehzb=2; def 2
 r.shadowquality=3; 3,4,5 for performance
 r.skyatmosphere.fastskylut.samplecountmax=32; 32,64 for performance
 r.skyatmosphere.fastskylut.samplecountmin=1; 1,4 for performance
@@ -619,7 +619,7 @@ r.streaming.mipbias=0; 1 for performance
 r.streaming.poolsize.vrampercentageclamp=1024;
 r.streaming.useallmips=0;
 r.streaming.usefixedpoolsize=0;
-r.streaming.usepertexturebias=0; 0,1 for performance def 1 test
+r.streaming.usepertexturebias=1; def 1 test
 r.subsurfacescattering=1; 0 for performance
 r.supportexpfogmatchesvolumetricfog=0; def 0 test
 r.supportlocalfogvolumes=0; def 1 test
