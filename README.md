@@ -2,7 +2,7 @@
 
 ### quality ue4/5 config and for reference/customization/optimization/learning
 
-## open Engine.ini and copy pasta %localappdata% (make .ini's read only*)
+## open/create Engine.ini and copy pasta %localappdata% (make .ini's read only*)
 
 #### check/change "for performance" options (left to right, performance to quality)
 
