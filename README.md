@@ -4,7 +4,7 @@
 
 ## open Engine.ini and copy pasta %localappdata% (make .ini's read only*)
 
-#### check/change for performance options (left to right, performance to quality)
+#### check/change "for performance" options (left to right, performance to quality)
 
 #### after pasting ini open game and change settings(low/med/high/ultra/vsync/switches) then restart game*
 
@@ -661,8 +661,8 @@ bviewaccelerationenabled=0;
 
 optional
 buttonrepeatdelay=0.1;
-doubleclicktime=0.01; def is 0.1 test
-initialbuttonrepeatdelay=0.1; def is 0.2 test
+doubleclicktime=0.01; def 0.1 test
+initialbuttonrepeatdelay=0.1; def 0.2 test
 ```
 
 ---
