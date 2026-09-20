@@ -1,8 +1,8 @@
-## updated 9/19/2026 ✂ 📋 🌀 :ramen: v1.5.1
+## updated 9/19/2026 ✂ 📋 🌀 :ramen: v1.5.2
 
-### quality ue4/5 config and for reference/customization/optimization/learning
+#### quality ue4/5 config and for reference/customization/optimization/learning
 
-## open/create Engine.ini and copy pasta %localappdata% (make .ini's read only*)
+#### open/create Engine.ini and copy pasta %localappdata% (make read only*)
 
 #### check/change "for performance" options (left to right, performance to quality)
 
@@ -22,6 +22,10 @@ sg.resolutionquality=50; 33,50,59,67,77,100
 d3d12.maximumframelatency=1; def 3 test
 foliage.culldistancescale=0.85; 0.55,0.7,0.85,1 for performance test
 foliage.minimumscreensize=0.000005; 0.000025,0.000015,0.000005 for performance test
+fx.maxcpuparticlesperemitter=100; def 1000 test
+fx.maxgpuparticlesspawnedperframe=1000; def 1048576 test
+fx.maxniagaracpuparticlesperemitter=1000; def 1000000 test
+fx.maxniagaragpuparticlesspawnperframe=1000; def 2000000 test
 fx.niagara.collision.cpuenabled=0; gpu dependent def 1 test
 fx.niagara.qualitylevel=2; 0,1,2,3 for performance
 grass.culldistancescale=0.85; 0.55,0.7,0.85,1 for performance test
@@ -89,18 +93,21 @@ r.reflectionmethod=1; 0 none 1 lumen 2 ssr test
 r.reflections.denoiser.temporalaccumulation=0; def 1 test
 r.refraction.blur.temporalaa=1; def 1
 r.refractionquality=1; 0,1,2 for performance
+r.shadow.csm.maxcascades=2; 2,4,10 for performance
 r.shadow.maxcsmresolution=2048; 1024,2048 for performance
 r.shadow.maxresolution=1024; 1024,2048 for performance
 r.shadow.radiusthreshold=0.02; 0.06,0.05,0.04,0.03,0.02,0.01 for performance
 r.shadow.virtual.enable=1; 0 for performance
 r.shadow.virtual.forceonlyvirtualshadowmaps=1; test
 r.shadowquality=3; 3,4,5 for performance
+r.skyatmosphere.samplelightshadowmap=0; 0 for performance volumetric shadows def 1
 r.ssgi.quality=0; 0,2,3 for performance
 r.ssr.quality=2; 0,2,3 for performance
 r.ssr.temporal=1;
 r.supportlocalfogvolumes=0; def 1 test
 r.supportmateriallayers=1; 0,1 for performance
 r.temporalaa.algorithm=1; 0,1 for gen4,gen5 test
+r.temporalaa.historyscreenpercentage=100; def 100
 r.temporalaa.quality=2; 1,2 for performance def 2 test
 r.temporalaa.upsampling=1; def 1
 r.temporalaacurrentframeweight=0.04; def 0.04
@@ -112,12 +119,13 @@ r.tonemapper.sharpen=1; 0,1,2
 r.translucencylightingvolume.temporal=1; 0,1 test
 r.tsr.history.screenpercentage=100; def 200 test
 r.upscale.quality=2; 0,1,2,3,4 def 3
+r.volumetriccloud.shadow.sampleatmosphericlightshadowmap=0; 0 for performance volumetric shadows def 1
 r.volumetriccloud.shadowmap=1; 0 for performance def 1 test
 r.volumetriccloud.skyao=0; def 1
 r.volumetriccloud=1; 0,1 for performance
 r.volumetricfog.temporalreprojection=1; def 1
 r.vrs.enable=0; def 0 test
-r.vrs.enablesoftware=0; def 0 test
+r.vrs.enablesoftware=1; def 0 test
 r.vsync=0;
 r.water.enableshallowwatersimulation=0; 0 for performance test
 r.water.enableunderwaterpostprocess=1; 0,1 for performance test
@@ -353,6 +361,7 @@ r.lumen.reflections.screentraces=1; def 1 test
 r.lumen.reflections.smoothbias=0; 0 for performance def 0 test
 r.lumen.reflections.specularscale=1; test
 r.lumen.screenprobegather.downsamplefactor=16; 32,16 for performance def 16
+r.lumen.screenprobegather.extraambientocclusion=0; def 0 test
 r.lumen.screenprobegather.fullresolutionjitterwidth=1; 0.25 to 8 def 1 test
 r.lumen.screenprobegather.importancesample=1; 0 for performance def 1 test
 r.lumen.screenprobegather.integratedownsamplefactor=1; 2,1 for performance def 1 test
@@ -446,12 +455,11 @@ r.screenpercentage.minresolution=0;
 r.secondaryscreenpercentage.gameviewport=0;
 r.shaders.removedeadcode=1;
 r.shaders.removeunusedinterpolators=1;
-r.shadow.csm.maxcascades=2; 2,4,10 for performance
 r.shadow.csm.transitionscale=1;
 r.shadow.csmshadowdistancefadeoutmultiplier=1;
 r.shadow.cullminorshadowcasters=0; 0,1 for performance
 r.shadow.detectvertexshaderlayeratruntime=1; def 1
-r.shadow.forcesinglesampleshadowingfromstationary=0;
+r.shadow.forcesinglesampleshadowingfromstationary=0; def 0
 r.shadow.itemlightcomponentshadows=1; 0,1 for performance
 r.shadow.nanitelodbias=0; 2,1,0 for performance test
 r.shadow.preshadowresolutionfactor=0.5; 0.5,1 for performance
@@ -478,6 +486,7 @@ r.shadow.virtual.smrt.samplesperraylocal=2; 0,1,2,4 def 4 test
 r.shadow.virtual.smrt.texelditherscaledirectional=2; def 2 test
 r.shadow.virtual.smrt.texelditherscalelocal=2; 2,4,6 def 2 test
 r.shadow.virtual.translucentquality=0; 0 for performance test
+r.shadow.virtual.usefarshadowculling=1; def 1 test
 r.shadow.virtual.usehzb=2; def 2
 r.skyatmosphere.fastskylut.samplecountmax=32; 32,64 for performance
 r.skyatmosphere.fastskylut.samplecountmin=1; 1,4 for performance
@@ -486,7 +495,6 @@ r.skyatmosphere.multiscatteringlut.highquality=0; 0 for performance
 r.skyatmosphere.multiscatteringlut.samplecount=15;
 r.skyatmosphere.samplecountmax=32; 32,64 for performance
 r.skyatmosphere.samplecountmin=1; 1,4 for performance
-r.skyatmosphere.samplelightshadowmap=0; 0 for performance
 r.skyatmosphere.transmittancelut.samplecount=10;
 r.skyatmosphere.transmittancelut.usesmallformat=0; 1 for performance
 r.splinemesh.norecreateproxy=1; def 1
@@ -519,8 +527,10 @@ r.streaming.useallmips=0;
 r.streaming.usefixedpoolsize=0;
 r.streaming.usepertexturebias=1; def 1 test
 r.subsurfacescattering=1; 0 for performance
+r.supportdepthonlyindexbuffers=0; def 1 test
 r.supportexpfogmatchesvolumetricfog=0; def 0 test
-r.translucency.autobeforedof=-1; -1,0.5 test
+r.supportreversedindexbuffers=0; def 1 test
+r.translucency.autobeforedof=0.5; 0,0.5,1 def 0.5 test
 r.translucencylightingvolumedim=48; 32,48,64 for performance
 r.translucencyvolumeblur=1; def 1
 r.translucentlightingvolume=1; 0 for performance def 1
@@ -532,7 +542,6 @@ r.volumetriccloud.distancetosamplemaxcount=23; 30,25,23,20,15 test
 r.volumetriccloud.enableatmosphericlightssampling=1; def 1
 r.volumetriccloud.enabledistantskylightsampling=1; def 1
 r.volumetriccloud.enablelocallightssampling=0; 0 for performance
-r.volumetriccloud.shadow.sampleatmosphericlightshadowmap=0; 0 for performance
 r.volumetriccloud.shadow.viewraysamplemaxcount=9; 7,8,9,10,80 test
 r.volumetriccloud.shadowmap.spatialfiltering=1; 0,1,2,3,4 def 1
 r.volumetriccloud.viewraysamplemaxcount=256; 128,256,768 test
@@ -579,26 +588,17 @@ t.streamline.reflex.mode=2; 0,1,2
 
 ---
 
-## optional async
-
-#### optional async test skip unless you are testing
+## optional psoprecache stuff test
 ```python
-fx.batchasync=1; def 0 test
-grass.grassmap.useasyncfetch=1; def 0 test
-r.dfshadowasynccompute=1; def 0 test
-r.enableasynccomputetranslucencylightingvolumeclear=1; def 0 test
-r.lumen.reflections.asynccompute=1; def 0 test
-r.megalights.asynccompute.generatesamples=1; def 0 test
-r.megalights.asynccompute.volume=1; def 0 test
-r.nanite.asyncrasterization.shadowdepths=1; def 0 test
-r.postprocessing.forceasyncdispatch=1; def 0 test
-r.raytracing.asyncbuild=1; def 0 test
-r.scenedepthhzbasynccompute=1; def 0 test
-r.shadow.shadowmapsrenderearly=1; def 0 test
-r.skyatmosphereasynccompute=1; def 0 test
-r.volumetricrendertarget.preferasynccompute=1; def 0 test
+d3d12.pso.keepusedpsosinlowlevelcache=1; def 0 test
+d3d12.psoprecache.keeplowlevel=1; def 0 test
+fx.niagara.emitter.computepsoprecachemode=1; def 0 test
+r.psoprecache.globalshaders=1; def 0 test
+r.psoprecache.proxycreationdelaystrategy=0; def 0
+r.psoprecache.proxycreationwhenpsoready=1; def 1
+r.psoprecaching=1; def 1
 ```
-#### optional async defaults test skip unless you are testing
+#### optional async defaults test
 ```python
 allowasyncrenderthreadupdates=1; def 1 test
 allowasyncrenderthreadupdatesduringgamethreadupdates=1; def 1 test
@@ -647,10 +647,27 @@ r.tsr.asynccompute=2; def 2 test
 r.uniformexpressioncacheasyncupdates=1; def 1 test
 r.vt.asyncpagerequesttask=1; def 1 test
 ```
+#### optional async test skip unless you are testing
+```python
+fx.batchasync=1; def 0 test
+grass.grassmap.useasyncfetch=1; def 0 test
+r.dfshadowasynccompute=1; def 0 test
+r.enableasynccomputetranslucencylightingvolumeclear=1; def 0 test
+r.lumen.reflections.asynccompute=1; def 0 test
+r.megalights.asynccompute.generatesamples=1; def 0 test
+r.megalights.asynccompute.volume=1; def 0 test
+r.nanite.asyncrasterization.shadowdepths=1; def 0 test
+r.postprocessing.forceasyncdispatch=1; def 0 test
+r.raytracing.asyncbuild=1; def 0 test
+r.scenedepthhzbasynccompute=1; def 0 test
+r.shadow.shadowmapsrenderearly=1; def 0 test
+r.skyatmosphereasynccompute=1; def 0 test
+r.volumetricrendertarget.preferasynccompute=1; def 0 test
+```
 
 ---
 
-## open Input.ini and copy pasta %localappdata%
+## open/create Input.ini and copy pasta %localappdata% (make read only*)
 
 ```python
 [/script/engine.inputsettings]
