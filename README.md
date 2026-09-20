@@ -6,18 +6,18 @@
 
 #### check/change "for performance" options (left to right, performance to quality)
 
-#### after pasting ini open game and change settings(low/med/high/ultra/vsync/switches) then restart game*
+#### after pasta open game and change settings(low/med/high/ultra/vsync/switches) then restart game*
 
 ---
 
-#### add after customizing
+#### add after customizing (add under base config)
 ```python
 perfindexvalues_resolutionquality="50 50 50 50 50"; test requires read only
 r.mipmaplodbias=-1; -2.5,-2,-1.8,-1.6,-1.5,-1.4,-1,-0.5 for dlss
 r.streaming.poolsize=4000; 400,600,800,1000,2000,3000,4000 to lower vram usage
 sg.resolutionquality=50; 33,50,59,67,77,100
 ```
-#### add after customizing 2
+#### add after customizing 2 (add under base config)
 ```python
 d3d12.maximumframelatency=1; def 3 test
 foliage.culldistancescale=0.85; 0.55,0.7,0.85,1 for performance test
@@ -136,7 +136,7 @@ rhi.maximumframelatency=1; def 3 test
 t.maxfps=-1;
 t.streamline.reflex.enable=1;
 ```
-#### add after customizing ray tracing stuff
+#### add after customizing ray tracing stuff (add under base config)
 ```python
 r.hairstrands.raytracing=0; def 1
 r.heterogeneousvolumes.hardwareraytracing=0; def 0
@@ -197,7 +197,7 @@ r.volumetricfog.injectraytracedlights=0; def 0
 
 ---
 
-## base config:
+#### base config (add first)
 
 ```python
 [core.log]
@@ -588,7 +588,7 @@ t.streamline.reflex.mode=2; 0,1,2
 
 ---
 
-## optional psoprecache stuff test
+#### optional psoprecache stuff test (add under base config)
 ```python
 d3d12.pso.keepusedpsosinlowlevelcache=1; def 0 test
 d3d12.psoprecache.keeplowlevel=1; def 0 test
@@ -598,7 +598,7 @@ r.psoprecache.proxycreationdelaystrategy=0; def 0
 r.psoprecache.proxycreationwhenpsoready=1; def 1
 r.psoprecaching=1; def 1
 ```
-#### optional async defaults test
+#### optional async defaults test (add under base config)
 ```python
 allowasyncrenderthreadupdates=1; def 1 test
 allowasyncrenderthreadupdatesduringgamethreadupdates=1; def 1 test
@@ -667,7 +667,7 @@ r.volumetricrendertarget.preferasynccompute=1; def 0 test
 
 ---
 
-## open/create Input.ini and copy pasta %localappdata% (make read only*)
+#### open/create Input.ini and copy pasta %localappdata% (make read only*)
 
 ```python
 [/script/engine.inputsettings]
@@ -684,15 +684,15 @@ initialbuttonrepeatdelay=0.1; def 0.2 test
 
 ---
 
-## ect
+#### ect
 
 ```python
-## upscaling to use
+upscaling to use
 2560x1440 use 58%,67%,70%,77% for performance (dlss/taau/tsr/cas/fsr/xess/pssr/nis/is)
 3328x1872 use 50%,58%,67%,70%,77% for performance (dlss/taau/tsr/cas/fsr/xess/pssr/nis/is)
 3840x2160 use 33%,50%,58%,67%,70%,77% for performance (dlss/taau/tsr/cas/fsr/xess/pssr/nis/is)
 
-## repak.bat method
+repak.bat method
 zzz_inimods\engine\config\windows\windowsengine.ini
 zzz_inimods\engine\config\windows\windowsinput.ini
 ```
