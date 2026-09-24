@@ -16,7 +16,7 @@
 ```python
 r.streaming.poolsize=2000; 400,600,800,1000,2000,3000,4000 to lower vram usage
 ```
-#### match res dlss screen% customize (add under base config)
+#### match perfindexvalues_resolutionquality=/r.ngx.dlss.quality=/sg.resolutionquality= customize (add under base config)
 ```python
 perfindexvalues_resolutionquality="50 50 50 50 50"; 33,50,59,67,77,100
 r.mipmaplodbias=-1; -2.5,-2,-1.8,-1.6,-1.5,-1.4,-1,-0.5,0
