@@ -603,13 +603,13 @@ r.water.singlelayer=1; def 1
 
 #### optional async test skip unless you are testing
 ```python
-lumen async
+;lumen async
 r.lumen.asynccompute=1; def 1 test
 r.lumen.diffuseindirect.asynccompute=1; def 1 test
 r.lumen.reflections.asynccompute=1; def 0 test
 r.lumenscene.lighting.asynccompute=1; def 1 test
 
-default test
+;default test
 allowasyncrenderthreadupdates=1; def 1 test
 allowasyncrenderthreadupdatesduringgamethreadupdates=1; def 1 test
 d3d12.asyncdeferreddeletion=1; def 1 test
@@ -654,7 +654,7 @@ r.tsr.asynccompute=2; def 2 test
 r.uniformexpressioncacheasyncupdates=1; def 1 test
 r.vt.asyncpagerequesttask=1; def 1 test
 
-non default test
+;non default test
 r.dfshadowasynccompute=1; def 0 test
 r.enableasynccomputetranslucencylightingvolumeclear=1; def 0 test
 r.megalights.asynccompute.generatesamples=1; def 0 test
@@ -663,7 +663,7 @@ r.raytracing.asyncbuild=1; def 0 test
 r.scenedepthhzbasynccompute=1; def 0 test
 r.skyatmosphereasynccompute=1; def 0 test
 
-non default test (caution)
+;non default test (caution)
 fx.batchasync=1; def 0 test
 grass.grassmap.useasyncfetch=1; def 0 test
 r.nanite.asyncrasterization.shadowdepths=1; def 0 test
