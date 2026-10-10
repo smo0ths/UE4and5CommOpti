@@ -71,7 +71,6 @@ r.lumen.screenprobegather.radiancecache.proberesolution=16; 8,16,32 def 32 test
 r.lumenscene.globalsdf.clipmapextent=1000; def 2500 test
 r.sceneculling.explicitcellbounds=1; def 1
 r.shadercompiler.jobcacheddc=1; def 1 test
-r.shaderpipelinecache.saveboundpsolog=0; def 0
 r.shaders.removedeadcode=1; def 1
 r.shaders.removeunusedinterpolators=1; def 0 test
 r.splinemesh.norecreateproxy=1; def 1
@@ -215,6 +214,7 @@ r.gpucrashdebugging.aftermath=0; def 1
 r.gpucsvstatsenabled=0; def 0
 r.materiallogerroronfailure=0; def 0
 r.rhicmdbypass=0; def 0
+r.shaderpipelinecache.saveboundpsolog=0; def 0
 
 ;scaling stuff customize
 r.antialiasingmethod=2; 0,1,2,3,4 off,fxaa,taa,msaa,tsr def 4
