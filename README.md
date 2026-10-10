@@ -1,4 +1,4 @@
-## updated 10/3/2026 ✂ 📋 🌀 :ramen: v1.6.5
+## updated 10/9/2026 ✂ 📋 🌀 :ramen: v1.6.6
 
 #### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -22,7 +22,201 @@ r.mipmaplodbias=-0.5; -2.5,-2,-1.8,-1.6,-1.5,-1.4,-1,-0.5,0
 r.ngx.dlss.quality=-1; -2,-1,0,1,2 ultra performance,performance,balanced,quality,ultra quality
 sg.resolutionquality=50; 33,50,59,67,77,100
 
-;customize (add under base config)
+;can cause crash in some games (add under base config)
+;r.heterogeneousvolumes=1; def 1 test
+;r.nanite=1; def 1 test
+r.allowstaticlighting=0; def 1
+r.hzbocclusion=0; def 0
+r.nanite.allowtessellation=0; def 0
+r.nanite.tessellation=0; def 0
+r.ngx.dlss.denoisermode=0; ray reconstruction test
+
+;optional quality switches test (add under base config)
+;r.dynamicglobalilluminationmethod=1; 0,1,2 none,lumen,ssgi
+;r.hairstrands.enable=1; def 1 test
+;r.localfogvolume=0; 0 for performance def 1 test
+;r.manylights=0; 0,1,2 is experimental def 0 test
+;r.megalights.allowed=1; def 1 test
+;r.megalights.enableforproject=0; def 0 test
+;r.reflectionmethod=1; 0,1,2 none,lumen,ssr
+r.hairstrands.usecardsinsteadofstrands=0; 1 for performance def 0 test
+
+;optional test (add under base config)
+d3d12.adjusttexturepoolsizebasedonbudget=0; 1 is experimental def 0 test
+d3d12.syncwithdwm=0; def 0
+fx.allowgpusorting=1; def 1
+fx.batchasyncbatchsize=32; 16,32,64 test
+fx.niagara.forcelasttickgroup=0; def 0 test
+fx.niagaraallowgpuparticles=1; def 1
+niagara.ribbon.gpuallocatemaxcount=0; def 1 test
+r.aoapplytostaticindirect=0; def 0 test
+r.aoglobaldistancefield=1; def 1
+r.aomaxviewdistance=10000; 10000,20000 is 100m,200m def 20000 test
+r.aospecularocclusionmode=1; def 1 test
+r.compileshadersfordevelopment=0; def 1
+r.d3d.forcedxc=0; multigpu def 0
+r.d3d11.depth24bit=0; 1 for performance test
+r.d3d12.depth24bit=0; 1 for performance test
+r.discardunusedquality=1; def 0 test
+r.distancefields.brickatlasmaxsizez=16; def 32 test
+r.distancefields.maxpermeshresolution=128; def 256 test
+r.gbufferdiffusesampleocclusion=0; def 0
+r.hairstrands.interpolation.usesingleguide=1; 1,0 for performance def 1 test
+r.hairstrands.strands.interpolation.forcesingleguide=1; def 1 test
+r.localfogvolume.applyontranslucent=0; def 0 test
+r.localfogvolume.renderduringheightfogpass=1; def 0 test
+r.localfogvolume.renderintovolumetricfog=0; def 1 test
+r.lumen.screenprobegather.radiancecache.numprobestotracebudget=200; 150,200,300 def 300 test
+r.lumen.screenprobegather.radiancecache.proberesolution=16; 8,16,32 def 32 test
+r.lumenscene.globalsdf.clipmapextent=1000; def 2500 test
+r.sceneculling.explicitcellbounds=1; def 1
+r.shadercompiler.jobcacheddc=1; def 1 test
+r.shaderpipelinecache.saveboundpsolog=0; def 0
+r.shaders.removedeadcode=1; def 1
+r.shaders.removeunusedinterpolators=1; def 0 test
+r.splinemesh.norecreateproxy=1; def 1
+r.ssr.compute=1; def 0 test
+r.ssr.tiledcomposite=0; def 0
+r.streaming.additionaltexturepoolsize=0; def 0
+r.streaming.allowparallelrenderassetstreamingmanagerincrementalupdate=1; def 1
+r.virtualtexturereducedmemory=1; 1 to lower vram usage
+r.volumetriccloud.shadowmap.lightdistanceoverride=0; def 0
+r.volumetricfog.distanceoverride=10000; 10000,12000 is 100m,120m def -1 test
+r.volumetricrendertarget.reprojectionboxconstraint=0; def 0 test
+r.vt.numgathertasks=2; 1,2,4,8 cpu dependent test
+r.vt.splitphysicalpoolsize=64; 64 def 0 test
+r.vt.support16bitpagetable=0; def 1 test
+
+;ray tracing stuff (add under base config)
+;r.raytracing.enable=0; 0 disables lumen hardwareraytracing and can hide custom effect piplines test
+;r.raytracing=0; 0 disables lumen hardwareraytracing and can hide custom effect piplines test
+r.hairstrands.raytracing=0; def 1
+r.heterogeneousvolumes.hardwareraytracing=0; def 0
+r.lumen.hardwareraytracing.hitlighting.reflectioncaptures=0; def 0
+r.lumen.hardwareraytracing.inline=0; def 1 test
+r.lumen.hardwareraytracing.lightingmode=0; 0,1,2,3 def 0 test
+r.lumen.hardwareraytracing=0; def 0
+r.lumen.radiancecache.hardwareraytracing.retrace.farfield=0; def 1 test
+r.lumen.radiancecache.hardwareraytracing=0; def 1 test
+r.lumen.reflections.hardwareraytracing.bucketmaterials=1; def 1 test
+r.lumen.reflections.hardwareraytracing.retrace.farfield=0; def 1 test
+r.lumen.reflections.hardwareraytracing.retrace.hitlighting=0; def 0
+r.lumen.reflections.hardwareraytracing.translucent.maxrefractionbounces=0; def 0
+r.lumen.reflections.hardwareraytracing.translucent.refraction.enableforproject=0; def 1 test
+r.lumen.reflections.hardwareraytracing=0; def 1 test
+r.lumen.screenprobegather.hardwareraytracing.retrace.farfield=0; def 1 test
+r.lumen.screenprobegather.hardwareraytracing=0; def 1 test
+r.lumen.screenprobegather.shortrangeao.hardwareraytracing=0; def 0
+r.lumen.translucencyvolume.hardwareraytracing=0; def 1 test
+r.lumenscene.directlighting.hardwareraytracing.farfield=0; def 1
+r.lumenscene.directlighting.hardwareraytracing.forcetwosided=0; def 0
+r.lumenscene.directlighting.hardwareraytracing=0; def 1 test
+r.lumenscene.farfield=0; def 0
+r.lumenscene.radiosity.hardwareraytracing=0; def 1 test
+r.manylights.hardwareraytracing=0; def 1 test
+r.megalights.hardwareraytracing.farfield=0; def 0
+r.megalights.hardwareraytracing=0; def 1
+r.nanite.raytracing=0;
+r.pathtracing=0; def 1
+r.raytracing.ambientocclusion=0; def -1
+r.raytracing.enableingame=0; 0 disables lumen hardwareraytracing
+r.raytracing.enableondemand=0; def 0
+r.raytracing.excludedecals=1; def 0 test
+r.raytracing.excludesky=1; def 1
+r.raytracing.excludetranslucent=1; def 0 test
+r.raytracing.forceallraytracingeffects=0; def -1
+r.raytracing.geometry.geometrycache=0; def 1
+r.raytracing.geometry.geometrycollection.wpo=0;
+r.raytracing.geometry.imageplate=0; def 1
+r.raytracing.geometry.instancedstaticmeshes=0; def 1
+r.raytracing.geometry.landscape=0; def 1 test
+r.raytracing.geometry.niagarameshes=0; def 1
+r.raytracing.geometry.niagararibbons=0; def 1
+r.raytracing.geometry.niagarasprites=0; def 1
+r.raytracing.geometry.proceduralmeshes=0;
+r.raytracing.geometry.skeletalmeshes=0; def 1
+r.raytracing.geometry.staticmeshes=0; def 1
+r.raytracing.geometry.text=0; def 1
+r.raytracing.globalillumination=0; def -1
+r.raytracing.lightfunction=0; def 1 test
+r.raytracing.raytracingproxies.projectenabled=0;
+r.raytracing.reflections=0; def -1
+r.raytracing.scene.buildmode=0; def 1
+r.raytracing.shadows.lights.directional=0; def 1 test
+r.raytracing.shadows.lights.point=0; def 1 test
+r.raytracing.shadows.lights.rect=0; def 1 test
+r.raytracing.shadows.lights.spot=0; def 1 test
+r.raytracing.shadows=0; def 0
+r.raytracing.skylight=0; def 0
+r.raytracing.translucency=0; def -1
+r.raytracing.usetexturelod=0; def 0 test
+r.staticmesh.raytracingproxies=0; def 1 test
+r.volumetricfog.injectraytracedlights=0; def 0
+```
+
+---
+
+#### base config (add first)
+
+```python
+[core.log]
+global=off;
+
+[crashreportclient]
+ballowtobecontacted=0;
+bisallowedtoclosewithoutsending=1;
+bisallowedtosendwithoutdetailedinfo=0;
+bsendlogfile=0;
+bsendunattendedbugreports=0;
+cansendwhenuifailedtoinitialize=0;
+datarouterurl=;
+ensure.recorddump=0;
+stall.recorddump=0;
+uiinitretrycount=0;
+
+[gametelemetry]
+authenticationkey=;
+configkey=;
+configurl=;
+ingesturl=;
+logwarnings=;
+maxbuffersize=;
+maxcountpermessage=;
+maxuniquemessages=;
+querytakelimit=;
+queryurl=;
+sendinterval=;
+
+[/script/engine.engine]
+bpauseonlossoffocus=0;
+bsmoothframerate=0;
+busefixedframerate=0;
+
+[shadercompiler]
+r.dumpshaderdebuginfo=0; def 2
+r.shaderdevelopmentmode=0; def 0
+r.shaders.extradata=0; def 0
+r.shaders.symbols=0; def 0
+
+[systemsettings]
+dp.allowscalabilitygroupstochangeatruntime=0; def 0
+
+[texturestreaming]
+poolsizevrampercentage=70; 50 to lower vram usage
+
+[consolevariables]
+
+;logging stuff
+health.loghealthsnapshot=0; def 1
+r.d3d12.gpucrashdebuggingmode=0;
+r.detectandwarnofbaddrivers=0;
+r.gpucrash.collectionenable=0; def 1
+r.gpucrashdebugging.aftermath=0; def 1
+r.gpucsvstatsenabled=0; def 0
+r.materiallogerroronfailure=0; def 0
+r.rhicmdbypass=0; def 0
+
+;scaling stuff customize
 r.antialiasingmethod=2; 0,1,2,3,4 off,fxaa,taa,msaa,tsr def 4
 r.defaultfeature.antialiasing=2; 0,1,2,3 off,fxaa,taa,msaa def 2
 r.dof.temporalaaquality=1; def 1 test
@@ -71,7 +265,7 @@ r.tsr.velocity.weightclampingsamplecount=4; def 4 test
 r.volumetricfog.temporalreprojection=1; def 1
 r.water.singlelayer.ssrtaa=1; def 1
 
-;scaling stuff test (add under base config)
+;nvidia stuff test
 r.ngx.dlaa.enable=0;
 r.ngx.dlss.autoexposure=1; def 1
 r.ngx.dlss.builtindenoiseroverride=-1; def -1
@@ -103,14 +297,22 @@ t.streamline.reflex.enable=1;
 t.streamline.reflex.handlemaxtickrate=0; def 1 test
 t.streamline.reflex.mode=2; 0,1,2
 
-;can cause crash in some games (add under base config)
-r.allowstaticlighting=0; def 1
-r.hzbocclusion=0; def 0
-r.nanite.allowtessellation=0; def 0
-r.nanite.tessellation=0; def 0
-r.ngx.dlss.denoisermode=0; ray reconstruction test
+;variable rate shading test
+r.nanite.softwarevrs=1; def 1
+r.vrs.basepass=2; def 2
+r.vrs.contrastadaptiveshading=1; def 0 test
+r.vrs.decals=2; def 2
+r.vrs.enable=0; def 0 test
+r.vrs.enableimage=0; def 0 test
+r.vrs.enablesoftware=1; def 0 test
+r.vrs.lightfunctions=1; def 1
+r.vrs.naniteemitgbuffer=2; def 2
+r.vrs.reflectionenvironmentsky=2; def 2
+r.vrs.ssao=0; def 0
+r.vrs.ssr=2; def 2
+r.vrs.translucency=1; def 1
 
-;latency customize (add under base config)
+;latency stuff customize
 d3d12.maximumframelatency=1; def 3 test
 r.d3d11.useallowtearing=1; def 0
 r.d3d12.useallowtearing=1; def 1
@@ -127,7 +329,7 @@ t.maxfps=0; def 0
 t.overridefps=0; def 0
 t.unsteadyfps=0; def 0
 
-;optional quality customize test (add under base config)
+;optional quality customize test
 foliage.culldistancescale=0.85; 0.7,0.85,1 for performance
 foliage.densityscale=0.6; 0.6,0.7,1 for performance
 foliage.minlod=-1; def -1
@@ -136,56 +338,19 @@ grass.culldistancescale=0.85; 0.7,0.85,1 for performance
 grass.densityscale=0.6; 0.6,0.7,1 for performance
 grass.disabledynamicshadows=0; 1 for performance
 r.dfdistancescale=1; 1,1.5,1.75,2,3,3.5 def 1 test
+r.grass.densityqualitylevel=-1; def -1
 r.lightmaxdrawdistancescale=1; 0.6,0.85,1 for performance
 r.minscreenradiusforlights=0.02; 0.12,0.1,0.08,0.06,0.05,0.04,0.03,0.015 for performance def 0.03 test
-r.shadow.csm.maxcascades=2; 2,4,10 for performance
-r.shadow.csm.transitionscale=1; 1,2 def 1 test
-r.shadow.distancescale=0.8; 0.8,1,2 for performance def 1
-r.shadow.filtermethod=0; def 0
-r.shadow.forcesinglesampleshadowingfromstationary=0; def 0
-r.shadow.loddistancefactor=8; 1,4,8 def 1 test
-r.shadow.nanitelodbias=0; 2,1,0 for performance test
-r.shadow.preshadowresolutionfactor=0.5; 0.5,1 for performance def 1
-r.shadow.radiusthreshold=0.02; 0.06,0.05,0.04,0.03,0.02,0.01 for performance def 0.01
-r.shadowquality=3; 3,4,5 for performance
 r.viewdistancescale=0.8; 0.8,1 for performance def 1
 
-;optional tests (add under base config)
-r.aomaxviewdistance=10000; 10000,20000 is 100m,200m def 20000 test
-r.distancefields.brickatlasmaxsizez=16; def 32 test
-r.distancefields.maxpermeshresolution=128; def 256 test
-r.lumenscene.globalsdf.clipmapextent=1000; def 2500 test
-r.volumetriccloud.shadowmap.lightdistanceoverride=0; def 0
-r.volumetricfog.distanceoverride=10000; 10000,12000 is 100m,120m def -1 test
+;virtual texture stuff test
+r.vt.anisotropicfiltering=1; 0 for performance
+r.vt.maxanisotropy=4; 2,4,8 for performance def 8
+r.vt.poolsizescale=1; 0.8,1,2,4,8 to lower vram usage
 
-;optional test (add under base config)
-health.loghealthsnapshot=0; def 1 test
-r.aoapplytostaticindirect=0; def 0 test
-r.aoglobaldistancefield=1; def 1
-r.aospecularocclusionmode=1; def 1 test
-r.compileshadersfordevelopment=0; def 1
-r.detectandwarnofbaddrivers=0;
-r.gbufferdiffusesampleocclusion=0; def 0
-r.gpucrash.collectionenable=0;
-r.materiallogerroronfailure=0;
-r.rhicmdbypass=0; def 0
-r.sceneculling.explicitcellbounds=1; def 1
-r.shadercompiler.jobcacheddc=1; def 1 test
-r.shaders.removedeadcode=1; def 1
-r.shaders.removeunusedinterpolators=1; def 0 test
-
-;quality customize test (add under base config)
-;r.dynamicglobalilluminationmethod=1; 0,1,2 none,lumen,ssgi
-;r.reflectionmethod=1; 0,1,2 none,lumen,ssr
-r.allowlandscapeshadows=1; 0 for performance
-r.capsuleshadows=0; def 1 test
-r.capsuleshadowsfullresolution=0; def 0
-r.contactshadows.overrideshadowcastingintensity=50; def -1 test
-r.contactshadows.standalone.method=0; def 0
-r.contactshadows=1; def 1
-r.dfshadowquality=2; 0,1,2,3 for performance def 3 test
+;quality customize test
+r.diffuseindirect.halfres=1; def 1
 r.distancefieldao=0; def 1 test
-r.distancefieldshadowing=1; def 1
 r.landscapelodbias=0; 1 for performance
 r.lumen.diffuseindirect.allow=1; def 1 test
 r.lumen.diffuseindirect.ssao=0; def 0 test
@@ -208,22 +373,16 @@ r.lumen.translucencyreflections.frontlayer.enableforproject=0; 0 for performance
 r.lumen.translucencyreflections.radiancecache=1; def 1
 r.lumen.translucencyvolume.radiancecache=1; def 1
 r.lumenscene.directlighting.offscreenshadowing.tracemeshsdfs=0; 0 for performance def 1 test
-r.shadow.virtual.enable=1; def 1
-r.shadow.virtual.forceonlyvirtualshadowmaps=1; def 1
-r.shadow.virtual.resolutionlodbiaslocal=2; def 0 test
-r.shadow.virtual.resolutionlodbiaslocalmoving=2; def 1 test
-r.shadow.virtual.smrt.samplesperraydirectional=1; def 4 test
-r.shadow.virtual.smrt.samplesperrayhair=1; def 1
-r.shadow.virtual.smrt.samplesperraylocal=1; def 4 test
 r.water.singlelayer.reflection=3; 0,2,3,1 def 1 test
 
-;quality customize (add under base config)
+;quality customize
 fx.niagara.collision.cpuenabled=1; def 1 test
 fx.niagara.qualitylevel=-1; 0,1,2,3 for performance def 3
+fx.niagaraallowruntimescalabilitychanges=1;
+fx.qualitylevelspawnratescalereferencelevel=2; def 2
 r.allowhdr=0;
 r.anisotropicmaterials=0; 0,1 for performance
 r.aoquality=1; 0,1,2 for performance def 2
-r.bloomquality=4;
 r.decal.fadedurationscale=1; def 1 test
 r.decal.fadescreensizemult=1; def 1
 r.decal.stencilsizethreshold=0.1; def 0.1
@@ -231,71 +390,141 @@ r.defaultbackbufferpixelformat=4; def 4 test
 r.depthoffieldquality=1; 0,1,2,3,4 for performance def 2
 r.detailmode=2; 0,1,2,3 for performance def 3
 r.dffullresolution=0; 0,1 def 0
-r.dof.gather.accumulatorquality=0; 0,1 def 1
-r.dof.gather.enablebokehsettings=0; 0,1 def 1
-r.dof.kernel.maxbackgroundradius=0.012; 0.012,0.025 def 0.025
-r.dof.kernel.maxforegroundradius=0.012; 0.012,0.025 def 0.025
-r.dof.recombine.enablebokehsettings=0; 0,1 def 1
-r.dof.recombine.quality=0; 0,1,2 def 2
-r.dof.scatter.backgroundcompositing=1; 0,1,2 def 2
-r.dof.scatter.enablebokehsettings=0; 0,1 def 1
-r.dof.scatter.maxspriteratio=0.04; 0.04,0.1,0.25 def 0.1
+r.emitter.fastpoolenable=1; def 0 test
 r.emitter.fastpoolmaxfreesize=2097152; 2097152,4194304 def 2097152 test
 r.emitterspawnratescale=0.5; 0.125,0.25,0.5,1 for performance
-r.filmgrain=0; def 1
 r.forwardshading.forceskylightcubemapblending=0; def 0
-r.hairstrands.skyao=0; 0,1 def 1 test
 r.hdr.enablehdroutput=0;
 r.irisnormal=0; def 0 test
-r.lensflarequality=2; 0,1,2
 r.lightfunctionatlas.format=1; 0 for performance def 0 test
 r.lightfunctionquality=1; 1,2,3 for performance def 2 test
-r.lightshaftquality=1; 0,1 def 1
 r.lumen.reflections.hiressurface=0; 0 for performance def 1
 r.lumen.screenprobegather.downsamplefactor=32; 32,16 for performance def 16
 r.lumen.screenprobegather.integratedownsamplefactor=1; 2,1 for performance def 1 test
 r.lumen.screenprobegather.materialao=1; def 1 test
-r.lumen.screenprobegather.radiancecache.proberesolution=8; 8,16,32 for performance def 32
 r.lumen.screenprobegather.screentraces=0; 0 for performance def 1 test
 r.lumen.screentracingsource=0; def 0 test
 r.lumen.translucencyvolume.enable=1; def 1
 r.lumenscene.radiosity=1; 0 for performance def 1
 r.materialqualitylevel=1; 0,2,1,3 for performance def 1
 r.maxanisotropy=16; 0,4,8 for performance
+r.minroughnessoverride=0; def 0 test
 r.particlelightquality=1; 0,1,2 for performance def 2
 r.postprocessing.downsamplequality=0; def 0 test
 r.refraction.offsetquality=1; def 1
 r.refractionquality=1; 0,1,2,3 for performance def 2 test
 r.scenecolorformat=3; 2,3,4 for performance def 4
-r.scenecolorfringe.max=0; def -1
-r.scenecolorfringequality=0; 0,1
 r.ssgi.enable=0; def 0
 r.ssgi.quality=0; 0,2,3 for performance
 r.ssr.halfresscenecolor=1; 1 for performance def 0 test
+r.ssr.maxroughness=0.8; 0.6,0.7,0.8,0.95,1 def -1 test
 r.ssr.quality=2; 0,2,3 for performance def 3
-r.sss.quality=-1; 0,-1,1 for performance def 0
-r.subsurfacescattering=1; 0 for performance
 r.tessellationadaptivepixelspertriangle=48; 999999,48 for performance
-r.tonemapper.quality=5; 0,2,5
-r.tonemapper.sharpen=2; 0,0.5,1,2 def -1
-r.upscale.quality=2; 0,1,2,3,4 def 3
-r.vrs.enable=0; def 0 test
-r.vrs.enableimage=0; def 0 test
-r.vrs.enablesoftware=1; def 0 test
-r.vt.maxanisotropy=4; 2,4,8 for performance def 8
-r.vt.splitphysicalpoolsize=64; 64 def 0 test
+r.water.enableshallowwatersimulation=0; 0 for performance test
+r.water.enableunderwaterpostprocess=1; 0,1 for performance test
+r.water.singlelayer.depthprepass=1; def 1
+r.water.singlelayer.distancefieldshadow=0; def 1 test
 r.water.singlelayer.refractiondownsamplefactor=1; 2,1 for performance def 1
 r.water.singlelayer.ssr=1; 0,1 for performance
+r.water.singlelayer.tiledcomposite=1; def 1
+r.water.singlelayer.vsmfiltering=0; def 0
 
-;optional volumetrics customize test (add under base config)
+;post process quality test
+r.ambientocclusion.compute.smooth=1; def 1
+r.ambientocclusion.compute=0; 0,1,2,3 def 0 test
+r.ambientocclusion.method=0; 0,1 ssao or gtao def 0
+r.ambientocclusionlevels=-1; 0,1,2,3 for performance def -1
+r.ambientocclusionmaxquality=100; 0,-60,100 def 100 test
+r.ambientocclusionmiplevelfactor=0.5; 1,0.6,0.4 def 0.5 test
+r.ambientocclusionradiusscale=1; 0.85,1,1.5 def 1 test
+r.ambientocclusionstaticfraction=-1; 0,1 for performance def -1
+r.aoglobaldistancefield.mipfactor=4; 8,4 for performance def 4
+r.bloom.screenpercentage=50; 50,100 def 50
+r.bloomquality=4;
+r.chaos.reflectioncapturestaticsceneonly=1; def 1
+r.disabledistortion=0; def 0
+r.dof.gather.accumulatorquality=0; 0,1 def 1
+r.dof.gather.enablebokehsettings=0; 0,1 def 1
+r.dof.gather.postfiltermethod=1; 0,1,2 def 1
+r.dof.gather.resolutiondivisor=2; 2,1 def 2
+r.dof.gather.ringcount=4; 3,4,5 def 4
+r.dof.kernel.maxbackgroundradius=0.012; 0.012,0.025 def 0.025
+r.dof.kernel.maxforegroundradius=0.012; 0.012,0.025 def 0.025
+r.dof.recombine.enablebokehsettings=0; 0,1 def 1
+r.dof.recombine.quality=0; 0,1,2 def 2
+r.dof.scatter.backgroundcompositing=1; 0,1,2 def 2
+r.dof.scatter.enablebokehsettings=0; 0,1 def 1
+r.dof.scatter.foregroundcompositing=1; 0,1 def 1
+r.dof.scatter.maxspriteratio=0.04; 0.04,0.1,0.25 def 0.1
+r.dof.taa.cocbilateralfilterstrength=0; def 0 test
+r.filmgrain=0; def 1
+r.filter.loopmode=0; def 0
+r.filter.sizescale=1; def 1
+r.gtao.numangles=2; 2,4 def 2
+r.lensflarequality=2; 0,1,2
+r.lightshaftdownsamplefactor=2; def 2
+r.lightshaftquality=1; 0,1 def 1
+r.postprocessing.downsamplechainquality=1; 0,1 def 1 test
+r.postprocessing.prefercompute=0; gpu dependent def 0 test
+r.postprocessing.quarterresolutiondownsample=0; 1 for performance def 0
+r.postprocessingcolorformat=0; def 0
+r.reflectioncapturesupersamplefactor=1; 1 for performance
+r.rendertargetpoolmin=400; 200,400,1000 to lower vram usage
+r.scenecolorfringe.max=0; def -1
+r.scenecolorfringequality=0; 0,1
+r.tonemapper.mergewithupscale.mode=0; def 0
+r.tonemapper.quality=5; 0,2,5
+r.tonemapper.sharpen=2; 0,0.5,1,2 def -1
+r.translucency.autobeforedof=0.5; 0,0.5,1 def 0.5 test
+r.upscale.quality=2; 0,1,2,3,4 def 3
+
+;shadow stuff test
+r.allowlandscapeshadows=1; 0 for performance
+r.capsuleshadows=0; def 1 test
+r.capsuleshadowsfullresolution=0; def 0
+r.contactshadows.overrideshadowcastingintensity=50; def -1 test
+r.contactshadows.standalone.method=0; def 0
+r.contactshadows=1; def 1
+r.d3d12.shadowdepth32bit=0; 0 for performance
+r.dfshadowquality=2; 0,1,2,3 for performance def 3 test
+r.distancefieldshadowing=1; def 1
+r.shadow.csm.maxcascades=2; 2,4,10 for performance
+r.shadow.csm.transitionscale=1; 1,2 def 1 test
+r.shadow.denoiser=2; def 2
+r.shadow.distancescale=0.8; 0.8,1,2 for performance def 1
+r.shadow.filtermethod=0; def 0
+r.shadow.forcesinglesampleshadowingfromstationary=0; def 0
+r.shadow.loddistancefactor=8; 1,4,8 def 1 test
+r.shadow.nanitelodbias=0; 2,1,0 for performance test
+r.shadow.preshadowresolutionfactor=0.5; 0.5,1 for performance def 1
+r.shadow.radiusthreshold=0.02; 0.06,0.05,0.04,0.03,0.02,0.01 for performance def 0.01
+r.shadow.unbuiltpreviewingame=0; def 1
+r.shadow.virtual.cache.forceinvalidatedirectional=0; def 0
+r.shadow.virtual.distantlightforcecachefootprintfraction=0; 1,0.5,0 def 0 test
+r.shadow.virtual.enable=1; def 1
+r.shadow.virtual.forceonlyvirtualshadowmaps=1; def 1
+r.shadow.virtual.markpixelpagesmipmodelocal=1; 2,1,0 for performance def 0 test
+r.shadow.virtual.nonnanite.includeincoarsepages=0; 0 performance def 1
+r.shadow.virtual.nonnanite.usehzb=2; def 2
+r.shadow.virtual.onepassprojection.maxlightsperpixel=8; 4,8,16,32 for performance def 16 test
+r.shadow.virtual.onepassprojection=1; 1 for performance def 1
+r.shadow.virtual.resolutionlodbiaslocal=2; def 0 test
+r.shadow.virtual.resolutionlodbiaslocalmoving=2; def 1 test
+r.shadow.virtual.smrt.samplesperraydirectional=1; def 4 test
+r.shadow.virtual.smrt.samplesperrayhair=1; def 1
+r.shadow.virtual.smrt.samplesperraylocal=1; def 4 test
+r.shadow.virtual.translucentquality=0; 0 for performance def 0 test
+r.shadow.virtual.usefarshadowculling=1; def 1 test
+r.shadow.virtual.usehzb=2; def 2
+r.shadowquality=3; 3,4,5 for performance
+
+;optional volumetrics customize test
 r.fog=1; def 1
 r.heterogeneousvolumes.downsamplefactor=2; 8,4,2,1 for performance def 1 test
 r.heterogeneousvolumes.maxstepcount=256; 128,256,512 for performance def 512 test
 r.heterogeneousvolumes.shadows.resolution=256; 128,256,512 for performance def 512 test
-r.localfogvolume=0; 0 for performance def 1 test
 r.skyatmosphere.samplelightshadowmap=0; 0 for performance skyatmosphere shadowing def 1
 r.translucencylightingvolumedim=48; 32,48,64 for performance def 64
-r.translucentlightingvolume=1; 0 for performance def 1
 r.volumetriccloud.distancetosamplemaxcount=23; 30,25,23,20 def 15 test
 r.volumetriccloud.enableatmosphericlightssampling=1; def 1
 r.volumetriccloud.enabledistantskylightsampling=1; def 1
@@ -304,7 +533,6 @@ r.volumetriccloud.reflectionraysamplemaxcount=20; 2,10,20,40 def 80 test
 r.volumetriccloud.shadow.reflectionraysamplemaxcount=6; 2,4,6,12 def 24 test
 r.volumetriccloud.shadow.sampleatmosphericlightshadowmap=0; 0 for performance cloud shadowing def 1
 r.volumetriccloud.shadow.viewraysamplemaxcount=6; 2,4,6,8 def 80 test
-r.volumetriccloud.shadowmap.lightdistanceoverride=0; def 0
 r.volumetriccloud.shadowmap.maxresolution=64; 64,128 def 2048 test
 r.volumetriccloud.shadowmap.raysamplemaxcount=10; 10,12 def 128 test
 r.volumetriccloud.shadowmap.spatialfiltering=1; 0,1,2,3,4 def 1
@@ -315,19 +543,28 @@ r.volumetriccloud.viewraysamplemaxcount=256; 128,256,768 def 768 test
 r.volumetriccloud=1; 0,1 for performance
 r.volumetricfog.conservativedepth=1; 1 is experimental def 0 test
 r.volumetricfog.depthdistributionscale=32; 16,32 def 32 test
-r.volumetricfog.distanceoverride=-1; def -1 test
 r.volumetricfog.emissive=1; 0 for performance def 1 test
 r.volumetricfog.historymisssupersamplecount=2; 2,4,8 for performance test
 r.volumetricfog.historyweight=0.95; 0.9,0.95,0.98 test
 r.volumetricfog.injectshadowedlightsseparately=1; def 1 test
 r.volumetricfog.lightfunction=1; def 1 test
 r.volumetricfog.lightsoftfading=0; def 1 test
-r.volumetricfog.upsamplejittermultiplier=0; 0 for performance
+r.volumetricfog.upsamplejittermultiplier=0; 0 for performance def 0
 r.volumetricfog.useslightfunctionatlas=1; def 1
 r.volumetricfog=1; 0,1 for performance
 r.water.singlelayer.underwaterfogwhencameraisabovewater=0; def 0
 
-;motionblur customize (add under base config)
+;sub surface scattering
+r.sss.burley.bilateralfilterkernelfunctiontype=1; 1,0 for performance
+r.sss.burley.quality=1; 0,1 for performance
+r.sss.checkerboard=2; 1,2,0 for performance
+r.sss.halfres=1; 1,0 for performance
+r.sss.quality=-1; 0,-1,1 for performance def 0
+r.sss.sampleset=1; 0,1,2 for performance
+r.sss.scale=1; 0,0.75,1 def 1
+r.subsurfacescattering=1; 0 for performance
+
+;motionblur customize
 r.blurgbuffer=0; 0,-1 def -1 test
 r.defaultfeature.motionblur=0; def 1 test
 r.fastblurthreshold=100; 0,3,7,16,100 def 7 test
@@ -343,139 +580,79 @@ r.motionblurquality=0; 0,1,2,3,4 def 3 test
 r.motionblurscatter=1; 0,1 def 0 test
 r.motionblurseparable=1; 0,1 def 0 test
 
-;ray tracing stuff (add under base config)
-r.lumen.hardwareraytracing=0; def 0
-r.lumen.radiancecache.hardwareraytracing=0; def 1 test
-r.lumen.reflections.hardwareraytracing.translucent.refraction.enableforproject=0; def 1 test
-r.lumen.reflections.hardwareraytracing=0; def 1 test
-r.lumen.screenprobegather.hardwareraytracing=0; def 1 test
-r.lumen.translucencyvolume.hardwareraytracing=0; def 1 test
-r.lumenscene.directlighting.hardwareraytracing=0; def 1 test
-r.lumenscene.farfield=0; def 0
-r.lumenscene.radiosity.hardwareraytracing=0; def 1 test
-r.manylights.hardwareraytracing=0; def 1 test
-r.pathtracing=1; def 1
-r.raytracing.enable=0; 0 disables lumen hardwareraytracing
-r.raytracing.enableingame=0; 0 disables lumen hardwareraytracing
-r.raytracing.enableondemand=0; def 0
-r.raytracing.forceallraytracingeffects=0; def -1
-r.raytracing.scene.buildmode=0; def 1
-r.raytracing=0; 0 disables lumen hardwareraytracing
+;sky atmosphere stuff test
+r.skyatmosphere.aerialperspectivelut.depthresolution=8; def 16 test
+r.skyatmosphere.aerialperspectivelut.fastapplyonopaque=1; def 1
+r.skyatmosphere.aerialperspectivelut.samplecountmaxperslice=1; def 4 test
+r.skyatmosphere.aerialperspectivelut.width=8; def 32 test
+r.skyatmosphere.fastskylut.samplecountmax=16; 16,32,64 for performance def 128
+r.skyatmosphere.fastskylut.samplecountmin=2; 1,2,4 for performance def 4
+r.skyatmosphere.lut32=0; 0 for performance def 0
+r.skyatmosphere.multiscatteringlut.highquality=0; 0 for performance def 0
+r.skyatmosphere.multiscatteringlut.samplecount=15; def 15
+r.skyatmosphere.samplecountmax=16; 16,32,64 for performance def 128
+r.skyatmosphere.samplecountmin=2; 1,2,4 for performance def 4
+r.skyatmosphere.transmittancelut.samplecount=10; def 10
+r.skyatmosphere.transmittancelut.usesmallformat=1; 1 for performance def 0
 
-;optional psoprecache test (add under base config)
-d3d12.pso.keepusedpsosinlowlevelcache=1; def 0 test
-d3d12.psoprecache.keeplowlevel=1; def 0 test
-fx.niagara.emitter.computepsoprecachemode=1; def 0 test
-r.pso.precompilethreadpoolthreadpriority=2; def 2 test
-r.psoprecache.globalshaders=1; def 1 test
-r.psoprecache.proxycreationdelaystrategy=0; def 0
-r.psoprecache.proxycreationwhenpsoready=1; def 1
-r.psoprecaching=1; def 1
-r.skipdrawonpsoprecaching=0; def 0
-```
+;streaming stuff test
+r.streaming.amortizecputogpucopy=0; def 0
+r.streaming.boost=1; def 1
+r.streaming.dropmips=0; 1 to lower vram usage
+r.streaming.fullyloadmeshes=0;
+r.streaming.fullyloadusedtextures=0;
+r.streaming.hiddenprimitivescale=0.5; 0,0.25,0.5 for performance
+r.streaming.limitpoolsizetovram=0; 0 to manually set poolsize
+r.streaming.maxeffectivescreensize=0; def 0
+r.streaming.maxnumtexturestostreamperframe=0; def 0
+r.streaming.maxtempmemoryallowed=50; 50,75,100 to lower ram usage
+r.streaming.maxtextureuvdensity=8; def 0 test
+r.streaming.mipbias=0; 1 for performance def 0
+r.streaming.poolsize.vrampercentageclamp=1024;
+r.streaming.poolsizeformeshes=-1;
+r.streaming.useallmips=0;
+r.streaming.usefixedpoolsize=0;
+r.streaming.usepertexturebias=1; def 1 test
 
----
+;more nanite stuff
+r.nanite.allowskinnedmeshes=1; 0,1 def 1 test
+r.nanite.computerasterization=1; 1 for performance def 1 test
+r.nanite.decompressdepth=0; 1 for performance def 0 test
+r.nanite.dicingrate=2; 4,2 for performance def 2 test
+r.nanite.meshshaderrasterization=1; gpu dependent def 1 test
+r.nanite.streaming.maxpageinstallsperframe=128; def 128
+r.nanite.streaming.maxpendingpages=128; def 128
+r.nanite.streaming.reservedresources=1; 1 is experimental def 0 test
+r.nanite.streaming.streamingpoolsize=768; def 512 test
+r.nanite.viewmeshlodbias.min=-2; def -2
+r.nanite.viewmeshlodbias.offset=0; def 0
 
-#### base config (add first)
-
-```python
-[core.log]
-global=off;
-
-[crashreportclient]
-ballowtobecontacted=0;
-bisallowedtoclosewithoutsending=1;
-bisallowedtosendwithoutdetailedinfo=0;
-bsendlogfile=0;
-bsendunattendedbugreports=0;
-cansendwhenuifailedtoinitialize=0;
-datarouterurl=;
-ensure.recorddump=0;
-stall.recorddump=0;
-uiinitretrycount=0;
-
-[gametelemetry]
-authenticationkey=;
-configkey=;
-configurl=;
-ingesturl=;
-logwarnings=;
-maxbuffersize=;
-maxcountpermessage=;
-maxuniquemessages=;
-querytakelimit=;
-queryurl=;
-sendinterval=;
-
-[/script/engine.engine]
-bpauseonlossoffocus=0;
-bsmoothframerate=0;
-busefixedframerate=0;
-
-[shadercompiler]
-r.shaders.extradata=0; def 0
-
-[systemsettings]
-dp.allowscalabilitygroupstochangeatruntime=0; def 0
-
-[texturestreaming]
-poolsizevrampercentage=70; 50 to lower vram usage
-
-[consolevariables]
-d3d12.adjusttexturepoolsizebasedonbudget=0; 1 is experimental def 0 test
-d3d12.syncwithdwm=0; def 0
-fx.allowgpusorting=1; def 1
-fx.batchasyncbatchsize=32; 16,32,64 test
-fx.niagara.forcelasttickgroup=0; def 0 test
-fx.niagaraallowgpuparticles=1; def 1
-fx.niagaraallowruntimescalabilitychanges=1;
-fx.qualitylevelspawnratescalereferencelevel=2; def 2
-r.ambientocclusion.compute.smooth=1; def 1
-r.ambientocclusion.compute=0; 0,1,2,3 def 0 test
-r.ambientocclusion.method=0; 0,1 ssao or gtao def 0
-r.ambientocclusionlevels=-1; 0,1,2,3 for performance def -1
-r.ambientocclusionstaticfraction=-1; 0,1 for performance def -1
-r.aoglobaldistancefield.mipfactor=4; 8,4 for performance def 4
-r.bloom.screenpercentage=50; 50,100 def 50
-r.chaos.reflectioncapturestaticsceneonly=1; def 1
-r.d3d.forcedxc=0; multigpu def 0
-r.d3d11.depth24bit=0; 1 for performance
-r.d3d12.depth24bit=0; 1 for performance
-r.d3d12.gpucrashdebuggingmode=0;
-r.d3d12.shadowdepth32bit=0; 0 for performance
-r.diffuseindirect.halfres=1; def 1
-r.disabledistortion=0; def 0
-r.dof.gather.postfiltermethod=1; 0,1,2 def 1
-r.dof.gather.resolutiondivisor=2; 2,1 def 2
-r.dof.gather.ringcount=4; 3,4,5 def 4
-r.dof.scatter.foregroundcompositing=1; 0,1 def 1
-r.dof.taa.cocbilateralfilterstrength=0; def 0 test
-r.emitter.fastpoolenable=1; def 0
-r.filter.loopmode=0; def 0 test
-r.filter.sizescale=1; def 1
-r.gtao.numangles=2; 2,4 def 2
+;hairstrands stuff test
 r.hairstrands.composeaftertranslucency=1; def 1
 r.hairstrands.deepshadow.supersampling=0; def 0
 r.hairstrands.dofdepth=0; def 1 test
-r.hairstrands.interpolation.usesingleguide=1; 1,0 for performance def 1
 r.hairstrands.rasterizationscale=0.5; def 0.5
 r.hairstrands.scatterscenelighting=1; def 1 test
 r.hairstrands.shadow.castshadowwhennonvisible=1; def 1 test
 r.hairstrands.skyao.samplecount=4; 2,4 def 4 test
+r.hairstrands.skyao=0; 0,1 def 1 test
 r.hairstrands.skylighting.integrationtype=2; def 2
 r.hairstrands.skylighting.samplecount=16; def 16
 r.hairstrands.skylighting.screentraceocclusion=0; 0 for performance def 0
-r.hairstrands.usecardsinsteadofstrands=0; 1 for performance def 0
 r.hairstrands.velocityrasterizationscale=1; def 1.5 test
 r.hairstrands.visibility.msaa.sampleperpixel=1; 1,2,4 for performance def 4
 r.hairstrands.visibility.ppll=0; def 0
 r.hairstrands.voxelization.virtual.voxelworldsize=0.3; def 0.3
+r.lumen.reflections.hairstrands.screentrace=0; def 1 test
+r.lumen.reflections.hairstrands.voxeltrace=0; def 1 test
+r.lumen.screenprobegather.hairstrands.screentrace=0; def 0 test
+r.lumen.screenprobegather.hairstrands.voxeltrace=1; def 1 test
+
+;more lumen stuff test
 r.lumen.irradiancefieldgather=0; 1 is experimental def 0
 r.lumen.reflections.bilateralfilter=0; def 1
 r.lumen.reflections.distantscreentraces=0; 0 for performance def 1 test
 r.lumen.reflections.downsamplefactor=1; 2,1 for performance def 1 test
-r.lumen.reflections.hairstrands.screentrace=0; def 1 test
-r.lumen.reflections.hairstrands.voxeltrace=0; def 1 test
 r.lumen.reflections.hierarchicalscreentraces.maxiterations=50; def 50
 r.lumen.reflections.hierarchicalscreentraces.minimumoccupancy=0; def 0
 r.lumen.reflections.maxbounces=0; 0,1,2 to 8 to 64 for performance def 0 test
@@ -491,13 +668,10 @@ r.lumen.reflections.specularscale=1; test
 r.lumen.screenprobegather.adaptiveprobeallocationfraction=0.4; 0.2,0.3,0.4 def 0.5 test
 r.lumen.screenprobegather.extraambientocclusion=0; def 0 test
 r.lumen.screenprobegather.fullresolutionjitterwidth=1; def 1
-r.lumen.screenprobegather.hairstrands.screentrace=0; def 0 test
-r.lumen.screenprobegather.hairstrands.voxeltrace=1; def 1 test
 r.lumen.screenprobegather.importancesample=1; 0 for performance def 1 test
 r.lumen.screenprobegather.irradianceformat=1; 1,0 for performance def 0 test
 r.lumen.screenprobegather.numadaptiveprobes=8; 16,8 def 8 test
 r.lumen.screenprobegather.radiancecache.gridresolution=48; 24,48 def 48
-r.lumen.screenprobegather.radiancecache.numprobestotracebudget=200; 100,150,200,300 def 300 test
 r.lumen.screenprobegather.screentraces.hzbtraversal.fullresdepth=0; 0,1 def 1 test
 r.lumen.screenprobegather.shortrangeao.applyduringintegration=0; def 0 test
 r.lumen.screenprobegather.shortrangeao.hairscreentrace=0; def 0 test
@@ -530,106 +704,27 @@ r.lumenscene.surfacecache.cardmaxresolution=64; def 512 test
 r.lumenscene.surfacecache.cardmaxtexeldensity=0.05; def 0.2 test
 r.lumenscene.surfacecache.cardminresolution=1; def 4 test
 r.lumenscene.surfacecache.cardtexeldensityscale=25; def 100 test
-r.minroughnessoverride=0; def 0
-r.nanite.allowskinnedmeshes=1; 0,1 def 1 test
-r.nanite.computerasterization=1; 1 for performance def 1 test
-r.nanite.decompressdepth=0; 1 for performance def 0 test
-r.nanite.dicingrate=2; 4,2 for performance def 2 test
-r.nanite.meshshaderrasterization=1; gpu dependent def 1 test
-r.nanite.softwarevrs=1; def 1
-r.nanite.streaming.reservedresources=1; 1 is experimental def 0 test
-r.nanite.viewmeshlodbias.min=-2; def -2
-r.nanite.viewmeshlodbias.offset=0; def 0
-r.postprocessing.downsamplechainquality=1; 0,1 def 1 test
-r.postprocessing.prefercompute=0; gpu dependent def 0 test
-r.postprocessing.quarterresolutiondownsample=0; 1 for performance def 0
-r.postprocessingcolorformat=0; def 0
-r.reflectioncapturesupersamplefactor=1; 1 for performance
-r.reflectionenvironment=1; def 1
-r.rendertargetpoolmin=400; 200,400,1000 to lower vram usage
-r.shadow.denoiser=2; def 2
-r.shadow.unbuiltpreviewingame=0; def 1
-r.shadow.virtual.cache.forceinvalidatedirectional=0; def 0
-r.shadow.virtual.distantlightforcecachefootprintfraction=0; 1,0.5,0 def 0 test
-r.shadow.virtual.markpixelpagesmipmodelocal=1; 2,1,0 for performance def 0 test
-r.shadow.virtual.nonnanite.includeincoarsepages=0; 0 performance def 1
-r.shadow.virtual.nonnanite.usehzb=2; def 2
-r.shadow.virtual.onepassprojection.maxlightsperpixel=8; 4,8,16,32 for performance def 16 test
-r.shadow.virtual.onepassprojection=1; 1 for performance def 1
-r.shadow.virtual.translucentquality=0; 0 for performance test
-r.shadow.virtual.usefarshadowculling=1; def 1 test
-r.shadow.virtual.usehzb=2; def 2
-r.skyatmosphere.aerialperspectivelut.depthresolution=8; def 16 test
-r.skyatmosphere.aerialperspectivelut.fastapplyonopaque=1; def 1
-r.skyatmosphere.aerialperspectivelut.samplecountmaxperslice=1; def 4 test
-r.skyatmosphere.aerialperspectivelut.width=8; def 32 test
-r.skyatmosphere.fastskylut.samplecountmax=16; 16,32,64 for performance def 128
-r.skyatmosphere.fastskylut.samplecountmin=2; 1,2,4 for performance def 4
-r.skyatmosphere.lut32=0; 0 for performance def 0
-r.skyatmosphere.multiscatteringlut.highquality=0; 0 for performance def 0
-r.skyatmosphere.multiscatteringlut.samplecount=15; def 15
-r.skyatmosphere.samplecountmax=16; 16,32,64 for performance def 128
-r.skyatmosphere.samplecountmin=2; 1,2,4 for performance def 4
-r.skyatmosphere.transmittancelut.samplecount=10; def 10
-r.skyatmosphere.transmittancelut.usesmallformat=1; 1 for performance def 0
-r.splinemesh.norecreateproxy=1; def 1
-r.ssr.compute=1; def 0 test
-r.ssr.maxroughness=0.95; 0.95,1 def -1 test
-r.ssr.tiledcomposite=0; def 0
-r.sss.burley.bilateralfilterkernelfunctiontype=1; 1,0 for performance
-r.sss.burley.quality=1; 0,1 for performance
-r.sss.checkerboard=2; 1,2,0 for performance
-r.sss.halfres=1; 1,0 for performance
-r.sss.sampleset=1; 0,1,2 for performance
-r.sss.scale=1; 0,0.75,1 def 1
-r.streaming.additionaltexturepoolsize=0; def 0
-r.streaming.allowparallelrenderassetstreamingmanagerincrementalupdate=1; def 1
-r.streaming.amortizecputogpucopy=0; def 0
-r.streaming.boost=1; def 1
-r.streaming.dropmips=0; 1 to lower vram usage
-r.streaming.fullyloadmeshes=0;
-r.streaming.fullyloadusedtextures=0;
-r.streaming.hiddenprimitivescale=0.5; 0,0.25,0.5 for performance
-r.streaming.limitpoolsizetovram=0; 0 to manually set poolsize
-r.streaming.maxeffectivescreensize=0; def 0
-r.streaming.maxnumtexturestostreamperframe=0; def 0
-r.streaming.maxtempmemoryallowed=50; 50,75,100 to lower ram usage
-r.streaming.maxtextureuvdensity=8; def 0 test
-r.streaming.mipbias=0; 1 for performance def 0
-r.streaming.poolsize.vrampercentageclamp=1024;
-r.streaming.poolsizeformeshes=-1;
-r.streaming.useallmips=0;
-r.streaming.usefixedpoolsize=0;
-r.streaming.usepertexturebias=1; def 1 test
-r.tonemapper.mergewithupscale.mode=0; def 0
-r.translucency.autobeforedof=0.5; 0,0.5,1 def 0.5 test
-r.virtualtexturereducedmemory=1; 1 to lower vram usage
-r.volumetricrendertarget.reprojectionboxconstraint=0; def 0 test
-r.vrs.basepass=2; def 2
-r.vrs.contrastadaptiveshading=1; def 0 test
-r.vrs.decals=2; def 2
-r.vrs.lightfunctions=1; def 1
-r.vrs.naniteemitgbuffer=2; def 2
-r.vrs.reflectionenvironmentsky=2; def 2
-r.vrs.ssao=0; def 0
-r.vrs.ssr=2; def 2
-r.vrs.translucency=1; def 1
-r.vt.anisotropicfiltering=1; 0 for performance
-r.vt.numgathertasks=2; 1,2,4,8 cpu dependent test
-r.vt.poolsizescale=1; 0.8,1,2,4,8 to lower vram usage
-r.water.enableshallowwatersimulation=0; 0 for performance test
-r.water.enableunderwaterpostprocess=1; 0,1 for performance test
-r.water.singlelayer.depthprepass=1; def 1
-r.water.singlelayer.distancefieldshadow=0; def 1 test
-r.water.singlelayer.tiledcomposite=1; def 1
-r.water.singlelayer.vsmfiltering=0; def 0
 ```
 
 ---
 
+#### optional psoprecache test
+```python
+;optional psoprecache (i use this atm)
+d3d12.pso.keepusedpsosinlowlevelcache=1; def 0 test
+d3d12.psoprecache.keeplowlevel=1; def 0 test
+fx.niagara.emitter.computepsoprecachemode=1; def 0 test
+r.pso.precompilethreadpoolthreadpriority=2; def 2 test
+r.psoprecache.globalshaders=1; def 1 test
+r.psoprecache.proxycreationdelaystrategy=0; def 0
+r.psoprecache.proxycreationwhenpsoready=1; def 1
+r.psoprecaching=1; def 1
+r.skipdrawonpsoprecaching=0; def 0
+```
+
 #### optional async test skip unless you are testing
 ```python
-;lumen async
+;lumen async (i use this atm)
 r.lumen.asynccompute=1; def 1 test
 r.lumen.diffuseindirect.asynccompute=1; def 1 test
 r.lumen.reflections.asynccompute=1; def 0 test
