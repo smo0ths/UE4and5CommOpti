@@ -1,4 +1,4 @@
-## updated 10/15/2026 ✂ 📋 🌀 :ramen: v1.6.9
+## updated 10/15/2026 ✂ 📋 🌀 :ramen: v1.7.0
 
 #### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -70,12 +70,6 @@ sendinterval=;
 bpauseonlossoffocus=0;
 bsmoothframerate=0;
 busefixedframerate=0;
-
-[shadercompiler]
-r.dumpshaderdebuginfo=0; def 2
-r.shaderdevelopmentmode=0; def 0
-r.shaders.extradata=0; def 0
-r.shaders.symbols=0; def 0
 
 [systemsettings]
 dp.allowscalabilitygroupstochangeatruntime=0; def 0
@@ -446,7 +440,6 @@ r.nanite.allowskinnedmeshes=1; 0,1 def 1 test
 r.nanite.computerasterization=1; 1 for performance def 1 test
 r.nanite.decompressdepth=0; 1 for performance def 0 test
 r.nanite.dicingrate=2; 4,2 for performance def 2 test
-r.nanite.meshshaderrasterization=1; gpu dependent def 1 test
 r.nanite.streaming.maxpageinstallsperframe=128; def 128
 r.nanite.streaming.maxpendingpages=128; def 128
 r.nanite.streaming.reservedresources=1; 1 is experimental def 0 test
@@ -581,7 +574,7 @@ r.lumen.tracemeshsdfs.allow=0; 0 for performance def 1 test
 r.lumen.tracemeshsdfs=0; 0 for performance def 0 test
 r.lumenscene.directlighting.offscreenshadowing.tracemeshsdfs=0; 0 for performance def 1 test
 
-;optional quality switches test
+;optional switches test
 ;r.dynamicglobalilluminationmethod=1; 0,1,2 none,lumen,ssgi
 ;r.hairstrands.enable=1; def 1 test
 ;r.hairstrands.usecardsinsteadofstrands=0; 1 for performance def 0 test
@@ -591,6 +584,7 @@ r.lumenscene.directlighting.offscreenshadowing.tracemeshsdfs=0; 0 for performanc
 ;r.reflectionmethod=1; 0,1,2 none,lumen,ssr
 ;r.shadow.virtual.enable=1; def 1
 ;r.shadow.virtual.forceonlyvirtualshadowmaps=1; def 1
+r.nanite.meshshaderrasterization=1; gpu dependent def 1 test
 
 ;optional quality customize test
 ;foliage.densityscale=0.6; 0.6,0.7,1 for performance
@@ -638,7 +632,6 @@ r.megalights.hardwareraytracing=1; def 1 megalights can crash without
 ;r.volumetricrendertarget.reprojectionboxconstraint=0; def 0 test
 fx.niagara.forcelasttickgroup=0; def 0 test
 niagara.ribbon.gpuallocatemaxcount=0; def 1 test
-r.compileshadersfordevelopment=0; def 1
 r.d3d.forcedxc=0; multigpu def 0
 r.d3d11.depth24bit=0; 1 for performance test
 r.d3d12.depth24bit=0; 1 for performance test
@@ -647,9 +640,6 @@ r.localfogvolume.applyontranslucent=0; def 0 test
 r.localfogvolume.renderduringheightfogpass=1; def 0 test
 r.localfogvolume.renderintovolumetricfog=0; def 1 test
 r.sceneculling.explicitcellbounds=1; def 1
-r.shadercompiler.jobcacheddc=1; def 1 test
-r.shaders.removedeadcode=1; def 1
-r.shaders.removeunusedinterpolators=1; def 0 test
 r.splinemesh.norecreateproxy=1; def 1
 r.streaming.additionaltexturepoolsize=0; def 0
 r.streaming.allowparallelrenderassetstreamingmanagerincrementalupdate=1; def 1 test
@@ -769,18 +759,6 @@ r.megalights.asynccompute.volume=1; def 0 test
 ;r.postprocessing.forceasyncdispatch=1; def 0 test
 ;r.shadow.shadowmapsrenderearly=1; def 0 test
 ;r.volumetricrendertarget.preferasynccompute=1; def 0 test
-
-;optional psoprecache test
-d3d12.pso.keepusedpsosinlowlevelcache=1; def 0 test
-d3d12.psoprecache.keeplowlevel=1; def 0 test
-fx.niagara.emitter.computepsoprecachemode=1; def 0 test
-r.pso.precompilethreadpoolthreadpriority=2; def 2 test
-r.psoprecache.globalshaders=1; def 1 test
-r.psoprecache.proxycreationdelaystrategy=0; def 0
-r.psoprecache.proxycreationwhenpsoready=1; def 1
-r.psoprecaching=1; def 1
-r.skipdrawonpsoprecaching=0; def 0
-
 ```
 
 ---
