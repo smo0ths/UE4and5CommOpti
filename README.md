@@ -1,4 +1,4 @@
-## updated 10/15/2026 ✂ 📋 🌀 :ramen: v1.7.0
+## updated 10/15/2026 ✂ 📋 🌀 :ramen: v1.7.1
 
 #### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -18,7 +18,7 @@ r.streaming.poolsize=3000; 400,600,800,1000,2000,3000 to lower vram usage
 
 ;match values (add under base config)
 ;r.mipmaplodbias=-0.5; -2.5,-2,-1.8,-1.6,-1.5,-1.4,-1,-0.5,0 test
-perfindexvalues_resolutionquality="50 50 50 50 50"; 33,50,59,67,77,100
+perfindexvalues_resolutionquality=50 50 50 50 50; 33,50,59,67,77,100
 r.ngx.dlss.quality=-1; -2,-1,0,1,2 ultra performance,performance,balanced,quality,ultra quality
 sg.resolutionquality=50; 33,50,59,67,77,100
 
@@ -70,6 +70,14 @@ sendinterval=;
 bpauseonlossoffocus=0;
 bsmoothframerate=0;
 busefixedframerate=0;
+
+[windowsapplication.accessibility]
+stickykeyshotkey=0;
+togglekeyshotkey=0;
+filterkeyshotkey=0;
+stickykeysconfirmation=1;
+togglekeysconfirmation=1;
+filterkeysconfirmation=1;
 
 [systemsettings]
 dp.allowscalabilitygroupstochangeatruntime=0; def 0
@@ -242,7 +250,6 @@ r.lumen.screenprobegather.downsamplefactor=32; 32,16 for performance def 16
 r.lumen.screenprobegather.integratedownsamplefactor=1; 2,1 for performance def 1 test
 r.lumen.screenprobegather.materialao=1; def 1 test
 r.lumen.screenprobegather.screentraces=0; 0 for performance def 1 test
-r.lumen.screentracingsource=0; def 0 test
 r.maxanisotropy=16; 0,4,8 for performance
 r.minroughnessoverride=0; def 0 test
 r.postprocessing.downsamplequality=0; def 0 test
@@ -259,6 +266,7 @@ r.water.singlelayer.tiledcomposite=1; def 1
 r.water.singlelayer.vsmfiltering=0; def 0
 
 ;post process quality test
+;r.postprocessing.prefercompute=0; gpu dependent def 0 test
 r.ambientocclusion.compute.smooth=1; def 1
 r.ambientocclusion.compute=0; 0,1,2,3 def 0 test
 r.ambientocclusion.method=0; 0,1 ssao or gtao def 0
@@ -292,7 +300,6 @@ r.lensflarequality=2; 0,1,2
 r.lightshaftdownsamplefactor=2; def 2
 r.lightshaftquality=1; 0,1 def 1
 r.postprocessing.downsamplechainquality=1; 0,1 def 1 test
-r.postprocessing.prefercompute=0; gpu dependent def 0 test
 r.postprocessing.quarterresolutiondownsample=0; 1 for performance def 0
 r.postprocessingcolorformat=0; def 0
 r.reflectioncapturesupersamplefactor=1; 1 for performance
@@ -374,6 +381,8 @@ r.volumetricfog.upsamplejittermultiplier=0; 0 for performance def 0
 r.water.singlelayer.underwaterfogwhencameraisabovewater=0; def 0
 
 ;sub surface scattering
+;r.sss.halfres.forceseparable=1;  def 1 test
+;r.sss.separateddiffuse.supported=1;  def 0 test
 r.sss.burley.bilateralfilterkernelfunctiontype=1; 1,0 for performance
 r.sss.burley.quality=1; 0,1 for performance
 r.sss.checkerboard=2; 1,2,0 for performance
@@ -602,8 +611,23 @@ r.viewdistancescale=0.8; 0.8,1 for performance def 1
 
 ;mega lights test
 ;r.megalights.allowed=1; def 1 test
+;r.megalights.directionallights=1; def 0 test
 ;r.megalights.enableforproject=0; def 0 test
+;r.megalights.firstperson.lightingscale=0;
+;r.megalights.hardwareraytracing.endbias=30; def 1
+;r.megalights.hardwareraytracing.farfield.bias=400; def 200 test
+;r.megalights.hardwareraytracing.farfield=1; def 0 test
+;r.megalights.lightpowerdelta.lightfunctions=1; def 0 test
+;r.megalights.numsamplesperpixel=4; def 4 test
 ;r.megalights.softwareraytracing=1; def 0 test
+;r.megalights.temporal.historydistancethreshold=0.02; def 0.03 test
+;r.megalights.translucencyvolume.downsamplefactor=1; def 2 test
+;r.megalights.translucencyvolume.farcascadelocallightingmultiplier=2;
+;r.megalights.translucencyvolume.spatial=0; def 1 test
+;r.megalights.transmission=1; def 1
+;r.megalights.volume.minsampleweight=0.01; def 0.1 test
+;r.megalights.volume.numsamplespervoxel=2; def 2 test
+;r.megalights.volume.unified=0; def 1 test
 r.megalights.hardwareraytracing.farfield=1; def 0 test
 r.megalights.hardwareraytracing=1; def 1 megalights can crash without
 
@@ -621,15 +645,28 @@ r.megalights.hardwareraytracing=1; def 1 megalights can crash without
 ;r.distancefields.maxpermeshresolution=128; def 256 test
 ;r.forwardshading.forceskylightcubemapblending=0; def 0
 ;r.gbufferdiffusesampleocclusion=0; def 0
+;r.lightfunctiondistancescale=1; 0,0.333,0.667 def 1
+;r.lightmaxshadowdistancescale=1; def 1
+;r.lowresolutiontranslucency.enable=0;
+;r.lumen.heightfog=1; def 1 test
+;r.lumen.samplefog.reflectionsonly=1;
+;r.lumen.samplefog.startingoffsetratio=0.3; test
+;r.lumen.samplefog=0; def 0 test
 ;r.lumen.screenprobegather.radiancecache.numprobestotracebudget=200; 150,200,300 def 300 test
 ;r.lumen.screenprobegather.radiancecache.proberesolution=16; 8,16,32 def 32 test
 ;r.lumenscene.globalsdf.clipmapextent=1000; def 2500 test
 ;r.ssr.compute=1; def 0 test
 ;r.ssr.maxroughness=0.8; 0.6,0.7,0.8,0.95,1 def -1 test
 ;r.ssr.tiledcomposite=0; def 0
+;r.supportdepthonlyindexbuffers=0; def 1 test can cause crash
+;r.supportmateriallayers=1; 0,1 for performance
+;r.supportreversedindexbuffers=0; def 1 test can cause crash
+;r.translucencylightingvolume.blur=0; test
+;r.volumetriccloud.disablecompute=0; def 0 test
 ;r.volumetriccloud.shadowmap.lightdistanceoverride=0; def 0
 ;r.volumetricfog.distanceoverride=10000; 10000,12000 is 100m,120m def -1 test
 ;r.volumetricrendertarget.reprojectionboxconstraint=0; def 0 test
+;r.water.singlelayerwater.supportcloudshadow=0; def 0 test
 fx.niagara.forcelasttickgroup=0; def 0 test
 niagara.ribbon.gpuallocatemaxcount=0; def 1 test
 r.d3d.forcedxc=0; multigpu def 0
