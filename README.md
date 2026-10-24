@@ -445,8 +445,8 @@ r.volumetricfog.upsamplejittermultiplier=0; 0 for performance def 0
 r.water.singlelayer.underwaterfogwhencameraisabovewater=0; def 0
 
 ;sub surface scattering
-;r.sss.halfres.forceseparable=1;  def 1 test
-;r.sss.separateddiffuse.supported=1;  def 0 test
+;r.sss.halfres.forceseparable=1; def 1 test
+;r.sss.separateddiffuse.supported=1; def 0 test
 r.sss.burley.bilateralfilterkernelfunctiontype=1; 1,0 for performance
 r.sss.burley.quality=1; 0,1 for performance
 r.sss.checkerboard=2; 1,2,0 for performance
