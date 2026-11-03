@@ -1,4 +1,4 @@
-## updated 11/2/2026 ✂ 📋 🌀 :ramen: v1.7.5
+## updated 11/3/2026 ✂ 📋 🌀 :ramen: v1.7.6
 
 #### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -22,13 +22,15 @@ r.mipmaplodbias=-1; -2,-1.75,-1.5,-1.3,-1,-0.75 ultra perf,perf,balanced,quality
 r.ngx.dlss.quality=-1; -2,-1,0,1,2 ultra performance,performance,balanced,quality,ultra quality
 sg.resolutionquality=50; 33,50,59,67,77,100
 
-;info can cause crash in some games (add under base config)
+;info can cause crash or break things in some games (add under base config)
 ;r.heterogeneousvolumes=1; def 1 test
+;r.nanite.allowskinnedmeshes=1; 0,1 def 1 test
 ;r.nanite=1; def 1 test
 ;r.ngx.dlss.denoisermode=0; ray reconstruction test
 ;r.shadow.nanite=1; def 1 test
 ;r.supportdepthonlyindexbuffers=0; def 1 test
 ;r.supportreversedindexbuffers=0; def 1 test
+;r.vrs.enablesoftware=1; def 0 test
 r.allowstaticlighting=0; def 1
 r.hzbocclusion=0; def 0
 r.nanite.allowtessellation=0; def 0
@@ -100,6 +102,11 @@ r.shadow.virtual.nonnanite.projectenabled=0;
 ;r.earlyzpassonlymaterialmasking=1; def 0 test
 ;r.forwardshading.forceskylightcubemapblending=0; def 0
 ;r.gbufferdiffusesampleocclusion=0; def 0
+;r.heterogeneousvolumes.downsamplefactor=2; 8,4,2,1 def 1 test
+;r.heterogeneousvolumes.maxstepcount=96; 128,256,96,512,1024 def 512 test
+;r.heterogeneousvolumes.shadows.maxsamplecount=8; 8,16 def 8 test
+;r.heterogeneousvolumes.shadows.resolution=256; 128,256,1024 def 512 test
+;r.heterogeneousvolumes.useexistencemask=0; 0,1 def 1 test
 ;r.landscapelodbias=0; 1 for performance def 0 test
 ;r.lightfunctiondistancescale=1; 0,0.333,0.667 def 1
 ;r.lightmaxshadowdistancescale=1; def 1
@@ -151,7 +158,7 @@ r.streaming.workercountforparallelrenderassetstreamingmanagerincrementalupdate=1
 ;r.raytracing=0; 0 disables lumen hardwareraytracing and can hide custom effect piplines test
 ;r.staticmesh.raytracingproxies=0; def 1 test
 r.hairstrands.raytracing=0; def 1
-r.heterogeneousvolumes.hardwareraytracing=0; def 0
+r.heterogeneousvolumes.hardwareraytracing=0; def 0 test
 r.lumen.hardwareraytracing.lightingmode=0; 0,1,2,3 hit lighting def 0 test
 r.lumen.hardwareraytracing=1; 0 for performance def 0 test
 r.lumen.radiancecache.hardwareraytracing.retrace.farfield=0; def 1 test
@@ -210,12 +217,15 @@ r.volumetricfog.injectraytracedlights=0; def 0
 global=off;
 
 [crashreportclient]
+bagreetocrashupload=0;
 ballowtobecontacted=0;
+bimplicitsend=0;
 bisallowedtoclosewithoutsending=1;
 bisallowedtosendwithoutdetailedinfo=0;
 bsendlogfile=0;
 bsendunattendedbugreports=0;
 cansendwhenuifailedtoinitialize=0;
+crashreportreceiverip=;
 datarouterurl=;
 ensure.recorddump=0;
 stall.recorddump=0;
@@ -351,7 +361,6 @@ r.vrs.decals=2; def 2
 r.vrs.diffuseindirectandao=0;
 r.vrs.enable=0; def 0 test
 r.vrs.enableimage=0; def 0 test
-r.vrs.enablesoftware=1; def 0 test
 r.vrs.lightfunctions=1; def 1
 r.vrs.naniteemitgbuffer=2; def 2
 r.vrs.reflectionenvironmentsky=2; def 2
@@ -538,9 +547,6 @@ r.shadow.virtual.usehzb=2; def 2
 ;r.volumetricfog.lightsoftfading=0; def 1 test
 ;r.volumetricfog.useslightfunctionatlas=1; def 1 test
 ;r.volumetricfog=1; 0,1 for performance
-r.heterogeneousvolumes.downsamplefactor=2; 8,4,2,1 for performance def 1 test
-r.heterogeneousvolumes.maxstepcount=256; 128,256,512 for performance def 512 test
-r.heterogeneousvolumes.shadows.resolution=256; 128,256,512 for performance def 512 test
 r.skyatmosphere.samplelightshadowmap=0; 0 for performance skyatmosphere shadowing def 1 test
 r.translucencylightingvolumedim=48; 32,48,64 for performance def 64
 r.volumetriccloud.distancetosamplemaxcount=23; 30,25,23,20 def 15 test
@@ -630,7 +636,6 @@ r.streaming.usepertexturebias=1; def 1 test
 
 ;info nanite stuff
 ;r.nanite.streaming.streamingpoolsize=768; def 512 test
-r.nanite.allowskinnedmeshes=1; 0,1 def 1 test
 r.nanite.computerasterization=1; 1 for performance def 1 test
 r.nanite.decompressdepth=0; 1 for performance def 0 test
 r.nanite.dicingrate=2; 4,2 for performance def 2 test
