@@ -1,4 +1,4 @@
-## updated 11/6/2026 ✂ 📋 🌀 :ramen: v1.8.0
+## updated 11/10/2026 ✂ 📋 🌀 :ramen: v1.8.1
 
 #### quality ue4/5 config and for reference/customization/optimization/learning
 
@@ -22,19 +22,21 @@ r.mipmaplodbias=-1; -2,-1.75,-1.5,-1.3,-1,-0.75 ultra perf,perf,balanced,quality
 r.ngx.dlss.quality=-1; -2,-1,0,1,2 ultra performance,performance,balanced,quality,ultra quality
 sg.resolutionquality=50; 33,50,59,67,77,100
 
-;info can cause crash or break things in some games (add under base config)
+;info can cause crash or break things in some games test (add under base config)
 ;fx.niagara.asyncgputrace.hwraytraceenabled=0; def 1 test
 ;r.discardunusedquality=1; def 0 test
 ;r.heterogeneousvolumes=1; def 1 test
 ;r.nanite.allowskinnedmeshes=1; 0,1 def 1 test
-;r.ngx.dlss.denoisermode=0; ray reconstruction test
 ;r.supportdepthonlyindexbuffers=0; def 1 test
 ;r.supportreversedindexbuffers=0; def 1 test
 r.allowstaticlighting=0; def 1
 r.hzbocclusion=0; def 0
+r.lumen.reflections.allow=1; def 1 test
+r.ngx.dlss.denoisermode=0; ray reconstruction test
+r.streamline.dlssg.checkstatusperframe=0; def 1 test
 r.vrs.enablesoftware=1; def 0 test
 
-;info optional ray tracing HWRT and SWRT (add under base config)
+;info ray tracing HWRT and SWRT test (add under base config)
 r.lumen.diffuseindirect.allow=1; def 1
 r.lumen.hardwareraytracing=0; 0 for performance def 0 test
 r.lumen.radiancecache.hardwareraytracing=0; def 1 test
@@ -48,7 +50,7 @@ r.lumenscene.radiosity.hardwareraytracing=1; def 1 test
 r.lumenscene.radiosity=1; 0 for performance def 1 test
 r.raytracing.scene.buildmode=1; def 1 test
 
-;info optional ray tracing farfield (add under base config)
+;info ray tracing farfield test (add under base config)
 r.lumen.radiancecache.hardwareraytracing.retrace.farfield=0; def 1 test
 r.lumen.reflections.hardwareraytracing.retrace.farfield=0; def 1 test
 r.lumen.screenprobegather.hardwareraytracing.retrace.farfield=0; def 1 test
@@ -56,11 +58,11 @@ r.lumenscene.directlighting.hardwareraytracing.farfield=0; def 1 test
 r.lumenscene.farfield.maxtracedistance=100000; def 1000000 test
 r.lumenscene.farfield=0; def 0 test
 
-;info optional ray tracing main test (add under base config)
+;info ray tracing main test (add under base config)
 ;r.raytracing.enable=0; 0 disables lumen hardwareraytracing and can hide custom effect piplines test
 ;r.raytracing=0; 0 disables lumen hardwareraytracing and can hide custom effect piplines test
 
-;info optional ray tracing test (add under base config)
+;info ray tracing test (add under base config)
 ;r.raytracing.geometry.landscape=0; def 1 test
 ;r.raytracing.geometry.staticmeshes=0; def 1 test
 ;r.raytracing.raytracingproxies.projectenabled=0; test
@@ -68,7 +70,7 @@ r.raytracing.enableingame=0; def 1
 r.raytracing.enableondemand=0; def 0
 r.raytracing.forceallraytracingeffects=0; def -1
 
-;info optional ray tracing stuff (add under base config)
+;info ray tracing stuff test (add under base config)
 ;r.lumen.hardwareraytracing.maxiterations=8192; def 8192 test
 ;r.megalights.hardwareraytracing.endbias=30; 1,30 def 1 test
 ;r.megalights.hardwareraytracing.farfield.bias=400; 200,400 def 200 test
@@ -123,6 +125,7 @@ r.raytracing.geometry.staticmeshes.wpo.culling=1; def 1
 r.raytracing.geometry.staticmeshes.wpo.cullingradius=5000; def 12000
 r.raytracing.geometry.text=0; def 1 test
 r.raytracing.globalillumination=0; def -1
+r.raytracing.instancedstaticmeshes=0; def 1 test
 r.raytracing.nanite.mode=0; 0,1 def 0 test
 r.raytracing.persistentsbt.forcealwaysdirty=0;
 r.raytracing.persistentsbt=0;
@@ -135,15 +138,110 @@ r.raytracing.shadows.lights.spot=0; def 1 test
 r.raytracing.shadows.translucency=0; def 0
 r.raytracing.shadows=0; def 0
 r.raytracing.skylight=0; def 0
+r.raytracing.stochasticrectlight=0; def 0
 r.raytracing.streaming.boostrequestpriorityforalwaysresidentgeometries=1; test
 r.raytracing.streaming.processalwaysresidentrequestswhenframesarenotrendered=1; test
 r.raytracing.translucency=0; def -1
-r.raytracing.usetexturelod=0; def 0 test
+r.raytracing.usetexturelod=0; 0,1 def 0 test
 r.volumetricfog.injectraytracedlights=0; def 0
 
-;info optional GI ect stuff
-;r.lumen.translucencyvolume.radiancecache.gridresolution=12; 12,24 for performance def 24 test
-;r.lumen.translucencyvolume.radiancecache.nummipmaps=1; 1,2,3 def 3 test
+;info sharpness test (add under base config)
+r.ngx.dlss.sharpness=0.5; def 0 test
+r.tonemapper.sharpen=0; 0,0.5,1,2 def -1 test
+
+;info switches test (add under base config)
+;fx.niagara.qualitylevel=2; 0,1,2,3 for performance def 3
+;fx.qualitylevelspawnratescalereferencelevel=2; def 2
+;r.allowhdr=0;
+;r.detailmode=2; 0,1,2,3 for performance def 3
+;r.hairstrands.enable=1; def 1 test
+;r.hairstrands.usecardsinsteadofstrands=0; 1 for performance def 0 test
+;r.hdr.enablehdroutput=0;
+;r.lensflarequality=2; 0,1,2 def 2
+;r.localfogvolume=0; 0 for performance def 1 test
+;r.manylights=0; 0,1,2 is experimental def 0 test
+;r.materialqualitylevel=1; 0,2,1,3 for performance def 1
+;r.particlelightquality=1; 0,1,2 for performance def 2
+;r.water.enableshallowwatersimulation=1; def 1 test
+;r.water.enableunderwaterpostprocess=1; def 1 test
+;r.water.singlelayer.distancefieldshadow=1; def 1 test
+;r.water.singlelayer.shaderssupportdistancefieldshadow=1; def 1 test
+;r.water.singlelayer.shaderssupportvsmfiltering=1; def 0 test
+;r.water.singlelayer.ssr=1; 0,1 for performance
+;r.water.singlelayer.vsmfiltering=1; def 0 test
+fx.niagara.collision.cpuenabled=0; def 1 test
+r.deferred.useslightfunctionatlas=1; def 0 test
+r.distancefieldao=0; def 1 test
+r.dynamicglobalilluminationmethod=1; 0,1,2 none,lumen,ssgi
+r.lightfunctionatlas.format=1; 0 for performance def 0 test
+r.lightfunctionquality=1; 1,2,3 for performance def 2 test
+r.lumen.translucencyreflections.frontlayer.allow=0; 0 for performance
+r.lumen.translucencyreflections.frontlayer.enable=0; 0 for performance
+r.lumen.translucencyreflections.frontlayer.enableforproject=0; 0 for performance
+r.lumen.translucencyreflections.radiancecache=1; def 1
+r.reflectionmethod=1; 0,1,2 none,lumen,ssr
+r.refractionquality=1; 0,1,2,3 for performance def 2 test
+r.scenecolorformat=4; 2,3,4 for performance def 4
+r.ssgi.enable=0; def 0
+r.ssgi.quality=0; 0,1,2,3,4 for performance def 3
+r.ssr.quality=2; 0,1,2,3,4 for performance def 3
+r.water.singlelayer.reflection=3; 0,1,2,3 def 1 test
+
+;info tracemeshsdfs stuff test (add under base config)
+;r.lumen.tracemeshsdfs.tracedistance=180; def 180 test
+;r.lumenscene.globalsdf.clipmapextent=1000; 1000,1750 def 2500 test
+r.aoglobaldistancefield.fastcameramode=0; def 0
+r.aoglobaldistancefield.minmeshsdfradius=20; 30,20 def 20 test
+r.aoglobaldistancefield.recacheclipmapswithpendingstreaming=1; def 1
+r.lumen.reflections.tracemeshsdfs=0; 0 for performance def 1 test
+r.lumen.screenprobegather.tracemeshsdfs=1; 0 for performance def 1 test
+r.lumen.tracemeshsdfs.allow=1; 0 for performance def 1 test
+r.lumen.tracemeshsdfs=0; 0 for performance def 0 test
+r.lumenscene.directlighting.offscreenshadowing.tracemeshsdfs=0; 0 for performance def 1 test
+r.lumenscene.globalsdf.coveredexpandsurfacescale=1; def 1
+r.lumenscene.globalsdf.mixedvegetationcoveragethreshold=0.15; test
+r.lumenscene.globalsdf.notcoveredexpandsurfacescale=0.7; 0.6,0.7 def 0.6 test
+
+;info screenprobegather stuff test (add under base config)
+;r.lumen.screenprobegather.hairstrands.screentrace=0; def 0
+;r.lumen.screenprobegather.hairstrands.voxeltrace=1; def 1 test
+;r.lumen.screenprobegather.screentraces.hzbtraversal.skipfoliagehits=1; def 1
+;r.lumen.screenprobegather.screentraces.hzbtraversal=1; def 1 test
+;r.lumen.screenprobegather.shortrangeao.applyduringintegration=0; def 0 test
+;r.lumen.screenprobegather.shortrangeao.hairscreentrace=0; def 0
+;r.lumen.screenprobegather.shortrangeao.hairvoxeltrace=1; def 1 test
+r.lumen.screenprobegather.adaptiveprobeallocationfraction=0.4; 0.2,0.3,0.4 for performance def 0.5 test
+r.lumen.screenprobegather.downsamplefactor=16; 32,16 for performance def 16
+r.lumen.screenprobegather.extraambientocclusion.exponent=1; def 1 test
+r.lumen.screenprobegather.extraambientocclusion.maxdistanceworldspace=200; def 200 test
+r.lumen.screenprobegather.extraambientocclusion=0; def 0 test
+r.lumen.screenprobegather.fullresolutionjitterwidth=1; def 1
+r.lumen.screenprobegather.importancesample=1; 0 for performance def 1 test
+r.lumen.screenprobegather.integratedownsamplefactor=1; 2,1 for performance def 1 test
+r.lumen.screenprobegather.irradianceformat=0; 1,0 def 0 test
+r.lumen.screenprobegather.materialao=1; def 1 test
+r.lumen.screenprobegather.maxrayintensity=40; 3,10 def 40 test
+r.lumen.screenprobegather.maxroughnesstoevaluateroughspecular=0.6; 0.2,0.4,0.6 for performance def 0.8 test
+r.lumen.screenprobegather.maxroughnesstoevaluateroughspecularforfoliage=0.6; 0.2,0.4,0.6 for performance def 0.8 test
+r.lumen.screenprobegather.numadaptiveprobes=8; 16,8 def 8 test
+r.lumen.screenprobegather.radiancecache.gridresolution=48; 24,48 def 48
+r.lumen.screenprobegather.radiancecache.numprobestotracebudget=150; 100,150,200,300 for performance def 300 test
+r.lumen.screenprobegather.radiancecache.proberesolution=32; 8,16,32 def 32 test
+r.lumen.screenprobegather.radiancecache=1; def 1
+r.lumen.screenprobegather.screenspacebentnormal=1; def 1 test
+r.lumen.screenprobegather.screentraces.hzbtraversal.fullresdepth=0; 0 for performance def 1 test
+r.lumen.screenprobegather.screentraces=1; 0 for performance def 1 test
+r.lumen.screenprobegather.shortrangeao.bentnormal=1; def 1 test
+r.lumen.screenprobegather.shortrangeao=1; def 1 test
+r.lumen.screenprobegather.stochasticinterpolation=1; 1,0 for performance def 0 test
+r.lumen.screenprobegather.temporal.distancethreshold=0.005; 0.015,0.005 def 0.005 test
+r.lumen.screenprobegather.temporal.maxframesaccumulated=10; def 10 test
+r.lumen.screenprobegather.temporal=1; def 1
+r.lumen.screenprobegather.temporalfilterprobes=1; 0 for performance def 0 test
+r.lumen.screenprobegather.tracingoctahedronresolution=8; 8,16 def 8 test
+r.lumen.screenprobegather.twosidedfoliagebackfacediffuse=1; 0,1 for performance def 1 test
+
+;info GI ect stuff test (add under base config)
 ;r.lumenscene.surfacecache.atlassize=2048; def 4096 test
 ;r.lumenscene.surfacecache.cardcapturerefreshfraction=0.0625; 0,0.03125,0.0625,0.125 def 0.125
 ;r.lumenscene.surfacecache.cardmaxresolution=64; def 512 test
@@ -151,27 +249,7 @@ r.volumetricfog.injectraytracedlights=0; def 0
 ;r.lumenscene.surfacecache.cardtexeldensityscale=25; def 100 test
 ;r.lumenscene.surfacecache.meshcardsmergecomponents=0; def 1 test
 r.aoquality=2; 0,1,2 for performance def 2 test
-r.distancefieldao=1; def 1 test
 r.lumen.diffuseindirect.ssao=0; def 0 test
-r.lumen.screenprobegather.downsamplefactor=16; 32,16 for performance def 16
-r.lumen.screenprobegather.fullresolutionjitterwidth=1; def 1
-r.lumen.screenprobegather.irradianceformat=0; 1,0 def 0 test
-r.lumen.screenprobegather.numadaptiveprobes=8; 16,8 def 8 test
-r.lumen.screenprobegather.radiancecache.numprobestotracebudget=100; 100,150,200,300 def 300 test
-r.lumen.screenprobegather.radiancecache.proberesolution=32; 8,16,32 def 32 test
-r.lumen.screenprobegather.screenspacebentnormal=1; def 1 test
-r.lumen.screenprobegather.screentraces.hzbtraversal.fullresdepth=1; def 1 test
-r.lumen.screenprobegather.shortrangeao.bentnormal=1; def 1 test
-r.lumen.screenprobegather.shortrangeao=1; def 1 test
-r.lumen.screenprobegather.stochasticinterpolation=0; 1,0 def 0 test
-r.lumen.screenprobegather.tracingoctahedronresolution=8; 8,16 def 8 test
-r.lumen.screenprobegather.twosidedfoliagebackfacediffuse=1; 0,1 def 1 test
-r.lumen.tracemeshsdfs.allow=1; 0 for performance def 1 test
-r.lumen.translucencyvolume.gridpixelsize=64; 128,64,32 for performance def 32 test
-r.lumen.translucencyvolume.radiancecache.numprobestotracebudget=70; 70,100,125,150,175,200 def 200 test
-r.lumen.translucencyvolume.radiancecache.proberesolution=8; def 8
-r.lumen.translucencyvolume.tracefromvolume=1; def 1 test
-r.lumen.translucencyvolume.tracingoctahedronresolution=3; 1,2,3 def 3
 r.lumenscene.directlighting.maxlightspertile=8; 2,4,8 def 8 test
 r.lumenscene.directlighting.updatefactor=32; 128,64,32 def 32 test
 r.lumenscene.radiosity.hemisphereproberesolution=4; 3,4 def 4
@@ -181,38 +259,7 @@ r.lumenscene.surfacecache.cardminresolution=3; 4,3,2,1 def 4 test
 r.skylight.realtimereflectioncapture=1; def 1 test
 r.skylightintensitymultiplier=1; 0.8 def 1 test
 
-;info optional sharpness (add under base config)
-r.ngx.dlss.sharpness=0.5; def 0 test
-r.tonemapper.sharpen=0; 0,0.5,1,2 def -1 test
-
-;info optional switches test (add under base config)
-;r.allowhdr=0;
-;r.hairstrands.enable=1; def 1 test
-;r.hairstrands.usecardsinsteadofstrands=0; 1 for performance def 0 test
-;r.hdr.enablehdroutput=0;
-;r.localfogvolume=0; 0 for performance def 1 test
-;r.lumen.translucencyvolume.enable=1; def 1
-;r.manylights=0; 0,1,2 is experimental def 0 test
-;r.ssgi.enable=0; def 0
-;r.water.enableshallowwatersimulation=1; def 1 test
-;r.water.enableunderwaterpostprocess=1; def 1 test
-;r.water.singlelayer.distancefieldshadow=1; def 1 test
-;r.water.singlelayer.reflection=3; 0,2,3,1 def 1 test
-;r.water.singlelayer.shaderssupportdistancefieldshadow=1; def 1 test
-;r.water.singlelayer.shaderssupportvsmfiltering=1; def 0 test
-;r.water.singlelayer.ssr=1; 0,1 for performance
-;r.water.singlelayer.vsmfiltering=1; def 0 test
-fx.niagara.collision.cpuenabled=0; def 1 test
-r.deferred.useslightfunctionatlas=1; def 0 test
-r.dynamicglobalilluminationmethod=1; 0,1,2 none,lumen,ssgi
-r.lightfunctionatlas.format=1; 0 for performance def 0 test
-r.lumen.reflections.allow=1; def 1
-r.lumen.translucencyreflections.frontlayer.allow=0; 0 for performance
-r.lumen.translucencyreflections.frontlayer.enable=0; 0 for performance
-r.lumen.translucencyreflections.frontlayer.enableforproject=0; 0 for performance
-r.reflectionmethod=1; 0,1,2 none,lumen,ssr
-
-;info optional test (add under base config)
+;info test (add under base config)
 ;d3d12.adjusttexturepoolsizebasedonbudget=0; 1 is experimental def 0 test
 ;d3d12.syncwithdwm=0; def 0
 ;fx.allowgpusorting=1; def 1
@@ -221,6 +268,7 @@ r.reflectionmethod=1; 0,1,2 none,lumen,ssr
 ;fx.niagaraallowgpuparticles=1; def 1
 ;r.aoapplytostaticindirect=0; def 0 test
 ;r.aoglobaldistancefield=1; def 1
+;r.aoglobaldistancefieldclipmapupdatesperframe=2; 1,2 def 2 test
 ;r.aomaxviewdistance=10000; 10000,20000 is 100m,200m def 20000 test
 ;r.aospecularocclusionmode=1; def 1 test
 ;r.d3d11.depth24bit=0; 1 for performance test
@@ -228,6 +276,9 @@ r.reflectionmethod=1; 0,1,2 none,lumen,ssr
 ;r.decal.fadedurationscale=1; def 1 test
 ;r.decal.fadescreensizemult=1; def 1
 ;r.decal.stencilsizethreshold=0.1; def 0.1
+;r.defaultfeature.ambientocclusion=1; def 1
+;r.defaultfeature.autoexposure.extenddefaultluminancerange=1; def 1
+;r.defaultfeature.autoexposure=1; def 1
 ;r.distancefields.brickatlasmaxsizez=16; def 32 test
 ;r.distancefields.maxpermeshresolution=128; def 256 test
 ;r.earlyzpassonlymaterialmasking=1; def 0 test
@@ -249,25 +300,36 @@ r.reflectionmethod=1; 0,1,2 none,lumen,ssr
 ;r.lumen.samplefog.reflectionsonly=1;
 ;r.lumen.samplefog.startingoffsetratio=0.3; test
 ;r.lumen.samplefog=0; def 0 test
-;r.lumenscene.globalsdf.clipmapextent=1000; def 2500 test
+;r.postprocessing.prefercompute=0; gpu dependent def 0 test
 ;r.sceneculling.explicitcellbounds=1; def 1
+;r.skylight.realtimereflectioncapture.timeslice.skycloudcubefaceperframe=2; 2,6 def 6 test
 ;r.skyspecularocclusionstrength=1; def 1 test
 ;r.ssr.compute=1; def 0 test
-;r.ssr.maxroughness=0.8; 0.6,0.7,0.8,0.95,1 def -1 test
 ;r.ssr.tiledcomposite=0; def 0
 ;r.staticmesh.minlodqualitylevel=-1; def -1 test
 ;r.streaming.maxtextureuvdensity=8; def 0 test
 ;r.supportmateriallayers=1; 0,1 for performance
 ;r.translucencylightingvolume.blur=0; test
+;r.virtualtexturereducedmemory=1; 1 to lower vram usage def 0 test
 ;r.volumetriccloud.disablecompute=0; def 0 test
 ;r.volumetriccloud.shadowmap.lightdistanceoverride=0; def 0
 ;r.volumetricfog.distanceoverride=15000; 10000,12000,15000 is 100m,120m,150m def -1 test
 ;r.volumetricrendertarget.reprojectionboxconstraint=0; def 0 test
+;r.vt.maxuploadsperframe=8; 8,12 def 8
+;r.vt.numgathertasks=2; 1,2,4,8 cpu dependent test
 ;r.water.singlelayerwater.supportcloudshadow=0; def 0 test
 niagara.ribbon.gpuallocatemaxcount=1; def 1 test
 p.updaterigidbodyscaling=0; def 1 test
 r.d3d.forcedxc=0; multigpu def 0
-r.eyeadaptation.cachedlightingpreexposure=4; 0,2,4 def 4 test
+r.defaultfeature.ambientocclusionstaticfraction=0; def 1 test
+r.eyeadaptation.cachedlightingpreexposure=0; 0,2,4 def 4 test
+r.postprocessing.downsamplechainquality=1; 0,1 def 1 test
+r.postprocessing.downsamplequality=0; 0,1 def 0 test
+r.postprocessing.quarterresolutiondownsample=0; 1,0 def 0
+r.postprocessingcolorformat=0; def 0
+r.ssr.maxroughness=0.95; 0.6,0.7,0.8,0.95,1 def -1 test
+r.vt.splitphysicalpoolsize=64; 64 for performance def 0 test
+r.vt.support16bitpagetable=0; def 1 test
 ```
 
 ---
@@ -339,13 +401,13 @@ r.rhicmdbypass=0; def 0
 r.shaderpipelinecache.saveboundpsolog=0; def 0
 r.skincache.printmemorysummary=0; def 0
 
-;info TAAU stuff test (add under base config)
+;info TAAU stuff test
 ;r.screenpercentage=50; 33,50,59,67,77,100 can break frame gen test
 ;r.temporalaa.quality=2; 1,2,3 def 2 test
 ;r.temporalaa.upsampling=1; def 1 test
 ;r.temporalaa.upscaler=1; def 1
 
-;info scaling stuff customize
+;info scaling stuff test
 ;r.screenpercentage.default=100; def 100
 r.antialiasingmethod=2; 0,1,2,3,4 off,fxaa,taa,msaa,tsr def 4
 r.defaultfeature.antialiasing=2; 0,1,2,3 off,fxaa,taa,msaa def 2
@@ -362,10 +424,6 @@ r.dynamicres.operationmode=0; def 0 test
 r.dynamicres.targetedgpuheadroompercentage=3; 3,10 def 10 test
 r.fxaa.quality=0; 0,1,2,3,4,5 def 4
 r.lumen.reflections.temporal=0; def 1 test
-r.lumen.screenprobegather.temporal.distancethreshold=0.005; 0.015,0.005 def 0.005 test
-r.lumen.screenprobegather.temporal.maxframesaccumulated=10; def 10 test
-r.lumen.screenprobegather.temporal=1; def 1
-r.lumen.screenprobegather.temporalfilterprobes=0; 1 def 0 test
 r.msaa.compositingsamplecount=1;
 r.msaacount=0;
 r.postprocessaaquality=6; 0 off 1,2 fxaa 3,4,5,6 taa
@@ -409,7 +467,6 @@ r.nis.hdrmode=-1;
 r.nis.sharpness=0; def 0
 r.nis.upscaling=0;
 r.streamline.deepdvc.enable=0;
-r.streamline.dlssg.checkstatusperframe=1; def 1 test
 r.streamline.initializeplugin=1;
 r.streamline.load.deepdvc=0; def 1 test
 r.streamline.load.dlssg=1;
@@ -436,7 +493,7 @@ r.vrs.ssao=0; def 0
 r.vrs.ssr=2; def 2
 r.vrs.translucency=1; def 1
 
-;info latency stuff customize
+;info latency stuff test
 ;r.fullscreenmode=0; 0,1 fullscreen,windowed
 ;t.maxfps=0; def 0
 d3d12.maximumframelatency=1; def 3 test
@@ -454,23 +511,17 @@ t.overridefps=0; def 0
 t.unsteadyfps=0; def 0
 
 ;info virtual texture stuff test
-;r.virtualtexturereducedmemory=1; 1 to lower vram usage def 0 test
-;r.vt.numgathertasks=2; 1,2,4,8 cpu dependent test
 r.vt.anisotropicfiltering=1; 0 for performance
 r.vt.maxanisotropy=4; 2,4,8 for performance def 8
 r.vt.poolautogrow=0; def 0 test
 r.vt.poolsizescale=1.5; 0.8,1,1.5,2 to lower vram usage
-r.vt.splitphysicalpoolsize=64; 64 for performance def 0 test
-r.vt.support16bitpagetable=0; def 1 test
 
 ;info quality customize test
 ;foliage.densityscale=0.6; 0.6,0.7,1 for performance
-;fx.niagara.qualitylevel=2; 0,1,2,3 for performance def 3
 ;grass.densityscale=0.6; 0.6,0.7,1 for performance
 ;r.ambientocclusion.compute.smooth=1; def 1
 ;r.ambientocclusion.compute=0; 0,1,2,3 def 0 test
 ;r.ambientocclusion.method=0; 0,1 ssao or gtao def 0
-;r.ambientocclusionmaxquality=100; 0,-60,100 def 100 test
 ;r.ambientocclusionmiplevelfactor=0.5; 1,0.6,0.4 def 0.5 test
 ;r.ambientocclusionradiusscale=1; 0.85,1,1.5 def 1 test
 ;r.anisotropicmaterials=1; 0,1 for performance
@@ -479,7 +530,6 @@ r.vt.support16bitpagetable=0; def 1 test
 ;r.bloomquality=4; def 5
 ;r.chaos.reflectioncapturestaticsceneonly=1; def 1
 ;r.defaultbackbufferpixelformat=4; def 4 test
-;r.detailmode=2; 0,1,2,3 for performance def 3
 ;r.diffuseindirect.halfres=1; def 1
 ;r.disabledistortion=0; def 0
 ;r.emitter.fastpoolenable=1; def 0 test
@@ -491,38 +541,25 @@ r.vt.support16bitpagetable=0; def 1 test
 ;r.gtao.numangles=2; 2,4 def 2
 ;r.lightshaftdownsamplefactor=2; def 2
 ;r.lightshaftquality=1; 0,1 def 1
-;r.materialqualitylevel=1; 0,2,1,3 for performance def 1
 ;r.minroughnessoverride=0; experimental def 0
-;r.particlelightquality=1; 0,1,2 for performance def 2
-;r.postprocessing.prefercompute=0; gpu dependent def 0 test
 ;r.refraction.offsetquality=1; def 1
-;r.refractionquality=1; 0,1,2,3 for performance def 2 test
 ;r.rendertargetpoolmin=400; 200,300,350,400,1000 to lower vram usage def 200
-;r.ssgi.quality=0; 0,2,3 for performance
-;r.ssr.quality=2; 0,2,3 for performance def 3
 ;r.tessellationadaptivepixelspertriangle=48; 999999,48 for performance def 48
 ;r.tonemapper.mergewithupscale.mode=0; def 0
 ;r.tonemapper.quality=5; 0,2,4,5 def 5
 ;r.translucency.autobeforedof=0.5; 0,0.5,1 def 0.5 test
 ;r.upscale.quality=2; 0,1,2,3,4 def 3
 ;r.viewdistancescale=0.8; 0.8,1 for performance def 1
-fx.niagaraallowruntimescalabilitychanges=1;
-fx.qualitylevelspawnratescalereferencelevel=2; def 2
+fx.niagaraallowruntimescalabilitychanges=1; def 1
 r.ambientocclusionlevels=-1; 0,1,2,3 for performance def -1
+r.ambientocclusionmaxquality=60; 0,60,-60,100 def 100 test
 r.ambientocclusionstaticfraction=-1; 0,1 for performance def -1
 r.filmgrain=0; def 1
 r.irisnormal=0; def 0
-r.lensflarequality=2; 0,1,2 def 2
-r.lightfunctionquality=1; 1,2,3 for performance def 2 test
 r.lightmaxdrawdistancescale=1; 0.6,0.85,1,2 for performance test
 r.maxanisotropy=16; 0,4,8 for performance def 8
 r.minscreenradiusforlights=0.02; 0.12,0.1,0.08,0.06,0.05,0.04,0.03,0.015 for performance def 0.03 test
-r.postprocessing.downsamplechainquality=1; 0,1 def 1 test
-r.postprocessing.downsamplequality=1; 0,1 def 0 test
-r.postprocessing.quarterresolutiondownsample=0; 1,0 def 0
-r.postprocessingcolorformat=0; def 0
 r.reflectioncapturesupersamplefactor=1; def 1
-r.scenecolorformat=4; 2,3,4 for performance def 4
 r.scenecolorfringe.max=0; def -1
 r.scenecolorfringequality=0; 0,1 def 1
 r.ssr.halfresscenecolor=1; 1 for performance def 0 test
@@ -530,44 +567,45 @@ r.water.singlelayer.depthprepass=1; def 1
 r.water.singlelayer.refractiondownsamplefactor=1; 2,1 def 1
 r.water.singlelayer.tiledcomposite=1; def 1
 
-;info optional depth of field
+;info depth of field test
 r.depthoffield.depthblur.scale=1; def 1
-r.depthoffieldquality=2; 0,1,2,3,4 for performance def 2 test
+r.depthoffieldquality=0; 0,1,2,3,4 for performance def 2 test
 r.dof.gather.accumulatorquality=1; 0,1 def 1
 r.dof.gather.enablebokehsettings=0; 0,1 def 1 test
-r.dof.gather.postfiltermethod=1; 0,1,2 def 1
+r.dof.gather.postfiltermethod=0; 0,1,2 def 1
 r.dof.gather.resolutiondivisor=2; 2,1 def 2
 r.dof.gather.ringcount=4; 3,4,5 def 4
 r.dof.kernel.maxbackgroundradius=0.0006; 0.012,0.025 def 0.025 test
 r.dof.kernel.maxforegroundradius=0; 0.012,0.025 def 0.025 test
 r.dof.recombine.enablebokehsettings=0; 0,1 def 1 test
 r.dof.recombine.minfullresblurradius=0.1; def 0.1
-r.dof.recombine.quality=1; 0,1,2 def 2 test
-r.dof.scatter.backgroundcompositing=2; 0,1,2 def 2
-r.dof.scatter.enablebokehsettings=1; 0,1 def 1 test
-r.dof.scatter.foregroundcompositing=1; 0,1 def 1
+r.dof.recombine.quality=0; 0,1,2 def 2 test
+r.dof.scatter.backgroundcompositing=0; 0,1,2 def 2
+r.dof.scatter.enablebokehsettings=0; 0,1 def 1 test
+r.dof.scatter.foregroundcompositing=0; 0,1 def 1
 r.dof.scatter.maxspriteratio=0.1; 0.04,0.1,0.25 def 0.1
 r.dof.taa.cocbilateralfilterstrength=0; def 0 test
 r.dof.temporalaaquality=1; def 1 test
 
-;info optional vsm test
+;info vsm main test
+;r.shadow.virtual.enable=1; 0 for performance def 1
+;r.shadow.virtual.forceonlyvirtualshadowmaps=1; def 1
+;r.shadow.virtual.nonnanite.projectenabled=0; def 1 test
+;r.shadow.virtual.nonnanitevsm=0; def 1 test
+
+;info vsm test
 ;r.shadow.virtual.cache.forceinvalidatedirectional=0; 1,0 def 0
+;r.shadow.virtual.cache.maxmaterialpositioninvalidationrange=2500; 2500 def -1 test
 ;r.shadow.virtual.cache=1; def 1
 ;r.shadow.virtual.distantlightforcecachefootprintfraction=0; 1,0.5,0 def 0 test
-;r.shadow.virtual.enable=1; def 1
-;r.shadow.virtual.forceonlyvirtualshadowmaps=1; def 1
-;r.shadow.virtual.markpixelpagesmipmodelocal=0; 2,1,0 def 0 test
-;r.shadow.virtual.nonnanite.includeincoarsepages=1; 0 def 1 test
-;r.shadow.virtual.nonnanite.projectenabled=0; test
 ;r.shadow.virtual.nonnanite.usehzb=2; def 2 test
-;r.shadow.virtual.nonnanitevsm=1; def 1 test
 ;r.shadow.virtual.pagemarkingpixelstridex=2; 6,4,2 def 2 test
 ;r.shadow.virtual.pagemarkingpixelstridey=2; 6,4,2 def 2 test
-;r.shadow.virtual.smrt.extrapolatemaxslopelocal=0; 0 for performance def 0.05 test
-;r.shadow.virtual.smrt.raylengthscaledirectional=0.4; def 1.5 test
 ;r.shadow.virtual.usefarshadowculling=1; def 1 test
 r.shadow.virtual.cache.staticseparate=1; def 1
-r.shadow.virtual.maxphysicalpages=1024; 512,1024,1664,4096,8192 def 4096
+r.shadow.virtual.markpixelpagesmipmodelocal=0; 2,0,1 def 0 test
+r.shadow.virtual.maxphysicalpages=2048; 512,1024,2048,4096,8192 def 4096
+r.shadow.virtual.nonnanite.includeincoarsepages=0; 0 def 1 test
 r.shadow.virtual.onepassprojection.maxlightsperpixel=32; 4,8,16,32 def 16 test
 r.shadow.virtual.onepassprojection=1; 1 for performance def 1
 r.shadow.virtual.resolutionlodbiasdirectional=0; 0,-0.5,-0.75,-1,-1.5 def -1.5 test
@@ -575,8 +613,10 @@ r.shadow.virtual.resolutionlodbiasdirectionalmoving=0; 0,-0.5,-0.75,-1,-1.5 def 
 r.shadow.virtual.resolutionlodbiaslocal=0; 1,0 def 0 test
 r.shadow.virtual.resolutionlodbiaslocalmoving=1; 2,1,0 def 1 test
 r.shadow.virtual.smrt.adaptiveraycount=1; def 1 test
+r.shadow.virtual.smrt.extrapolatemaxslopelocal=0; 0 for performance def 0.05 test
 r.shadow.virtual.smrt.raycountdirectional=8; 0,4,8,16 def 8 test
 r.shadow.virtual.smrt.raycountlocal=4; 0,4,8,16 def 8 test
+r.shadow.virtual.smrt.raylengthscaledirectional=0.4; 0.4 def 1.5 test
 r.shadow.virtual.smrt.samplesperraydirectional=4; 1,2,4,8 def 4 test
 r.shadow.virtual.smrt.samplesperrayhair=1; def 1
 r.shadow.virtual.smrt.samplesperraylocal=4; 1,2,4,8 def 4 test
@@ -584,32 +624,36 @@ r.shadow.virtual.smrt.texelditherscaledirectional=2; def 2 test
 r.shadow.virtual.smrt.texelditherscalelocal=2; 4,6 def 2 test
 r.shadow.virtual.translucentquality=0; 0 for performance def 0 test
 
+;info shadow main stuff test
+r.contactshadows.overrideshadowcastingintensity=50; def -1 test
+r.dfdistancescale=1; 1,5 def 1 test
+r.dfshadowquality=3; 0,1,2,3 for performance def 3 test
+r.shadow.csm.maxcascades=4; 2,4,10 for performance
+r.shadow.csm.transitionscale=1; 0.8,1,2 def 1 test
+r.shadow.distancescale=0.8; 0.8,0.85,0.9,1,2 for performance def 1
+r.shadow.maxcsmresolution=1024; 1024,2048,4096 for performance def 2048
+r.shadow.maxresolution=1024; 1024,2048,4096 for performance def 2048
+r.shadow.preshadowresolutionfactor=0.5; 0.5,1 for performance def 1
+r.shadow.radiusthreshold=0.02; 0.06,0.05,0.04,0.03,0.02,0.01 for performance def 0.01 test
+r.shadowquality=3; 3,4,5 for performance def 5 test
+
 ;info shadow stuff test
 ;grass.disabledynamicshadows=0; 1 for performance
 ;r.allowlandscapeshadows=1; 0 for performance
 ;r.capsuleshadows=0; def 1 test
 ;r.capsuleshadowsfullresolution=0; def 0
-;r.contactshadows.overrideshadowcastingintensity=50; def -1 test
 ;r.contactshadows.standalone.method=0; def 0
 ;r.contactshadows=1; def 1
 ;r.d3d12.shadowdepth32bit=0; 0 for performance
-;r.dfshadowquality=2; 0,1,2,3 for performance def 3 test
 ;r.distancefieldshadowing=1; def 1
-;r.shadow.csm.maxcascades=2; 2,4,10 for performance
-;r.shadow.csm.transitionscale=1; 0.8,1,2 def 1 test
-;r.shadow.distancescale=0.8; 0.8,0.85,1,2 for performance def 1
 ;r.shadow.forcesinglesampleshadowingfromstationary=0; def 0
 ;r.shadow.loddistancefactor=8; 1,4,8 def 1 test
-;r.shadow.preshadowresolutionfactor=0.5; 0.5,1 for performance def 1
-r.dfdistancescale=1; 1,1.5,1.75,2,3,3.5 def 1 test
 r.dffullresolution=0; 0,1 def 0
 r.shadow.denoiser=2; def 2
 r.shadow.filtermethod=0; def 0
-r.shadow.radiusthreshold=0.02; 0.06,0.05,0.04,0.03,0.02,0.01 for performance def 0.01 test
 r.shadow.unbuiltpreviewingame=0; def 1
-r.shadowquality=3; 3,4,5 for performance
 
-;info optional volumetrics customize test
+;info volumetrics test
 ;r.fog=1; def 1
 ;r.volumetriccloud=1; 0,1 for performance
 ;r.volumetricfog.gridpixelsize=20; 24,20,16,8 for performance def 8
@@ -643,7 +687,7 @@ r.volumetricfog.historyweight=0.95; 0.9,0.95,0.98 def 0.9 test
 r.volumetricfog.upsamplejittermultiplier=0; 0 for performance def 0
 r.water.singlelayer.underwaterfogwhencameraisabovewater=0; def 0
 
-;info sub surface scattering
+;info sub surface scattering test
 ;r.sss.halfres.forceseparable=1; def 1 test
 ;r.sss.separateddiffuse.supported=1; def 0 test
 r.sss.burley.bilateralfilterkernelfunctiontype=1; 1,0 for performance
@@ -655,7 +699,7 @@ r.sss.sampleset=1; 0,1,2 for performance
 r.sss.scale=1; 0,0.75,1 def 1
 r.subsurfacescattering=1; 0 for performance
 
-;info motionblur customize
+;info motionblur test
 r.blurgbuffer=0; 0,-1 def -1 test
 r.defaultfeature.motionblur=0; def 1 test
 r.fastblurthreshold=100; 0,3,7,16,100 def 7 test
@@ -710,7 +754,7 @@ r.streaming.usefixedpoolsize=0; def 0
 r.streaming.usepertexturebias=1; def 1 test
 r.streaming.workercountforparallelrenderassetstreamingmanagerincrementalupdate=1;
 
-;info nanite stuff
+;info nanite stuff test
 ;r.nanite.allowtessellation=0; def 0 test
 ;r.nanite.computerasterization=1; 1 for performance def 1 test
 ;r.nanite.decompressdepth=0; 1 for performance def 0 test
@@ -742,12 +786,6 @@ r.nanite.viewmeshlodbias.offset=0; def 0
 r.shadow.nanitelodbias=0; 2,1,0 for performance def 1 test
 
 ;info hairstrands stuff test
-;r.lumen.reflections.hairstrands.screentrace=0; def 1 test
-;r.lumen.reflections.hairstrands.voxeltrace=0; def 1 test
-;r.lumen.screenprobegather.hairstrands.screentrace=0; def 0
-;r.lumen.screenprobegather.hairstrands.voxeltrace=1; def 1 test
-;r.lumen.screenprobegather.shortrangeao.hairscreentrace=0; def 0
-;r.lumen.screenprobegather.shortrangeao.hairvoxeltrace=1; def 1 test
 r.hairstrands.composeaftertranslucency=0; def 1 test
 r.hairstrands.deepshadow.supersampling=0; def 0
 r.hairstrands.dofdepth=0; def 1 test
@@ -765,62 +803,57 @@ r.hairstrands.velocityrasterizationscale=1; def 1.5 test
 r.hairstrands.visibility.msaa.sampleperpixel=1; 1,2,4 for performance def 4
 r.hairstrands.visibility.ppll=0; def 0
 r.hairstrands.voxelization.virtual.voxelworldsize=0.3; def 0.3
+r.lumen.reflections.hairstrands.screentrace=0; def 1 test
+r.lumen.reflections.hairstrands.voxeltrace=0; def 1 test
 
-;info lumen stuff test
-;r.lumen.allowhwrtforallviewsifanyviewhaslumengi=1; def 1
-;r.lumen.reflections.hierarchicalscreentraces.maxiterations=50; def 50
-;r.lumen.reflections.hierarchicalscreentraces.minimumoccupancy=0; def 0
-;r.lumen.reflections.screenspacereconstruction.tonemapmode=2; def 1 test
-;r.lumen.reflections.screenspacereconstruction.tonemapstrength=1; def 0 test
-;r.lumen.reflections.screenspacereconstruction=1; def 1 test
-;r.lumen.screenprobegather.shortrangeao.applyduringintegration=0; def 0 test
-;r.lumen.tracemeshsdfs.tracedistance=180; def 180 test
-r.lumen.irradiancefieldgather=0; 1 is experimental def 0
-r.lumen.reflections.bilateralfilter.numsamples=4; def 4
-r.lumen.reflections.bilateralfilter.spatialkernelradius=0.001; def 0.001 test
-r.lumen.reflections.bilateralfilter=1; def 1
+;info lumen reflections test
 r.lumen.reflections.distantscreentraces=0; 0 for performance def 1 test
 r.lumen.reflections.downsamplecheckerboard=0; def 0 test
-r.lumen.reflections.downsamplefactor=1; 3,2,1 for performance def 1 test
+r.lumen.reflections.downsamplefactor=1; 2,1 for performance def 1 test
 r.lumen.reflections.hiressurface=0; 0 for performance def 1
-r.lumen.reflections.maxbounces=0; 0,1,2 to 8 to 64 for performance def 0 test
-r.lumen.reflections.maxrayintensity=3; def 100 test
-r.lumen.reflections.maxroughnesstotrace=0.3; 0.1,0.3 for performance def -1 test
-r.lumen.reflections.maxroughnesstotraceclamp=0.3; 0.1,0.3 for performance def 1 test
-r.lumen.reflections.maxroughnesstotraceforfoliage=0.1; 0,0.1,0.3 for performance def 0.4 test
-r.lumen.reflections.radiancecache=1; def 0 test
-r.lumen.reflections.roughnessfadelength=0.1; def 0.1
-r.lumen.reflections.samplescenecolorathit=1; 0,1,2 for performance def 1 test
+r.lumen.reflections.maxrayintensity=40; 3,10,40 def 100 test
+r.lumen.reflections.maxroughnesstotrace=0.4; 0.1,0.3 for performance def -1 test
+r.lumen.reflections.maxroughnesstotraceclamp=0.4; 0.1,0.3 for performance def 1 test
+r.lumen.reflections.maxroughnesstotraceforfoliage=0; 0,0.1,0.3 for performance def 0.4 test
 r.lumen.reflections.screenspacereconstruction.minweight=1; def 0 test
 r.lumen.reflections.screenspacereconstruction.numsamples=3; def 5 test
-r.lumen.reflections.screentraces=1; def 1 test
-r.lumen.reflections.smoothbias=0; 0 for performance def 0 test
-r.lumen.reflections.specularscale=1; def 1
-r.lumen.reflections.tracemeshsdfs=1; 0 for performance def 1 test
-r.lumen.screenprobegather.adaptiveprobeallocationfraction=0.5; 0.2,0.3,0.4 def 0.5 test
-r.lumen.screenprobegather.extraambientocclusion.exponent=1; def 1 test
-r.lumen.screenprobegather.extraambientocclusion.maxdistanceworldspace=200; def 200 test
-r.lumen.screenprobegather.extraambientocclusion=0; def 0 test
-r.lumen.screenprobegather.importancesample=1; 0 for performance def 1 test
-r.lumen.screenprobegather.integratedownsamplefactor=1; 2,1 for performance def 1 test
-r.lumen.screenprobegather.materialao=1; def 1 test
-r.lumen.screenprobegather.maxrayintensity=10; 3,10 def 40 test
-r.lumen.screenprobegather.maxroughnesstoevaluateroughspecularforfoliage=0.4; 0.2,0.4 def 0.8 test
-r.lumen.screenprobegather.radiancecache.gridresolution=48; 24,48 def 48
-r.lumen.screenprobegather.radiancecache=1; def 1
-r.lumen.screenprobegather.screentraces=1; 0 for performance def 1 test
-r.lumen.screenprobegather.tracemeshsdfs=1; 0 for performance def 1 test
-r.lumen.tracemeshsdfs=0; 0 for performance def 0 test
-r.lumen.translucencyreflections.radiancecache=1; def 1
+r.lumen.reflections.screenspacereconstruction.tonemapmode=2; def 1 test
+r.lumen.reflections.screenspacereconstruction.tonemapstrength=0; 1,0 def 0 test
+r.lumen.reflections.screenspacereconstruction=1; def 1 test
+
+;info translucencyvolume stuff test
+;r.lumen.translucencyvolume.enable=1; def 1
+;r.lumen.translucencyvolume.radiancecache.gridresolution=12; 12,24 for performance def 24 test
+;r.lumen.translucencyvolume.radiancecache.nummipmaps=1; 1,2,3 def 3 test
 r.lumen.translucencyvolume.enddistancefromcamera=8000; def 8000 test
+r.lumen.translucencyvolume.gridpixelsize=64; 128,64,32 for performance def 32 test
+r.lumen.translucencyvolume.radiancecache.numprobestotracebudget=175; 70,100,125,150,175,200 def 200 test
 r.lumen.translucencyvolume.radiancecache.probeatlasresolutioninprobes=128; def 128
+r.lumen.translucencyvolume.radiancecache.proberesolution=8; def 8
 r.lumen.translucencyvolume.radiancecache=1; def 1
 r.lumen.translucencyvolume.spatialfilter.mode=1; def 1
 r.lumen.translucencyvolume.spatialfilter.numpasses=2; def 2
 r.lumen.translucencyvolume.spatialfilter.samplecount=3; def 3
 r.lumen.translucencyvolume.spatialfilter.standarddeviation=5; def 5
 r.lumen.translucencyvolume.spatialfilter=1; 0,1,2 def 1 test
-r.lumenscene.directlighting.offscreenshadowing.tracemeshsdfs=1; 0 for performance def 1 test
+r.lumen.translucencyvolume.tracefromvolume=0; def 1 test
+r.lumen.translucencyvolume.tracingoctahedronresolution=2; 1,2,3 def 3
+
+;info lumen stuff test
+;r.lumen.allowhwrtforallviewsifanyviewhaslumengi=1; def 1
+;r.lumen.reflections.hierarchicalscreentraces.maxiterations=50; def 50
+;r.lumen.reflections.hierarchicalscreentraces.minimumoccupancy=0; def 0
+r.lumen.irradiancefieldgather=0; 1 is experimental def 0
+r.lumen.reflections.bilateralfilter.numsamples=4; def 4
+r.lumen.reflections.bilateralfilter.spatialkernelradius=0.001; def 0.001 test
+r.lumen.reflections.bilateralfilter=1; def 1
+r.lumen.reflections.maxbounces=0; 0,1,2 to 8 to 64 for performance def 0 test
+r.lumen.reflections.radiancecache=1; def 0 test
+r.lumen.reflections.roughnessfadelength=0.1; def 0.1
+r.lumen.reflections.samplescenecolorathit=1; 0,1,2 for performance def 1 test
+r.lumen.reflections.screentraces=0; def 1 test
+r.lumen.reflections.smoothbias=0.3; 0 for performance def 0 test
+r.lumen.reflections.specularscale=1; def 1
 r.lumenscene.radiosity.temporal.maxframesaccumulated=4; def 4 test
 r.lumenscene.radiosity.temporal=1; def 1 test
 
@@ -848,7 +881,7 @@ r.lumenscene.radiosity.temporal=1; def 1 test
 ;r.visibility.locallightprimitiveinteraction=0; test
 
 ;info async raytracing test
-r.raytracing.asyncbuild=1; def 0 test
+;r.raytracing.asyncbuild=1; def 0 test
 
 ;info async lumen test
 r.lumen.asynccompute=1; def 1 test
@@ -931,7 +964,7 @@ benablemousesmoothing=0;
 bf11togglesfullscreen=0;
 bviewaccelerationenabled=0;
 
-;info optional
+;info optional input
 buttonrepeatdelay=0.1;
 doubleclicktime=0.01; def 0.1 test
 initialbuttonrepeatdelay=0.1; def 0.2 test
